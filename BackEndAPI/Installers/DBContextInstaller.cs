@@ -15,7 +15,7 @@ namespace BackEndAPI.Installers
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<FurijatContext>(options => {
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(configuration.GetConnectionString("FurijatConnection"));
             });
 
             services.AddScoped<IAppDbContext>(provider =>
