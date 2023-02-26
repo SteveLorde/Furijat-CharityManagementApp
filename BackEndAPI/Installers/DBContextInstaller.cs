@@ -16,7 +16,6 @@ namespace BackEndAPI.Installers
         {
             services.AddDbContext<FurijatContext>(options => {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
-
             });
 
             services.AddScoped<IAppDbContext>(provider =>

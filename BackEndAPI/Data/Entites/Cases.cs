@@ -1,6 +1,6 @@
 ﻿namespace BackEndAPI.Models
 {
-    public class Cases
+    public class Case
     {
         public int CasesId { get; set; }
 

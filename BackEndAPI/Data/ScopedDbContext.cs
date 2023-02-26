@@ -22,7 +22,7 @@ namespace BackEndAPI.Data
         protected IHttpContextAccessor _httpContextAccessor;
         public IRepository<User> Users { get; private set; }
 
-        public IRepository<Cases> Cases { get; private set; }
+        public IRepository<Case> Cases { get; private set; }
 
         public IRepository<CasePayment> CasePayments { get; private set; }
 
@@ -40,7 +40,7 @@ namespace BackEndAPI.Data
         {
             Users = new Repository<User>(_context, _httpContextAccessor);
             Roles = new Repository<UserType>(_context, _httpContextAccessor);
-            Cases = new Repository<Cases>(_context, _httpContextAccessor);
+            Cases = new Repository<Case>(_context, _httpContextAccessor);
             CasePayments = new Repository<CasePayment>(_context, _httpContextAccessor);
             Charities = new Repository<Charity>(_context, _httpContextAccessor);
         }

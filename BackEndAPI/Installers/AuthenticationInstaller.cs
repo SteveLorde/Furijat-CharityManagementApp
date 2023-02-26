@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using BackEndAPI.Interfaces;
+using BackEndAPI.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -21,6 +23,7 @@ namespace BackEndAPI.Installers
                         ValidateAudience = false
                     };
                 });
+            services.AddScoped<ITokenService, TokenService>();
         }
     }
 }

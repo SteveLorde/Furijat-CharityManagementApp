@@ -9,11 +9,11 @@ namespace BackEndAPI.Database
         {
         
         }
-        public DbSet<User> User { get; set; }
-        public DbSet<CasePayment> CasePayment { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<CasePayment> CasePayments { get; set; }
         public DbSet<UserType> UserType { get; set; }
-        public DbSet<Charity> Charity { get; set; }
-        public DbSet<Cases> Cases { get; set; }
+        public DbSet<Charity> Charities { get; set; }
+        public DbSet<Case> Cases { get; set; }
 
     }
 }

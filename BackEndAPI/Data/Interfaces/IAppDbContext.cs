@@ -12,7 +12,7 @@ namespace BackEndAPI.Data.Interfaces
     public interface IAppDbContext
     {
         public IRepository<User> Users { get; }
-        public IRepository<Cases> Cases { get; }
+        public IRepository<Case> Cases { get; }
         public IRepository<CasePayment> CasePayments { get; }
         public IRepository<Charity> Charities { get; }
         public IRepository<UserType> Roles { get; }
