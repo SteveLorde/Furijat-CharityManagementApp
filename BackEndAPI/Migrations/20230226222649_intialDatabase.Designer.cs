@@ -3,52 +3,50 @@ using System;
 using BackEndAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    partial class FurijatContextModelSnapshot : ModelSnapshot
+    [Migration("20230226222649_intialDatabase")]
+    partial class intialDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.17")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "5.0.17");
 
             modelBuilder.Entity("BackEndAPI.Models.Case", b =>
                 {
                     b.Property<int>("CaseId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("CharityId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("CurrentAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("CaseId");
 
@@ -61,17 +59,16 @@ namespace BackEndAPI.Migrations
                 {
                     b.Property<int>("CasePaymentId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CaseId")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("PaymentAmount")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("PaymentMethod")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("CasePaymentId");
 
@@ -84,26 +81,25 @@ namespace BackEndAPI.Migrations
                 {
                     b.Property<int>("CharityId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("UserID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("CharityId");
 
@@ -116,29 +112,28 @@ namespace BackEndAPI.Migrations
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("LastNaame")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<byte[]>("PasswordHash")
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("BLOB");
 
                     b.Property<byte[]>("PasswordSalt")
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("BLOB");
 
                     b.Property<string>("UType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("UserTypeID")
-                        .HasColumnType("int");
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("UserId");
 
@@ -151,11 +146,10 @@ namespace BackEndAPI.Migrations
                 {
                     b.Property<int>("UserTypeId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserTypeId");
 
