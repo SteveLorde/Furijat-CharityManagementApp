@@ -1,4 +1,5 @@
 using BackEndAPI.Database;
+using BackEndAPI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,7 +35,8 @@ namespace BackEndAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEndAPI", Version = "v1" });
             });
-            services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
+            //services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
+            services.InstallServicesInAssembly(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
