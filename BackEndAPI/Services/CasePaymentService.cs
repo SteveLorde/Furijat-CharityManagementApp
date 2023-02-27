@@ -1,34 +1,46 @@
-﻿using BackEndAPI.Interfaces;
+﻿using BackEndAPI.Database;
+using BackEndAPI.Interfaces;
 using BackEndAPI.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BackEndAPI.Services
 {
-    public class CasePaymentService : IGenericService<CasePayment>
+    public class CasePaymentPaymentService : IGenericService<CasePayment>
     {
+        private readonly FurijatContext db;
+        public CasePaymentPaymentService(FurijatContext db)
+        {
+            this.db = db;
+        }
         public void Create(CasePayment model)
         {
-            throw new System.NotImplementedException();
+            db.CasePayments.Add(model);
+            db.SaveChanges();
         }
 
         public void Delete(CasePayment model)
         {
-            throw new System.NotImplementedException();
+            db.CasePayments.Remove(model);
+            db.SaveChanges();
         }
 
         public IEnumerable<CasePayment> Get()
         {
-            throw new System.NotImplementedException();
+            var data = db.CasePayments.Select(a => a);
+            return data;
         }
 
         public CasePayment GetByID(int ID)
         {
-            throw new System.NotImplementedException();
+            var data = db.CasePayments.Where(a => a.CasePaymentId == ID).FirstOrDefault();
+            return data;
         }
 
         public void Update(CasePayment model)
         {
-            throw new System.NotImplementedException();
+            db.Entry(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }
