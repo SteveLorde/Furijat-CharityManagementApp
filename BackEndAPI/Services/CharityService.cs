@@ -1,34 +1,46 @@
-﻿using BackEndAPI.Interfaces;
+﻿using BackEndAPI.Database;
+using BackEndAPI.Interfaces;
 using BackEndAPI.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BackEndAPI.Services
 {
-    public class CharityService : IGenericService<Charity>
+    public class Charitieservice : IGenericService<Charity>
     {
+        private readonly FurijatContext db;
+        public Charitieservice(FurijatContext db)
+        {
+            this.db = db;
+        }
         public void Create(Charity model)
         {
-            throw new System.NotImplementedException();
+            db.Charities.Add(model);
+            db.SaveChanges();
         }
 
         public void Delete(Charity model)
         {
-            throw new System.NotImplementedException();
+            db.Charities.Remove(model);
+            db.SaveChanges();
         }
 
         public IEnumerable<Charity> Get()
         {
-            throw new System.NotImplementedException();
+            var data = db.Charities.Select(a => a);
+            return data;
         }
 
         public Charity GetByID(int ID)
         {
-            throw new System.NotImplementedException();
+            var data = db.Charities.Where(a => a.CharityId == ID).FirstOrDefault();
+            return data;
         }
 
         public void Update(Charity model)
         {
-            throw new System.NotImplementedException();
+            db.Entry(model).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }
