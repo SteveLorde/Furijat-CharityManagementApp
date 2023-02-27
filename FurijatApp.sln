@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "FrontEnd", "FrontEnd\FrontEnd.esproj", "{9BF69D27-E6AD-45B1-BCBB-4CE8CDDF154E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEndAPI", "BackEndAPI\BackEndAPI.csproj", "{CAB3210C-60B1-4607-A69B-27D59195B865}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackEndAPI", "BackEndAPI\BackEndAPI.csproj", "{CAB3210C-60B1-4607-A69B-27D59195B865}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
