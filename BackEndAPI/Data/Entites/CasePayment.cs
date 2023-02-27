@@ -12,7 +12,7 @@ namespace BackEndAPI.Models
 
         public int CaseId { get; set; }
 
-        public virtual Cases Cases { get; set; }
+        public virtual Case Cases { get; set; }
 
     }
 }
