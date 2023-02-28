@@ -16,6 +16,8 @@ namespace BackEndAPI.Data.Interfaces
         public IRepository<CasePayment> CasePayments { get; }
         public IRepository<Charity> Charities { get; }
         public IRepository<UserType> Roles { get; }
+        object Usertypes { get; }
+        object UserType { get; set; }
 
         #region Methods
         IDbContextTransaction BeginTransaction();
@@ -52,6 +54,7 @@ namespace BackEndAPI.Data.Interfaces
         EntityEntry<TEntity> Update<TEntity>([NotNullAttribute] TEntity entity) where TEntity : class;
         void UpdateRange([NotNullAttribute] params object[] entities);
         void UpdateRange([NotNullAttribute] IEnumerable<object> entities);
+        object Entry(Charity charity);
 
         #endregion
     }
