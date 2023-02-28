@@ -17,9 +17,6 @@ namespace BackEndAPI.Models
         [Required]
         public string Email { get; set; }
 
-        public int UserID { get; set; }
-
-
         public virtual User User { get; set; }
 
     }

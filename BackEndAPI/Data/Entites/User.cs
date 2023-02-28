@@ -16,9 +16,6 @@ namespace BackEndAPI.Models
         [MinLength(3)]
 
         public string LastNaame { get; set; }
-
-        public int UserTypeID { get; set; }
-
         public virtual UserType UserType { get; set; }
     }
 }

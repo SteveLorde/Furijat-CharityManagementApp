@@ -10,8 +10,6 @@ namespace BackEndAPI.Models
         [Required]
         public decimal PaymentAmount { get; set; }
 
-        public int CaseId { get; set; }
-
         public virtual Case Cases { get; set; }
 
     }
