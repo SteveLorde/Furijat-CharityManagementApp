@@ -8,6 +8,5 @@ namespace BackEndAPI.Models
         [Required]
         [MinLength(3)]
         public string Name { get; set; }
-
     }
 }
