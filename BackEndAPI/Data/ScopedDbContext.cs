@@ -48,44 +48,44 @@ namespace BackEndAPI.Data
         #region Database Methods
         public void Migrate() => _context.Database.Migrate();
         public IDbContextTransaction BeginTransaction() => _context.Database.BeginTransaction();
-        public Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
-            => _context.Database.BeginTransactionAsync(cancellationToken);
+        public async Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default)
+            => await _context.Database.BeginTransactionAsync(cancellationToken);
 
         public void RollBack() => _context.Database.RollbackTransaction();
-        public Task RollBackAsync(CancellationToken cancellationToken = default)
-            => _context.Database.RollbackTransactionAsync(cancellationToken);
+        public async Task RollBackAsync(CancellationToken cancellationToken = default)
+            => await _context.Database.RollbackTransactionAsync(cancellationToken);
         public void Commit() => _context.Database.CommitTransaction();
-        public Task CommitAsync(CancellationToken cancellationToken = default)
-            => _context.Database.CommitTransactionAsync(cancellationToken);
+        public async Task CommitAsync(CancellationToken cancellationToken = default)
+            => await _context.Database.CommitTransactionAsync(cancellationToken);
         #endregion
 
         #region DbContext Members
-        public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-            => _context.SaveChangesAsync(cancellationToken);
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+            => await _context.SaveChangesAsync(cancellationToken);
         public int SaveChanges() => _context.SaveChanges();
         public EntityEntry Add([NotNull] object entity) => _context.Add(entity);
 
         public EntityEntry<TEntity> Add<TEntity>([NotNull] TEntity entity) where TEntity : class
        => _context.Add(entity);
 
-        public ValueTask<EntityEntry> AddAsync([NotNull] object entity, CancellationToken cancellationToken = default)
-       => _context.AddAsync(entity, cancellationToken);
+        public async ValueTask<EntityEntry> AddAsync([NotNull] object entity, CancellationToken cancellationToken = default)
+       => await _context.AddAsync(entity, cancellationToken);
 
-        public ValueTask<EntityEntry<TEntity>> AddAsync<TEntity>([NotNull] TEntity entity, CancellationToken cancellationToken = default) where TEntity : class
-         => _context.AddAsync(entity, cancellationToken);
+        public async ValueTask<EntityEntry<TEntity>> AddAsync<TEntity>([NotNull] TEntity entity, CancellationToken cancellationToken = default) where TEntity : class
+         =>  await _context.AddAsync(entity, cancellationToken);
 
         public void AddRange([NotNull] IEnumerable<object> entities) => _context.AddRange(entities);
         public void AddRange([NotNull] params object[] entities) => _context.AddRange(entities);
 
-        public Task AddRangeAsync([NotNull] IEnumerable<object> entities, CancellationToken cancellationToken = default)
-        => _context.AddRangeAsync(entities, cancellationToken);
+        public async Task AddRangeAsync([NotNull] IEnumerable<object> entities, CancellationToken cancellationToken = default)
+        => await _context.AddRangeAsync(entities, cancellationToken);
 
-        public Task AddRangeAsync([NotNull] params object[] entities)
-       => _context.AddRangeAsync(entities);
+        public async Task AddRangeAsync([NotNull] params object[] entities)
+       => await _context.AddRangeAsync(entities);
 
         public void Dispose() => _context.Dispose();
 
-        public ValueTask DisposeAsync() => _context.DisposeAsync();
+        public async ValueTask DisposeAsync() => await _context.DisposeAsync();
 
 
         public EntityEntry Remove([NotNull] object entity) => _context.Remove(entity);
@@ -98,8 +98,8 @@ namespace BackEndAPI.Data
 
         public int SaveChanges(bool acceptAllChangesOnSuccess) => _context.SaveChanges(acceptAllChangesOnSuccess);
 
-        public Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
-        => _context.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        public async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        => await _context.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
 
         public EntityEntry Update([NotNull] object entity) => _context.Update(entity);
 
