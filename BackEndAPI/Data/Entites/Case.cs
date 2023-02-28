@@ -7,7 +7,6 @@ namespace BackEndAPI.Models
         public int CaseId { get; set; }
         public string FirstName { get; set; }
         [MinLength(3)]
-
         public string LastName { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }

@@ -34,12 +34,7 @@ namespace BackEndAPI
         {
 
             services.AddControllers();
-            services.AddScoped<IGenericService<User>, UserService>();
-            services.AddScoped<IGenericService<Charity>, CharityService>();
-            services.AddScoped<IGenericService<UserType>, UserTypeService>();
-            services.AddScoped<IGenericService<Case>, CaseService>();
-            services.AddScoped<IGenericService<CasePayment>, CasePaymentService>();
-
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEndAPI", Version = "v1" });
