@@ -25,7 +25,6 @@ namespace BackEndAPI.Controllers
         {
             if (await UserExists(_user.Username)) return BadRequest("Username is taken");
             using var hmac = new HMACSHA512();
-            await _db.BeginTransactionAsync();
             var user = new User()
             {
                 UserName = _user.Username.ToLower(),
@@ -33,8 +32,7 @@ namespace BackEndAPI.Controllers
                 PasswordSalt = hmac.Key
             };
             await _db.Users.AddAsync(user);
-            _db.SaveChanges();
-            _db.Commit();
+            await _db.SaveChangesAsync();
             return new UserVM()
             {
                 UserName = user.UserName,
@@ -47,7 +45,7 @@ namespace BackEndAPI.Controllers
 
             var user = await _db.Users.All
                 .Include(e => e.UserType)
-                .SingleOrDefaultAsync(e => e.UserName == _user.Username); ;
+                .SingleOrDefaultAsync(e => e.UserName == _user.Username.ToLower()); ;
 
             if (user == null) return Unauthorized("Invalid username");
 
