@@ -1,5 +1,8 @@
 using BackEndAPI.Database;
 using BackEndAPI.Extensions;
+using BackEndAPI.Interfaces;
+using BackEndAPI.Models;
+using BackEndAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +34,7 @@ namespace BackEndAPI
         {
 
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEndAPI", Version = "v1" });

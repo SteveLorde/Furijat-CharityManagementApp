@@ -3,14 +3,16 @@ using System;
 using BackEndAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    partial class FurijatContextModelSnapshot : ModelSnapshot
+    [Migration("20230227224631_AddConstraintsAndRemoveUtype")]
+    partial class AddConstraintsAndRemoveUtype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,7 +27,7 @@ namespace BackEndAPI.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CharityId")
+                    b.Property<int>("CharityId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("CurrentAmount")
@@ -60,7 +62,7 @@ namespace BackEndAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CasesCaseId")
+                    b.Property<int>("CaseId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("PaymentAmount")
@@ -71,7 +73,7 @@ namespace BackEndAPI.Migrations
 
                     b.HasKey("CasePaymentId");
 
-                    b.HasIndex("CasesCaseId");
+                    b.HasIndex("CaseId");
 
                     b.ToTable("CasePayments");
                 });
@@ -99,12 +101,12 @@ namespace BackEndAPI.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserID")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("CharityId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserID");
 
                     b.ToTable("Charities");
                 });
@@ -131,12 +133,12 @@ namespace BackEndAPI.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("UserTypeId")
+                    b.Property<int>("UserTypeID")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("UserId");
 
-                    b.HasIndex("UserTypeId");
+                    b.HasIndex("UserTypeID");
 
                     b.ToTable("Users");
                 });
@@ -160,7 +162,9 @@ namespace BackEndAPI.Migrations
                 {
                     b.HasOne("BackEndAPI.Models.Charity", "Charity")
                         .WithMany()
-                        .HasForeignKey("CharityId");
+                        .HasForeignKey("CharityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Charity");
                 });
@@ -169,7 +173,9 @@ namespace BackEndAPI.Migrations
                 {
                     b.HasOne("BackEndAPI.Models.Case", "Cases")
                         .WithMany()
-                        .HasForeignKey("CasesCaseId");
+                        .HasForeignKey("CaseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cases");
                 });
@@ -178,7 +184,9 @@ namespace BackEndAPI.Migrations
                 {
                     b.HasOne("BackEndAPI.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -187,7 +195,9 @@ namespace BackEndAPI.Migrations
                 {
                     b.HasOne("BackEndAPI.Models.UserType", "UserType")
                         .WithMany()
-                        .HasForeignKey("UserTypeId");
+                        .HasForeignKey("UserTypeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("UserType");
                 });
