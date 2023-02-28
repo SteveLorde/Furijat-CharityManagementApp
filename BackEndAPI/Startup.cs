@@ -1,6 +1,7 @@
 using BackEndAPI.Database;
 using BackEndAPI.Extensions;
 using BackEndAPI.Interfaces;
+using BackEndAPI.Mapper;
 using BackEndAPI.Models;
 using BackEndAPI.Services;
 using Microsoft.AspNetCore.Builder;
@@ -41,6 +42,7 @@ namespace BackEndAPI
             });
             //services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
             services.InstallServicesInAssembly(Configuration);
+            services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
