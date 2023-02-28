@@ -6,14 +6,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './Components/home/home.component';
 import { CommunicationTestComponent } from './Components/communication-test/communication-test.component';
-import { LoginComponent } from './Components/login/login.component';
+import { CaseListComponent } from './Components/case-list/case-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CommunicationTestComponent,
-    LoginComponent
+    CaseListComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule
