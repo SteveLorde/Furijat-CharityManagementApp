@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { BackendCommunicationService } from 'src/app/Services/BackendCommunication/backend-communication.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,22 @@ export class AppComponent {
 
   title = 'FrontEnd';
 }
+
+
+/* test function
+getCars(): void {
+  this.Backend.getAll().subscribe(
+    (data: Car[]) => {
+      this.cars = data;
+      this.success = 'successful retrieval of the list';
+    },
+    (err) => {
+      console.log(err);
+      this.error = err;
+    }
+  );
+}
+*/
 
 interface WeatherForecast {
   date: string;
