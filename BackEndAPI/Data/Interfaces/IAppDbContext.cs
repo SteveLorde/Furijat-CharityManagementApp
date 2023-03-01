@@ -18,6 +18,8 @@ namespace BackEndAPI.Data.Interfaces
         public IRepository<UserType> Roles { get; }
         object Usertypes { get; }
         object UserType { get; set; }
+        object UserTypes { get; }
+        object usertypes { get; set; }
 
         #region Methods
         IDbContextTransaction BeginTransaction();
