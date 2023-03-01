@@ -10,6 +10,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { CommunicationTestComponent } from './Components/communication-test/communication-test.component';
 import { CaseListComponent } from './Components/case-list/case-list.component';
 import { LoginComponent } from './Components/login/login.component';
+import { HTTPInterceptor } from './Services/HTTPInterceptor/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { LoginComponent } from './Components/login/login.component';
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTPInterceptor, multi: true }]
+  ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }
