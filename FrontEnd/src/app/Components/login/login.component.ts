@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,5 +12,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  //form controls for HTML template
+  Login = new FormGroup({
+    username: new FormControl("", Validators.required),
+    password: new FormControl("", Validators.required)
+  });
 
 }
