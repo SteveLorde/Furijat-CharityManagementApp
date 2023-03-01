@@ -29,6 +29,6 @@ namespace BackEndAPI.Data.Interfaces
         EntityEntry<TEntity> Update([NotNullAttribute] TEntity entity);
         void UpdateRange([NotNullAttribute] params TEntity[] entities);
         void UpdateRange([NotNullAttribute] IEnumerable<TEntity> entities);
-
+        object Update(object charity);
     }
 }

@@ -14,7 +14,7 @@ namespace BackEndAPI.Installers
         {
             var xxxx = configuration.GetConnectionString("FurijatConnection");
             services.AddDbContext<FurijatContext>(options => {
-                options.UseSqlite(configuration.GetConnectionString("FurijatConnection"));
+                options.UseSqlServer(configuration.GetConnectionString("FurijatConnection"));
             });
 
             services.AddScoped<IAppDbContext>(provider =>
