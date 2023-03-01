@@ -1,9 +1,8 @@
-export interface Case {
+export class Case {
 
-  CaseID: number;
-  FirstName: string;
-  LastName: string;
-  TotalAmount: number;
-  Description: string;
+  id: string | undefined
+  name: string | undefined;
+  email: string | undefined;
+  phone: number | undefined;
 
 }

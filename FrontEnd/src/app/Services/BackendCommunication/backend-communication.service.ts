@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpInterceptor } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpInterceptor } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
@@ -20,21 +20,32 @@ export class BackendCommunicationService {
   testurl = 'http://localhost:3000/Cases';
 
   //GET HTTP TEST
-  getTEST(): Observable<Case> {
-    return this.http.get<Case>(this.testurl);
+  getTEST(): Observable<any> {
+    return this.http.get<any>(this.testurl);
   }
+
+  //POST HTTP TEST
+  PostTest(_case: Case): Observable<any> {
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(_case);
+    console.log(body)
+    return this.http.post<any>(this.testurl, body, { 'headers': headers });
+  }
+
+  //PUT/UPDATE HTTP TEST
+
+  //DELETE HTTP TEST
+
 
   //GET HTTP for Cases
   getCases(): Observable<Case[]> {
-     return this.http.get<Case[]>(this.serverUrl + 'api/Cases');
+    return this.http.get<Case[]>(this.serverUrl + 'api/Cases');
   }
 
   //GET HTTP for Charities
   getCharity(): Observable<Charity[]> {
     return this.http.get<Charity[]>(this.serverUrl + 'api/Charity');
   }
-
-
 
   //POST HTTP
   public post(url: string, data: any, options?: any) {
