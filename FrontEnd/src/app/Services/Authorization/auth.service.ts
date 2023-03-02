@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { LoginRequest } from './login-request';
-import { LoginResult } from './login-result';
+import { LoginRequest } from 'src/app/Interfaces/login-request';
+import { LoginResult } from 'src/app/Interfaces/login-result';
 
 //modify header of requests constantly
 const httpOptions = {

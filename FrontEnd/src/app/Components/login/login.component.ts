@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   //form controls for HTML template
   login = new FormGroup({
-    username: new FormControl(''),
+    email: new FormControl(''),
     password: new FormControl(''),
   });
 
