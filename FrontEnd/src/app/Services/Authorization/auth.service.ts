@@ -5,6 +5,11 @@ import { environment } from 'src/environments/environment';
 import { LoginRequest } from './login-request';
 import { LoginResult } from './login-result';
 
+//modify header of requests constantly
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,12 +21,9 @@ export class AuthService {
   public tokenKey: string = "token";
 
   //authorization endpoint url
-  authUrl = environment.baseUrl + 'api/auth';
+  authUrl = environment.baseUrl + 'api/auth/';
 
-  //modify header of requests
-  httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+
 
   isAuthenticated(): boolean {
     return this.getToken() !== null;
@@ -32,18 +34,18 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post(this.authUrl, {
+    return this.http.post(this.authUrl + 'signin', {
       username,
       password
-    }, this.httpOptions);
+    }, httpOptions);
   }
 
   register(username: string, email: string, password: string): Observable<any> {
-    return this.http.post(this.authUrl, {
+    return this.http.post(this.authUrl + 'register', {
       username,
       email,
       password
-    }, this.httpOptions);
+    }, httpOptions);
   }
 
 
