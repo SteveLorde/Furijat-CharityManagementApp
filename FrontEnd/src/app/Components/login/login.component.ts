@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TokenstorageService } from 'src/app/Services/tokenstorage/tokenstorage.service'
+import { AuthService } from 'src/app/Services/Authorization/auth.service'
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  //signin related variables
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+
+  constructor(private authService: AuthService, private tokenStorage: TokenstorageService) { }
 
   ngOnInit(): void {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
   }
 
   //form controls for HTML template
