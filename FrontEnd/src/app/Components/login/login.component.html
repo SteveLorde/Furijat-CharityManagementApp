@@ -2,10 +2,11 @@
 
 <div class="logincontainer">
   <form [formGroup]="login" (ngSubmit)="onSubmit()">
-    <label>Username</label>
+    <label>Name</label>
     <input type="text" formControlName="username" />
     <label>Password</label>
     <input formControlName="password" />
+    <button>Submit</button>
   </form>
 </div>
 

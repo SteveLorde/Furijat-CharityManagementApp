@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +14,16 @@ export class LoginComponent implements OnInit {
   }
 
   //form controls for HTML template
-  Login = new FormGroup({
-    username: new FormControl("", Validators.required),
-    password: new FormControl("", Validators.required)
+  login = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
   });
+
+  submitted = false;
+
+  onSubmit(): void {
+    console.log("submitted logged");
+  }
+
 
 }
