@@ -1,8 +1,10 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JwtModule } from "@auth0/angular-jwt";
+import { CanActivate } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +15,9 @@ import { LoginComponent } from './Components/login/login.component';
 import { APIInterceptor } from 'src/app/Services/Interceptor/api.interceptor';
 import { RegisterComponent } from './Components/register/register.component';
 
+import { tokenGetter } from 'src/app/Interfaces/tokengetter'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +27,20 @@ import { RegisterComponent } from './Components/register/register.component';
     RegisterComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, ReactiveFormsModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule, FormsModule,
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:5001"],
+        disallowedRoutes: []
+      }
+    })
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true }]
+    { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true }, AuthGuard]
   ,
   bootstrap: [AppComponent]
 })

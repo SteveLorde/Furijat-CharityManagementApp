@@ -3,13 +3,11 @@
 <div class="logincontainer">
   <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <label>Email</label>
-    <input type="email" [(ngModel)]="credentials.email"
-           class="form-control" placeholder="E-Mail" required>
+    <input type="email" name="email" [(ngModel)]="credentials.email" placeholder="E-Mail" required>
     <label>Password</label>
-    <input formControlName="password" [ngClass]="{ 'is-invalid': submitted && formData.password.errors }" />
-    <div *ngIf="submitted && formData.password.errors"></div>
-    <div *ngIf="formData.password.errors.required">Password is required</div>
-<button>Submit</button>
+    <input name="password" [(ngModel)]="credentials.password" placeholder="Password" required />
+    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
+    <div *ngIf="invalidLogin" >Invalid username or password.</div>
   </form>
 </div>
 
