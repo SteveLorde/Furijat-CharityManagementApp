@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtModule } from "@auth0/angular-jwt";
-import { CanActivate } from '@angular/router';
+import { AuthGuard } from 'src/app/Services/AuthGuard/authguard';
+
 
 
 import { AppComponent } from './app.component';
@@ -39,9 +40,7 @@ import { tokenGetter } from 'src/app/Interfaces/tokengetter'
       }
     })
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true }, AuthGuard]
-  ,
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

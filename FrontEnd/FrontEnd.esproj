@@ -12,6 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="server\" />
+    <Folder Include="src\app\Services\AuthGuard\" />
     <Folder Include="src\assets\UI\" />
   </ItemGroup>
 </Project>

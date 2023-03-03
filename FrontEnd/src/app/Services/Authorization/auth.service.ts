@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { LoginRequest } from 'src/app/Interfaces/login-request';
-import { LoginResult } from 'src/app/Interfaces/login-result';
 import { map } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 //modify header of requests constantly
 const httpOptions = {
