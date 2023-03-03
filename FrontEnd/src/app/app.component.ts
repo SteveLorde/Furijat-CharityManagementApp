@@ -8,33 +8,17 @@ import { BackendCommunicationService } from 'src/app/Services/BackendCommunicati
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public forecasts?: WeatherForecast[];
 
   constructor(http: HttpClient) {
   }
 
   title = 'FrontEnd';
-}
 
+  isUserAuthenticated = (): boolean => {
+    return false
+  }
+  logOut = () => {
+    localStorage.removeItem("jwt");
+  }
 
-/* test function
-getCars(): void {
-  this.Backend.getAll().subscribe(
-    (data: Car[]) => {
-      this.cars = data;
-      this.success = 'successful retrieval of the list';
-    },
-    (err) => {
-      console.log(err);
-      this.error = err;
-    }
-  );
-}
-*/
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
 }
