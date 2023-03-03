@@ -1,12 +1,15 @@
 <p>login works!</p>
 
 <div class="logincontainer">
-  <form [formGroup]="login" (ngSubmit)="onSubmit()">
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <label>Email</label>
-    <input type="text" formControlName="email" />
+    <input type="email" [(ngModel)]="credentials.email"
+           class="form-control" placeholder="E-Mail" required>
     <label>Password</label>
-    <input formControlName="password" />
-    <button>Submit</button>
+    <input formControlName="password" [ngClass]="{ 'is-invalid': submitted && formData.password.errors }" />
+    <div *ngIf="submitted && formData.password.errors"></div>
+    <div *ngIf="formData.password.errors.required">Password is required</div>
+<button>Submit</button>
   </form>
 </div>
 

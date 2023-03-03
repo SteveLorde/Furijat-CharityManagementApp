@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoginRequest } from 'src/app/Interfaces/login-request';
 import { LoginResult } from 'src/app/Interfaces/login-result';
+import { map } from 'rxjs/operators';
 
 //modify header of requests constantly
 const httpOptions = {
@@ -21,7 +22,7 @@ export class AuthService {
   public tokenKey: string = "token";
 
   //authorization endpoint url
-  authUrl = environment.baseUrl + 'api/auth/';
+  authUrl = environment.baseUrl + 'api/auth';
 
 
 
@@ -34,10 +35,32 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post(this.authUrl + 'signin', {
+    return this.http.post(this.authUrl + 'login', {
+      username,
+      password
+    })
+      .pipe(map(user => {
+        // login successful if there's a jwt token in the response
+        if (user) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('TokenInfo', JSON.stringify(user));
+        }
+        return user;
+      }));
+  }
+
+  /*
+  login(username: string, password: string): Observable<any> {
+    return this.http.post(this.authUrl + 'login', {
       username,
       password
     }, httpOptions);
+  }
+  */
+
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('TokenInfo');
   }
 
   register(username: string, email: string, password: string): Observable<any> {
@@ -47,14 +70,5 @@ export class AuthService {
       password
     }, httpOptions);
   }
-
-
-  /*
-  login(item: LoginRequest): Observable<LoginResult> {
-    var url = environment.baseUrl + "api/Account/Login";
-    return this.http.post<LoginResult>(url, item);
-  }
-  */
-
 
 }

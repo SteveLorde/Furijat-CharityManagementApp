@@ -1,0 +1,40 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TokenstorageService } from 'src/app/Services/tokenstorage/tokenstorage.service'
+import { AuthService } from 'src/app/Services/Authorization/auth.service'
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+
+  //signin related variables
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+  submitClick = false;
+  submitted = false;
+  error = '';
+
+  constructor(public LOL: AuthService) { }
+
+  ngOnInit() {
+
+  }
+
+  //form controls for HTML template
+  login = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+  });
+
+
+  onSubmit(): void {
+    console.log("submitted logged");
+  }
+
+
+}

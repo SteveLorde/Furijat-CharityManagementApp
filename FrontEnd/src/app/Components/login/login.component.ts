@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { TokenstorageService } from 'src/app/Services/tokenstorage/tokenstorage.service'
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
+import { LoginModel } from 'src/app/Interfaces/LoginModel'
+import { Router } from '@angular/router';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { AuthenticatedResponse } from '../../Interfaces/AuthenticatedResponse';
 
 @Component({
   selector: 'app-login',
@@ -9,30 +13,39 @@ import { AuthService } from 'src/app/Services/Authorization/auth.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  invalidLogin: boolean = false;
+  credentials: LoginModel = { email: '', password: '' };
 
-  //signin related variables
-  isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
-  roles: string[] = [];
+  constructor(private router: Router, private authService: AuthService, private http: HttpClient) { }
 
-  constructor(private authService: AuthService, private tokenStorage: TokenstorageService) { }
+  ngOnInit() {
 
-  ngOnInit(): void {
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+  }
+
+  login = (form: NgForm) => {
+    if (form.valid) {
+      this.http.post<AuthenticatedResponse>("https://localhost:5001/api/auth/login", this.credentials, {
+        headers: new HttpHeaders({ "Content-Type": "application/json" })
+      })
+        .subscribe({
+          next: (response: AuthenticatedResponse) => {
+            const token = response.token;
+            localStorage.setItem("jwt", token);
+            this.invalidLogin = false;
+            this.router.navigate(["/"]);
+          },
+          error: (err: HttpErrorResponse) => this.invalidLogin = true
+        })
     }
   }
 
+  /*
   //form controls for HTML template
   login = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
   });
-
-  submitted = false;
-
+  */
   onSubmit(): void {
     console.log("submitted logged");
   }
