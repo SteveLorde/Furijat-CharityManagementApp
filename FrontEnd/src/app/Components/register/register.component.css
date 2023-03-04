@@ -1,0 +1,9 @@
+.filehidden {
+    display:none;
+}
+
+.filebutton {
+    padding: 20px;
+    background-color: aquamarine;
+    cursor: pointer;
+}

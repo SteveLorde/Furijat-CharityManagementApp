@@ -22,33 +22,39 @@ export class LoginComponent implements OnInit {
 
   }
 
-  login = (form: NgForm) => {
-    if (form.valid) {
-      this.http.post<AuthenticatedResponse>("https://localhost:5001/api/auth/login", this.credentials, {
-        headers: new HttpHeaders({ "Content-Type": "application/json" })
-      })
-        .subscribe({
-          next: (response: AuthenticatedResponse) => {
-            const token = response.token;
-            localStorage.setItem("jwt", token);
-            this.invalidLogin = false;
-            this.router.navigate(["/"]);
-          },
-          error: (err: HttpErrorResponse) => this.invalidLogin = true
-        })
-    }
-  }
 
-  /*
-  //form controls for HTML template
-  login = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  });
-  */
+
+
   onSubmit(): void {
     console.log("submitted logged");
   }
 
 
 }
+
+
+/*
+login = (form: NgForm) => {
+  if (form.valid) {
+    this.http.post<AuthenticatedResponse>("https://localhost:5001/api/auth/login", this.credentials, {
+      headers: new HttpHeaders({ "Content-Type": "application/json" })
+    })
+      .subscribe({
+        next: (response: AuthenticatedResponse) => {
+          const token = response.token;
+          localStorage.setItem("jwt", token);
+          this.invalidLogin = false;
+          this.router.navigate(["/"]);
+        },
+        error: (err: HttpErrorResponse) => this.invalidLogin = true
+      })
+  }
+}
+
+/*
+//form controls for HTML template
+login = new FormGroup({
+  email: new FormControl('', Validators.required),
+  password: new FormControl('', Validators.required),
+});
+*/
