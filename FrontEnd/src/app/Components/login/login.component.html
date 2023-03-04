@@ -1,7 +1,7 @@
 <p>login works!</p>
 
 <div class="logincontainer">
-  <form #loginForm="ngForm">
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <label>Email</label>
     <input type="email" name="email" [(ngModel)]="credentials.email" placeholder="E-Mail" required>
     <label>Password</label>

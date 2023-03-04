@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
+import {AuthGuard } from 'src/app/Services/AuthGuard/authguard'
 
 //modify header of requests constantly
 const httpOptions = {
@@ -14,9 +17,10 @@ const httpOptions = {
 })
 
 export class AuthService {
-  constructor(protected http: HttpClient) {
+  constructor(protected http: HttpClient, private router: Router, private jwtHelper: JwtHelperService) {
   }
 
+  authUrl = environment.baseUrl + 'api/auth';
 
 
 }
@@ -25,7 +29,7 @@ export class AuthService {
 public tokenKey: string = "token";
 
 //authorization endpoint url
-authUrl = environment.baseUrl + 'api/auth';
+
 
 
 

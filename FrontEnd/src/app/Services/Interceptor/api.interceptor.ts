@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs';
 import { TokenstorageService } from 'src/app/Services/tokenstorage/tokenstorage.service'
 
-
+/*
 const tokenheaderk = 'Authorization';
 
 
@@ -28,3 +28,4 @@ export class APIInterceptor implements HttpInterceptor {
       return next.handle(authReq);
     }
 }
+*/
