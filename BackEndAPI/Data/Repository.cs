@@ -61,5 +61,30 @@ namespace BackEndAPI.Data
 
         public void UpdateRange([NotNull] IEnumerable<T> entities)
          => _orginalSet.UpdateRange(entities);
+
+        public object Update(object charity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task FindAsync(int charityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task ToListAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object Where(Func<object, bool> value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task FirstOrDefaultAsync(Func<object, bool> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

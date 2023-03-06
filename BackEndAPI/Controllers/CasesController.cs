@@ -7,6 +7,7 @@ using BackEndAPI.Interfaces;
 using BackEndAPI.Data.Interfaces;
 using System.Threading.Tasks;
 using BackEndAPI.Views;
+using BackEndAPI.DTOs;
 
 namespace BackEndAPI.Controllers
 {
@@ -28,18 +29,21 @@ namespace BackEndAPI.Controllers
 
         // GET: api/Cases/getCase/5
         [HttpGet("(getCase/{id}")]
+
+       
         public async Task<ActionResult<Case>> GetCase(int id)
         {
-            var _case = await _context.Cases.All
-                //.Include(e => e.Charity)
-                .SingleOrDefaultAsync(e => e.CaseId ==id);
+            var _Case = await _context.Cases.All
 
-            if (_case == null)
+                .SingleOrDefaultAsync(e => e.CaseId == id);
+
+            if (_Case == null)
             {
                 return NotFound();
             }
-            return _case;
+            return _Case;
         }
+
 
         // POST: api/Cases/AddNewCase
         [HttpPost("AddNewCase")]
@@ -70,7 +74,7 @@ namespace BackEndAPI.Controllers
         [HttpDelete("deleteCase/{id}")]
         public async Task<IActionResult> DeleteCase(int id)
         {
-            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.CaseId == id); ;
+            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.CaseId == id); 
 
             if (_case == null)
             {

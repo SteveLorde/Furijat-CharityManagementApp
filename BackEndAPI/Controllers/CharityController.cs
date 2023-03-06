@@ -1,75 +1,137 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using BackEndAPI.DTOs;
+using BackEndAPI.Models;
+using BackEndAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BackEndAPI.Models;
-using BackEndAPI.Interfaces;
-using BackEndAPI.Data.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using BackEndAPI.Views;
+using BackEndAPI.Data.Interfaces;
+using BackEndAPI.Interfaces;
+using Nest;
+using System.Linq.Expressions;
+using System;
+using System.Security.Policy;
 
 namespace BackEndAPI.Controllers
 {
+
     public class CharityController : BaseApiController
     {
         private readonly IAppDbContext _context;
-       
+        private readonly IMapper _mapper;
 
-        public CharityController(IAppDbContext context)
+
+        public CharityController(IAppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        // GET: api/Charity
+        // GET: api/Charities
         [HttpGet]
-        public ActionResult<IEnumerable<Charity>> GetCharity()
+
+        public async Task<ActionResult<IEnumerable<CharityDTO>>> GetAllCharities()
         {
-            return _context.Charities.All.ToList();
+            // retrieve all charities from the database
+            var charities = await _context.Charities.All.ToListAsync();
+
+            // map the entities to DTOs and return them
+            return _mapper.Map<IEnumerable<CharityDTO>>(charities).ToList();
         }
-        // GET: api/Charity/get a specific charity
-        [HttpGet("(getCharity/{id}")]
-        public async Task<ActionResult<Charity>> GetCharity(int id)
+
+
+        // GET: api/Charity/getCharity/5
+        [HttpGet("getCharity/{id}")]
+        public async Task<ActionResult<CharityDTO>> GetCharity(int id)
         {
-            var _Charity = await _context.Charities.All
-               
-                .SingleOrDefaultAsync(e => e.CharityId == id);
+            var Charity = await _context.Charities.All
+                 //.Include(e => e.Charity)
+                 .SingleOrDefaultAsync(e => e.CharityId == id);
+
+            if (Charity == null)
+            {
+                return NotFound();
+            }
+
+            var charityDto = _mapper.Map<CharityDTO>(Charity);
+
+            return charityDto;
+        }
+
+
+
+
+
+        // PUT: api/Charity/updateCharity/5
+        [HttpPut("updateCharity/{id}")]
+        public async Task<IActionResult> PutCharity(int id, CharityDTO charityDTO)
+        {
+            if (id != charityDTO.CharityId)
+            {
+                return BadRequest();
+            }
+
+            var _Charity = await _context.Charities.All.SingleOrDefaultAsync(e => e.CharityId == id);
 
             if (_Charity == null)
             {
                 return NotFound();
             }
-            return _Charity;
-        }
-        // POST: api/Cases/AddNewCharity
-        [HttpPost("AddNewCharity")]
-        public async Task<ActionResult<Charity>> PostCharity(Charity _Charity)
-        {
-            await _context.Charities.AddAsync(_Charity);
-            await _context.SaveChangesAsync();
 
-            return _Charity;
-        }
 
-        // PUT: api/Charities/updateCharity
-        [HttpPut("updateCharity/{id}")]
-        public async Task<IActionResult> PutCharity(int id, Charity _Charity)
-        {
-            if (id != _Charity.CharityId)
+            // Update charity model with values from DTO
+            _mapper.Map(charityDTO, _Charity);
+
+            try
             {
-                return BadRequest();
+                await _context.SaveChangesAsync();
             }
-
-            _context.Charities.Update(_Charity).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CharityExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return NoContent();
         }
 
+        private bool CharityExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        // Create: api/Cases/AddNewCharities
+        [HttpPost("AddNewCharity")]
+        public async Task<ActionResult<CharityDTO>> CreateCharity(CharityDTO charityCreateDto)
+        {
+            // map the DTO to a Charity entity
+            var charity = _mapper.Map<Charity>(charityCreateDto);
+
+            // add the entity to the context and save changes
+            _context.Charities.Add(charity);
+            await _context.SaveChangesAsync();
+
+            // map the entity back to a DTO and return it
+            var charityDto = _mapper.Map<CharityDTO>(charity);
+
+            return CreatedAtAction(nameof(GetCharity), new { id = charity.CharityId }, charityDto);
+        }
+
+
         // DELETE: api/Charities/deleteCharity
         [HttpDelete("deleteCharity/{id}")]
-        public async Task<IActionResult> DeleteCharity(int id)
+        public async Task<ActionResult<CharityDTO>> Delete(int id)
         {
-            var _Charity = await _context.Charities.All.SingleOrDefaultAsync(e => e.CharityId == id); ;
+            var _Charity = await _context.Charities.All.SingleOrDefaultAsync(e => e.CharityId == id);
 
             if (_Charity == null)
             {
@@ -79,12 +141,30 @@ namespace BackEndAPI.Controllers
             _context.Charities.Remove(_Charity);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            var charityDTO = _mapper.Map<CharityDTO>(_Charity);
+
+            return Ok(charityDTO);
+        }
+        
+
+        public class CharityMapper
+        {
+            public static CharityDTO MapCharityToDTO(Charity charity)
+            {
+                return new CharityDTO
+                {
+                    CharityId = charity.CharityId,
+                    Name = charity.Name,
+                    Description = charity.Description,
+                    Location = charity.Location,
+                    Phone = charity.Phone,
+                    Email = charity.Email,
+
+                };
+            }
         }
 
 
 
-
     }
-
 }

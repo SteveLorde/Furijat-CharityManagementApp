@@ -29,6 +29,15 @@ namespace BackEndAPI.Data
         public IRepository<Charity> Charities { get; private set; }
 
         public IRepository<UserType> Roles { get; private set; }
+
+        public object Usertypes => throw new NotImplementedException();
+
+        public object UserType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public object UserTypes => throw new NotImplementedException();
+
+        public object usertypes { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public ScopedDbContext(FurijatContext context, IHttpContextAccessor httpContextAccessor)
 
         {
@@ -109,6 +118,11 @@ namespace BackEndAPI.Data
         public void UpdateRange([NotNull] params object[] entities) => _context.UpdateRange(entities);
 
         public void UpdateRange([NotNull] IEnumerable<object> entities) => _context.UpdateRange(entities);
+
+        public Task SaveChangesAsync()
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }
