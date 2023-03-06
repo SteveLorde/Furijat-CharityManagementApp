@@ -19,9 +19,17 @@ export class BackendCommunicationService {
   //test url link
   testurl = 'http://localhost:3000/Cases';
 
+  //test url for pagination
+  private pagetesturl = "https://reqres.in/api/users";
+
   //GET HTTP TEST
   getTEST(): Observable<any> {
     return this.http.get<any>(this.testurl);
+  }
+
+  //GET TEST FOR PAGINATION
+  getStudents(page: number) {
+    return this.http.get(this.pagetesturl + '?page=' + page);
   }
 
   //POST HTTP TEST

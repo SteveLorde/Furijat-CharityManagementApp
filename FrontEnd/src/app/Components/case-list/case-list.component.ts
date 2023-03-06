@@ -20,6 +20,7 @@ export class CaseListComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetCases();
+    this.fetchStudents();
   }
 
   //Function that calls API (GET) to retrieve Case List
@@ -27,6 +28,22 @@ export class CaseListComponent implements OnInit {
     return this._ServerCom.getTEST().subscribe((data) => {
       this.Cases = data;
     });
+  }
+
+  //test for pagination
+  Students: any;
+  allStudents: number = 0;
+  pagination: number = 1;
+  fetchStudents() {
+    this._ServerCom.getStudents(this.pagination).subscribe((res: any) => {
+      this.Students = res.data;
+      this.allStudents = res.total;
+      console.log(res.total);
+    });
+  }
+  renderPage(event: number) {
+    this.pagination = event;
+    this.fetchStudents();
   }
   
   //function that calls API (POST) to create new cases in list

@@ -20,7 +20,25 @@ export class AuthService {
   constructor(protected http: HttpClient, private router: Router, private jwtHelper: JwtHelperService) {
   }
 
+  ngOnInit(): void { }
+
   authUrl = environment.baseUrl + 'api/auth';
+
+  //check user authentication jwt token
+  isUserAuthenticated() {
+    const token = localStorage.getItem("jwt");
+    if (token && !this.jwtHelper.isTokenExpired(token)) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
+  public logOut = () => {
+    localStorage.removeItem("jwt");
+  }
 
 
 }
