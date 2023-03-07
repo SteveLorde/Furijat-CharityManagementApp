@@ -32,7 +32,7 @@ namespace BackEndAPI.Controllers
         {
             var _CasePayment = await _context.CasePayments.All
 
-                .SingleOrDefaultAsync(e => e.CasePaymentId == id);
+                .SingleOrDefaultAsync(e => e.Id == id);
 
             if (_CasePayment == null)
             {
@@ -55,7 +55,7 @@ namespace BackEndAPI.Controllers
         [HttpPut("updateCasePayment/{id}")]
         public async Task<IActionResult> PutCasePayment(int id, CasePayment _CasePayment)
         {
-            if (id != _CasePayment.CasePaymentId)
+            if (id != _CasePayment.Id)
             {
                 return BadRequest();
             }
@@ -70,7 +70,7 @@ namespace BackEndAPI.Controllers
         [HttpDelete("deleteCasePayment/{id}")]
         public async Task<IActionResult> DeleteCasePayment(int id)
         {
-            var _CasePayment = await _context.CasePayments.All.SingleOrDefaultAsync(e => e.CasePaymentId == id); ;
+            var _CasePayment = await _context.CasePayments.All.SingleOrDefaultAsync(e => e.Id == id); ;
 
             if (_CasePayment == null)
             {

@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BackEndAPI.Data.Entites;
+using System.ComponentModel.DataAnnotations;
 
 namespace BackEndAPI.Models
 {
-    public class Case
+    public class Case:BaseModel
     {
-        public int CaseId { get; set; }
         public string FirstName { get; set; }
         [MinLength(3)]
         public string LastName { get; set; }

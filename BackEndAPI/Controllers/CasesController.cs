@@ -35,7 +35,7 @@ namespace BackEndAPI.Controllers
         {
             var _Case = await _context.Cases.All
 
-                .SingleOrDefaultAsync(e => e.CaseId == id);
+                .SingleOrDefaultAsync(e => e.Id == id);
 
             if (_Case == null)
             {
@@ -59,7 +59,7 @@ namespace BackEndAPI.Controllers
         [HttpPut("updateCase/{id}")]
         public async Task<IActionResult> PutCase(int id, Case _case)
         {
-            if (id != _case.CaseId)
+            if (id != _case.Id)
             {
                 return BadRequest();
             }
@@ -74,7 +74,7 @@ namespace BackEndAPI.Controllers
         [HttpDelete("deleteCase/{id}")]
         public async Task<IActionResult> DeleteCase(int id)
         {
-            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.CaseId == id); 
+            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == id); 
 
             if (_case == null)
             {

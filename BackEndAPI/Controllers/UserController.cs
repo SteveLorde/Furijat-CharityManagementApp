@@ -32,7 +32,7 @@ namespace BackEndAPI.Controllers
         {
             var _User = await _context.Users.All
               
-                .SingleOrDefaultAsync(e => e.UserId == id);
+                .SingleOrDefaultAsync(e => e.Id == id);
 
             if (_User == null)
             {
@@ -55,7 +55,7 @@ namespace BackEndAPI.Controllers
         [HttpPut("updateUser/{id}")]
         public async Task<IActionResult> PutUser(int id, User _User)
         {
-            if (id != _User.UserId)
+            if (id != _User.Id)
             {
                 return BadRequest();
             }
@@ -70,7 +70,7 @@ namespace BackEndAPI.Controllers
         [HttpDelete("deleteUser/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            var _User = await _context.Users.All.SingleOrDefaultAsync(e => e.UserId == id); ;
+            var _User = await _context.Users.All.SingleOrDefaultAsync(e => e.Id == id); ;
 
             if (_User == null)
             {

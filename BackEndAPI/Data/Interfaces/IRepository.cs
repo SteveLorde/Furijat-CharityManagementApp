@@ -29,8 +29,7 @@ namespace BackEndAPI.Data.Interfaces
         EntityEntry<TEntity> Update([NotNullAttribute] TEntity entity);
         void UpdateRange([NotNullAttribute] params TEntity[] entities);
         void UpdateRange([NotNullAttribute] IEnumerable<TEntity> entities);
-        object Update(object charity);
-        Task FindAsync(int charityId);
+        Task<TEntity> FindAsyncById(int id);
         Task ToListAsync();
         object Where(Func<object, bool> value);
         Task FirstOrDefaultAsync(Func<object, bool> value);

@@ -1,11 +1,12 @@
 ﻿using BackEndAPI.Models;
+using BackEndAPI.Views;
 using System.ComponentModel.DataAnnotations;
 
 namespace BackEndAPI.DTOs
 {
     public class CharityDTO
     {
-        public int CharityId { get; set; }
+        public int Id { get; set; }
         [MinLength(3)]
         public string Name { get; set; }
         [MaxLength(200)]
@@ -18,6 +19,6 @@ namespace BackEndAPI.DTOs
         [Required]
         public string Email { get; set; }
 
-        public virtual User User { get; set; }
+        public UserDTO User { get; set; }
     }
 }

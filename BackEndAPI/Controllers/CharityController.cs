@@ -48,7 +48,7 @@ namespace BackEndAPI.Controllers
         {
             var Charity = await _context.Charities.All
                  //.Include(e => e.Charity)
-                 .SingleOrDefaultAsync(e => e.CharityId == id);
+                 .SingleOrDefaultAsync(e => e.Id == id);
 
             if (Charity == null)
             {
@@ -68,12 +68,12 @@ namespace BackEndAPI.Controllers
         [HttpPut("updateCharity/{id}")]
         public async Task<IActionResult> PutCharity(int id, CharityDTO charityDTO)
         {
-            if (id != charityDTO.CharityId)
+            if (id != charityDTO.Id)
             {
                 return BadRequest();
             }
 
-            var _Charity = await _context.Charities.All.SingleOrDefaultAsync(e => e.CharityId == id);
+            var _Charity = await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == id);
 
             if (_Charity == null)
             {
@@ -90,6 +90,11 @@ namespace BackEndAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
+                var _charity = await _context.Charities.FindAsyncById(id);
+                if (_charity == null)
+                {
+
+                }
                 if (!CharityExists(id))
                 {
                     return NotFound();
@@ -121,9 +126,9 @@ namespace BackEndAPI.Controllers
             await _context.SaveChangesAsync();
 
             // map the entity back to a DTO and return it
-            var charityDto = _mapper.Map<CharityDTO>(charity);
+            //var charityDto = _mapper.Map<CharityDTO>(charity);
 
-            return CreatedAtAction(nameof(GetCharity), new { id = charity.CharityId }, charityDto);
+            return CreatedAtAction(nameof(GetCharity), new { id = charity.Id }, charityCreateDto);
         }
 
 
@@ -131,7 +136,7 @@ namespace BackEndAPI.Controllers
         [HttpDelete("deleteCharity/{id}")]
         public async Task<ActionResult<CharityDTO>> Delete(int id)
         {
-            var _Charity = await _context.Charities.All.SingleOrDefaultAsync(e => e.CharityId == id);
+            var _Charity = await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == id);
 
             if (_Charity == null)
             {
@@ -145,26 +150,5 @@ namespace BackEndAPI.Controllers
 
             return Ok(charityDTO);
         }
-        
-
-        public class CharityMapper
-        {
-            public static CharityDTO MapCharityToDTO(Charity charity)
-            {
-                return new CharityDTO
-                {
-                    CharityId = charity.CharityId,
-                    Name = charity.Name,
-                    Description = charity.Description,
-                    Location = charity.Location,
-                    Phone = charity.Phone,
-                    Email = charity.Email,
-
-                };
-            }
-        }
-
-
-
     }
 }

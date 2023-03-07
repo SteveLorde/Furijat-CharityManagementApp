@@ -19,7 +19,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BackEndAPI.DTOs;
-
+using BackEndAPI.Views;
 
 namespace BackEndAPI
 {
@@ -45,20 +45,7 @@ namespace BackEndAPI
             //services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
             services.InstallServicesInAssembly(Configuration);
 
-            {
-                // Configure AutoMapper
-                services.AddAutoMapper(typeof(Startup));
-                services.AddSingleton(new MapperConfiguration(cfg =>
-                {
-                    cfg.CreateMap<Charity, CharityDTO>();
-                    cfg.CreateMap<CharityDTO, Charity>();
-                }).CreateMapper());
-
-
-
-
-
-            }
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

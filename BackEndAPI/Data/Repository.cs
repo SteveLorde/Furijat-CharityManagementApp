@@ -9,10 +9,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using BackEndAPI.Database;
+using BackEndAPI.Data.Entites;
 
 namespace BackEndAPI.Data
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : BaseModel
     {
         protected DbSet<T> _orginalSet;
         protected FurijatContext _context;
@@ -62,14 +63,10 @@ namespace BackEndAPI.Data
         public void UpdateRange([NotNull] IEnumerable<T> entities)
          => _orginalSet.UpdateRange(entities);
 
-        public object Update(object charity)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task FindAsync(int charityId)
+        public Task<T> FindAsyncById(int id)
         {
-            throw new NotImplementedException();
+            return _orginalSet.SingleOrDefaultAsync(m => m.Id == id);
         }
 
         public Task ToListAsync()

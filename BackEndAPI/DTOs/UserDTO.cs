@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BackEndAPI.Views
 {
-    public class UserVM
+    public class UserDTO
     {
         public int UserId { get; set; }
         public string UType { get; set; }
