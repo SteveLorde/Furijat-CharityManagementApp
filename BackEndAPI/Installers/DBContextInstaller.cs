@@ -2,9 +2,7 @@
 using BackEndAPI.Data;
 using BackEndAPI.Database;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,8 +12,9 @@ namespace BackEndAPI.Installers
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
+            var xxxx = configuration.GetConnectionString("FurijatConnection");
             services.AddDbContext<FurijatContext>(options => {
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(configuration.GetConnectionString("FurijatConnection"));
             });
 
             services.AddScoped<IAppDbContext>(provider =>

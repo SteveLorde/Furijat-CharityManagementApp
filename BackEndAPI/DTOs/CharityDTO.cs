@@ -1,10 +1,12 @@
-﻿using BackEndAPI.Data.Entites;
+﻿using BackEndAPI.Models;
+using BackEndAPI.Views;
 using System.ComponentModel.DataAnnotations;
 
-namespace BackEndAPI.Models
+namespace BackEndAPI.DTOs
 {
-    public class Charity:BaseModel
+    public class CharityDTO
     {
+        public int Id { get; set; }
         [MinLength(3)]
         public string Name { get; set; }
         [MaxLength(200)]
@@ -17,7 +19,6 @@ namespace BackEndAPI.Models
         [Required]
         public string Email { get; set; }
 
-        public virtual User User { get; set; }
-
+        public UserDTO User { get; set; }
     }
 }

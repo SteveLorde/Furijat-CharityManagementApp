@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BackEndAPI.Views
 {
-    public class UserVM
+    public class UserDTO
     {
         public int UserId { get; set; }
         public string UType { get; set; }
@@ -13,8 +13,10 @@ namespace BackEndAPI.Views
         [Required(ErrorMessage = "This Filed Is Required")]
 
         public string UserName { get; set; }
+        [MinLength(3, ErrorMessage = "The MinLength 3")]
 
         public string FirstName { get; set; }
+        [MinLength(3, ErrorMessage = "The MinLength 3")]
 
         public string LastNaame { get; set; }
 

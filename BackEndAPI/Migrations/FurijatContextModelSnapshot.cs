@@ -4,16 +4,14 @@ using BackEndAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    [Migration("20230226111709_Intial")]
-    partial class Intial
+    partial class FurijatContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,35 +19,9 @@ namespace BackEndAPI.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("BackEndAPI.Models.CasePayment", b =>
+            modelBuilder.Entity("BackEndAPI.Models.Case", b =>
                 {
-                    b.Property<int>("CasePaymentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CaseId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CasesId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("PaymentAmount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("PaymentMethod")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CasePaymentId");
-
-                    b.HasIndex("CasesId");
-
-                    b.ToTable("CasePayment");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Models.Cases", b =>
-                {
-                    b.Property<int>("CasesId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -57,7 +29,7 @@ namespace BackEndAPI.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CharityId")
+                    b.Property<int?>("CharityId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("CurrentAmount")
@@ -78,24 +50,49 @@ namespace BackEndAPI.Migrations
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("CasesId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CharityId");
 
                     b.ToTable("Cases");
                 });
 
+            modelBuilder.Entity("BackEndAPI.Models.CasePayment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CasesId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PaymentAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CasesId");
+
+                    b.ToTable("CasePayments");
+                });
+
             modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
                 {
-                    b.Property<int>("CharityId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -107,19 +104,19 @@ namespace BackEndAPI.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("CharityId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserId");
 
-                    b.ToTable("Charity");
+                    b.ToTable("Charities");
                 });
 
             modelBuilder.Entity("BackEndAPI.Models.User", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -130,67 +127,65 @@ namespace BackEndAPI.Migrations
                     b.Property<string>("LastNaame")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("PasswordHash")
+                        .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("UType")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("PasswordSalt")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserTypeID")
+                    b.Property<int?>("UserTypeId")
                         .HasColumnType("int");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UserTypeID");
+                    b.HasIndex("UserTypeId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("BackEndAPI.Models.UserType", b =>
                 {
-                    b.Property<int>("UserTypeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserTypeId");
+                    b.HasKey("Id");
 
                     b.ToTable("UserType");
                 });
 
+            modelBuilder.Entity("BackEndAPI.Models.Case", b =>
+                {
+                    b.HasOne("BackEndAPI.Models.Charity", "Charity")
+                        .WithMany()
+                        .HasForeignKey("CharityId");
+
+                    b.Navigation("Charity");
+                });
+
             modelBuilder.Entity("BackEndAPI.Models.CasePayment", b =>
                 {
-                    b.HasOne("BackEndAPI.Models.Cases", "Cases")
+                    b.HasOne("BackEndAPI.Models.Case", "Cases")
                         .WithMany()
                         .HasForeignKey("CasesId");
 
                     b.Navigation("Cases");
                 });
 
-            modelBuilder.Entity("BackEndAPI.Models.Cases", b =>
-                {
-                    b.HasOne("BackEndAPI.Models.Charity", "Charity")
-                        .WithMany()
-                        .HasForeignKey("CharityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Charity");
-                });
-
             modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
                 {
                     b.HasOne("BackEndAPI.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("User");
                 });
@@ -199,9 +194,7 @@ namespace BackEndAPI.Migrations
                 {
                     b.HasOne("BackEndAPI.Models.UserType", "UserType")
                         .WithMany()
-                        .HasForeignKey("UserTypeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserTypeId");
 
                     b.Navigation("UserType");
                 });
