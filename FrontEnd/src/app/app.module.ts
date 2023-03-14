@@ -20,7 +20,8 @@ import { RegisterComponent } from './Components/register/register.component';
 import { tokenGetter } from 'src/app/Interfaces/tokengetter';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { AvatarComponent } from './avatar/avatar.component';
-import { CasestableComponent } from './Components/casestable/casestable.component'
+import { CasestableComponent } from './Components/casestable/casestable.component';
+import { ProfilepicComponent } from './Components/profilepic/profilepic.component'
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CasestableComponent } from './Components/casestable/casestable.componen
     RegisterComponent,
     FileUploadComponent,
     AvatarComponent,
-    CasestableComponent
+    CasestableComponent,
+    ProfilepicComponent
   ],
   imports: [
     BrowserModule,
