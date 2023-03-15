@@ -19,7 +19,6 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { tokenGetter } from 'src/app/Interfaces/tokengetter';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
-import { AvatarComponent } from './avatar/avatar.component';
 import { CasestableComponent } from './Components/casestable/casestable.component';
 import { ProfilepicComponent } from './Components/profilepic/profilepic.component'
 
@@ -32,7 +31,6 @@ import { ProfilepicComponent } from './Components/profilepic/profilepic.componen
     LoginComponent,
     RegisterComponent,
     FileUploadComponent,
-    AvatarComponent,
     CasestableComponent,
     ProfilepicComponent
   ],
