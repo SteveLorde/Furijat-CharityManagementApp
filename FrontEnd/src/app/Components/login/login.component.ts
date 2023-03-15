@@ -40,13 +40,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  /*
-  login = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  });
-  */
-
   onSubmit(): void {
     console.log("submitted logged");
   }
@@ -61,4 +54,12 @@ export class LoginComponent implements OnInit {
 /*
 //form controls for HTML template
 
+*/
+
+
+/*
+login = new FormGroup({
+  email: new FormControl('', Validators.required),
+  password: new FormControl('', Validators.required),
+});
 */
