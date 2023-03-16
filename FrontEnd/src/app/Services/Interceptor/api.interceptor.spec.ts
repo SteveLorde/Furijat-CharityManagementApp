@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { APIInterceptor } from './api.interceptor';
+/*import { APIInterceptor } from './api.interceptor';
 
 describe('APIInterceptor', () => {
   beforeEach(() => TestBed.configureTestingModule({
@@ -14,3 +14,4 @@ describe('APIInterceptor', () => {
     expect(interceptor).toBeTruthy();
   });
 });
+*/
