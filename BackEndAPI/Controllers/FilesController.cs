@@ -7,13 +7,13 @@ using System.IO;
 
 namespace BackEndAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/GetFile")]
     [ApiController]
     public class FilesController : ControllerBase
     {
         // GET api/values  
         [HttpGet]
-        public IActionResult DownloadFile(string filename)
+        public IActionResult GetFile(string filename)
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Assets", filename);
             var stream = new FileStream(path, FileMode.Open);
