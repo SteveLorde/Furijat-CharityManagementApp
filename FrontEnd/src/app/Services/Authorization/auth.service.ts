@@ -22,8 +22,8 @@ export class AuthService {
 
   ngOnInit(): void { }
 
-  authregisterUrl = environment.baseUrl + 'api/Account/register';
-  authloginUrl = environment.baseUrl + 'api/Account/login';
+  authregisterUrl = environment.baseUrl + 'api2/Auth/register';
+  authloginUrl = environment.baseUrl + 'api2/Auth/login';
 
   register(user: User): Observable<any> {
 

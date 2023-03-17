@@ -19,7 +19,8 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { CasestableComponent } from './Components/casestable/casestable.component';
-import { ProfilepicComponent } from './Components/profilepic/profilepic.component'
+import { ProfilepicComponent } from './Components/profilepic/profilepic.component';
+import { SearchbarComponent } from './Components/searchbar/searchbar.component'
 
 
 @NgModule({
@@ -31,7 +32,9 @@ import { ProfilepicComponent } from './Components/profilepic/profilepic.componen
     RegisterComponent,
     FileUploadComponent,
     CasestableComponent,
-    ProfilepicComponent
+    ProfilepicComponent,
+    SearchbarComponent,
+
   ],
   imports: [
     BrowserModule,
