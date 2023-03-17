@@ -1,8 +1,24 @@
-<div class="text-center">
-  <input type="file" (change)="onChange($event.target.files)">
+
+
+
+<input type="file" class="file-input"
+       (change)="onFileSelected($event)" #fileUpload>
+
+<div class="file-upload">
+
+  {{fileName || "No file uploaded yet."}}
+
+  <button class="upload-btn" fileUpload.value = '' (click)="fileUpload.click()"></button>
+  <button>attach_file</button>
 </div>
 
 <!--
+  
+
+  <div class="text-center">
+  <input type="file" (change)="onChange($event.target.files)">
+</div>
+
 
 <div class="container text-center jumbotron"
      *ngIf="shortLink">
