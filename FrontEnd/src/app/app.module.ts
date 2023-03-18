@@ -7,6 +7,8 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from 'src/app/Services/AuthGuard/authguard';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { APIInterceptor } from 'src/app/Services/Interceptor/api.interceptor';
+import { MaterialModule } from './material.module';
+
 
 
 
@@ -20,7 +22,8 @@ import { RegisterComponent } from './Components/register/register.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { CasestableComponent } from './Components/casestable/casestable.component';
 import { ProfilepicComponent } from './Components/profilepic/profilepic.component';
-import { SearchbarComponent } from './Components/searchbar/searchbar.component'
+import { SearchbarComponent } from './Components/searchbar/searchbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -43,6 +46,8 @@ import { SearchbarComponent } from './Components/searchbar/searchbar.component'
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

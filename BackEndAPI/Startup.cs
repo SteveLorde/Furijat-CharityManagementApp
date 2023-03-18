@@ -20,6 +20,9 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BackEndAPI.DTOs;
 using BackEndAPI.Views;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace BackEndAPI
 {
@@ -60,9 +63,22 @@ namespace BackEndAPI
 
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Assets")),
+                RequestPath = new PathString("/Assets")
+            });
+
             app.UseRouting();
 
-            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
+            app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin 
+    .AllowCredentials());
+
+
 
             app.UseAuthentication();
             app.UseAuthorization();

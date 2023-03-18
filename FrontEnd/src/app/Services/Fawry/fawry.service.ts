@@ -7,5 +7,7 @@ export class FawryService {
 
   constructor() { }
 
-  apiurl = ''
+  apiurl = 'https://atfawry.fawrystaging.com/ECommerceWeb/Fawry/payments/charge';
+
+
 }
