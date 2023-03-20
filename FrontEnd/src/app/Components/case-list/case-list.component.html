@@ -1,23 +1,6 @@
 <p>case-list works!</p>
 
-<mat-form-field appearance="standard">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Search by Subject" #input>
-</mat-form-field>
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  <ng-container *ngFor="let column of columns"
-                [matColumnDef]="column.columnDef">
-    <th mat-header-cell *matHeaderCellDef>{{column.header}}</th>
-    <td mat-cell *matCellDef="let row">{{column.cell(row)}}</td>
-  </ng-container>
-
-  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-
-
+<app-casestable></app-casestable>
 
 <app-file-upload></app-file-upload>
 

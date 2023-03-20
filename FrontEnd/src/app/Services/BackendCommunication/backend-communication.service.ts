@@ -16,20 +16,13 @@ export class BackendCommunicationService {
   //general url link
   serverUrl = environment.baseUrl;
 
+  //-----------------------------------------------------
   //test url link
-  testurl = 'http://localhost:3000/Cases';
-
-  //test url for pagination
-  private pagetesturl = "https://reqres.in/api/users";
+  testurl = 'https://jsonplaceholder.typicode.com/users';
 
   //GET HTTP TEST
   getTEST(): Observable<any> {
     return this.http.get<any>(this.testurl);
-  }
-
-  //GET TEST FOR PAGINATION
-  getStudents(page: number) {
-    return this.http.get(this.pagetesturl + '?page=' + page);
   }
 
   //POST HTTP TEST
@@ -44,7 +37,15 @@ export class BackendCommunicationService {
 
   //DELETE HTTP TEST
 
+  //GET TEST FOR PAGINATION
 
+
+  //----------------------------------
+
+
+
+  //PROJECT FUNCTIONS
+  
   //GET HTTP for Cases
   getCases(): Observable<Case[]> {
     return this.http.get<Case[]>(this.serverUrl + 'api/Cases');
@@ -67,7 +68,7 @@ export class BackendCommunicationService {
 
   //DELETE HTTP
   public delete(url: string, options?: any) {
-    return this.http.delete(url, options);
+    return this.http.delete(this.serverUrl, options);
   }
 
 }

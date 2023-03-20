@@ -45,14 +45,14 @@ namespace BackEndAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEndAPI", Version = "v1" });
             });
-            //services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
+            services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
             services.InstallServicesInAssembly(Configuration);
 
             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, FurijatContext db)
         {
             if (env.IsDevelopment())
             {
@@ -60,6 +60,9 @@ namespace BackEndAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BackEndAPI v1"));
             }
+
+
+            db.Database.EnsureCreated();
 
             app.UseHttpsRedirection();
 
