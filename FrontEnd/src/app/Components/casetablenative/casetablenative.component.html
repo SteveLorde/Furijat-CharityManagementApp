@@ -1,0 +1,25 @@
+<p>casetablenative works!</p>
+
+<div class="form-group">
+  <input type="text" class="form-control Search-field" placeholder="Search Case Name" [(ngModel)]="searchText" />
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Case ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let case of Cases | searchFilter: searchText">
+      <td>{{ case.id }}</td>
+      <td>{{ case.name }}</td>
+      <td>{{ case.email }}</td>
+      <td>{{ case.phone }}</td>
+    </tr>
+  </tbody>
+</table>

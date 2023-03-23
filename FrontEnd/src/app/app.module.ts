@@ -23,7 +23,9 @@ import { FileUploadComponent } from './Components/file-upload/file-upload.compon
 import { CasestableComponent } from './Components/casestable/casestable.component';
 import { ProfilepicComponent } from './Components/profilepic/profilepic.component';
 import { SearchbarComponent } from './Components/searchbar/searchbar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CasetablenativeComponent } from './Components/casetablenative/casetablenative.component';
+import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     CasestableComponent,
     ProfilepicComponent,
     SearchbarComponent,
-
+    CasetablenativeComponent,
+    SearchFilterPipe,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpEventType, HttpErrorResponse }
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Case } from 'src/app/Models/Case'
+import { Case } from 'src/app/Interfaces/Case'
 import { Charity } from 'src/app/Models/Charity'
 
 @Injectable({
