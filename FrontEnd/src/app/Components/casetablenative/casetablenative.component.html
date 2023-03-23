@@ -1,7 +1,7 @@
 <p>casetablenative works!</p>
 
-<div class="form-group">
-  <input type="text" class="form-control Search-field" placeholder="Search Case Name" [(ngModel)]="searchText" />
+<div class="searchbar">
+  <input type="text" class="searchinput" placeholder="Search Case Name" [(ngModel)]="searchText" />
 </div>
 
 <table>
@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let case of Cases | searchFilter: searchText">
+    <tr *ngFor="let case of Cases | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
       <td>{{ case.id }}</td>
       <td>{{ case.name }}</td>
       <td>{{ case.email }}</td>
@@ -23,3 +23,5 @@
     </tr>
   </tbody>
 </table>
+<pagination-controls (pageChange)="p = $event">
+</pagination-controls>

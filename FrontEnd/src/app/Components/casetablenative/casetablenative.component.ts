@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Case } from 'src/app/Interfaces/Case';
 
+export interface PagingConfig {
+  currentPage: number;
+  itemsPerPage: number;
+  totalItems: number;
+}
+
 @Component({
   selector: 'app-casetablenative',
   templateUrl: './casetablenative.component.html',
@@ -11,10 +17,15 @@ export class CasetablenativeComponent implements OnInit {
 
   Cases: Case[] = [];
   searchText: string;
+  p: number = 1;
 
-  constructor(private _ServerCom: BackendCommunicationService) { }
+  constructor(private _ServerCom: BackendCommunicationService) {}
 
   ngOnInit(): void {
+    this.GetCases()
+  }
+
+  GetCases() {
     this._ServerCom.getTEST().subscribe((res: any[]) => {
       this.Cases = res;
     });
