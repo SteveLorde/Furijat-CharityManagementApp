@@ -57,7 +57,7 @@ import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
     useClass: APIInterceptor,
     multi: true,
   },
-    AuthGuard],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

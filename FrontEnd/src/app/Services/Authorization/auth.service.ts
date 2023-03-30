@@ -1,118 +1,101 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {AuthGuard } from 'src/app/Services/AuthGuard/authguard'
 import { User } from '../../Models/User';
-
-//modify header of requests constantly
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class AuthService {
-  constructor(protected http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   ngOnInit(): void { }
 
-  authregisterUrl = environment.baseUrl + 'api2/Auth/register';
-  authloginUrl = environment.baseUrl + 'api2/Auth/login';
+  authregisterUrl = 'http://localhost:3000/register';
+  authloginUrl = 'http://localhost:3000/login';
+  authgetmeUrl = 'http://localhost:3000/users';
+  currentUser = {};
 
-  register(user: User): Observable<any> {
-
+  public register(user: User): Observable<any> {
     return this.http.post<any>(this.authregisterUrl, user);
   }
 
-  login(user: User): Observable<string> {
-
+  public login(user: User): Observable<string> {
     return this.http.post(this.authloginUrl, user, { responseType: 'text' });
   }
-}
 
-
-
-/*
-login(email: string, password: string) {
-return this.http.post<User>('/api/login', { email, password })
-  .shareReplay();
-}
-
-//check user authentication jwt token
-isUserAuthenticated() {
-const token = localStorage.getItem("jwt");
-if (token && !this.jwtHelper.isTokenExpired(token)) {
-  return true;
-}
-else {
-  return false;
-}
-}
-
-
-public logOut = () => {
-localStorage.removeItem("jwt");
-}
-
-
-}
-
-/*
-public tokenKey: string = "token";
-
-//authorization endpoint url
-
-
-
-
-isAuthenticated(): boolean {
-return this.getToken() !== null;
-}
-
-getToken(): string | null {
-return localStorage.getItem(this.tokenKey);
-}
-
-login(username: string, password: string): Observable<any> {
-return this.http.post(this.authUrl + 'login', {
-username,
-password
-})
-.pipe(map(user => {
-  // login successful if there's a jwt token in the response
-  if (user) {
-    // store user details and jwt token in local storage to keep user logged in between page refreshes
-    localStorage.setItem('TokenInfo', JSON.stringify(user));
+  public getMe(): Observable<string> {
+    return this.http.get(this.authgetmeUrl, {
+      responseType: 'text',
+      });
   }
-  return user;
-}));
-}
 
-/*
-login(username: string, password: string): Observable<any> {
-return this.http.post(this.authUrl + 'login', {
-username,
-password
-}, httpOptions);
-}
+  /*
+  // Sign-in
+  signIn(user: User) {
+    return this.http
+      .post<any>(this.authloginUrl, user)
+      .subscribe((res: any) => {
+        localStorage.setItem('access_token', res.token);
+        this.getUserProfile(res._id).subscribe((res) => {
+          this.currentUser = res;
+        });
+      });
+  }
 
 
-logout() {
-// remove user from local storage to log user out
-localStorage.removeItem('TokenInfo');
-}
+  // Sign-up
+  signUp(user: User): Observable<any> {
+    let api = this.authregisterUrl;
+    return this.http.post(api, user).pipe(catchError(this.handleError));
+  }
 
-register(username: string, email: string, password: string): Observable<any> {
-return this.http.post(this.authUrl + 'register', {
-username,
-email,
-password
-}, httpOptions);
+  //RETRIEVE TOKEN
+  getToken() {
+    return localStorage.getItem('access_token');
+  }
+
+  //IS USER LOGGED IN?
+  getisLoggedIn(): boolean {
+    let authToken = localStorage.getItem('access_token');
+    return authToken !== null ? true : false;
+  }
+
+  Logout() {
+    let removeToken = localStorage.removeItem('access_token');
+    if (removeToken == null) {
+      this.router.navigate(['log-in']);
+    }
+  }
+
+  //GET User Profile by ID
+  getUserProfile(id: any): Observable<any> {
+    //let api = `${this.endpoint}/user-profile/${id}`;
+    let api = environment.baseUrl + 'Login' + id;
+    return this.http.get(api, { headers: this.headers }).pipe(
+      map((res) => {
+        return res || {};
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  handleError(error: HttpErrorResponse) {
+    let msg = '';
+    if (error.error instanceof ErrorEvent) {
+      // client-side error
+      msg = error.error.message;
+    } else {
+      // server-side error
+      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(msg);
+  }
+  */
 }
-*/

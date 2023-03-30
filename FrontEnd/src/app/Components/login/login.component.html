@@ -1,23 +1,38 @@
 <p>login works!</p>
 
 
+
+<div>
+  email:
+  <input [(ngModel)]="user.email" placeholder="email" />
+</div>
+<div>
+  password:
+  <input [(ngModel)]="user.password" placeholder="password" type="password" />
+</div>
+<button (click)="register(user)">Register</button>
+<button (click)="login(user)">Login</button>
+<button (click)="getme()">Get Me</button>
+
+
+
+<!--
 <main class="form-signin w-100 m-auto">
-  <form [formGroup]="login" (submit)="submit(user)">
+  <form [formGroup]="signinForm" (submit)="loginUser()">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     <div class="form-floating">
-      <input type="email" [(ngModel)]="user.username" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" [(ngModel)]="user.password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
   </form>
 </main>
-
-
+  -->
 
 <!-- OLD NATIVE LOGIN
 
