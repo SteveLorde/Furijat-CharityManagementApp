@@ -1,10 +1,10 @@
 export interface Charity {
 
-  CharityID: number;
-  Name: string;
-  Description?: string;
-  Location: string;
-  Phone: number;
-  Email: string;
+  id: number;
+  name: string | undefined;
+  description: string | undefined;
+  location: string | undefined;
+  phone: string | undefined;
+  email: string | undefined;
 
 }

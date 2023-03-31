@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
-import { TokenstorageService } from 'src/app/Services/tokenstorage/tokenstorage.service'
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
-import { LoginModel } from 'src/app/Interfaces/LoginModel'
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { AuthenticatedResponse } from '../../Interfaces/AuthenticatedResponse';
-import { User } from '../../Models/User';
+import { User } from '../../Models/Login';
 
 
 @Component({
@@ -15,7 +12,6 @@ import { User } from '../../Models/User';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  invalidLogin: boolean = false;
   user = new User();
   signinForm: FormGroup;
 
@@ -51,16 +47,15 @@ export class LoginComponent implements OnInit {
       console.log(name);
     });
   }
-
-  loginUser() {
-    this.authService.login(this.signinForm.value);
-  }
 }
 
 
 /*
 
 
+  loginUser() {
+    this.authService.login(this.signinForm.value);
+  }
 /*
 //form controls for HTML template
 

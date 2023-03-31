@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpEventType, HttpErrorResponse }
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Case } from 'src/app/Interfaces/Case'
+import { Case } from 'src/app/Models/Case'
 import { Charity } from 'src/app/Models/Charity'
 
 @Injectable({
@@ -44,7 +44,7 @@ export class BackendCommunicationService {
 
 
 
-  //PROJECT FUNCTIONS
+  //PROJECT Endpoints
   
   //GET HTTP for Cases
   getCases(): Observable<Case[]> {
@@ -55,6 +55,12 @@ export class BackendCommunicationService {
   getCharity(): Observable<Charity[]> {
     return this.http.get<Charity[]>(this.serverUrl + 'api/Charity');
   }
+
+  //GET HTTP for Users
+  getUsers(): Observable<Charity[]> {
+    return this.http.get<Charity[]>(this.serverUrl + 'api/User');
+  }
+
 
   //POST HTTP
   public post(url: string, data: any, options?: any) {

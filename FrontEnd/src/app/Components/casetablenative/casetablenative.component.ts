@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { Case } from 'src/app/Interfaces/Case';
+import { Case } from 'src/app/Models/Case';
 
 export interface PagingConfig {
   currentPage: number;

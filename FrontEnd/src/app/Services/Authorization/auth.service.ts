@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {AuthGuard } from 'src/app/Services/AuthGuard/authguard'
-import { User } from '../../Models/User';
+import { User } from '../../Models/Login';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,9 @@ import { User } from '../../Models/User';
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
+
+
+  roleAs: string;
 
   ngOnInit(): void { }
 
@@ -36,6 +39,9 @@ export class AuthService {
       });
   }
 
+  public accesserror() {
+    console.log('you have to login')
+  }
   /*
   // Sign-in
   signIn(user: User) {

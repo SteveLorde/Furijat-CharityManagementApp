@@ -9,6 +9,11 @@
       "email": "lolman@gmail.com",
       "password": "$2a$10$tMS4LD6lgwBccw/jycTnyOaFL3zD4nX8jZC6iZ6yG8E9OWUvjqjKG",
       "id": 2
+    },
+    {
+      "email": "stark@gmail.com",
+      "password": "$2a$10$RN0.YVFURUbzl32th7fBk.E3ut9M6w/VfCbqk2wL41nr1WV/pmF12",
+      "id": 3
     }
   ]
 }

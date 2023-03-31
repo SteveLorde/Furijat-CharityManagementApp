@@ -26,6 +26,7 @@ import { SearchbarComponent } from './Components/searchbar/searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CasetablenativeComponent } from './Components/casetablenative/casetablenative.component';
 import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
+import { AddcaseComponent } from 'src/app/Components/addcase/addcase.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
     SearchbarComponent,
     CasetablenativeComponent,
     SearchFilterPipe,
+    AddcaseComponent,
   ],
   imports: [
     BrowserModule,

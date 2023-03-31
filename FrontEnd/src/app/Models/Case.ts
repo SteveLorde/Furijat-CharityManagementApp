@@ -1,4 +1,4 @@
-export class Case {
+export interface Case {
 
   id: string | undefined
   name: string | undefined;
