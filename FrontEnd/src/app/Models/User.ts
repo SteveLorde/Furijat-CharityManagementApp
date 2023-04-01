@@ -1,11 +1,11 @@
-export interface User {
+export class User {
 
   userId: number;
-  userType: string;
+  uType: string;
   password: string;
   userName: string;
   firstName: string;
-  lastName: string;
+  lastNaame: string;
   userTypeID: number;
   token: string;
 

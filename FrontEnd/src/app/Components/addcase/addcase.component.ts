@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Case } from 'src/app/Models/Case';
 
 @Component({
   selector: 'app-addcase',

@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {AuthGuard } from 'src/app/Services/AuthGuard/authguard'
-import { User } from '../../Models/Login';
+import { User } from '../../Models/User';
+import { Login } from '../../Models/Login';
 
 @Injectable({
   providedIn: 'root',
@@ -15,33 +16,38 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-
-  roleAs: string;
-
   ngOnInit(): void { }
 
   authregisterUrl = 'http://localhost:3000/register';
   authloginUrl = 'http://localhost:3000/login';
   authgetmeUrl = 'http://localhost:3000/users';
+
+  registerUrl = environment.baseUrl + 'api/Account/register'
+  loginUrl = environment.baseUrl + 'api/Account/login'
+  getmeUrl = environment.baseUrl + 'api/user'
+
   currentUser = {};
 
   public register(user: User): Observable<any> {
-    return this.http.post<any>(this.authregisterUrl, user);
+    return this.http.post<any>(this.registerUrl, user);
   }
 
-  public login(user: User): Observable<string> {
-    return this.http.post(this.authloginUrl, user, { responseType: 'text' });
+  public login(user: Login): Observable<string> {
+    return this.http.post(this.loginUrl, user, { responseType: 'text' });
   }
 
-  public getMe(): Observable<string> {
+  public getMe(): Observable<any> {
     return this.http.get(this.authgetmeUrl, {
       responseType: 'text',
       });
   }
 
+
   public accesserror() {
     console.log('you have to login')
   }
+
+
   /*
   // Sign-in
   signIn(user: User) {

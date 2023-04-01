@@ -2,21 +2,43 @@
 
 
 
-<div>
-  email:
-  <input [(ngModel)]="user.email" placeholder="email" />
-</div>
-<div>
-  password:
-  <input [(ngModel)]="user.password" placeholder="password" type="password" />
-</div>
+<form [formGroup]="LogintForm" (ngSubmit)="login(user)">
+  <div>
+    username:
+    <input formControlName="userName" placeholder="username" />
+  </div>
+  <div>
+    password:
+    <input formControlName="password" placeholder="password" type="password" />
+  </div>
+  <input type="submit">Login/>
+</form>
+
 <button (click)="register(user)">Register</button>
-<button (click)="login(user)">Login</button>
 <button (click)="getme()">Get Me</button>
+
+<div>
+  <h1>your email is</h1>
+  <h1>
+
+    <!--{{obj.userName}}-->
+  </h1>
+  <h1>your password</h1>
+  <h1>
+
+  </h1>
+</div>
 
 
 
 <!--
+  [(ngModel)]="user.email"
+
+   [(ngModel)]="user.password"
+
+
+
+
 <main class="form-signin w-100 m-auto">
   <form [formGroup]="signinForm" (submit)="loginUser()">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
@@ -33,7 +55,6 @@
   </form>
 </main>
   -->
-
 <!-- OLD NATIVE LOGIN
 
 <div class="logincontainer">

@@ -54,11 +54,12 @@ import { AddcaseComponent } from 'src/app/Components/addcase/addcase.component';
     BrowserAnimationsModule,
     MaterialModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: APIInterceptor,
-    multi: true,
-  },
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: APIInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

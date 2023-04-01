@@ -26,7 +26,7 @@ export class CasetablenativeComponent implements OnInit {
   }
 
   GetCases() {
-    this._ServerCom.getTEST().subscribe((res: any[]) => {
+    this._ServerCom.getCases().subscribe((res: any[]) => {
       this.Cases = res;
     });
   }

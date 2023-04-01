@@ -3,7 +3,12 @@ import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { User } from '../../Models/Login';
+import { User } from '../../Models/User';
+import { Login } from '../../Models/Login';
+import { ClassTest } from '../../Models/classtest';
+
+
+
 
 
 @Component({
@@ -12,34 +17,39 @@ import { User } from '../../Models/Login';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user = new User();
+  user: User = <User>{};
   signinForm: FormGroup;
 
   constructor(private router: Router, private authService: AuthService, private http: HttpClient, public fb: FormBuilder) {
     this.signinForm = this.fb.group({
-      email: [''],
+      userName: [''],
       password: [''],
     });
   }
 
+  LogintForm = new FormGroup({
+    userName: new FormControl(),
+    password: new FormControl(),
+  })
+
   ngOnInit() {
+   
   }
 
+ 
 
-  /*
-  loginform = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  });
-  */
-  register(user: User) {
+  loginDTO: Login;
+
+  register(user) {
     this.authService.register(user).subscribe();
   }
 
-  login(user: User) {
-    this.authService.login(user).subscribe((token: string) => {
+  login(loginDTO) {
+    this.authService.login(loginDTO).subscribe((token: string) => {
       localStorage.setItem('authToken', token);
-    });
+    })
+    //this.obj.userName = 'mumford'
+    //console.log(this.obj.userName);
   }
 
   getme() {

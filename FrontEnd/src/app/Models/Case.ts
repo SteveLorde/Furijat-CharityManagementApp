@@ -1,8 +1,15 @@
 export interface Case {
 
-  id: string | undefined
-  name: string | undefined;
-  email: string | undefined;
-  phone: number | undefined;
+  id: number
+  firstName: string
+  lastName: string
+  description: string
+  address: string
+  currentAmount: number
+  totalAmount: number
+  status: string
 
+  /*
+   charity interface properties to be added
+   */
 }

@@ -5,7 +5,4 @@ export interface CasePayment {
   paymentMethod: string;
   paymentAmount: number;
 
-  /*
-   cases to be added???
-   */
 }
