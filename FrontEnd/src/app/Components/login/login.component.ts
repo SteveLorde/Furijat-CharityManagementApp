@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { User } from '../../Models/User';
 import { Login } from '../../Models/Login';
-import { ClassTest } from '../../Models/classtest';
+import { Student } from '../../Models/classtest';
 
 
 

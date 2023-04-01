@@ -1,1 +1,33 @@
 <p>addcase works!</p>
+
+<form [formGroup]="AddCaseForm" (ngSubmit)="onSubmit()">
+  <div>
+    FirstName:
+    <input formControlName="firstname" placeholder="username" type="text" />
+  </div>
+  <div>
+    LastName:
+    <input formControlName="lastname" placeholder="lastname" type="text" />
+  </div>
+  <div>
+    Description:
+    <input formControlName="description" placeholder="description" type="text" />
+  </div>
+  <div>
+    Address:
+    <input formControlName="address" placeholder="address" type="text" />
+  </div>
+  <div>
+    Amount Needed:
+    <input formControlName="amountneeded" placeholder="amountneeded" type="number" />
+  </div>
+  <div>
+    Current Amount:
+    <input formControlName="currentamount" placeholder="currentamount" type="number" />
+  </div>
+  <div>
+    Total Amount:
+    <input formControlName="totalamount" placeholder="totalamount" type="number" />
+  </div>
+  <input type="submit" value="Add Case">
+</form>
