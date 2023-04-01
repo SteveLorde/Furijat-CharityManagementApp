@@ -17,8 +17,9 @@ import { Student } from '../../Models/classtest';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User = <User>{};
   signinForm: FormGroup;
+
+  loginreq: Login = new Login()
 
   constructor(private router: Router, private authService: AuthService, private http: HttpClient, public fb: FormBuilder) {
     this.signinForm = this.fb.group({
@@ -36,18 +37,16 @@ export class LoginComponent implements OnInit {
    
   }
 
- 
 
-  loginDTO: Login;
 
   register(user) {
     this.authService.register(user).subscribe();
   }
 
-  login(loginDTO) {
-    this.authService.login(loginDTO).subscribe((token: string) => {
-      localStorage.setItem('authToken', token);
-    })
+  login(loginreq: Login) {
+    loginreq = this.LogintForm.value
+    this.authService.login(loginreq).subscribe()
+    this.loginreq.userName = loginreq.userName
     //this.obj.userName = 'mumford'
     //console.log(this.obj.userName);
   }

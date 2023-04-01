@@ -2,7 +2,7 @@
 
 
 
-<form [formGroup]="LogintForm" (ngSubmit)="login(user)">
+<form [formGroup]="LogintForm" (ngSubmit)="login(loginreq)">
   <div>
     username:
     <input formControlName="userName" placeholder="username" />
@@ -11,27 +11,27 @@
     password:
     <input formControlName="password" placeholder="password" type="password" />
   </div>
-  <input type="submit">Login/>
+  <input type="submit" value="Login" />
 </form>
 
-<button (click)="register(user)">Register</button>
+
 <button (click)="getme()">Get Me</button>
 
 <div>
   <h1>your email is</h1>
   <h1>
-
-    <!--{{obj.userName}}-->
+    {{loginreq.userName}}
   </h1>
   <h1>your password</h1>
   <h1>
-
   </h1>
 </div>
 
 
 
 <!--
+
+<button (click)="register(user)">Register</button>
   [(ngModel)]="user.email"
 
    [(ngModel)]="user.password"

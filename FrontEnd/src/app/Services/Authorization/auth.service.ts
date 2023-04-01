@@ -25,6 +25,7 @@ export class AuthService {
   registerUrl = environment.baseUrl + 'api/Account/register'
   loginUrl = environment.baseUrl + 'api/Account/login'
   getmeUrl = environment.baseUrl + 'api/user'
+  serverUrl = environment.baseUrl;
 
   currentUser = {};
 
@@ -32,8 +33,8 @@ export class AuthService {
     return this.http.post<any>(this.registerUrl, user);
   }
 
-  public login(user: Login): Observable<string> {
-    return this.http.post(this.loginUrl, user, { responseType: 'text' });
+  public login(user: Login): Observable<any> {
+    return this.http.post(this.serverUrl + 'api/Account/login', user, { responseType: 'text' });
   }
 
   public getMe(): Observable<any> {
