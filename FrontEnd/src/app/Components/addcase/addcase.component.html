@@ -1,6 +1,6 @@
 <p>addcase works!</p>
 
-<form [formGroup]="AddCaseForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="AddCaseForm" (ngSubmit)="AddCase(CaseReq)">
   <div>
     FirstName:
     <input formControlName="firstname" placeholder="username" type="text" />

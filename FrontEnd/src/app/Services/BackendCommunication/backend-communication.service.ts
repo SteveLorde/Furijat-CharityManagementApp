@@ -69,7 +69,7 @@ export class BackendCommunicationService {
 
   addCase(troubled: any): Observable<any> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.post<any>(this.serverUrl + 'api/AddCase', troubled, httpOptions);
+    return this.http.post<any>(this.serverUrl + 'api/Cases/AddNewCase', troubled, httpOptions);
   }
 
   //PUT HTTP

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Case } from 'src/app/Models/Case';
 
 @Component({
@@ -8,8 +9,9 @@ import { Case } from 'src/app/Models/Case';
   styleUrls: ['./addcase.component.css']
 })
 export class AddcaseComponent implements OnInit {
+  CaseReq!: Case;
 
-  constructor() { }
+  constructor(private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
   }
@@ -24,20 +26,10 @@ export class AddcaseComponent implements OnInit {
     totalamount: new FormControl(),
   })
 
-
-  addCaseRequest: Case = {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      description: '',
-      address: '',
-      currentAmount: 0,
-      totalAmount: 0,
-      status: ''
-  }
-
-  AddCase(CaseRequest: Case) {
-
+  AddCase(CaseReq: Case) {
+    CaseReq = this.AddCaseForm.value
+    console.log(CaseReq)
+    this._servercom.addCase(CaseReq).subscribe()
   }
 
   onSubmit() {
