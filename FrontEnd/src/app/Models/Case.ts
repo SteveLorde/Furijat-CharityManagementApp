@@ -9,7 +9,4 @@ export interface Case {
   totalAmount: number
   status: string
 
-  /*
-   charity interface properties to be added
-   */
 }

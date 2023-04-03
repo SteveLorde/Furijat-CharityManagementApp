@@ -12,10 +12,19 @@ import { AuthService } from 'src/app/Services/Authorization/auth.service'
 @Injectable()
 export class APIInterceptor implements HttpInterceptor {
 
-  constructor() { }
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    const token = localStorage.getItem('authToken');
 
-  intercept(request: HttpRequest<any>,
-    next: HttpHandler): Observable<HttpEvent<any>> {
- return next.handle(request);
- }
+    if (token) {
+      req = req.clone({
+        setHeaders: { Authorization: `Bearer ${token}` },
+      });
+    }
+
+    return next.handle(req);
+  }
+
 }

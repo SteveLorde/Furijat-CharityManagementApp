@@ -19,7 +19,7 @@ import { Student } from '../../Models/classtest';
 export class LoginComponent implements OnInit {
   signinForm: FormGroup;
 
-  loginreq: Login = new Login()
+
 
   constructor(private router: Router, private authService: AuthService, private http: HttpClient, public fb: FormBuilder) {
     this.signinForm = this.fb.group({
@@ -34,10 +34,10 @@ export class LoginComponent implements OnInit {
   })
 
   ngOnInit() {
-   
+
   }
 
-
+  loginreq: Login = new Login()
 
   register(user) {
     this.authService.register(user).subscribe();
@@ -45,10 +45,12 @@ export class LoginComponent implements OnInit {
 
   login(loginreq: Login) {
     loginreq = this.LogintForm.value
-    this.authService.login(loginreq).subscribe()
-    this.loginreq.userName = loginreq.userName
-    //this.obj.userName = 'mumford'
-    //console.log(this.obj.userName);
+    this.authService.login(loginreq)
+      .subscribe((res: any) => {
+        localStorage.setItem('token', res.token)
+        console.log(res.token)
+      this.loginreq.userName = loginreq.userName
+    })
   }
 
   getme() {
@@ -57,42 +59,3 @@ export class LoginComponent implements OnInit {
     });
   }
 }
-
-
-/*
-
-
-  loginUser() {
-    this.authService.login(this.signinForm.value);
-  }
-/*
-//form controls for HTML template
-
-*/
-
-
-/*
-login = new FormGroup({
-  email: new FormControl('', Validators.required),
-  password: new FormControl('', Validators.required),
-});
-*/
-
-/*
-login = (form: NgForm) => {
-  if (form.valid) {
-    this.http.post<AuthenticatedResponse>("https://localhost:5001/api/auth/login", this.credentials, {
-      headers: new HttpHeaders({ "Content-Type": "application/json" })
-    })
-      .subscribe({
-        next: (response: AuthenticatedResponse) => {
-          const token = response.token;
-          localStorage.setItem("jwt", token);
-          this.invalidLogin = false;
-          this.router.navigate(["/"]);
-        },
-        error: (err: HttpErrorResponse) => this.invalidLogin = true
-      })
-  }
-}
-*/

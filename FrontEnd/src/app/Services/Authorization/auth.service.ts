@@ -34,8 +34,12 @@ export class AuthService {
   }
 
   public login(user: Login): Observable<any> {
-    return this.http.post(this.serverUrl + 'api/Account/login', user, { responseType: 'text' });
+    return this.http.post(this.serverUrl + 'api/Account/login', user)
   }
+
+  private setSession(authResult) {
+    localStorage.setItem('authToken', authResult.token);
+  }          
 
   public getMe(): Observable<any> {
     return this.http.get(this.authgetmeUrl, {
