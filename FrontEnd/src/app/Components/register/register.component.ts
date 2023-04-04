@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  user: User
+
   ngOnInit(): void {
     this.getprofilepic();
   }

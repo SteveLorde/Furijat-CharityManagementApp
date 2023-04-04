@@ -22,12 +22,12 @@ import { RegisterComponent } from './Components/register/register.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { CasestableComponent } from './Components/casestable/casestable.component';
 import { ProfilepicComponent } from './Components/profilepic/profilepic.component';
-import { SearchbarComponent } from './Components/searchbar/searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CasetablenativeComponent } from './Components/casetablenative/casetablenative.component';
 import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
 import { AddcaseComponent } from 'src/app/Components/addcase/addcase.component';
-
+import { DonateComponent } from 'src/app/Components/donate/donate.component';
+import { ProfileComponent } from 'src/app/Components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +39,11 @@ import { AddcaseComponent } from 'src/app/Components/addcase/addcase.component';
     FileUploadComponent,
     CasestableComponent,
     ProfilepicComponent,
-    SearchbarComponent,
     CasetablenativeComponent,
     SearchFilterPipe,
     AddcaseComponent,
+    DonateComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

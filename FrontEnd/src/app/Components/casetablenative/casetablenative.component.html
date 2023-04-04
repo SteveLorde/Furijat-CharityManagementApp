@@ -8,17 +8,24 @@
   <thead>
     <tr>
       <th scope="col">Case ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Address</th>
+      <th scope="col">Current Amount</th>
+      <th scope="col">Total Amount</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let case of Cases | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
       <td>{{ case.id }}</td>
-      <td>{{ case.name }}</td>
-      <td>{{ case.email }}</td>
+      <td>{{ case.firstName }}</td>
+      <td>{{ case.lastName }}</td>
+      <td>{{ case.description }}</td>
+      <td>{{ case.address }}</td>
+      <td>{{ case.currentAmount }}</td>
+      <td>{{ case.totalAmount }}</td>
       <td>{{ case.phone }}</td>
     </tr>
   </tbody>
