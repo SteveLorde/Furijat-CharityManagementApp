@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { User } from '../../Models/User';
+import { AuthService } from '../../Services/Authorization/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -10,7 +14,9 @@ import { environment } from 'src/environments/environment';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private authService: AuthService) {
+
+  }
 
   ngOnInit(): void {
     this.getprofilepic();
@@ -22,13 +28,21 @@ export class RegisterComponent implements OnInit {
     this.imgsrc
   }
 
-  login = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    phone: new FormControl('', Validators.required),
-    Fax: new FormControl('', Validators.required),
-    Website: new FormControl('', Validators.required),
-    CharityName: new FormControl('', Validators.required),
-  });
+
+  RegisterUser = new FormGroup({
+    UserName: new FormControl(),
+    EMail: new FormControl(),
+    Password: new FormControl(),
+  })
+
+  register(user: User) {
+    user = this.RegisterUser.value
+    this.authService.register(user).subscribe((res: any) => {
+      if (res)
+        console.log('user', res.userName, 'registered')
+    })
+  }
+
+
 
 }

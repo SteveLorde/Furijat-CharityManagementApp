@@ -30,7 +30,7 @@ export class AuthService {
   currentUser = {};
 
   public register(user: User): Observable<any> {
-    return this.http.post<any>(this.registerUrl, user);
+    return this.http.post<any>(this.serverUrl + 'api/Account/register', user);
   }
 
   public login(user: Login): Observable<any> {

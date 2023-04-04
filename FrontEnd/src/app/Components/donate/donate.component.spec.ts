@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchbarComponent } from './searchbar.component';
+import { DonateComponent } from './donate.component';
 
-describe('SearchbarComponent', () => {
-  let component: SearchbarComponent;
-  let fixture: ComponentFixture<SearchbarComponent>;
+describe('DonateComponent', () => {
+  let component: DonateComponent;
+  let fixture: ComponentFixture<DonateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchbarComponent ]
+      declarations: [ DonateComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchbarComponent);
+    fixture = TestBed.createComponent(DonateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
