@@ -1,1 +1,25 @@
 <p>donate works!</p>
+
+
+<div>
+  <h2>Case ID</h2>
+  <p>{{case.id}}</p>
+  <h2>Case First Name</h2>
+  <p>{{case.firstName}}</p>
+  <h2>Case Description</h2>
+  <p>{{case.description}}</p>
+  <h2>Case Current Amount</h2>
+  <p>{{case.currentAmount}}</p>
+  <h2>Case Total Amount Needed</h2>
+  <p>{{case.totalAmount}}</p>
+</div>
+
+<h2></h2>
+<input type="number" [(ngModel)]="donateamount" />
+
+<h2>amount that is about to be donated</h2>
+<p>amount is {{donateamount}}</p>
+
+<button (click)="Close()">Close</button>
+
+<button (click)="Donate()"> Donate</button>

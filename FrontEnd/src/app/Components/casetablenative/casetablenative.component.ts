@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Case } from 'src/app/Models/Case';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 export interface PagingConfig {
   currentPage: number;
@@ -18,11 +19,15 @@ export class CasetablenativeComponent implements OnInit {
   Cases: Case[] = [];
   searchText: string;
   p: number = 1;
+  name: any;
 
-  constructor(private _ServerCom: BackendCommunicationService) {}
+  constructor(private _ServerCom: BackendCommunicationService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.GetCases()
+    this.route.queryParams.subscribe(params => {
+      this.name = params['name'];
+    });
   }
 
   GetCases() {

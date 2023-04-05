@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
-import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { User } from '../../Models/User';
 import { Login } from '../../Models/Login';
-import { Student } from '../../Models/classtest';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 
 
@@ -21,7 +20,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private authService: AuthService, private http: HttpClient, public fb: FormBuilder) {
+  constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService, private http: HttpClient, public fb: FormBuilder) {
     this.signinForm = this.fb.group({
       userName: [''],
       password: [''],
@@ -47,7 +46,7 @@ export class LoginComponent implements OnInit {
     loginreq = this.LogintForm.value
     this.authService.login(loginreq)
       .subscribe((res: any) => {
-        localStorage.setItem('token', res.token)
+        localStorage.setItem('authToken', res.token)
         console.log(res.token)
       this.loginreq.userName = loginreq.userName
     })

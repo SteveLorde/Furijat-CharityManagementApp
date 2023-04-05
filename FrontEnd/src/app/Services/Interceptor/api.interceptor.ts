@@ -20,11 +20,10 @@ export class APIInterceptor implements HttpInterceptor {
 
     if (token) {
       req = req.clone({
-        setHeaders: { Authorization: `Bearer ${token}` },
+        setHeaders: { TOKEN: `Bearer ${token}` },
       });
     }
 
     return next.handle(req);
   }
-
 }

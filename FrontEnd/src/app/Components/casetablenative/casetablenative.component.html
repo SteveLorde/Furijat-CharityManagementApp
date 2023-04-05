@@ -14,6 +14,7 @@
       <th scope="col">Address</th>
       <th scope="col">Current Amount</th>
       <th scope="col">Total Amount</th>
+      <th scope="col"></th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -27,6 +28,9 @@
       <td>{{ case.currentAmount }}</td>
       <td>{{ case.totalAmount }}</td>
       <td>{{ case.phone }}</td>
+      <td>
+        <a [routerLink]="['/donate', case.id]">Donate</a>
+      </td>
     </tr>
   </tbody>
 </table>

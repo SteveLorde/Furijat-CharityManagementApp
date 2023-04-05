@@ -42,6 +42,7 @@ export class BackendCommunicationService {
 
   //----------------------------------
 
+  case: Case;
 
 
   //PROJECT Endpoints
@@ -50,6 +51,12 @@ export class BackendCommunicationService {
   getCases(): Observable<Case[]> {
     return this.http.get<Case[]>(this.serverUrl + 'api/Cases');
   }
+
+  //GET HTTP For Case by ID
+  getCasesById(id: any): Observable<Case[]> {
+    return this.http.get<Case[]>(this.serverUrl + `api/Cases/(getCase/${id}`);
+  }
+
 
   //GET HTTP for Charities
   getCharity(): Observable<Charity[]> {
@@ -67,14 +74,16 @@ export class BackendCommunicationService {
     return this.http.post(url, data, options);
   }
 
+  //POST HTTP for Adding Case
   addCase(troubled: any): Observable<any> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.post<any>(this.serverUrl + 'api/Cases/AddNewCase', troubled, httpOptions);
   }
 
-  //PUT HTTP
-  public put(url: string, data: any, options?: any) {
-    return this.http.put(url, data, options);
+  //PATCH HTTP for Updating a Case
+  updateCase(troubled: any, id: any): Observable<any> {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.put<any>(this.serverUrl + `api/Cases/updateCase/${id}`, troubled, httpOptions);
   }
 
   //DELETE HTTP
