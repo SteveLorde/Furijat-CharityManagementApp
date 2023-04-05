@@ -21,7 +21,6 @@ import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { CasestableComponent } from './Components/casestable/casestable.component';
-import { ProfilepicComponent } from './Components/profilepic/profilepic.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CasetablenativeComponent } from './Components/casetablenative/casetablenative.component';
 import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
@@ -38,7 +37,6 @@ import { ProfileComponent } from 'src/app/Components/profile/profile.component';
     RegisterComponent,
     FileUploadComponent,
     CasestableComponent,
-    ProfilepicComponent,
     CasetablenativeComponent,
     SearchFilterPipe,
     AddcaseComponent,
