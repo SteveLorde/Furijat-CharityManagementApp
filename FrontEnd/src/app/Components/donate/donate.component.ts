@@ -13,7 +13,17 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class DonateComponent implements OnInit {
 
-  case: Case
+  case: Case = {
+      id: 0,
+      firstName: '',
+      lastName: '',
+      description: '',
+      address: '',
+      currentAmount: 0,
+      totalAmount: 0,
+      status: ''
+  }
+
   id: any
   donateamount: number = 0
 
