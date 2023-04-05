@@ -14,11 +14,4 @@ export class AppComponent {
 
   title = 'FrontEnd';
 
-  isUserAuthenticated = (): boolean => {
-    return false
-  }
-  logOut = () => {
-    localStorage.removeItem("jwt");
-  }
-
 }

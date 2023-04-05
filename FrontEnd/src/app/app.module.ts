@@ -3,15 +3,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { JwtModule } from "@auth0/angular-jwt";
 import { AuthGuard } from 'src/app/Services/AuthGuard/authguard';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { APIInterceptor } from 'src/app/Services/Interceptor/api.interceptor';
 import { MaterialModule } from './material.module';
-
-
-
-
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';

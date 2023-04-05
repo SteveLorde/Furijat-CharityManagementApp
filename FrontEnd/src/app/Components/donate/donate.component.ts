@@ -44,6 +44,7 @@ export class DonateComponent implements OnInit {
     this.case.currentAmount = this.case.currentAmount + this.donateamount
     console.log("current amount is ", this.case.currentAmount)
     this._servercom.updateCase(this.case, this.id).subscribe()
+    this.Close()
   }
 
   Close() {

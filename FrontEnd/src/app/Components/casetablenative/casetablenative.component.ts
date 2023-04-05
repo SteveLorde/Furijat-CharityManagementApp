@@ -25,9 +25,6 @@ export class CasetablenativeComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetCases()
-    this.route.queryParams.subscribe(params => {
-      this.name = params['name'];
-    });
   }
 
   GetCases() {
