@@ -22,6 +22,8 @@ export class DonatecharityComponent implements OnInit {
 
   id: any
   donateamount: number = 0
+  cardnumber: number = 0
+  cardccv: number = 0
 
   constructor(private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService) { }
 

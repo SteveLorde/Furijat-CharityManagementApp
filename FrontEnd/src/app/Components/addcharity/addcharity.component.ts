@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Charity } from 'src/app/Models/Charity';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addcharity',
@@ -12,7 +13,7 @@ export class AddcharityComponent implements OnInit {
 
   charity: Charity
 
-  constructor(private _servercom: BackendCommunicationService) { }
+  constructor(private _servercom: BackendCommunicationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -34,5 +35,6 @@ export class AddcharityComponent implements OnInit {
 
   onSubmit() {
     console.log(this.AddCharityForm.value);
+    this.router.navigateByUrl('/charitylist')
   }
 }

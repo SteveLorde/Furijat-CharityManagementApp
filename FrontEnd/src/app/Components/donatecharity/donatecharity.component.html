@@ -18,6 +18,11 @@
 <h2>amount that is about to be donated</h2>
 <p>{{donateamount}}</p>
 
+<h3>Card Number</h3>
+<input type="number" [(ngModel)]="cardnumber" />
+<h3>CCV</h3>
+<input type="number" [(ngModel)]="cardccv" />
+
 <button (click)="Close()">Close</button>
 
 <button (click)="Donate()"> Donate</button>

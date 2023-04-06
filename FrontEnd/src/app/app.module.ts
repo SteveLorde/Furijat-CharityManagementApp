@@ -25,6 +25,7 @@ import { ProfileComponent } from 'src/app/Components/profile/profile.component';
 import { CharitydonationComponent } from 'src/app/Components/charitydonation/charitydonation.component';
 import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
+import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.co
     CharitydonationComponent,
     DonatecharityComponent,
     AddcharityComponent,
+    ValidatecaseComponent,
   ],
   imports: [
     BrowserModule,
