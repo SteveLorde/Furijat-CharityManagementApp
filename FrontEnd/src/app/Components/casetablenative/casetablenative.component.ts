@@ -16,10 +16,11 @@ export interface PagingConfig {
 })
 export class CasetablenativeComponent implements OnInit {
 
-  Cases: Case[] = [];
+  Cases: Case
   searchText: string;
-  p: number = 1;
-  name: any;
+  p: number = 1
+  name: any
+  status: any
 
   constructor(private _ServerCom: BackendCommunicationService, private route: ActivatedRoute) {}
 
@@ -28,7 +29,7 @@ export class CasetablenativeComponent implements OnInit {
   }
 
   GetCases() {
-    this._ServerCom.getCases().subscribe((res: any[]) => {
+    this._ServerCom.getCases().subscribe((res: any) => {
       this.Cases = res;
     });
   }

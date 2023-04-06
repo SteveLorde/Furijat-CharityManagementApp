@@ -1,0 +1,23 @@
+<p>donatecharity works!</p>
+
+<div>
+  <h2>Charity ID</h2>
+  <p>{{charity.id}}</p>
+  <h2>Charity Name</h2>
+  <p>{{charity.name}}</p>
+  <h2>Charity Description</h2>
+  <p>{{charity.description}}</p>
+  <h2>Donate Amount</h2>
+  <!--NOTICE: this element should represent amount of money donated to charity later-->
+  <p>{{donateamount}}</p>
+</div>
+
+<h2></h2>
+<input type="number" [(ngModel)]="donateamount" />
+
+<h2>amount that is about to be donated</h2>
+<p>{{donateamount}}</p>
+
+<button (click)="Close()">Close</button>
+
+<button (click)="Donate()"> Donate</button>

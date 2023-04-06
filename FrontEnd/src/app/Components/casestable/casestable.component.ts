@@ -1,14 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Case } from 'src/app/Models/Case';
 
-//test interface/class
-export interface todo {
-  userid: number;
-  id: number;
-  title: string;
-  completed: string;
-}
 
 @Component({
   selector: 'app-casestable',
@@ -17,19 +11,21 @@ export interface todo {
 })
 export class CasestableComponent implements OnInit {
 
+  dataSource: Case[]
+
   constructor(private _ServerCom: BackendCommunicationService) { }
 
   ngOnInit(): void {
-    this.GetCases();
+    //this.GetCases();
   }
-
+  /*
   displayedColumns: string[] = ['id', 'name', 'email'];
 
-  dataSource = new MatTableDataSource<todo>();
+  this.dataSource = new MatTableDataSource<Case>();
 
   //Function that calls API (GET) to retrieve Case List
   GetCases() {
-    return this._ServerCom.getTEST().subscribe((data) => {
+    return this._ServerCom.getCases().subscribe((data) => {
       this.dataSource = data;
     });
   }
@@ -37,4 +33,5 @@ export class CasestableComponent implements OnInit {
   public filterProduct = (value: string) => {
     this.dataSource.filter = value;
   }
+  */
 }

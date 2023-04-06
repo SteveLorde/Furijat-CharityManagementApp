@@ -9,9 +9,26 @@ import { BackendCommunicationService } from 'src/app/Services/BackendCommunicati
 })
 export class AppComponent {
 
+  Login: any
+  IsLoggedIn: any
+
   constructor(http: HttpClient) {
+    this.IsLoggedIn = localStorage.getItem('loggedin')
+  }
+
+  ngOnInit() {
+    if (this.IsLoggedIn == 1) {
+      this.Login = "Profile"
+    }
+    else
+    {
+      this.Login = "Login"
+      localStorage.removeItem('authToken')
+    }
   }
 
   title = 'FrontEnd';
+
+
 
 }

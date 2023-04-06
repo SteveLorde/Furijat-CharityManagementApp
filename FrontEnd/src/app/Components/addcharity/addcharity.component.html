@@ -1,0 +1,26 @@
+<p>addcharity works!</p>
+
+<form [formGroup]="AddCharityForm" (ngSubmit)="AddCharity(CaseReq)">
+  <div>
+    Charity Name:
+    <input formControlName="name" placeholder="charity name" type="text" />
+  </div>
+
+  <div>
+    Description:
+    <input formControlName="description" placeholder="description" type="text" />
+  </div>
+  <div>
+    Address:
+    <input formControlName="address" placeholder="address" type="text" />
+  </div>
+  <div>
+    Phone Number:
+    <input formControlName="phonenumber" placeholder="phone number" type="text" />
+  </div>
+  <div>
+    Email:
+    <input formControlName="email" placeholder="Email" type="text" />
+  </div>
+  <input type="submit" value="Add Charity">
+</form>

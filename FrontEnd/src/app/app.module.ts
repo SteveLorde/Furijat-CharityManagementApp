@@ -22,6 +22,9 @@ import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
 import { AddcaseComponent } from 'src/app/Components/addcase/addcase.component';
 import { DonateComponent } from 'src/app/Components/donate/donate.component';
 import { ProfileComponent } from 'src/app/Components/profile/profile.component';
+import { CharitydonationComponent } from 'src/app/Components/charitydonation/charitydonation.component';
+import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
+import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { ProfileComponent } from 'src/app/Components/profile/profile.component';
     AddcaseComponent,
     DonateComponent,
     ProfileComponent,
+    CharitydonationComponent,
+    DonatecharityComponent,
+    AddcharityComponent,
   ],
   imports: [
     BrowserModule,

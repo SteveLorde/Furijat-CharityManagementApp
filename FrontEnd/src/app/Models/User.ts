@@ -6,6 +6,9 @@ export class User {
   userName: string;
   firstName: string;
   lastNaame: string;
+  email: string;
+  phoneNumber: string;
   userTypeID: number;
+  token: string;
 
 }

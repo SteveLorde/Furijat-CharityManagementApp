@@ -17,6 +17,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   signinForm: FormGroup;
+  loggedin: any = 0
+  id: any
 
 
 
@@ -33,8 +35,12 @@ export class LoginComponent implements OnInit {
   })
 
   ngOnInit() {
-
+    this.loggedin = localStorage.getItem('loggedin')
+    if (this.loggedin == 1) {
+      this.GoProfile()
+    }
   }
+
 
   loginreq: Login = new Login()
 
@@ -46,15 +52,24 @@ export class LoginComponent implements OnInit {
     loginreq = this.LogintForm.value
     this.authService.login(loginreq)
       .subscribe((res: any) => {
+        this.id = res.userId
         localStorage.setItem('authToken', res.token)
+        localStorage.setItem('loggedin', "1")
+        localStorage.setItem('UID', res.userId)
         console.log(res.token)
-      this.loginreq.userName = loginreq.userName
-    })
+        this.loginreq.userName = loginreq.userName
+        this.loggedin = 1
+        this.GoProfile()
+      })
   }
 
   getme() {
     this.authService.getMe().subscribe((name: string) => {
       console.log(name);
     });
+  }
+
+  GoProfile() {
+    this.router.navigateByUrl('profile')
   }
 }
