@@ -39,7 +39,7 @@ export class ValidatecaseComponent implements OnInit {
 
   ConfirmCase(element: any) {
     this._servercom.addCase(element).subscribe((res: any) => {
-
+      console.log("validating and adding case called", res.name)
     })
   }
 

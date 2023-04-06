@@ -54,8 +54,8 @@ export class BackendCommunicationService {
   }
 
   //GET HTTP for Users by ID
-  getUserbyId(id: any): Observable<User[]> {
-    return this.http.get<User[]>(this.serverUrl + `api/User/(getUser/${id}`);
+  getUserbyId(id: any): Observable<User> {
+    return this.http.get<User>(this.serverUrl + `api/User/(getUser/${id}`);
   }
 
   //----------------------------------
