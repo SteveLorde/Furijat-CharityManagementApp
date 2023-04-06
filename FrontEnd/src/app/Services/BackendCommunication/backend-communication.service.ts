@@ -83,9 +83,15 @@ export class BackendCommunicationService {
     return this.http.put<any>(this.serverUrl + `api/Cases/updateCase/${id}`, troubled, httpOptions);
   }
 
+  //-----------------------------------------
   //DELETE HTTP
   public delete(url: string, options?: any) {
     return this.http.delete(this.serverUrl, options);
+  }
+
+  DeleteCharity(id: any): Observable<any> {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.delete<any>(this.serverUrl + `api/Charity/deleteCharity/${id}`);
   }
 
 }

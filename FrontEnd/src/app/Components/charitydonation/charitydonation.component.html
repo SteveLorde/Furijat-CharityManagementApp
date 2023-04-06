@@ -26,6 +26,9 @@
       <td>
         <a [routerLink]="['/donatecharity', charity.id]">Donate</a>
       </td>
+      <td>
+        <button (click)="DeleteCharity(charity.id)">Delete Charity</button>
+      </td>
     </tr>
   </tbody>
 </table>

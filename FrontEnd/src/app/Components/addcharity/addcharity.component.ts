@@ -26,7 +26,7 @@ export class AddcharityComponent implements OnInit {
     email: new FormControl(),
   })
 
-  AddCase(charity: Charity) {
+  AddCharity(charity: Charity) {
     charity = this.AddCharityForm.value
     console.log(charity)
     this._servercom.addCharity(charity).subscribe()

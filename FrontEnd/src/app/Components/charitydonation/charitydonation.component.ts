@@ -26,4 +26,11 @@ export class CharitydonationComponent implements OnInit {
     });
   }
 
+  DeleteCharity(id: any) {
+    this._ServerCom.DeleteCharity(id).subscribe((res: any) => {
+      console.log("deleting charity called", res.name)
+    })
+    this.GetCharities()
+  }
+
 }
