@@ -12,6 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\app\Services\AuthGuard\" />
+    <Folder Include="src\app\Services\DonateLog\" />
     <Folder Include="src\app\Services\Pipes\" />
     <Folder Include="src\assets\UI\" />
   </ItemGroup>

@@ -1,0 +1,24 @@
+<p>userlog works!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Case ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Address</th>
+      <th scope="col">Current Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let case of Cases">
+      <td>{{ case.id }}</td>
+      <td>{{ case.firstName }}</td>
+      <td>{{ case.lastName }}</td>
+      <td>{{ case.description }}</td>
+      <td>{{ case.address }}</td>
+      <td>{{ case.currentAmount }}</td>
+    </tr>
+  </tbody>
+</table>
