@@ -1,5 +1,6 @@
 <p>userlog works!</p>
 
+<h2>Cases Donated to</h2>
 <table>
   <thead>
     <tr>
@@ -12,13 +13,31 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let case of Cases">
+    <tr *ngFor="let case of DonatedCases">
       <td>{{ case.id }}</td>
       <td>{{ case.firstName }}</td>
       <td>{{ case.lastName }}</td>
       <td>{{ case.description }}</td>
       <td>{{ case.address }}</td>
       <td>{{ case.currentAmount }}</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Charities Donated to</h2>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Charity ID</th>
+      <th scope="col">Charity Name</th>
+      <th scope="col">Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let charity of DonatedCharities">
+      <td>{{ charity.id }}</td>
+      <td>{{ charity.name }}</td>
+      <td>{{ charity.description }}</td>
     </tr>
   </tbody>
 </table>

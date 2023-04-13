@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Case } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import {  } from '';
+import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
+import { Charity } from '../../Models/Charity';
 
 
 @Component({
@@ -13,17 +14,20 @@ import {  } from '';
 export class UserlogComponent implements OnInit {
 
   DonatedCases: Case[] = []
-  case: Case
+  DonatedCharities: Charity[] = []
+  arraytest: any
 
-  constructor() { }
+  constructor(private donatelog: DonatelogService) { }
 
   ngOnInit(): void {
+    this.LogDonationCharities()
+    console.log("showing results in donatedcharitieslog" + this.DonatedCharities)
   }
 
-
-  LogDonation() {
-
+  LogDonationCharities() {
+    this.DonatedCharities = this.donatelog.ReturnDonatedCharities()
   }
+
 
 
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Case } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
+
 
 
 
@@ -27,7 +29,7 @@ export class DonateComponent implements OnInit {
   id: any
   donateamount: number = 0
 
-  constructor(private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService) { }
+  constructor(private donatelog: DonatelogService, private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
     //Retrieve Case from Database by ID

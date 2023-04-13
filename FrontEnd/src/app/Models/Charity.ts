@@ -6,5 +6,6 @@ export interface Charity {
   location: string | undefined;
   phone: string | undefined;
   email: string | undefined;
+  userdonation: number | undefined;
 
 }

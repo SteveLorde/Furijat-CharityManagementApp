@@ -2,19 +2,32 @@ import { Injectable } from '@angular/core';
 import { Case } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Charity } from '../../Models/Charity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DonatelogService {
 
-  DonatedCases: Case[] = []
+  Cases: Case[] = []
+  Charities: Charity[] = []
   caseelement: Case
+  charityelement: Charity
 
   constructor() { }
 
-  PushtoList(caseelement: Case) {
-    this.DonatedCases.push(caseelement)
-}
+  PushtoListCase(caseelement: Case) {
+    this.Cases.push(caseelement)
+  }
+
+  PushtoListCharity(charityelement: Charity) {
+    this.Charities.push(charityelement)
+    console.log("pushed charity to array" + " " + charityelement.name)
+    console.log(this.Charities)
+  }
+
+  ReturnDonatedCharities() {
+    return this.Charities
+  }
 
 }

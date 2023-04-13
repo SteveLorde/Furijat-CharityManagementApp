@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Charity } from 'src/app/Models/Charity';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class DonatecharityComponent implements OnInit {
   cardnumber: number = 0
   cardccv: number = 0
 
-  constructor(private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService) { }
+  constructor(private donatelog: DonatelogService, private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
     this.id = this._Activatedroute.snapshot.paramMap.get("id");
@@ -39,6 +40,7 @@ export class DonatecharityComponent implements OnInit {
     //this.charity.currentAmount = this.case.currentAmount + this.donateamount
     //console.log("current amount is ", this.charity.currentAmount)
     //this._servercom.updateCase(this.case, this.id).subscribe()
+    this.donatelog.PushtoListCharity(this.charity)
     this.Close()
   }
 
