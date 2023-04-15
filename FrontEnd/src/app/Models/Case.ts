@@ -1,4 +1,6 @@
-export interface Case {
+import { Charity } from "./Charity"
+
+export interface CaseDTO {
 
   id: number
   firstName: string
@@ -8,5 +10,6 @@ export interface Case {
   currentAmount: number
   totalAmount: number
   status: string
+  charity: Charity
 
 }

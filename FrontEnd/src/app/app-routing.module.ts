@@ -12,6 +12,8 @@ import { CharitydonationComponent } from 'src/app/Components/charitydonation/cha
 import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
+import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
+
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -25,6 +27,7 @@ const routes: Routes = [
   { path: 'donatecharity/:id', component: DonatecharityComponent },
   { path: 'addcharity', component: AddcharityComponent },
   { path: 'validatecase', component: ValidatecaseComponent },
+  { path: 'contactform', component: ContactformComponent },
 ];
 
 @NgModule({

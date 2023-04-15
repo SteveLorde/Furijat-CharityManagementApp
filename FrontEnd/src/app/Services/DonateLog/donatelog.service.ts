@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Case } from 'src/app/Models/Case';
+import { CaseDTO } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Charity } from '../../Models/Charity';
@@ -9,14 +9,14 @@ import { Charity } from '../../Models/Charity';
 })
 export class DonatelogService {
 
-  Cases: Case[] = []
+  Cases: CaseDTO[] = []
   Charities: Charity[] = []
-  caseelement: Case
+  caseelement: CaseDTO
   charityelement: Charity
 
   constructor() { }
 
-  PushtoListCase(caseelement: Case) {
+  PushtoListCase(caseelement: CaseDTO) {
     this.Cases.push(caseelement)
   }
 

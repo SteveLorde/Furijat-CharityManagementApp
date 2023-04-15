@@ -15,7 +15,7 @@ import { CaseListComponent } from './Components/case-list/case-list.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
-import { CasestableComponent } from './Components/casestable/casestable.component';
+//import { CasestableComponent } from './Components/casestable/casestable.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CasetablenativeComponent } from './Components/casetablenative/casetablenative.component';
 import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
@@ -27,6 +27,7 @@ import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatec
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
+import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
     LoginComponent,
     RegisterComponent,
     FileUploadComponent,
-    CasestableComponent,
+    //CasestableComponent,
     CasetablenativeComponent,
     SearchFilterPipe,
     AddcaseComponent,
@@ -47,6 +48,7 @@ import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
     AddcharityComponent,
     ValidatecaseComponent,
     UserlogComponent,
+    ContactformComponent,
   ],
   imports: [
     BrowserModule,

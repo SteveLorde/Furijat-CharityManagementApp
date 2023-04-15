@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../Models/User';
+import { UserType } from 'src/app/Models/UserType'
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 
@@ -22,8 +23,11 @@ export class ProfileComponent implements OnInit {
       email: '',
       phoneNumber: '',
       userTypeID: 0,
-      token: ''
+      token: '',
+      usertype: undefined
   }
+
+  usertest: User
   id: any
 
   idtest: any = 6

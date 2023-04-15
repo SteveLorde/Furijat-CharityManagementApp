@@ -1,4 +1,6 @@
-export interface Charity {
+import { User } from 'src/app/Models/User'
+
+export interface Charity{
 
   id: number;
   name: string | undefined;
@@ -7,5 +9,5 @@ export interface Charity {
   phone: string | undefined;
   email: string | undefined;
   userdonation: number | undefined;
-
+  user: User;
 }

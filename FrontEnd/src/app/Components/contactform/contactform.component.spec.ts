@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CasestableComponent } from './casestable.component';
+import { ContactformComponent } from './contactform.component';
 
-describe('CasestableComponent', () => {
-  let component: CasestableComponent;
-  let fixture: ComponentFixture<CasestableComponent>;
+describe('ContactformComponent', () => {
+  let component: ContactformComponent;
+  let fixture: ComponentFixture<ContactformComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CasestableComponent ]
+      declarations: [ ContactformComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CasestableComponent);
+    fixture = TestBed.createComponent(ContactformComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loggedin = localStorage.getItem('loggedin')
     if (this.loggedin == 1) {
-      //this.GoProfile()
+      this.GoProfile()
     }
   }
 

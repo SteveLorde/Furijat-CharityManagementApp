@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { Case } from 'src/app/Models/Case';
+import { CaseDTO } from 'src/app/Models/Case';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
@@ -11,8 +11,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ValidatecaseComponent implements OnInit {
 
-  caseelement: Case[] = []
-  casetoadd: Case
+  caseelement: CaseDTO[] = []
+  casetoadd: CaseDTO
   searchText: string;
   p: number = 1
 
@@ -31,7 +31,7 @@ export class ValidatecaseComponent implements OnInit {
     totalamount: new FormControl(),
   })
 
-  AddCaseToValidate(caseelement: Case[],casetoadd: Case) {
+  AddCaseToValidate(caseelement: CaseDTO[],casetoadd: CaseDTO) {
     casetoadd = this.AddCaseForm.value
     console.log(casetoadd)
     caseelement.push(casetoadd)

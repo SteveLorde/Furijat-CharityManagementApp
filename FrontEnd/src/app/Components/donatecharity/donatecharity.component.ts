@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Charity } from 'src/app/Models/Charity';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
+import { User } from '../../Models/User';
 
 
 @Component({
@@ -18,7 +20,9 @@ export class DonatecharityComponent implements OnInit {
       description: '',
       location: '',
       phone: '',
-      email: ''
+      email: '',
+      userdonation: 0,
+      user: undefined
   }
 
   id: any

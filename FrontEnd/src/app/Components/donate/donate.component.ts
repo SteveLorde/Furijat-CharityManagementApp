@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Case } from 'src/app/Models/Case';
+import { CaseDTO } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
@@ -15,7 +15,7 @@ import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
 })
 export class DonateComponent implements OnInit {
 
-  case: Case = {
+  case: CaseDTO = {
       id: 0,
       firstName: '',
       lastName: '',
@@ -23,7 +23,8 @@ export class DonateComponent implements OnInit {
       address: '',
       currentAmount: 0,
       totalAmount: 0,
-      status: ''
+      status: '',
+      charity: undefined
   }
 
   id: any

@@ -29,5 +29,12 @@
     Total Amount:
     <input formControlName="totalamount" placeholder="totalamount" type="number" />
   </div>
+  <div>
+    Select Charity to Add Case to
+    <select formControlName="charityId">
+      <option *ngFor="let charity of charity" [ngValue]="charity.id">{{charity.name}}</option>
+    </select>
+  </div>
+
   <input type="submit" value="Add Case">
 </form>

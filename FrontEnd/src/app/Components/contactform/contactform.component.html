@@ -1,0 +1,60 @@
+<p>contactform works!</p>
+
+<form [formGroup]="ContactForm" (ngSubmit)="submit(contactmessage)">
+
+  <div>
+    Your Name:
+    <input formControlName="name" placeholder="charity name" type="text" />
+  </div>
+
+  <div>
+    Your Email:
+    <input formControlName="email" placeholder="Email" type="text" />
+  </div>
+
+  <div>
+    Message:
+    <input formControlName="message" placeholder="type your message" type="text" />
+  </div>
+
+  <input type="submit" value="Submit Mail">
+
+</form>
+
+
+
+<!--
+
+
+  <div>
+    Select Charity to contact
+    <select formControlName="charityemail">
+      <option *ngFor="let charity of charity" [ngValue]="charity.email">{{charity.name}}</option>
+    </select>
+  </div>
+
+
+
+
+  <div>
+    Phone Number:
+    <input formControlName="phonenumber" placeholder="phone number" type="text" />
+  </div>
+
+
+<form action="https://formspree.io/f/xeqwpdlk" method="POST">
+
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+
+  <button type="submit" class="sendEmail()">Send</button>
+
+</form>
+  -->

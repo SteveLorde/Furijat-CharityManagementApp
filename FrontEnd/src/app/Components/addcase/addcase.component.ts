@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { Case } from 'src/app/Models/Case';
+import { CaseDTO } from 'src/app/Models/Case';
+import { Charity } from '../../Models/Charity';
 
 @Component({
   selector: 'app-addcase',
@@ -9,11 +10,28 @@ import { Case } from 'src/app/Models/Case';
   styleUrls: ['./addcase.component.css']
 })
 export class AddcaseComponent implements OnInit {
-  CaseReq!: Case;
+
+
+  charity: Charity
+  idtest: Charity
+
+  //Dummy Object
+  CaseReq: CaseDTO = {
+      id: 0,
+      firstName: '',
+      lastName: '',
+      description: '',
+      address: '',
+      currentAmount: 0,
+      totalAmount: 0,
+      status: '',
+      charity: undefined
+  }
 
   constructor(private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
+    this.GetCharities()
   }
 
   AddCaseForm = new FormGroup({
@@ -24,12 +42,20 @@ export class AddcaseComponent implements OnInit {
     amountneeded: new FormControl(),
     currentamount: new FormControl(),
     totalamount: new FormControl(),
+    charityId: new FormControl(),
   })
 
-  AddCase(CaseReq: Case) {
+  AddCase(CaseReq: CaseDTO) {
     CaseReq = this.AddCaseForm.value
     console.log(CaseReq)
+    //console.log("the id of the charity of this case is " + this.CaseReq.charity.id)
     this._servercom.addCase(CaseReq).subscribe()
+  }
+
+  GetCharities() {
+    this._servercom.getCharity().subscribe((res: any) => {
+      this.charity = res;
+    });
   }
 
   onSubmit() {

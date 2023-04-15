@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpEventType, HttpErrorResponse }
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Case } from 'src/app/Models/Case'
+import { CaseDTO } from 'src/app/Models/Case'
 import { Charity } from 'src/app/Models/Charity'
 import { User } from '../../Models/User';
 
@@ -19,7 +19,7 @@ export class BackendCommunicationService {
 
   //----------------------------------
 
-  case: Case;
+  case: CaseDTO;
 
 
   //PROJECT Endpoints
@@ -27,13 +27,13 @@ export class BackendCommunicationService {
   //GET
 
   //GET HTTP for Cases
-  getCases(): Observable<Case[]> {
-    return this.http.get<Case[]>(this.serverUrl + 'api/Cases');
+  getCases(): Observable<CaseDTO[]> {
+    return this.http.get<CaseDTO[]>(this.serverUrl + 'api/Cases');
   }
 
   //GET HTTP For Case by ID
-  getCasesById(id: any): Observable<Case[]> {
-    return this.http.get<Case[]>(this.serverUrl + `api/Cases/(getCase/${id}`);
+  getCasesById(id: any): Observable<CaseDTO[]> {
+    return this.http.get<CaseDTO[]>(this.serverUrl + `api/Cases/(getCase/${id}`);
   }
 
 

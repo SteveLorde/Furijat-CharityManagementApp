@@ -14,13 +14,15 @@
       <th scope="col">Address</th>
       <th scope="col">Current Amount</th>
       <th scope="col">Total Amount</th>
-      <th scope="col">Status</th>
       <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Charity</th>
+      <th scope="col">Status</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let case of Cases | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
+    <tr class="tablerow" *ngFor="let case of Cases | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
       <td>{{ case.id }}</td>
       <td>{{ case.firstName }}</td>
       <td>{{ case.lastName }}</td>
@@ -29,6 +31,8 @@
       <td>{{ case.currentAmount }}</td>
       <td>{{ case.totalAmount }}</td>
       <td>{{ case.phone }}</td>
+      <td>{{ case.charity}}</td>
+      <td>{{ case.status }}</td>
       <td>
         <a [routerLink]="['/donate', case.id]">Donate</a>
       </td>

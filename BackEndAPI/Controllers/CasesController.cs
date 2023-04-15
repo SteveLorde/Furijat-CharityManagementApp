@@ -51,7 +51,6 @@ namespace BackEndAPI.Controllers
         {
             await _context.Cases.AddAsync(_case);
             await _context.SaveChangesAsync();
-
             return _case;
         }
 
