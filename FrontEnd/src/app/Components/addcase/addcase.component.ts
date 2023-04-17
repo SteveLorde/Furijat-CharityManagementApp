@@ -13,9 +13,7 @@ export class AddcaseComponent implements OnInit {
 
 
   charity: Charity
-  idtest: Charity
 
-  //Dummy Object
   CaseReq: CaseDTO = {
       id: 0,
       firstName: '',
@@ -25,8 +23,19 @@ export class AddcaseComponent implements OnInit {
       currentAmount: 0,
       totalAmount: 0,
       status: '',
-      charity: undefined
+      charity: {
+          id: 0,
+          name: '',
+          description: '',
+          location: '',
+          phone: '',
+          email: '',
+          userdonation: 0
+      }
   }
+
+
+
 
   constructor(private _servercom: BackendCommunicationService) { }
 
@@ -42,14 +51,16 @@ export class AddcaseComponent implements OnInit {
     amountneeded: new FormControl(),
     currentamount: new FormControl(),
     totalamount: new FormControl(),
-    charityId: new FormControl(),
+    charityid: new FormControl(),
   })
 
-  AddCase(CaseReq: CaseDTO) {
-    CaseReq = this.AddCaseForm.value
-    console.log(CaseReq)
-    //console.log("the id of the charity of this case is " + this.CaseReq.charity.id)
-    this._servercom.addCase(CaseReq).subscribe()
+  AddCase() {
+    this.CaseReq = this.AddCaseForm.value
+    this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
+    console.log(this.CaseReq)
+    console.log("Charity property" + this.CaseReq.charity)
+    console.log("Charity id" + this.CaseReq.charity.id)
+    this._servercom.addCase(this.CaseReq).subscribe()
   }
 
   GetCharities() {
@@ -58,7 +69,7 @@ export class AddcaseComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmitTest() {
     console.log(this.AddCaseForm.value);
   }
 

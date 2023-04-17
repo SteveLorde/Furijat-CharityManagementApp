@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders, HttpParams, HttpEventType, HttpErrorResponse }
 import { Observable } from 'rxjs';
 import { ContactMessage } from '../../Models/ContactMessage';
 
+//A Frontend Service to send emails
+
 @Injectable({
   providedIn: 'root'
 })

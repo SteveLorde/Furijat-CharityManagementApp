@@ -1,6 +1,6 @@
 <p>addcase works!</p>
 
-<form [formGroup]="AddCaseForm" (ngSubmit)="AddCase(CaseReq)">
+<form [formGroup]="AddCaseForm" (ngSubmit)="AddCase()">
   <div>
     FirstName:
     <input formControlName="firstname" placeholder="username" type="text" />
@@ -31,7 +31,7 @@
   </div>
   <div>
     Select Charity to Add Case to
-    <select formControlName="charityId">
+    <select formControlName="charityid">
       <option *ngFor="let charity of charity" [ngValue]="charity.id">{{charity.name}}</option>
     </select>
   </div>
