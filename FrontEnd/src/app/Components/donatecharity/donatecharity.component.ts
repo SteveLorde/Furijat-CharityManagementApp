@@ -21,7 +21,6 @@ export class DonatecharityComponent implements OnInit {
       location: '',
       phone: '',
       email: '',
-      userdonation: 0,
       user: undefined
   }
 

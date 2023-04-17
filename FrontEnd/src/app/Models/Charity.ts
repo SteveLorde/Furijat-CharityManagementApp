@@ -1,4 +1,4 @@
-import { User } from 'src/app/Models/User'
+import { UserDTO } from './User - Copy'
 
 export interface Charity{
 
@@ -8,6 +8,6 @@ export interface Charity{
   location: string
   phone: string
   email: string
-  userdonation: number
-  user: User
+  user: UserDTO
+
 }

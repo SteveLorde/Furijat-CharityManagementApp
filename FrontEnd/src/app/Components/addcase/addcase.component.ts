@@ -14,26 +14,7 @@ export class AddcaseComponent implements OnInit {
 
   charity: Charity
 
-  CaseReq: CaseDTO = {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      description: '',
-      address: '',
-      currentAmount: 0,
-      totalAmount: 0,
-      status: '',
-      charity: {
-          id: 0,
-          name: '',
-          description: '',
-          location: '',
-          phone: '',
-          email: '',
-          userdonation: 0
-      }
-  }
-
+  CaseReq: CaseDTO
 
 
 
@@ -53,10 +34,10 @@ export class AddcaseComponent implements OnInit {
     totalamount: new FormControl(),
     charityid: new FormControl(),
   })
-
+  r
   AddCase() {
     this.CaseReq = this.AddCaseForm.value
-    this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
+    //this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
     console.log(this.CaseReq)
     console.log("Charity property" + this.CaseReq.charity)
     console.log("Charity id" + this.CaseReq.charity.id)
