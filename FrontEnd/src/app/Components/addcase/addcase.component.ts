@@ -12,9 +12,11 @@ import { Charity } from '../../Models/Charity';
 export class AddcaseComponent implements OnInit {
 
 
-  charity: Charity
+  charity = { } as  Charity
+  CaseReq = { } as CaseDTO
+  Case2 = {} as CaseDTO
 
-  CaseReq: CaseDTO
+  
 
 
 
@@ -22,6 +24,9 @@ export class AddcaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetCharities()
+    this.Case2.charity = {} as Charity
+    //this.Case2.charity.Id = 4
+    //console.log(this.Case2)
   }
 
   AddCaseForm = new FormGroup({
@@ -34,14 +39,17 @@ export class AddcaseComponent implements OnInit {
     totalamount: new FormControl(),
     charityid: new FormControl(),
   })
-  r
+
   AddCase() {
-    this.CaseReq = this.AddCaseForm.value
-    //this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
-    console.log(this.CaseReq)
-    console.log("Charity property" + this.CaseReq.charity)
-    console.log("Charity id" + this.CaseReq.charity.id)
-    this._servercom.addCase(this.CaseReq).subscribe()
+    this.Case2.firstName = this.AddCaseForm.get('firstname').value
+    this.Case2.lastName = this.AddCaseForm.get('lastname').value
+    this.Case2.description = this.AddCaseForm.get('description').value
+    this.Case2.address = this.AddCaseForm.get('address').value
+    this.Case2.currentAmount = this.AddCaseForm.get('currentamount').value
+    this.Case2.totalAmount = this.AddCaseForm.get('totalamount').value
+    this.Case2.charity.id = this.AddCaseForm.get('charityid').value
+    console.log(this.Case2)
+    this._servercom.addCase(this.Case2).subscribe()
   }
 
   GetCharities() {

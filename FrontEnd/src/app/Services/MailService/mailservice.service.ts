@@ -10,7 +10,7 @@ import { ContactMessage } from '../../Models/ContactMessage';
 })
 export class MailserviceService {
 
-  contactmessage: ContactMessage
+  contactmessage = { } as ContactMessage
 
   contactUrl = 'https://formspree.io/f/xeqwpdlk';
 

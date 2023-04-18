@@ -14,16 +14,7 @@ import { User } from '../../Models/User';
 })
 export class DonatecharityComponent implements OnInit {
 
-  charity: Charity = {
-      id: 0,
-      name: '',
-      description: '',
-      location: '',
-      phone: '',
-      email: '',
-      user: undefined
-  }
-
+  charity: Charity
   id: any
   donateamount: number = 0
   cardnumber: number = 0
