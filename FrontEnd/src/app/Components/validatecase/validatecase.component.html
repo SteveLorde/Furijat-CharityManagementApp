@@ -1,5 +1,41 @@
 <p>validatecase works!</p>
 
+<h2>Cases awaiting confirmation</h2>
+
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Address</th>
+      <th scope="col">Current Amount</th>
+      <th scope="col">Total Amount</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let case of caseelement  |  searchFilter: searchText |  paginate: { itemsPerPage: 20, currentPage: p} | casestatusfilter">
+      <td>{{ case.firstName }}</td>
+      <td>{{ case.lastName }}</td>
+      <td>{{ case.description }}</td>
+      <td>{{ case.address }}</td>
+      <td>{{ case.currentAmount }}</td>
+      <td>{{ case.totalAmount }}</td>
+      <td>{{ case.phone }}</td>
+      <td>{{ case.status }}</td>
+      <td>
+        <button (click)="ConfirmCase(case)">Confirm</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 
 
 <!--
@@ -36,37 +72,3 @@
   <input type="submit" value="Add Case to Validate List">
 </form>
   -->
-
-<h2>Cases awaiting confirmation</h2>
-
-
-<table>
-  <thead>
-    <tr>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Address</th>
-      <th scope="col">Current Amount</th>
-      <th scope="col">Total Amount</th>
-      <th scope="col">Status</th>
-      <th scope="col"></th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let case of caseelement  |  searchFilter: searchText |  paginate: { itemsPerPage: 20, currentPage: p} | casestatusfilter">{{case.status}}">
-      <td>{{ case.firstName }}</td>
-      <td>{{ case.lastName }}</td>
-      <td>{{ case.description }}</td>
-      <td>{{ case.address }}</td>
-      <td>{{ case.currentAmount }}</td>
-      <td>{{ case.totalAmount }}</td>
-      <td>{{ case.phone }}</td>
-      <td>{{ case.status }}</td>
-      <td>
-        <button (click)="ConfirmCase(case)">Confirm</button>
-      </td>
-    </tr>
-  </tbody>
-</table>

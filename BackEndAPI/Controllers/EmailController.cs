@@ -18,7 +18,7 @@ namespace BackEndAPI.Controllers
         }
 
         [HttpPost("Send")]
-        public async Task<IActionResult> Send([FromForm] MailRequest request)
+        public async Task<IActionResult> Send(MailRequest request)
         {
             try
             {

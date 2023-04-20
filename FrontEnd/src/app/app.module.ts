@@ -27,6 +27,7 @@ import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.co
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
 import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
+import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
 import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe'
 
 
@@ -50,6 +51,7 @@ import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe'
     ValidatecaseComponent,
     UserlogComponent,
     ContactformComponent,
+    ContactformbackendComponent,
   ],
   imports: [
     BrowserModule,
