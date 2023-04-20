@@ -23,6 +23,8 @@ using BackEndAPI.Views;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.AspNetCore.Http.Features;
+using BackEndAPI.Services.EmailService;
 
 namespace BackEndAPI
 {
@@ -38,6 +40,9 @@ namespace BackEndAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+
+            services.AddTransient<IMailService, MailService>();
 
             services.AddControllers();
 

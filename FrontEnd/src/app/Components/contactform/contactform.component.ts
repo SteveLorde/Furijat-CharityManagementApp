@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Charity } from '../../Models/Charity';
+import { Charity } from '../../Models/CharityDTO';
 import { ContactMessage } from '../../Models/ContactMessage';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { MailserviceService } from 'src/app/Services/MailService/mailservice.service';

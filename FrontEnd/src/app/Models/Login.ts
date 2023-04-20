@@ -1,7 +1,6 @@
-export class Login {
+export interface Login {
 
-  userName: string
+  username: string
   password: string
-  token: string
 
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { CaseDTO } from 'src/app/Models/Case';
-import { Charity } from '../../Models/Charity';
+import { CaseDTO } from 'src/app/Models/CaseDTO';
+import { Charity } from '../../Models/CharityDTO';
 
 @Component({
   selector: 'app-addcase',
@@ -11,22 +11,25 @@ import { Charity } from '../../Models/Charity';
 })
 export class AddcaseComponent implements OnInit {
 
-
-  charity = { } as  Charity
-  CaseReq = { } as CaseDTO
-  Case2 = {} as CaseDTO
-
-  
-
-
+ 
+  charity: Charity
+  CaseReq: CaseDTO = {
+      id: 0,
+      firstName: '',
+      lastName: '',
+      description: '',
+      address: '',
+      currentAmount: 0,
+      totalAmount: 0,
+      status: '',
+      //charity: {} as Charity
+  }
 
   constructor(private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
     this.GetCharities()
-    this.Case2.charity = {} as Charity
-    //this.Case2.charity.Id = 4
-    //console.log(this.Case2)
+    console.log("Testing CaseReq" + this.CaseReq)
   }
 
   AddCaseForm = new FormGroup({
@@ -41,15 +44,21 @@ export class AddcaseComponent implements OnInit {
   })
 
   AddCase() {
-    this.Case2.firstName = this.AddCaseForm.get('firstname').value
-    this.Case2.lastName = this.AddCaseForm.get('lastname').value
-    this.Case2.description = this.AddCaseForm.get('description').value
-    this.Case2.address = this.AddCaseForm.get('address').value
-    this.Case2.currentAmount = this.AddCaseForm.get('currentamount').value
-    this.Case2.totalAmount = this.AddCaseForm.get('totalamount').value
-    this.Case2.charity.id = this.AddCaseForm.get('charityid').value
-    console.log(this.Case2)
-    this._servercom.addCase(this.Case2).subscribe()
+    this.CaseReq.firstName = this.AddCaseForm.get('firstname').value
+    this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
+    this.CaseReq.description = this.AddCaseForm.get('description').value
+    this.CaseReq.address = this.AddCaseForm.get('address').value
+    this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
+    this.CaseReq.totalAmount = this.AddCaseForm.get('totalamount').value
+    this.CaseReq.status = "notvalid"
+    //this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
+    console.log(this.CaseReq)
+    this._servercom.addCase(this.CaseReq).subscribe((res: any) => {
+      if (res.status == 400, 401, 500 ) {
+        this.AddCaseForm.reset
+      }
+    })
+
   }
 
   GetCharities() {

@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../Models/User';
+import { UserDTO } from '../../Models/UserDTO';
 import { UserType } from 'src/app/Models/UserType'
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-
-
 
 @Component({
   selector: 'app-profile',
@@ -13,31 +11,15 @@ import { BackendCommunicationService } from '../../Services/BackendCommunication
 })
 export class ProfileComponent implements OnInit {
 
-  user: User = {
-      userId: 0,
-      uType: '',
-      password: '',
-      userName: '',
-      firstName: '',
-      lastNaame: '',
-      email: '',
-      phoneNumber: '',
-      userTypeID: 0,
-      token: '',
-      usertype: undefined
-  }
-
-  usertest: User
+  //create object "user" of User model
+  user = {} as UserDTO
   id: any
-
-  idtest: any = 6
 
   constructor(private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
     this.id = localStorage.getItem('UID')
-   //this.GetProfile()
-    this.GetProfile2()
+    this.GetProfile()
   }
 
   GetProfile() {
@@ -45,11 +27,4 @@ export class ProfileComponent implements OnInit {
       this.user = res
     })
   }
-
-  GetProfile2() {
-    this._servercom.getUserbyId(this.idtest).subscribe((res: any) => {
-      this.user = res
-    })
-  }
-
 }

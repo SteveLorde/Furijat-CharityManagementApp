@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {AuthGuard } from 'src/app/Services/AuthGuard/authguard'
-import { User } from '../../Models/User';
+import { UserDTO } from '../../Models/UserDTO';
 import { Login } from '../../Models/Login';
 
 @Injectable({
@@ -29,7 +29,7 @@ export class AuthService {
 
   currentUser = {};
 
-  public register(user: User): Observable<any> {
+  public register(user: UserDTO): Observable<any> {
     return this.http.post<any>(this.serverUrl + 'api/Account/register', user);
   }
 

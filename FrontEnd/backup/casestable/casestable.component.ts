@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { CaseDTO } from 'src/app/Models/Case';
+import { CaseDTO } from 'src/app/Models/CaseDTO';
 import { BackendCommunicationService } from '../../src/app/Services/BackendCommunication/backend-communication.service';
 
 

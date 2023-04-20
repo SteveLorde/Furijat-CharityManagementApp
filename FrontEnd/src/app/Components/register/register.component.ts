@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { User } from '../../Models/User';
+import { UserDTO } from '../../Models/UserDTO';
 import { AuthService } from '../../Services/Authorization/auth.service';
 import { Router } from '@angular/router';
 
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  user: User
+  user: UserDTO
 
   ngOnInit(): void {
     this.getprofilepic();
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     Password: new FormControl(),
   })
 
-  register(user: User) {
+  register(user: UserDTO) {
     user = this.RegisterUser.value
     this.authService.register(user).subscribe((res: any) => {
       if (res)

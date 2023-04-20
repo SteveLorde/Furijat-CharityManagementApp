@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { CaseDTO } from 'src/app/Models/Case';
+import { CaseDTO } from 'src/app/Models/CaseDTO';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
@@ -19,6 +19,7 @@ export class ValidatecaseComponent implements OnInit {
   constructor(private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
+    this.RetrieveCaseList()
   }
 
   AddCaseForm = new FormGroup({
@@ -35,6 +36,12 @@ export class ValidatecaseComponent implements OnInit {
     casetoadd = this.AddCaseForm.value
     console.log(casetoadd)
     caseelement.push(casetoadd)
+  }
+
+  RetrieveCaseList() {
+    this._servercom.getCases().subscribe((res: any) => {
+      this.caseelement = res
+    })
   }
 
   ConfirmCase(element: any) {

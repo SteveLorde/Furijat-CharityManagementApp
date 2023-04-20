@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
+import { HttpRequest,HttpHandler,HttpEvent,HttpInterceptor} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/Services/Authorization/auth.service'
 
 
 @Injectable()
 export class APIInterceptor implements HttpInterceptor {
 
+  //function to watch any HTTP request, clone it, and add new "Token" header to it
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -20,7 +15,7 @@ export class APIInterceptor implements HttpInterceptor {
 
     if (token) {
       req = req.clone({
-        setHeaders: { TOKEN: `Bearer ${token}` },
+        setHeaders: { Token: `Bearer ${token}` },
       });
     }
 

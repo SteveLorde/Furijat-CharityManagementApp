@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { CaseDTO } from 'src/app/Models/Case';
+import { CaseDTO } from 'src/app/Models/CaseDTO';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Charity } from '../../Models/Charity';
+import { Charity } from '../../Models/CharityDTO';
 
 @Injectable({
   providedIn: 'root'

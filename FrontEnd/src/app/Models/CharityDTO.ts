@@ -1,6 +1,6 @@
-import { UserDTO } from './User - Copy'
+import { UserDTO } from './UserDTO'
 
-export interface Charity{
+export interface Charity {
 
   id: number
   name: string

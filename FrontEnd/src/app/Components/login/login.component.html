@@ -2,69 +2,18 @@
 
 
 
-<form [formGroup]="LogintForm" (ngSubmit)="login(loginreq)">
+<form [formGroup]="LogintForm" (ngSubmit)="login()">
   <div>
     username:
-    <input formControlName="userName" placeholder="username" />
+    <input formControlName="username" placeholder="username" />
   </div>
   <div>
     password:
     <input formControlName="password" placeholder="password" type="password" />
   </div>
   <input type="submit" value="Login" />
+
+  <h2>{{loginerror}}</h2>
+
 </form>
 
-
-<button (click)="getme()">Get Me</button>
-
-<!--
-<div>
-  <h1>your email is</h1>
-  <h1>
-    {{loginreq.userName}}
-  </h1>
-  <h1>your password</h1>
-  <h1>
-  </h1>
-</div>
-  -->
-
-<!--
-
-<button (click)="register(user)">Register</button>
-  [(ngModel)]="user.email"
-
-   [(ngModel)]="user.password"
-
-
-
-
-<main class="form-signin w-100 m-auto">
-  <form [formGroup]="signinForm" (submit)="loginUser()">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-    <div class="form-floating">
-      <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
-  </form>
-</main>
-  -->
-<!-- OLD NATIVE LOGIN
-
-<div class="logincontainer">
-  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-    <label>Email</label>
-    <input type="email" name="email" [(ngModel)]="credentials.email" placeholder="E-Mail" required>
-    <label>Password</label>
-    <input name="password" [(ngModel)]="credentials.password" placeholder="Password" required />
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
-    <div *ngIf="invalidLogin">Invalid E-Mail or password.</div>
-  </form>
-</div>
- -->

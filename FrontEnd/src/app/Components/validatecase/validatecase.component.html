@@ -1,7 +1,9 @@
 <p>validatecase works!</p>
 
-<p>addcase works!</p>
 
+
+<!--
+ <p>addcase works!</p>
 <form [formGroup]="AddCaseForm" (ngSubmit)="AddCaseToValidate(caseelement,casetoadd)">
   <div>
     FirstName:
@@ -33,6 +35,7 @@
   </div>
   <input type="submit" value="Add Case to Validate List">
 </form>
+  -->
 
 <h2>Cases awaiting confirmation</h2>
 
@@ -52,7 +55,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let case of caseelement | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
+    <tr *ngFor="let case of caseelement  |  searchFilter: searchText |  paginate: { itemsPerPage: 20, currentPage: p} | casestatusfilter">{{case.status}}">
       <td>{{ case.firstName }}</td>
       <td>{{ case.lastName }}</td>
       <td>{{ case.description }}</td>
@@ -60,6 +63,7 @@
       <td>{{ case.currentAmount }}</td>
       <td>{{ case.totalAmount }}</td>
       <td>{{ case.phone }}</td>
+      <td>{{ case.status }}</td>
       <td>
         <button (click)="ConfirmCase(case)">Confirm</button>
       </td>

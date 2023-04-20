@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { CaseDTO } from 'src/app/Models/Case';
+import { CaseDTO } from 'src/app/Models/CaseDTO';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Charity } from '../../Models/Charity';
+import { Charity } from '../../Models/CharityDTO';
 
 export interface PagingConfig {
   currentPage: number;

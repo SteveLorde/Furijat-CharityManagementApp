@@ -1,36 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
+import { FormControl, FormGroup,Validators} from '@angular/forms';
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { User } from '../../Models/User';
 import { Login } from '../../Models/Login';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
-
-
-
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
-  signinForm: FormGroup;
+
+  //create object "loginrequest" of Login model
+  loginreq: Login
+  //variable that changes to 1/true if login request is successful
   loggedin: any = 0
+  //store user id in variable "id"
   id: any
+  //store error response during login
+  loginerror: string = ""
 
-
-
-  constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService, private http: HttpClient, public fb: FormBuilder) {
-    this.signinForm = this.fb.group({
-      userName: [''],
-      password: [''],
-    });
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   LogintForm = new FormGroup({
-    userName: new FormControl(),
+    username: new FormControl(),
     password: new FormControl(),
   })
 
@@ -41,32 +36,23 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
-  loginreq: Login = new Login()
-
   register(user) {
     this.authService.register(user).subscribe();
   }
 
-  login(loginreq: Login) {
-    loginreq = this.LogintForm.value
-    this.authService.login(loginreq)
+  login() {
+    this.loginreq = this.LogintForm.value
+    this.authService.login(this.loginreq)
       .subscribe((res: any) => {
         this.id = res.userId
         localStorage.setItem('authToken', res.token)
         localStorage.setItem('loggedin', "1")
         localStorage.setItem('UID', res.userId)
         console.log(res.token)
-        this.loginreq.userName = loginreq.userName
+        this.loginreq.username = this.loginreq.username
         this.loggedin = 1
         this.GoProfile()
       })
-  }
-
-  getme() {
-    this.authService.getMe().subscribe((name: string) => {
-      console.log(name);
-    });
   }
 
   GoProfile() {
