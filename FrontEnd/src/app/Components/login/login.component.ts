@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import {
-  FormGroup, FormControl, Validators, AbstractControl, AsyncValidatorFn
-} from '@angular/forms';
-
-import { AuthService } from 'src/app/Services/Authorization/auth.service';
-import { LoginRequest } from 'src/app/Services/Authorization/login-request';
-import { LoginResult } from 'src/app/Services/Authorization/login-result';
+import { UntypedFormControl, UntypedFormGroup,Validators} from '@angular/forms';
+import { AuthService } from 'src/app/Services/Authorization/auth.service'
+import { Login } from '../../Models/Login';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,38 +11,51 @@ import { LoginResult } from 'src/app/Services/Authorization/login-result';
 })
 
 export class LoginComponent implements OnInit {
-  title?: string;
-  loginResult?: LoginResult;
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private authService: AuthService) {
+
+  //create object "loginrequest" of Login model
+  loginreq: Login
+  //variable that changes to 1/true if login request is successful
+  loggedin: any = 0
+  //store user id in variable "id"
+  id: any
+  //store error response during login
+  loginerror: string = ""
+
+  constructor(private router: Router, private authService: AuthService) {
   }
+
+  LogintForm = new UntypedFormGroup({
+    username: new UntypedFormControl(),
+    password: new UntypedFormControl(),
+  })
 
   ngOnInit() {
-    this.form = new FormGroup({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
-    });
+    this.loggedin = localStorage.getItem('loggedin')
+    if (this.loggedin == 1) {
+      this.GoProfile()
+    }
   }
 
-  onSubmit() {
-    var loginRequest = <LoginRequest>{};
-    loginRequest.email = this.form.controls['email'].value;
-    loginRequest.password = this.form.controls['password'].value;
-    this.authService
-      .login(loginRequest)
-      .subscribe(result => {
-        console.log(result);
-        this.loginResult = result;
-        if (result.success && result.token) {
-          localStorage.setItem(this.authService.tokenKey, result.token);
-        }
-      }, error => {
-        console.log(error);
-        if (error.status == 401) {
-          this.loginResult = error.error;
-        }
-      });
+  register(user) {
+    this.authService.register(user).subscribe();
+  }
+
+  login() {
+    this.loginreq = this.LogintForm.value
+    this.authService.login(this.loginreq)
+      .subscribe((res: any) => {
+        this.id = res.userId
+        localStorage.setItem('authToken', res.token)
+        localStorage.setItem('loggedin', "1")
+        localStorage.setItem('UID', res.userId)
+        console.log(res.token)
+        this.loginreq.username = this.loginreq.username
+        this.loggedin = 1
+        this.GoProfile()
+      })
+  }
+
+  GoProfile() {
+    this.router.navigateByUrl('profile')
   }
 }

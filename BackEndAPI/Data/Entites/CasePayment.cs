@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BackEndAPI.Data.Entites;
+using System.ComponentModel.DataAnnotations;
 
 namespace BackEndAPI.Models
 {
-    public class CasePayment
+    public class CasePayment:BaseModel
     {
-        public int CasePaymentId { get; set; }
       
         public string PaymentMethod { get; set; }
         [Required]

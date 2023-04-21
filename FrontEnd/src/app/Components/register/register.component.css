@@ -1,0 +1,18 @@
+.filehidden {
+    display:none;
+}
+
+.filebutton {
+    padding: 20px;
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+.avatar {
+  background-color: antiquewhite;
+  height: 200px;
+  width: 200px;
+  border: 3px solid #0af;
+  border-radius: 50%;
+  transition: background ease-out 200ms;
+}

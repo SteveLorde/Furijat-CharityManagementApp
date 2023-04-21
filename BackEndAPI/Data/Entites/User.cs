@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BackEndAPI.Data.Entites;
+using System.ComponentModel.DataAnnotations;
 
 namespace BackEndAPI.Models
 {
-    public class User
+    public class User:BaseModel
     {
-        public int UserId { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         [Required]
@@ -16,6 +16,6 @@ namespace BackEndAPI.Models
         [MinLength(3)]
 
         public string LastNaame { get; set; }
-        public virtual UserType UserType { get; set; }
+        public UserType UserType { get; set; }
     }
 }

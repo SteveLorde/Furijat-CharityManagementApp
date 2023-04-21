@@ -1,0 +1,25 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams, HttpEventType, HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ContactMessage } from '../../Models/ContactMessage';
+
+//A Frontend Service to send emails
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MailserviceService {
+
+  contactmessage = { } as ContactMessage
+
+  contactUrl = 'https://formspree.io/f/xeqwpdlk';
+
+  constructor(private http: HttpClient) { }
+
+
+  postmessage(contactmessage: ContactMessage): Observable<any> {
+    return this.http.post<any>(this.contactUrl, contactmessage);
+  }
+
+
+}

@@ -7,9 +7,12 @@ using BackEndAPI.Interfaces;
 using BackEndAPI.Data.Interfaces;
 using System.Threading.Tasks;
 using BackEndAPI.Views;
+using BackEndAPI.DTOs;
+using BackEndAPI.Data.Entites;
 
 namespace BackEndAPI.Controllers
 {
+
     public class CasesController : BaseApiController
     {
         private readonly IAppDbContext _context;
@@ -28,18 +31,21 @@ namespace BackEndAPI.Controllers
 
         // GET: api/Cases/getCase/5
         [HttpGet("(getCase/{id}")]
+
+       
         public async Task<ActionResult<Case>> GetCase(int id)
         {
-            var _case = await _context.Cases.All
-                //.Include(e => e.Charity)
-                .SingleOrDefaultAsync(e => e.CaseId ==id);
+            var _Case = await _context.Cases.All
 
-            if (_case == null)
+                .SingleOrDefaultAsync(e => e.Id == id);
+
+            if (_Case == null)
             {
                 return NotFound();
             }
-            return _case;
+            return _Case;
         }
+
 
         // POST: api/Cases/AddNewCase
         [HttpPost("AddNewCase")]
@@ -47,7 +53,6 @@ namespace BackEndAPI.Controllers
         {
             await _context.Cases.AddAsync(_case);
             await _context.SaveChangesAsync();
-
             return _case;
         }
 
@@ -55,7 +60,7 @@ namespace BackEndAPI.Controllers
         [HttpPut("updateCase/{id}")]
         public async Task<IActionResult> PutCase(int id, Case _case)
         {
-            if (id != _case.CaseId)
+            if (id != _case.Id)
             {
                 return BadRequest();
             }
@@ -70,7 +75,7 @@ namespace BackEndAPI.Controllers
         [HttpDelete("deleteCase/{id}")]
         public async Task<IActionResult> DeleteCase(int id)
         {
-            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.CaseId == id); ;
+            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == id); 
 
             if (_case == null)
             {
@@ -82,5 +87,9 @@ namespace BackEndAPI.Controllers
 
             return NoContent();
         }
+
+
+
+
     }
 }

@@ -1,0 +1,74 @@
+<p>case-list works!</p>
+
+
+<app-casetablenative></app-casetablenative>
+
+<app-file-upload></app-file-upload>
+
+
+
+<!---
+  <app-casestable></app-casestable>
+  [dataSource]="myDataArray"
+
+
+
+<label>Name: </label>
+<input [(ngModel)]="case.name" />
+<input [(ngModel)]="case.phone" />
+<button (click)="PostCases()">Add</button>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">User Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let case of Cases">
+      <td>{{ case.id }}</td>
+      <td>{{ case.name }}</td>
+      <td>{{ case.email }}</td>
+      <td>{{ case.phone }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+  <div class="CaseList">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="
+          let student of Students
+            | paginate
+              : {
+                  itemsPerPage: 6,
+                  currentPage: pagination,
+                  totalItems: allStudents
+                }
+        ">
+        <td scope="row">{{ student.id }}</td>
+        <td>{{ student.first_name }}</td>
+        <td>{{ student.last_name }}</td>
+        <td>{{ student.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls class="my-pagination" previousLabel="" nextLabel="" (pageChange)="renderPage($event)">
+    </pagination-controls>
+  </div>
+</div>
+-->
