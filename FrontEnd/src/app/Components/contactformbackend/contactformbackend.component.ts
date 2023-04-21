@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Mail } from '../../Models/Mail';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { MailServiceBackendService } from 'src/app/Services/MailServiceBackend/mail-service-backend.service';
@@ -19,10 +19,10 @@ export class ContactformbackendComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  ContactForm = new FormGroup({
-    ToEmail: new FormControl(),
-    Subject: new FormControl(),
-    Body: new FormControl(),
+  ContactForm = new UntypedFormGroup({
+    ToEmail: new UntypedFormControl(),
+    Subject: new UntypedFormControl(),
+    Body: new UntypedFormControl(),
   })
 
   submit() {

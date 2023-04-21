@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { UserDTO } from '../../Models/UserDTO';
@@ -31,10 +31,10 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  RegisterUser = new FormGroup({
-    UserName: new FormControl(),
-    EMail: new FormControl(),
-    Password: new FormControl(),
+  RegisterUser = new UntypedFormGroup({
+    UserName: new UntypedFormControl(),
+    EMail: new UntypedFormControl(),
+    Password: new UntypedFormControl(),
   })
 
   register(user: UserDTO) {

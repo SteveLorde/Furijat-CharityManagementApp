@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { CaseDTO } from 'src/app/Models/CaseDTO';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 
 
 @Component({
@@ -22,14 +22,14 @@ export class ValidatecaseComponent implements OnInit {
     this.RetrieveCaseList()
   }
 
-  AddCaseForm = new FormGroup({
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    description: new FormControl(),
-    address: new FormControl(),
-    amountneeded: new FormControl(),
-    currentamount: new FormControl(),
-    totalamount: new FormControl(),
+  AddCaseForm = new UntypedFormGroup({
+    firstName: new UntypedFormControl(),
+    lastName: new UntypedFormControl(),
+    description: new UntypedFormControl(),
+    address: new UntypedFormControl(),
+    amountneeded: new UntypedFormControl(),
+    currentamount: new UntypedFormControl(),
+    totalamount: new UntypedFormControl(),
   })
 
   AddCaseToValidate(caseelement: CaseDTO[],casetoadd: CaseDTO) {

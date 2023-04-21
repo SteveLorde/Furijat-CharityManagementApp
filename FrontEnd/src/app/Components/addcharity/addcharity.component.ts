@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Charity } from 'src/app/Models/CharityDTO';
 import { Router } from '@angular/router';
@@ -19,12 +19,12 @@ export class AddcharityComponent implements OnInit {
   }
 
 
-  AddCharityForm = new FormGroup({
-    name: new FormControl(),
-    description: new FormControl(),
-    address: new FormControl(),
-    phonenumber: new FormControl(),
-    email: new FormControl(),
+  AddCharityForm = new UntypedFormGroup({
+    name: new UntypedFormControl(),
+    description: new UntypedFormControl(),
+    address: new UntypedFormControl(),
+    phonenumber: new UntypedFormControl(),
+    email: new UntypedFormControl(),
   })
 
   AddCharity(charity: Charity) {

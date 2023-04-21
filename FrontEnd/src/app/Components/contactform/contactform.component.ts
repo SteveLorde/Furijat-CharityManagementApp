@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Charity } from '../../Models/CharityDTO';
 import { ContactMessage } from '../../Models/ContactMessage';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
@@ -23,10 +23,10 @@ export class ContactformComponent implements OnInit {
     this.GetCharities()
   }
 
-  ContactForm = new FormGroup({
-    name: new FormControl(),
-    message: new FormControl(),
-    email: new FormControl(),
+  ContactForm = new UntypedFormGroup({
+    name: new UntypedFormControl(),
+    message: new UntypedFormControl(),
+    email: new UntypedFormControl(),
   })
 
   GetCharities() {

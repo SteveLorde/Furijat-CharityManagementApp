@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms'
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { CaseDTO } from 'src/app/Models/CaseDTO';
 import { Charity } from '../../Models/CharityDTO';
@@ -32,15 +32,15 @@ export class AddcaseComponent implements OnInit {
     console.log("Testing CaseReq" + this.CaseReq)
   }
 
-  AddCaseForm = new FormGroup({
-    firstname: new FormControl(),
-    lastname: new FormControl(),
-    description: new FormControl(),
-    address: new FormControl(),
-    amountneeded: new FormControl(),
-    currentamount: new FormControl(),
-    totalamount: new FormControl(),
-    charityid: new FormControl(),
+  AddCaseForm = new UntypedFormGroup({
+    firstname: new UntypedFormControl(),
+    lastname: new UntypedFormControl(),
+    description: new UntypedFormControl(),
+    address: new UntypedFormControl(),
+    amountneeded: new UntypedFormControl(),
+    currentamount: new UntypedFormControl(),
+    totalamount: new UntypedFormControl(),
+    charityid: new UntypedFormControl(),
   })
 
   AddCase() {
