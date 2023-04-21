@@ -8,21 +8,47 @@
   <h2>Charity Description</h2>
   <p>{{charity.description}}</p>
   <h2>Donate Amount</h2>
-  <!--NOTICE: this element should represent amount of money donated to charity later-->
-  <p>{{donateamount}}</p>
+
 </div>
 
 <h2></h2>
 <input type="number" [(ngModel)]="donateamount" />
 
-<h2>amount that is about to be donated</h2>
-<p>{{donateamount}}</p>
 
-<h3>Card Number</h3>
-<input type="number" [(ngModel)]="cardnumber" />
-<h3>CCV</h3>
-<input type="number" [(ngModel)]="cardccv" />
+<!--This Part is test template for payment method-->
+<div class="paymentform">
+  <label for="paymentmethod">VISA</label>
+
+  <input name="paymentmethod" type="radio" value="VISA" [(ngModel)]="paymentmethod" />
+
+  <label for="paymentmethod=">Fawry</label>
+
+  <input name="paymentmethod" type="radio" value="Fawry" [(ngModel)]="paymentmethod" />
+
+  <h2>amount that is about to be donated</h2>
+  <p>{{donateamount}}</p>
+
+  <div [ngSwitch]="paymentmethod">
+    <div *ngSwitchCase=" 'VISA' " class="VISAPayment">
+      <h3>Card Number</h3>
+      <input type="number" [(ngModel)]="cardnumber" />
+      <h3>CCV</h3>
+      <input type="number" [(ngModel)]="cardccv" />
+    </div>
+
+    <div *ngSwitchCase=" 'Fawry' " class="FawryPayment">
+      <h3>Fawry Number</h3>
+      <input type="number" [(ngModel)]="fawrynumber" />
+    </div>
+  </div>
+</div>
 
 <button (click)="Close()">Close</button>
 
+<!--the click function will retrieve inputted donation info-->
 <button (click)="Donate()"> Donate</button>
+
+
+<!--NOTICE: this element should represent amount of money donated to charity later
+<p>{{donateamount}}</p>
+  -->

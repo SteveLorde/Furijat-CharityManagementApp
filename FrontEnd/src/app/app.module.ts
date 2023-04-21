@@ -29,6 +29,7 @@ import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
 import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
 import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
 import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe'
+import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe'
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe'
     CasetablenativeComponent,
     SearchFilterPipe,
     CasestatusfilterPipe,
+    CasestatusValidfilterPipe,
     AddcaseComponent,
     DonateComponent,
     ProfileComponent,

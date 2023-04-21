@@ -16,9 +16,13 @@ export class DonatecharityComponent implements OnInit {
 
   charity: Charity
   id: any
+  //paymentmethodVISA: boolean = false
+  //paymentmethodFawry: boolean = false
+  paymentmethod: any
   donateamount: number = 0
   cardnumber: number = 0
   cardccv: number = 0
+  fawrynumber: number = 0
 
   constructor(private donatelog: DonatelogService, private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService) { }
 

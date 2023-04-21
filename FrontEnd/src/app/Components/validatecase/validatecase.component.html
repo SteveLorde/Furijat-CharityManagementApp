@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let case of caseelement  |  searchFilter: searchText |  paginate: { itemsPerPage: 20, currentPage: p} | casestatusfilter">
+    <tr *ngFor="let case of caseelement  |  searchFilter: searchText |  paginate: { itemsPerPage: 20, currentPage: p} | casestatusfilternotvalid">
       <td>{{ case.firstName }}</td>
       <td>{{ case.lastName }}</td>
       <td>{{ case.description }}</td>

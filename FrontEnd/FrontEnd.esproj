@@ -16,7 +16,6 @@
     <Folder Include="src\app\Services\MailService\" />
     <Folder Include="src\app\Services\MailServiceBackend\" />
     <Folder Include="src\app\Services\UserStorageService\" />
-    <Folder Include="src\app\Services\Pipes\" />
     <Folder Include="src\assets\UI\" />
   </ItemGroup>
 </Project>
