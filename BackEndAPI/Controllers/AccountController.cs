@@ -58,6 +58,7 @@ namespace BackEndAPI.Controllers
             return new UserDTO()
             {
                 UserName = user.UserName,
+                UserId = user.Id,
                 Token = _tokenService.CreateToken(user)
             };
         }
