@@ -8,6 +8,7 @@ export interface Charity {
   location: string
   phone: string
   email: string
+  fund: number
   testproperty: number
   user: UserDTO
 

@@ -18,6 +18,8 @@ export class DonatelogService {
 
   PushtoListCase(caseelement: CaseDTO) {
     this.Cases.push(caseelement)
+    console.log("pushed case to array" + " " + caseelement.firstName + " " + caseelement.lastName)
+    console.log(this.Charities)
   }
 
   PushtoListCharity(charityelement: Charity) {

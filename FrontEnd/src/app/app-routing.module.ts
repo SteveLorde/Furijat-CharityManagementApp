@@ -17,7 +17,7 @@ import { ContactformbackendComponent } from 'src/app/Components/contactformbacke
 
 
 const routes: Routes = [
-  { path: 'Home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'Case', component: CaseListComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'charitylist', component:  CharitydonationComponent},
   { path: 'donatecharity/:id', component: DonatecharityComponent },
   { path: 'addcharity', component: AddcharityComponent },
-  { path: 'validatecase', component: ValidatecaseComponent },
+  //Don't Forget to add route guard for Charity logged in user
+  { path: 'validatecase', component: ValidatecaseComponent,},
   { path: 'contactform', component: ContactformComponent },
   { path: 'contactformbackend', component: ContactformbackendComponent },
 ];

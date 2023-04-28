@@ -35,10 +35,9 @@ export class DonatecharityComponent implements OnInit {
 
 
   Donate() {
-    //this.charity.currentAmount = this.case.currentAmount + this.donateamount
-    //console.log("current amount is ", this.charity.currentAmount)
-    //this._servercom.updateCase(this.case, this.id).subscribe()
+    this.charity.fund = this.donateamount
     this.donatelog.PushtoListCharity(this.charity)
+    //api request to POST donation to specific charity
     this.Close()
   }
 

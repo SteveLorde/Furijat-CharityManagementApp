@@ -10,6 +10,6 @@ export interface CaseDTO {
   currentAmount: number
   totalAmount: number
   status: string
-  //charity: Charity
+  charity: Charity
 
 }

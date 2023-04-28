@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpEventType, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { Observable} from 'rxjs';
 import { CaseDTO } from 'src/app/Models/CaseDTO'
 import { Charity } from 'src/app/Models/CharityDTO'
 import { UserDTO } from '../../Models/UserDTO';
@@ -40,8 +39,8 @@ export class BackendCommunicationService {
   }
 
   //GET HTTP for Users by ID
-  getCharitybyId(id: any): Observable<Charity[]> {
-    return this.http.get<Charity[]>(this.serverUrl + `api/Charity/getCharity/${id}`);
+  getCharitybyId(id: any): Observable<Charity> {
+    return this.http.get<Charity>(this.serverUrl + `api/Charity/getCharity/${id}`);
   }
 
 
@@ -86,6 +85,11 @@ export class BackendCommunicationService {
   //DELETE HTTP
   public delete(url: string, options?: any) {
     return this.http.delete(this.serverUrl, options);
+  }
+
+  DeleteCase(id: any): Observable<any> {
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.delete<any>(this.serverUrl + `api/Case/deleteCase/${id}`);
   }
 
   DeleteCharity(id: any): Observable<any> {

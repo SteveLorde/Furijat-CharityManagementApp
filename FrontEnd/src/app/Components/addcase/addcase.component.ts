@@ -3,6 +3,7 @@ import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { CaseDTO } from 'src/app/Models/CaseDTO';
 import { Charity } from '../../Models/CharityDTO';
+import { UserDTO } from '../../Models/UserDTO';
 
 @Component({
   selector: 'app-addcase',
@@ -13,23 +14,14 @@ export class AddcaseComponent implements OnInit {
 
  
   charity: Charity
-  CaseReq: CaseDTO = {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      description: '',
-      address: '',
-      currentAmount: 0,
-      totalAmount: 0,
-      status: '',
-      //charity: {} as Charity
-  }
+  CaseReq: CaseDTO
+  charityemail: any
 
   constructor(private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
     this.GetCharities()
-    console.log("Testing CaseReq" + this.CaseReq)
+
   }
 
   AddCaseForm = new UntypedFormGroup({
@@ -44,6 +36,7 @@ export class AddcaseComponent implements OnInit {
   })
 
   AddCase() {
+    this.CaseReq = { charity: { user: {} as UserDTO } as Charity } as CaseDTO
     this.CaseReq.firstName = this.AddCaseForm.get('firstname').value
     this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
     this.CaseReq.description = this.AddCaseForm.get('description').value
@@ -51,14 +44,8 @@ export class AddcaseComponent implements OnInit {
     this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
     this.CaseReq.totalAmount = this.AddCaseForm.get('totalamount').value
     this.CaseReq.status = "notvalid"
-    //this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
-    console.log(this.CaseReq)
-    this._servercom.addCase(this.CaseReq).subscribe((res: any) => {
-      if (res.status == 400, 401, 500 ) {
-        this.AddCaseForm.reset
-      }
-    })
-
+    this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
+    this._servercom.addCase(this.CaseReq).subscribe((res: any) => { })
   }
 
   GetCharities() {

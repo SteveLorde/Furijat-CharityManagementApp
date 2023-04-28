@@ -15,18 +15,7 @@ import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
 })
 export class DonateComponent implements OnInit {
 
-  case: CaseDTO = {
-      id: 0,
-      firstName: '',
-      lastName: '',
-      description: '',
-      address: '',
-      currentAmount: 0,
-      totalAmount: 0,
-      status: '',
-      //charity: undefined
-  }
-
+  case: CaseDTO
   id: any
   donateamount: number = 0
 
@@ -44,6 +33,7 @@ export class DonateComponent implements OnInit {
 
 
   Donate() {
+    this.case = {} as CaseDTO
     this.case.currentAmount = this.case.currentAmount + this.donateamount
     console.log("current amount is ", this.case.currentAmount)
     this._servercom.updateCase(this.case, this.id).subscribe()
