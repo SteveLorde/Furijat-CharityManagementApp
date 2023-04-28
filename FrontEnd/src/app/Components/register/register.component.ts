@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   user: UserDTO
+  registerusertype: string
 
   ngOnInit(): void {
     this.getprofilepic();
@@ -35,6 +36,7 @@ export class RegisterComponent implements OnInit {
     UserName: new UntypedFormControl(),
     EMail: new UntypedFormControl(),
     Password: new UntypedFormControl(),
+    registerusertype: new UntypedFormControl(),
   })
 
   register(user: UserDTO) {

@@ -58,4 +58,8 @@ export class LoginComponent implements OnInit {
   GoProfile() {
     this.router.navigateByUrl('profile')
   }
+
+  GoRegister() {
+    this.router.navigateByUrl('register')
+  }
 }

@@ -21,6 +21,7 @@ namespace BackEndAPI.Views
         public string LastNaame { get; set; }
 
         public int UserTypeID { get; set; }
+
         public string Token { get; set; }
 
    

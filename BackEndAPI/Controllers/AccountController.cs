@@ -59,6 +59,7 @@ namespace BackEndAPI.Controllers
             {
                 UserName = user.UserName,
                 UserId = user.Id,
+                UserTypeID = user.UserType.Id,
                 Token = _tokenService.CreateToken(user)
             };
         }
