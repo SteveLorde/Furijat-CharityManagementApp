@@ -69,7 +69,6 @@ export class BackendCommunicationService {
     return this.http.delete<any>(this.serverUrl + `api/Charity/deleteCharity/${id}`);
   }
 
-
   //User
   getUsers(): Observable<UserDTO> {
     return this.http.get<UserDTO>(this.serverUrl + 'api/User');
@@ -91,12 +90,8 @@ export class BackendCommunicationService {
 
   DeleteUser(id: any): Observable<any> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.delete<any>(this.serverUrl + `api/Case/deleteCase/${id}`);
+    return this.http.delete<any>(this.serverUrl + `/api/User/deleteUser/${id}`);
   }
-
-
-
-
 
   //CasePayment
   getCasePayment(): Observable<CasePayment> {
@@ -120,12 +115,6 @@ export class BackendCommunicationService {
   DeleteCasePayment(): Observable<CasePayment> {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
     return this.http.delete<CasePayment>(this.serverUrl + 'api/CasePayment/AddNewCasePayment', httpOptions)
-  }
-
-
-  //DELETE HTTP
-  public delete(url: string, options?: any) {
-    return this.http.delete(this.serverUrl, options);
   }
 
 }
