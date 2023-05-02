@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('authToken', res.token)
         localStorage.setItem('loggedin', "1")
         localStorage.setItem('UID', res.userId)
+        localStorage.setItem('UTypeID', res.userTypeID)
         console.log(res.token)
         this.loginreq.username = this.loginreq.username
         this.loggedin = 1

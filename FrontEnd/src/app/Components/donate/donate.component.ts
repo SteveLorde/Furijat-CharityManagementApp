@@ -4,10 +4,6 @@ import { BackendCommunicationService } from '../../Services/BackendCommunication
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
 
-
-
-
-
 @Component({
   selector: 'app-donate',
   templateUrl: './donate.component.html',
@@ -33,7 +29,6 @@ export class DonateComponent implements OnInit {
 
 
   Donate() {
-    this.case = {} as CaseDTO
     this.case.currentAmount = this.case.currentAmount + this.donateamount
     console.log("current amount is ", this.case.currentAmount)
     this._servercom.updateCase(this.case, this.id).subscribe()

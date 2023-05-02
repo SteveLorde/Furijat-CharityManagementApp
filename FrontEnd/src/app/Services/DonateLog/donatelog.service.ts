@@ -32,4 +32,8 @@ export class DonatelogService {
     return this.Charities
   }
 
+  ReturnDonatedCases() {
+    return this.Cases
+  }
+
 }

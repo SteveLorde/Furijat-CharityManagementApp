@@ -23,19 +23,19 @@ export class BackendCommunicationService {
   //GET
   //----------------------------------------
   //GET HTTP for Cases
-  getCases(): Observable<CaseDTO[]> {
-    return this.http.get<CaseDTO[]>(this.serverUrl + 'api/Cases');
+  getCases(): Observable<CaseDTO> {
+    return this.http.get<CaseDTO>(this.serverUrl + 'api/Cases');
   }
 
   //GET HTTP For Case by ID
-  getCasesById(id: any): Observable<CaseDTO[]> {
-    return this.http.get<CaseDTO[]>(this.serverUrl + `api/Cases/(getCase/${id}`);
+  getCasesById(id: any): Observable<CaseDTO> {
+    return this.http.get<CaseDTO>(this.serverUrl + `api/Cases/(getCase/${id}`);
   }
 
 
   //GET HTTP for Charities
-  getCharity(): Observable<Charity[]> {
-    return this.http.get<Charity[]>(this.serverUrl + 'api/Charity');
+  getCharity(): Observable<Charity> {
+    return this.http.get<Charity>(this.serverUrl + 'api/Charity');
   }
 
   //GET HTTP for Users by ID

@@ -1,7 +1,7 @@
 <p>userlog works!</p>
 
-<h2>Cases Donated to</h2>
-<table>
+<h2 *ngIf="UserType === '2' ">Cases Donated to</h2>
+<table *ngIf="UserType === '2' ">
   <thead>
     <tr>
       <th scope="col">Case ID</th>
@@ -23,8 +23,10 @@
     </tr>
   </tbody>
 </table>
-<h2>Charities Donated to</h2>
-<table>
+
+<h2 *ngIf="UserType === '1' ">Charities you donated to</h2>
+
+<table *ngIf="UserType === '1' ">
   <thead>
     <tr>
       <th scope="col">Charity ID</th>

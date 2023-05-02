@@ -15,16 +15,29 @@ export class UserlogComponent implements OnInit {
 
   DonatedCases: CaseDTO[] = []
   DonatedCharities: Charity[] = []
+  UserType: any
 
   constructor(private donatelog: DonatelogService) { }
 
   ngOnInit(): void {
-    this.LogDonationCharities()
-    console.log("showing results in donatedcharitieslog" + this.DonatedCharities)
+    this.UserType = localStorage.getItem("UTypeID")
+    if (this.UserType == "1") {
+      this.LogDonationCases()
+    }
+    else if (this.UserType == "2") {
+      this.LogDonationCharities()
+    }
+    else if (this.UserType == "3") {
+      console.log("no log for case user")
+    }
   }
 
   LogDonationCharities() {
     this.DonatedCharities = this.donatelog.ReturnDonatedCharities()
+  }
+
+  LogDonationCases() {
+    this.DonatedCases = this.donatelog.ReturnDonatedCases()
   }
 
 

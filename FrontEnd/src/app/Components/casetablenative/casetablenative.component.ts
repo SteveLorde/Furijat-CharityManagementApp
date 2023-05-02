@@ -17,8 +17,7 @@ export interface PagingConfig {
 })
 export class CasetablenativeComponent implements OnInit {
 
-  Cases: CaseDTO
-  charity: Charity
+  Cases = { charity: { } as Charity } as CaseDTO
   searchText: string;
   p: number = 1
   name: any
@@ -31,9 +30,10 @@ export class CasetablenativeComponent implements OnInit {
   }
 
   GetCases() {
-    this._ServerCom.getCases().subscribe((res: any) => {
-      this.Cases = res;
-    });
+    this._ServerCom.getCases().subscribe((res: CaseDTO) => {
+      this.Cases = res
+      this.Cases.charity = res.charity
+    })
   }
 
 }
