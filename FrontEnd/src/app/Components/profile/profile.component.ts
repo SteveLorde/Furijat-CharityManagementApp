@@ -14,11 +14,15 @@ export class ProfileComponent implements OnInit {
   //create object "user" of User model
   user = {} as UserDTO
   id: any
+  utid: any
+  usertype: any
 
   constructor(private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
     this.id = localStorage.getItem('UID')
+    this.utid = localStorage.getItem('UTypeID')
+    console.log(this.utid)
     this.GetProfile()
   }
 
@@ -26,5 +30,16 @@ export class ProfileComponent implements OnInit {
     this._servercom.getUserbyId(this.id).subscribe((res: any) => {
       this.user = res
     })
+    switch (this.utid) {
+      case '1':
+        this.usertype = "User"
+        break
+      case '2':
+        this.usertype = "Charity"
+        break
+      case '3':
+        this.usertype = "Case"
+        break
+    }
   }
 }

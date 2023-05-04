@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'addcharity', component: AddcharityComponent },
   //Don't Forget to add route guard for Charity logged in user
   { path: 'validatecase', component: ValidatecaseComponent,},
-  { path: 'contactform', component: ContactformComponent },
+  //{ path: 'contactform', component: ContactformComponent },
   { path: 'contactformbackend', component: ContactformbackendComponent },
 ];
 
