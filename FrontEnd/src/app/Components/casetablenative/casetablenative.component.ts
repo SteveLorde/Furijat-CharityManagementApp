@@ -30,10 +30,9 @@ export class CasetablenativeComponent implements OnInit {
   }
 
   GetCases() {
-    this._ServerCom.getCases().subscribe((res: CaseDTO) => {
+    this._ServerCom.getCases().subscribe((res) => {
+      console.log(res)
       this.Cases = res
-      this.Cases.charity = res.charity
     })
   }
-
 }
