@@ -29,7 +29,11 @@ import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
 import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
 import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
 import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe'
-import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe'
+import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe';
+import { AdminpanelComponent } from './Components/adminpanel/adminpanel.component';
+import { CharitypanelComponent } from './Components/charitypanel/charitypanel.component';
+import { DebtorpanelComponent } from './Components/debtorpanel/debtorpanel.component';
+import { CreditorpanelComponent } from './Components/creditorpanel/creditorpanel.component'
 
 
 @NgModule({
@@ -54,6 +58,10 @@ import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilte
     UserlogComponent,
     ContactformComponent,
     ContactformbackendComponent,
+    AdminpanelComponent,
+    CharitypanelComponent,
+    DebtorpanelComponent,
+    CreditorpanelComponent,
   ],
   imports: [
     BrowserModule,
