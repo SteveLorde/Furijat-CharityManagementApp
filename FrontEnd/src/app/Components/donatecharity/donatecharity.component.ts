@@ -41,6 +41,15 @@ export class DonatecharityComponent implements OnInit {
     this.Close()
   }
 
+  /*
+  CreateCasePayment() {
+    this.casepayservice.casepayment.id = this.case.id
+    //this.casepayservice.casepayment.paymentMethod =
+    this.casepayservice.casepayment.paymentAmount = this.donateamount
+    this.casepayservice.CasePay()
+  }
+  */
+
   Close() {
     this.router.navigateByUrl('/charitylist')
   }

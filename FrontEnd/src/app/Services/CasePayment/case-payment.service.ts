@@ -11,11 +11,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CasePaymentService {
 
-  casepayment: CasePayment
+  casepayment = { } as CasePayment
 
   serverUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
+
+  Setcasepayment(id, amount) {
+    this.casepayment.id = id
+    this.casepayment.paymentAmount = amount
+  }
 
   CasePay(): Observable<any> {
     return this.http.post<any>(this.serverUrl + 'api/CasePayment/AddNewCasePayment', this.casepayment)
