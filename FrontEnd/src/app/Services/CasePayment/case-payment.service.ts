@@ -4,6 +4,7 @@ import { BackendCommunicationService } from '../BackendCommunication/backend-com
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { CaseDTO } from '../../Models/CaseDTO';
 
 
 @Injectable({
@@ -17,9 +18,10 @@ export class CasePaymentService {
 
   constructor(private http: HttpClient) { }
 
-  Setcasepayment(id, amount) {
+  Setcasepayment(id, amount, Case: CaseDTO) {
     this.casepayment.id = id
     this.casepayment.paymentAmount = amount
+    this.casepayment.case = Case
   }
 
   CasePay(): Observable<any> {
