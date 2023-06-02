@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CasePayment } from '../../Models/CasePayment';
-import { BackendCommunicationService } from '../BackendCommunication/backend-communication.service';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { CaseDTO } from '../../Models/CaseDTO';
+import { Case } from '../../Models/Case';
 
 
 @Injectable({
@@ -18,7 +17,7 @@ export class CasePaymentService {
 
   constructor(private http: HttpClient) { }
 
-  Setcasepayment(id, amount, Case: CaseDTO) {
+  Setcasepayment(id, amount, Case: Case) {
     this.casepayment.id = id
     this.casepayment.paymentAmount = amount
     this.casepayment.case = Case
