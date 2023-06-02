@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms'
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { CaseDTO } from 'src/app/Models/CaseDTO';
-import { Charity } from '../../Models/CharityDTO';
-import { UserDTO } from '../../Models/UserDTO';
+import { Case } from 'src/app/Models/Case';
+import { Charity } from '../../Models/Charity';
+import { User } from '../../Models/User';
 
 @Component({
   selector: 'app-addcase',
@@ -14,7 +14,7 @@ export class AddcaseComponent implements OnInit {
 
  
   charity: Charity
-  CaseReq: CaseDTO
+  CaseReq: Case
   charityemail: any
 
   constructor(private _servercom: BackendCommunicationService) { }
@@ -36,7 +36,7 @@ export class AddcaseComponent implements OnInit {
   })
 
   AddCase() {
-    this.CaseReq = { charity: { user: {} as UserDTO } as Charity } as CaseDTO
+    this.CaseReq = { charity: { user: {} as User } as Charity } as Case
     this.CaseReq.firstName = this.AddCaseForm.get('firstname').value
     this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
     this.CaseReq.description = this.AddCaseForm.get('description').value

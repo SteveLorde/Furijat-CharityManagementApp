@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { CaseDTO } from 'src/app/Models/CaseDTO';
+import { Case } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../src/app/Services/BackendCommunication/backend-communication.service';
 
 
@@ -11,7 +11,7 @@ import { BackendCommunicationService } from '../../src/app/Services/BackendCommu
 })
 export class CasestableComponent implements OnInit {
 
-  dataSource: CaseDTO[]
+  dataSource: Case[]
 
   constructor(private _ServerCom: BackendCommunicationService) { }
 

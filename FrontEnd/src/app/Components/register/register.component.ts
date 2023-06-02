@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { UserDTO } from '../../Models/UserDTO';
+import { User } from '../../Models/User';
 import { AuthService } from '../../Services/Authorization/auth.service';
 import { Router } from '@angular/router';
 
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  user: UserDTO
+  user: User
   registerusertype: string
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
     registerusertype: new UntypedFormControl(),
   })
 
-  register(user: UserDTO) {
+  register(user: User) {
     user = this.RegisterUser.value
     this.authService.register(user).subscribe((res: any) => {
       if (res)

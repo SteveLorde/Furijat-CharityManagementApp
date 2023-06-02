@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CaseDTO } from 'src/app/Models/CaseDTO';
+import { Case } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
@@ -12,7 +12,7 @@ import { CasePaymentService } from 'src/app/Services/CasePayment/case-payment.se
 })
 export class DonateComponent implements OnInit {
 
-  case = {} as CaseDTO
+  case = {} as Case
   id: any
   donateamount: number = 0
 
@@ -36,7 +36,7 @@ export class DonateComponent implements OnInit {
   }
 
   CreateCasePayment() {
-    this.casepayservice.Setcasepayment(this.case.id, this.donateamount)
+    //this.casepayservice.Setcasepayment(this.case.id, this.donateamount)
     this.casepayservice.CasePay().subscribe()
     console.log("Creating CasePay" + this.casepayservice.casepayment)
   }

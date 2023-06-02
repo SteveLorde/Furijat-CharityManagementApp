@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { Charity } from 'src/app/Models/CharityDTO';
+import { Charity } from 'src/app/Models/Charity';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
-import { UserDTO } from '../../Models/UserDTO';
+import { User } from '../../Models/User';
 
 
 @Component({

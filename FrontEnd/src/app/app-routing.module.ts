@@ -12,7 +12,6 @@ import { CharitydonationComponent } from 'src/app/Components/charitydonation/cha
 import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
-import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
 import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
 
 

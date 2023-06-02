@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CaseDTO } from 'src/app/Models/CaseDTO';
+import { Case } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
-import { Charity } from '../../Models/CharityDTO';
+import { Charity } from '../../Models/Charity';
 
 
 @Component({
@@ -13,7 +13,7 @@ import { Charity } from '../../Models/CharityDTO';
 })
 export class UserlogComponent implements OnInit {
 
-  DonatedCases: CaseDTO[] = []
+  DonatedCases: Case[] = []
   DonatedCharities: Charity[] = []
   UserType: any
 

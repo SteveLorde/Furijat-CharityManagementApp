@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDTO } from '../../Models/UserDTO';
+import { User } from '../../Models/User';
 import { UserType } from 'src/app/Models/UserType'
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
@@ -12,7 +12,7 @@ import { BackendCommunicationService } from '../../Services/BackendCommunication
 export class ProfileComponent implements OnInit {
 
   //create object "user" of User model
-  user = {} as UserDTO
+  user = {} as User
   id: any
   utid: any
   usertype: any

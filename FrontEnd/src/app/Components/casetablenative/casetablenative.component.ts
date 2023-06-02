@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { CaseDTO } from 'src/app/Models/CaseDTO';
+import { Case } from 'src/app/Models/Case';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Charity } from '../../Models/CharityDTO';
+import { Charity } from '../../Models/Charity';
 
 export interface PagingConfig {
   currentPage: number;
@@ -17,7 +17,7 @@ export interface PagingConfig {
 })
 export class CasetablenativeComponent implements OnInit {
 
-  Cases = { charity: { } as Charity } as CaseDTO
+  Cases = { charity: { } as Charity } as Case
   searchText: string;
   p: number = 1
   name: any
