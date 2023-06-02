@@ -13,6 +13,7 @@ import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatec
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
+import { AdminpanelComponent } from './Components/adminpanel/adminpanel.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'validatecase', component: ValidatecaseComponent,},
   //{ path: 'contactform', component: ContactformComponent },
   { path: 'contactformbackend', component: ContactformbackendComponent },
+  { path: 'adminpanel', component: AdminpanelComponent },
 ];
 
 @NgModule({

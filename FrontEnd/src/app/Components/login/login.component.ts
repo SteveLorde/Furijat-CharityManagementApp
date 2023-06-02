@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
   id: any
   //store error response during login
   loginerror: string = ""
+  //role variable for user
+  role: any
 
   constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard) {
   }
@@ -53,13 +55,12 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('UID', res.userId)
         //set user role
         if (res.userId == 1) {
-          localStorage.setItem('UType', 'admin')
+          this.role = 'admin'
         }
-        else if (res.userId == 2) { localStorage.setItem('UType', 'charity') }
-        else if (res.userId == 3) { localStorage.setItem('UType', 'debtor') }
-        else if (res.userId == 4) { localStorage.setItem('UType', 'donator') }
-        else if (res.userId == 5) { localStorage.setItem('UType', 'creditor') }
-        this.authguard.currentuserole = localStorage.getItem('UType')
+        else if (res.userId == 2) { this.role = 'charity' }
+        else if (res.userId == 3) { this.role = 'debtor' }
+        else if (res.userId == 4) { this.role = 'donator' }
+        else if (res.userId == 5) { this.role = 'creditor' }
         //this.loginreq.username = this.loginreq.username
         this.loggedin = 1
         this.GoProfile()

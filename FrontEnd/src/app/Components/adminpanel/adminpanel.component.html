@@ -1,8 +1,202 @@
 <p>adminpanel works!</p>
 
 
-<button (click)="">Users List</button>
-<button (click)="">Charities List</button>
-<button (click)="">Creditors List</button>
-<button (click)="">Debtors List</button>
-<button (click)="">Donators List</button>
+<button (click)="SetView('users')">Users List</button>
+
+<div [ngSwitch] = "view">
+  <div *ngSwitchCase="'users'">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Case ID</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Address</th>
+          <th scope="col">Current Amount</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Charity</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tablerow" *ngFor="let user of Users | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.description }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.currentAmount }}</td>
+          <td>{{ user.totalAmount }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.charity}}</td>
+          <td> </td>
+          <td>{{ user.status }}</td>
+          <td> </td>
+          <td>
+            <button>View</button>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button (click)="SetView('charities')">Charities List</button>
+
+  <div *ngSwitchCase="'charities'">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Charity ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Location</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let charity of Charities | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
+          <td>{{ charity.id }}</td>
+          <td>{{ charity.name }}</td>
+          <td>{{ charity.description }}</td>
+          <td>{{ charity.location }}</td>
+          <td>{{ charity.phonenumber }}</td>
+          <td> </td>
+          <td>
+            <button>View</button>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button (click)="SetView('creditors')">Creditors List</button>
+
+  <div *ngSwitchCase="'creditors'">
+    <table >
+      <thead>
+        <tr>
+          <th scope="col">Case ID</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Address</th>
+          <th scope="col">Current Amount</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Charity</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tablerow" *ngFor="let case of Cases | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
+          <td>{{ case.id }}</td>
+          <td>{{ case.firstName }}</td>
+          <td>{{ case.lastName }}</td>
+          <td>{{ case.description }}</td>
+          <td>{{ case.address }}</td>
+          <td>{{ case.currentAmount }}</td>
+          <td>{{ case.totalAmount }}</td>
+          <td>{{ case.phone }}</td>
+          <td>{{ case.charity}}</td>
+          <td> </td>
+          <td>{{ case.status }}</td>
+          <td> </td>
+          <td>
+            <button>View</button>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button (click)="SetView('debtors')">Debtors List</button>
+  <div *ngSwitchCase="'debtors'">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Case ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Address</th>
+        <th scope="col">Current Amount</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Charity</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tablerow" *ngFor="let case of Cases | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
+        <td>{{ case.id }}</td>
+        <td>{{ case.firstName }}</td>
+        <td>{{ case.lastName }}</td>
+        <td>{{ case.description }}</td>
+        <td>{{ case.address }}</td>
+        <td>{{ case.currentAmount }}</td>
+        <td>{{ case.totalAmount }}</td>
+        <td>{{ case.phone }}</td>
+        <td>{{ case.charity}}</td>
+        <td> </td>
+        <td>{{ case.status }}</td>
+        <td> </td>
+        <td>
+          <button>View</button>
+          <button>Edit</button>
+          <button>Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <button (click)="SetView('donators')">Donators List</button>
+
+  <div *>
+    <table *ngSwitchCase="'donators'">
+      <thead>
+        <tr>
+          <th scope="col">Donator ID</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Address</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tablerow" *ngFor="let donator of Donators | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
+          <td>{{ donator.id }}</td>
+          <td>{{ donator.name }}</td>
+          <td>{{ donator.phonenumber }}</td>
+          <td>{{ donator.email }}</td>
+          <td>{{ donator.status }}</td>
+          <td> </td>
+          <td>
+            <button>View</button>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<a>Validate</a>

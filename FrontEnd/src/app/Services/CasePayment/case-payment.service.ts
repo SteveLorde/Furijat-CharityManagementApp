@@ -35,4 +35,10 @@ export class CasePaymentService {
     return this.http.get<any>(this.serverUrl + `api/CasePayment/(getCasePayment/${id}`)
   }
 
+
+  RetrieveCasePayments() {
+    this.getCasePay().subscribe((res: any) => {
+    })
+  }
+
 }

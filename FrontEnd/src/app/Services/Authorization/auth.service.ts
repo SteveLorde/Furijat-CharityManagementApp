@@ -22,12 +22,22 @@ export class AuthService {
 
   currentUser = {};
 
+  userrole: any
+
   public register(user: User): Observable<any> {
     return this.http.post<any>(this.serverUrl + 'api/Account/register', user);
   }
 
   public login(user: Login): Observable<any> {
     return this.http.post(this.serverUrl + 'api/Account/login', user)
+  }
+
+  SetUserRole(role) {
+    this.userrole = role
+  }
+
+  showLoggedInUserRole() {
+    return this.userrole
   }
 
   /*
