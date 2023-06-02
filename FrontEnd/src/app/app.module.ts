@@ -26,7 +26,6 @@ import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatec
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
-import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
 import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
 import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe'
 import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe';
@@ -56,7 +55,6 @@ import { CreditorpanelComponent } from './Components/creditorpanel/creditorpanel
     AddcharityComponent,
     ValidatecaseComponent,
     UserlogComponent,
-    ContactformComponent,
     ContactformbackendComponent,
     AdminpanelComponent,
     CharitypanelComponent,

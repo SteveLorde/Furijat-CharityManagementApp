@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpEventType, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable} from 'rxjs';
-import { CaseDTO } from 'src/app/Models/CaseDTO'
-import { Charity } from 'src/app/Models/CharityDTO'
-import { UserDTO } from '../../Models/UserDTO';
+import { Case } from 'src/app/Models/Case'
+import { Charity } from 'src/app/Models/Charity'
+import { User } from '../../Models/User';
 import { CasePayment } from '../../Models/CasePayment';
 
 @Injectable({
@@ -21,12 +21,12 @@ export class BackendCommunicationService {
   //---------------------------------
 
   //Case
-  getCases(): Observable<CaseDTO> {
-    return this.http.get<CaseDTO>(this.serverUrl + 'api/Cases');
+  getCases(): Observable<Case> {
+    return this.http.get<Case>(this.serverUrl + 'api/Cases');
   }
 
-  getCasesById(id: any): Observable<CaseDTO> {
-    return this.http.get<CaseDTO>(this.serverUrl + `api/Cases/(getCase/${id}`);
+  getCasesById(id: any): Observable<Case> {
+    return this.http.get<Case>(this.serverUrl + `api/Cases/(getCase/${id}`);
   }
 
   addCase(troubled: any): Observable<any> {
@@ -70,12 +70,12 @@ export class BackendCommunicationService {
   }
 
   //User
-  getUsers(): Observable<UserDTO> {
-    return this.http.get<UserDTO>(this.serverUrl + 'api/User');
+  getUsers(): Observable<User> {
+    return this.http.get<User>(this.serverUrl + 'api/User');
   }
 
-  getUserbyId(id: any): Observable<UserDTO> {
-    return this.http.get<UserDTO>(this.serverUrl + `api/User/(getUser/${id}`)
+  getUserbyId(id: any): Observable<User> {
+    return this.http.get<User>(this.serverUrl + `api/User/(getUser/${id}`)
   }
 
   addUser(user: any): Observable<any> {

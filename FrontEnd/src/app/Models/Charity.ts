@@ -1,4 +1,4 @@
-import { UserDTO } from './UserDTO'
+import { User } from './User'
 
 export interface Charity {
 
@@ -10,6 +10,6 @@ export interface Charity {
   email: string
   fund: number
   testproperty: number
-  user: UserDTO
+  user: User
 
 }

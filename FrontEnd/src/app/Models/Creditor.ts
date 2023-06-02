@@ -1,7 +1,7 @@
-import { CaseDTO } from "./CaseDTO"
+import { Case } from "./Case"
 
 export interface Creditor {
   name: string
-  cases: CaseDTO[]
+  cases: Case[]
 
 }

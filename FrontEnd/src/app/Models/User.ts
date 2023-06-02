@@ -1,7 +1,7 @@
 import { UserType } from 'src/app/Models/UserType'
 
 
-export interface UserDTO {
+export interface User {
 
   userId: number
   uType: string

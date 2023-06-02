@@ -1,4 +1,4 @@
-import { CaseDTO } from "./CaseDTO";
+import { CaseDTO } from "./Case";
 
 export interface CasePayment {
 

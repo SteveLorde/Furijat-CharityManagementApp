@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {AuthGuard } from 'src/app/Services/AuthGuard/authguard'
-import { UserDTO } from '../../Models/UserDTO';
+import { User } from '../../Models/User';
 import { Login } from '../../Models/Login';
 
 @Injectable({
@@ -13,7 +13,7 @@ import { Login } from '../../Models/Login';
 })
 
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void { }
@@ -22,7 +22,7 @@ export class AuthService {
 
   currentUser = {};
 
-  public register(user: UserDTO): Observable<any> {
+  public register(user: User): Observable<any> {
     return this.http.post<any>(this.serverUrl + 'api/Account/register', user);
   }
 
@@ -30,9 +30,11 @@ export class AuthService {
     return this.http.post(this.serverUrl + 'api/Account/login', user)
   }
 
+  /*
   private setSession(authResult) {
     localStorage.setItem('authToken', authResult.token);
   }
+  */
 
   public accesserror() {
     console.log('you have to login')
