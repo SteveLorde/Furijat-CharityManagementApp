@@ -6,7 +6,9 @@ import { AuthService } from 'src/app/Services/Authorization/auth.service'
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService,  private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
+
+  currentuserole: any
 
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     //If token data exist, user may login to application

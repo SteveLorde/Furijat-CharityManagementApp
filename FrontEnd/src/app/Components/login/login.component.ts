@@ -3,6 +3,7 @@ import { UntypedFormControl, UntypedFormGroup,Validators} from '@angular/forms';
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
 import { Login } from '../../Models/Login';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AuthGuard } from '../../Services/AuthGuard/authguard';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   //store error response during login
   loginerror: string = ""
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard) {
   }
 
   LogintForm = new UntypedFormGroup({
@@ -45,12 +46,21 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginreq)
       .subscribe((res: any) => {
         this.id = res.userId
+        //set token
         localStorage.setItem('authToken', res.token)
+        //variable used to check if logged in (to influnece other HTML elements)
         localStorage.setItem('loggedin', "1")
         localStorage.setItem('UID', res.userId)
-        localStorage.setItem('UTypeID', res.userTypeID)
-        console.log(res.token)
-        this.loginreq.username = this.loginreq.username
+        //set user role
+        if (res.userId == 1) {
+          localStorage.setItem('UType', 'admin')
+        }
+        else if (res.userId == 2) { localStorage.setItem('UType', 'charity') }
+        else if (res.userId == 3) { localStorage.setItem('UType', 'debtor') }
+        else if (res.userId == 4) { localStorage.setItem('UType', 'donator') }
+        else if (res.userId == 5) { localStorage.setItem('UType', 'creditor') }
+        this.authguard.currentuserole = localStorage.getItem('UType')
+        //this.loginreq.username = this.loginreq.username
         this.loggedin = 1
         this.GoProfile()
       })
