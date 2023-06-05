@@ -25,6 +25,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http.Features;
 using BackEndAPI.Services.EmailService;
+using QuestPDF.Infrastructure;
 
 namespace BackEndAPI
 {
@@ -59,6 +60,9 @@ namespace BackEndAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, FurijatContext db)
         {
+
+            QuestPDF.Settings.License = LicenseType.Community;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
