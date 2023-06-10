@@ -8,26 +8,27 @@ import { MailserviceService } from 'src/app/Services/MailService/mailservice.ser
 @Component({
   selector: 'app-contactform',
   templateUrl: './contactform.component.html',
-  styleUrls: ['./contactform.component.css']
+  styleUrls: ['./contactform.component.css'],
 })
 export class ContactformComponent implements OnInit {
+  charity: Charity;
+  contactmessage: ContactMessage;
+  errorMessage: any;
 
-  charity: Charity
-  contactmessage: ContactMessage
-  errorMessage: any
-
-
-  constructor(private mailservice: MailserviceService, private _servercom: BackendCommunicationService) { }
+  constructor(
+    private mailservice: MailserviceService,
+    private _servercom: BackendCommunicationService
+  ) {}
 
   ngOnInit(): void {
-    this.GetCharities()
+    this.GetCharities();
   }
 
   ContactForm = new UntypedFormGroup({
     name: new UntypedFormControl(),
     message: new UntypedFormControl(),
     email: new UntypedFormControl(),
-  })
+  });
 
   GetCharities() {
     this._servercom.getCharity().subscribe((res: any) => {
@@ -36,14 +37,14 @@ export class ContactformComponent implements OnInit {
   }
 
   submit(contactmessage: ContactMessage) {
-    contactmessage = this.ContactForm.value
+    contactmessage = this.ContactForm.value;
     //console.log(contactmessage)
     this.mailservice.postmessage(contactmessage).subscribe((res: any) => {
       if (res.ok) {
-        this.ContactForm.reset()
+        this.ContactForm.reset();
+      } else {
+        console.error(res);
       }
-      else {console.error(res)}
-    })
+    });
   }
-
 }

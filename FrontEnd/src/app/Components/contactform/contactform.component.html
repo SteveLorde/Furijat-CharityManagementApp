@@ -1,28 +1,58 @@
-<p>contactform works!</p>
+<div class="container d-flex justify-content-center flex-column pt-3">
+  <form [formGroup]="ContactForm" (ngSubmit)="submit(contactmessage)">
+    <div class="row">
+      <div class="form-floating mb-3 col-lg-12 col-md-6">
+        <input
+          formControlName="name"
+          type="text "
+          class="form-control"
+          id="name"
+          placeholder="charity name"
+          required
+        />
+        <label for="name" class="ps-4">Your Name </label>
+      </div>
 
-<form [formGroup]="ContactForm" (ngSubmit)="submit(contactmessage)">
+      <div class="form-floating mb-3 col-lg-12 col-md-6 pb-2">
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+        />
+        <label for="email" class="ps-4">Your Email </label>
+      </div>
 
-  <div>
-    Your Name:
-    <input formControlName="name" placeholder="charity name" type="text" />
-  </div>
+      <div class="form-floating col-md-6 col-lg-12 text-lg-center w-50 m-auto">
+        <textarea
+          formControlName="message"
+          class="form-control"
+          id="floatingTextarea2"
+          placeholder="type your message"
+          style="height: 100px"
+        ></textarea>
+        <label for="floatingTextarea2" class="ps-4">Type your message</label>
+      </div>
 
-  <div>
-    Your Email:
-    <input formControlName="email" placeholder="Email" type="text" />
-  </div>
+      <!-- <div class="">
+        <textarea
+          formControlName="message"
+          placeholder="type your message"
+          cols="30"
+          rows="4"
+          class="form-control"
+        ></textarea>
+      </div> -->
 
-  <div>
-    Message:
-    <input formControlName="message" placeholder="type your message" type="text" />
-  </div>
-
-  <input type="submit" value="Submit Mail">
-
-</form>
-
-
-
+      <input
+        type="submit"
+        class="btn btn-outline-success mt-2"
+        value="Submit Mail"
+      />
+    </div>
+  </form>
+</div>
 <!--
 
 

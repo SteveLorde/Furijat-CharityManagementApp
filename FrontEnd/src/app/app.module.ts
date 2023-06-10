@@ -35,6 +35,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { NotfoundComponent } from './Components/notfound/notfound.component';
     AuthLayoutComponent,
     BlankLayoutComponent,
     NotfoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,23 +1,5 @@
-/* .filehidden {
-  display: none;
-}
-
-.filebutton {
-  padding: 20px;
-  background-color: aquamarine;
-  cursor: pointer;
-}
-
-.avatar {
-  background-color: antiquewhite;
-  height: 200px;
-  width: 200px;
-  border: 3px solid #0af;
-  border-radius: 50%;
-  transition: background ease-out 200ms;
-} */
-
-.background-radial-gradient {
+/* .background-radial-gradient {
+  height: 100vh;
   background-color: hsl(218, 41%, 15%);
   background-image: radial-gradient(
       650px circle at 0% 0%,
@@ -59,4 +41,48 @@
 .bg-glass {
   background-color: hsla(0, 0%, 100%, 0.9) !important;
   backdrop-filter: saturate(200%) blur(25px);
+}
+button {
+  background-color: #223452;
+  color: aliceblue;
+  padding: 7px 15px;
+}
+a {
+  color: #ad1fff;
+}
+*/
+.cascading-right {
+  margin-right: -50px;
+}
+
+@media (max-width: 991.98px) {
+  .cascading-right {
+    margin-right: 0;
+  }
+}
+label {
+  color: #f67515;
+}
+input:focus {
+  outline: none !important;
+  border: 2px solid #f67515;
+  box-shadow: 0 0 10px #719ece;
+}
+button {
+  border: 2px solid #719ece;
+  color: #719ece;
+}
+button:hover {
+  background-color: #f67515;
+  color: white;
+  border-color: white;
+}
+.card-body h2 {
+  color: #719ece;
+}
+a {
+  color: #f67515;
+}
+a:hover {
+  color: #719ece;
 }

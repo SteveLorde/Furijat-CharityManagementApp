@@ -24,7 +24,13 @@ const routes: Routes = [
     path: '',
     component: BlankLayoutComponent,
     children: [
-      { path: '', component: HomeComponent },
+      {
+        path: '',
+
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
+      { path: 'home', component: HomeComponent },
       { path: 'case', component: CaseListComponent },
       { path: 'about', component: AboutComponent },
       { path: 'donate/:id', component: DonateComponent },
