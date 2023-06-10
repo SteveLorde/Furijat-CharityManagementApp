@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +17,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CasetablenativeComponent } from './Components/casetablenative/casetablenative.component';
-import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
+import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe';
 import { AddcaseComponent } from 'src/app/Components/addcase/addcase.component';
 import { DonateComponent } from 'src/app/Components/donate/donate.component';
 import { ProfileComponent } from 'src/app/Components/profile/profile.component';
@@ -28,14 +28,19 @@ import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatec
 import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
 import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
 import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
-import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe'
-import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe'
-
+import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe';
+import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { AboutComponent } from './Components/about/about.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    NavbarComponent,
     CaseListComponent,
     LoginComponent,
     RegisterComponent,
@@ -54,6 +59,10 @@ import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilte
     UserlogComponent,
     ContactformComponent,
     ContactformbackendComponent,
+    AboutComponent,
+    AuthLayoutComponent,
+    BlankLayoutComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,9 +78,9 @@ import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilte
     {
       provide: HTTP_INTERCEPTORS,
       useClass: APIInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

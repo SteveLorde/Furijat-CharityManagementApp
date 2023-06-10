@@ -1,38 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup,Validators} from '@angular/forms';
-import { AuthService } from 'src/app/Services/Authorization/auth.service'
+import {
+  FormControl,
+  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
+import { AuthService } from 'src/app/Services/Authorization/auth.service';
 import { Login } from '../../Models/Login';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-
 export class LoginComponent implements OnInit {
-
   //create object "loginrequest" of Login model
-  loginreq: Login
+  loginreq: Login;
   //variable that changes to 1/true if login request is successful
-  loggedin: any = 0
+  loggedin: any = 0;
   //store user id in variable "id"
-  id: any
+  id: any;
   //store error response during login
-  loginerror: string = ""
+  loginerror: string = '';
 
-  constructor(private router: Router, private authService: AuthService) {
-  }
+  constructor(private router: Router, private authService: AuthService) {}
 
-  LogintForm = new UntypedFormGroup({
-    username: new UntypedFormControl(),
-    password: new UntypedFormControl(),
-  })
+  LogintForm: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
 
   ngOnInit() {
-    this.loggedin = localStorage.getItem('loggedin')
+    this.loggedin = localStorage.getItem('loggedin');
     if (this.loggedin == 1) {
-      this.GoProfile()
+      this.GoProfile();
     }
   }
 
@@ -41,21 +44,20 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginreq = this.LogintForm.value
-    this.authService.login(this.loginreq)
-      .subscribe((res: any) => {
-        this.id = res.userId
-        localStorage.setItem('authToken', res.token)
-        localStorage.setItem('loggedin', "1")
-        localStorage.setItem('UID', res.userId)
-        console.log(res.token)
-        this.loginreq.username = this.loginreq.username
-        this.loggedin = 1
-        this.GoProfile()
-      })
+    this.loginreq = this.LogintForm.value;
+    this.authService.login(this.loginreq).subscribe((res: any) => {
+      this.id = res.userId;
+      localStorage.setItem('authToken', res.token);
+      localStorage.setItem('loggedin', '1');
+      localStorage.setItem('UID', res.userId);
+      console.log(res.token);
+      this.loginreq.username = this.loginreq.username;
+      this.loggedin = 1;
+      this.GoProfile();
+    });
   }
 
   GoProfile() {
-    this.router.navigateByUrl('profile')
+    this.router.navigateByUrl('profile');
   }
 }

@@ -1,3 +1,4 @@
+import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
@@ -14,26 +15,43 @@ import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.co
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
 import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
-
+import { AboutComponent } from './Components/about/about.component';
+import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 const routes: Routes = [
-  { path: 'Home', component: HomeComponent },
-  { path: 'Case', component: CaseListComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'addcase', component: AddcaseComponent},
-  { path: 'donate/:id', component: DonateComponent},
-  { path: 'profile', component: ProfileComponent },
-  { path: 'charitylist', component:  CharitydonationComponent},
-  { path: 'donatecharity/:id', component: DonatecharityComponent },
-  { path: 'addcharity', component: AddcharityComponent },
-  { path: 'validatecase', component: ValidatecaseComponent },
-  { path: 'contactform', component: ContactformComponent },
-  { path: 'contactformbackend', component: ContactformbackendComponent },
+  {
+    path: '',
+    component: BlankLayoutComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'case', component: CaseListComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'donate/:id', component: DonateComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'charitylist', component: CharitydonationComponent },
+      { path: 'donatecharity/:id', component: DonatecharityComponent },
+      { path: 'addcharity', component: AddcharityComponent },
+      { path: 'validatecase', component: ValidatecaseComponent },
+      { path: 'contactform', component: ContactformComponent },
+      { path: 'contactformbackend', component: ContactformbackendComponent },
+      { path: 'addcase', component: AddcaseComponent },
+    ],
+  },
+  {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+    ],
+  },
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

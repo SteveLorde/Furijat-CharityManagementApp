@@ -1,5 +1,4 @@
 <p>addcharity works!</p>
-
 <form [formGroup]="AddCharityForm" (ngSubmit)="AddCharity(charity)">
   <div>
     Charity Name:
@@ -8,7 +7,11 @@
 
   <div>
     Description:
-    <input formControlName="description" placeholder="description" type="text" />
+    <input
+      formControlName="description"
+      placeholder="description"
+      type="text"
+    />
   </div>
   <div>
     Address:
@@ -16,11 +19,15 @@
   </div>
   <div>
     Phone Number:
-    <input formControlName="phonenumber" placeholder="phone number" type="text" />
+    <input
+      formControlName="phonenumber"
+      placeholder="phone number"
+      type="text"
+    />
   </div>
   <div>
     Email:
     <input formControlName="email" placeholder="Email" type="text" />
   </div>
-  <input type="submit" value="Add Charity">
+  <input type="submit" value="Add Charity" />
 </form>

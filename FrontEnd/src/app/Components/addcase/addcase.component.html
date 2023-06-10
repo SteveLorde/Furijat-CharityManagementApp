@@ -1,5 +1,4 @@
 <p>addcase works!</p>
-
 <form [formGroup]="AddCaseForm" (ngSubmit)="AddCase()">
   <div>
     FirstName:
@@ -11,7 +10,11 @@
   </div>
   <div>
     Description:
-    <input formControlName="description" placeholder="description" type="text" />
+    <input
+      formControlName="description"
+      placeholder="description"
+      type="text"
+    />
   </div>
   <div>
     Address:
@@ -19,22 +22,36 @@
   </div>
   <div>
     Amount Needed:
-    <input formControlName="amountneeded" placeholder="amountneeded" type="number" />
+    <input
+      formControlName="amountneeded"
+      placeholder="amountneeded"
+      type="number"
+    />
   </div>
   <div>
     Current Amount:
-    <input formControlName="currentamount" placeholder="currentamount" type="number" />
+    <input
+      formControlName="currentamount"
+      placeholder="currentamount"
+      type="number"
+    />
   </div>
   <div>
     Total Amount:
-    <input formControlName="totalamount" placeholder="totalamount" type="number" />
+    <input
+      formControlName="totalamount"
+      placeholder="totalamount"
+      type="number"
+    />
   </div>
   <div>
     Select Charity to Add Case to
     <select formControlName="charityid">
-      <option *ngFor="let charity of charity" [ngValue]="charity.id">{{charity.name}}</option>
+      <option *ngFor="let charity of charity" [ngValue]="charity.id">
+        {{ charity.name }}
+      </option>
     </select>
   </div>
 
-  <input type="submit" value="Add Case">
+  <input type="submit" value="Add Case" />
 </form>

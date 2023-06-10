@@ -1,19 +1,30 @@
-<p>login works!</p>
+<div class="min-vh-100 hstack justify-content-center">
+  <form
+    [formGroup]="LogintForm"
+    (ngSubmit)="login()"
+    class="w-50 mx-auto rounded-3 shadow p-5 d-flex flex-column gap-3"
+  >
+    <h1 class="display-3 text-center text-dark">Login</h1>
+    <div>
+      <label>username:</label>
+      <input
+        formControlName="username"
+        placeholder="username"
+        class="form-control"
+      />
+    </div>
+    <div>
+      <label> password:</label>
+      <input
+        formControlName="password"
+        placeholder="password"
+        type="password"
+        class="form-control"
+      />
+    </div>
+    <button class="btn btn-outline-primary">Login</button>
+    <a routerLink="/register">Don't Have Account!</a>
 
-
-
-<form [formGroup]="LogintForm" (ngSubmit)="login()">
-  <div>
-    username:
-    <input formControlName="username" placeholder="username" />
-  </div>
-  <div>
-    password:
-    <input formControlName="password" placeholder="password" type="password" />
-  </div>
-  <input type="submit" value="Login" />
-
-  <h2>{{loginerror}}</h2>
-
-</form>
-
+    <h2>{{ loginerror }}</h2>
+  </form>
+</div>
