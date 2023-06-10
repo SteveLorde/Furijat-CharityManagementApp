@@ -1,4 +1,4 @@
-import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +17,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CasetablenativeComponent } from './Components/casetablenative/casetablenative.component';
-import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe'
+import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe';
 import { AddcaseComponent } from 'src/app/Components/addcase/addcase.component';
 import { DonateComponent } from 'src/app/Components/donate/donate.component';
 import { ProfileComponent } from 'src/app/Components/profile/profile.component';
@@ -27,18 +27,20 @@ import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.co
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
 import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
-import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe'
+import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe';
 import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe';
-import { AdminpanelComponent } from './Components/adminpanel/adminpanel.component';
-import { CharitypanelComponent } from './Components/charitypanel/charitypanel.component';
-import { DebtorpanelComponent } from './Components/debtorpanel/debtorpanel.component';
-import { CreditorpanelComponent } from './Components/creditorpanel/creditorpanel.component'
-
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { AboutComponent } from './Components/about/about.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    NavbarComponent,
     CaseListComponent,
     LoginComponent,
     RegisterComponent,
@@ -56,10 +58,11 @@ import { CreditorpanelComponent } from './Components/creditorpanel/creditorpanel
     ValidatecaseComponent,
     UserlogComponent,
     ContactformbackendComponent,
-    AdminpanelComponent,
-    CharitypanelComponent,
-    DebtorpanelComponent,
-    CreditorpanelComponent,
+    AboutComponent,
+    AuthLayoutComponent,
+    BlankLayoutComponent,
+    NotfoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,9 +78,9 @@ import { CreditorpanelComponent } from './Components/creditorpanel/creditorpanel
     {
       provide: HTTP_INTERCEPTORS,
       useClass: APIInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
