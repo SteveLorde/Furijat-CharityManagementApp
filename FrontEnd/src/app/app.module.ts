@@ -26,7 +26,6 @@ import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatec
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
-import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
 import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe';
 import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe';
 import { NavbarComponent } from './Components/navbar/navbar.component';
@@ -35,6 +34,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { ContactformComponent  } from './Components/contactform/contactform.component';
 
 @NgModule({
   declarations: [
@@ -57,12 +57,12 @@ import { FooterComponent } from './Components/footer/footer.component';
     AddcharityComponent,
     ValidatecaseComponent,
     UserlogComponent,
-    ContactformbackendComponent,
     AboutComponent,
     AuthLayoutComponent,
     BlankLayoutComponent,
     NotfoundComponent,
     FooterComponent,
+    ContactformComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  UntypedFormControl,
-  UntypedFormGroup,
   NgForm,
   Validators,
   FormGroup,
@@ -23,37 +21,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private router: Router, private authService: AuthService) {}
-
-  user: UserDTO;
-
-  }
+  constructor(private router: Router, private authService: AuthService) { }
 
   user: User
+  imgsrc = environment.baseUrl + 'api/GetFile?filename=kfc.jpg'
   registerusertype: string
 
+
   ngOnInit(): void {
-    this.getprofilepic();
+    this.getprofilepic()
   }
 
-  imgsrc = environment.baseUrl + 'api/GetFile?filename=kfc.jpg';
+
 
   getprofilepic() {
-    this.imgsrc;
+    this.imgsrc
   }
 
 
-  RegisterUser = new UntypedFormGroup({
-    UserName: new UntypedFormControl(),
-    EMail: new UntypedFormControl(),
-    Password: new UntypedFormControl(),
-    registerusertype: new UntypedFormControl(),
+  RegisterUser = new FormGroup({
+    userName: new FormControl(),
+    EMail: new FormControl(),
+    Password: new FormControl(),
+    registerusertype: new FormControl(),
   })
 
   register(user: User) {
-    user = this.RegisterUser.value
+    //user = this.RegisterUser.value
     this.authService.register(user).subscribe((res: any) => {
       if (res) console.log('user', res.userName, 'registered');
-    });
+    })
   }
 }

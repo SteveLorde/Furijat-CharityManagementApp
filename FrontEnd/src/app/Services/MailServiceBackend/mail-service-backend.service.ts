@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { map, Observable} from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Mail } from '../../Models/Mail';
+import { ContactMessage } from '../../Models/ContactMessage';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class MailServiceBackendService {
 
   constructor(private http: HttpClient) { }
 
-  postmessage(mail: Mail): Observable<any> {
+  postmessage(mail: ContactMessage): Observable<any> {
     return this.http.post<any>(this.mailsubmiturl, mail, { observe: 'response' })
       .pipe(map(data => {
         return data.status

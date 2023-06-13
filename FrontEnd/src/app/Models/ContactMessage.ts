@@ -1,8 +1,8 @@
 
 export interface ContactMessage {
 
-  name: string
-  message: string
-  email: string
+  ToEmail: string
+  Subject: string
+  Body: string
 
 }

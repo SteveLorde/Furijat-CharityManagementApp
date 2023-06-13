@@ -13,10 +13,10 @@ import { CharitydonationComponent } from 'src/app/Components/charitydonation/cha
 import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
-import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
 import { AboutComponent } from './Components/about/about.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { ContactformComponent } from './Components/contactform/contactform.component';
 
 const routes: Routes = [
   {
@@ -39,7 +39,6 @@ const routes: Routes = [
       { path: 'addcharity', component: AddcharityComponent },
       { path: 'validatecase', component: ValidatecaseComponent },
       { path: 'contactform', component: ContactformComponent },
-      { path: 'contactformbackend', component: ContactformbackendComponent },
       { path: 'addcase', component: AddcaseComponent },
     ],
   },
