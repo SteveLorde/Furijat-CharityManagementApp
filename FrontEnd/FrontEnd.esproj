@@ -16,7 +16,6 @@
     <Folder Include="src\app\Services\DonateLog\" />
     <Folder Include="src\app\Services\MailServiceBackend\" />
     <Folder Include="src\app\Services\CasePayment\" />
-    <Folder Include="src\app\Services\CreateReport\" />
     <Folder Include="src\app\Services\CreditorService\" />
     <Folder Include="src\app\Services\DonatorService\" />
     <Folder Include="src\app\Services\UserStorageService\" />
