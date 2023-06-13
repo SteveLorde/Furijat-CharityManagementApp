@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { CasePayment } from '../../Models/CasePayment';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Case } from '../../Models/Case';
+
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
 
 
 @Injectable({
@@ -23,22 +25,27 @@ export class CasePaymentService {
     this.casepayment.case = Case
   }
 
-  CasePay(): Observable<any> {
-    return this.http.post<any>(this.serverUrl + 'api/CasePayment/AddNewCasePayment', this.casepayment)
+  getCasePayment(): Observable<CasePayment> {
+    return this.http.get<CasePayment>(this.serverUrl + 'api/CasePayment')
   }
 
-  getCasePay(): Observable<any> {
-    return this.http.get<any>(this.serverUrl + 'api/CasePayment')
+  getCasePaymentByID(id: any): Observable<CasePayment> {
+    return this.http.get<CasePayment>(this.serverUrl + `/api/CasePayment/(getCasePayment/${id}`)
   }
 
-  getCasePayID(id: any): Observable<any> {
-    return this.http.get<any>(this.serverUrl + `api/CasePayment/(getCasePayment/${id}`)
+  AddCasePayment(): Observable<CasePayment> {
+
+    return this.http.post<CasePayment>(this.serverUrl + 'api/CasePayment/AddNewCasePayment', httpOptions)
   }
 
+  UpdateCasePaymentBy(id: any): Observable<CasePayment> {
 
-  RetrieveCasePayments() {
-    this.getCasePay().subscribe((res: any) => {
-    })
+    return this.http.put<CasePayment>(this.serverUrl + `/api/CasePayment/updateCasePayment/${id}`, httpOptions)
   }
+
+  DeleteCasePayment(): Observable<CasePayment> {
+    return this.http.delete<CasePayment>(this.serverUrl + 'api/CasePayment/AddNewCasePayment', httpOptions)
+  }
+
 
 }

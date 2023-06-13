@@ -37,7 +37,7 @@ export class DonateComponent implements OnInit {
 
   CreateCasePayment() {
     //this.casepayservice.Setcasepayment(this.case.id, this.donateamount)
-    this.casepayservice.CasePay().subscribe()
+    this.casepayservice.AddCasePayment().subscribe()
     console.log("Creating CasePay" + this.casepayservice.casepayment)
   }
 

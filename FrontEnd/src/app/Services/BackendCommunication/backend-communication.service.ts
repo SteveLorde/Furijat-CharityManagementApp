@@ -7,6 +7,8 @@ import { Charity } from 'src/app/Models/Charity'
 import { User } from '../../Models/User';
 import { CasePayment } from '../../Models/CasePayment';
 
+const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,18 +32,18 @@ export class BackendCommunicationService {
   }
 
   addCase(troubled: any): Observable<any> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.post<any>(this.serverUrl + 'api/Cases/AddNewCase', troubled, httpOptions);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+    return this.http.post<any>(this.serverUrl + 'api/Cases/AddNewCase', troubled, httpOptions)
   }
 
   updateCase(troubled: any, id: any): Observable<any> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.put<any>(this.serverUrl + `api/Cases/updateCase/${id}`, troubled, httpOptions);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+    return this.http.put<any>(this.serverUrl + `api/Cases/updateCase/${id}`, troubled, httpOptions)
   }
 
   DeleteCase(id: any): Observable<any> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.delete<any>(this.serverUrl + `api/Case/deleteCase/${id}`);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+    return this.http.delete<any>(this.serverUrl + `api/Case/deleteCase/${id}`)
   }
 
 
@@ -55,17 +57,17 @@ export class BackendCommunicationService {
   }
 
   addCharity(charity: any): Observable<any> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    
     return this.http.post<any>(this.serverUrl + 'api/Charity/AddNewCharity', charity, httpOptions);
   }
 
   UpdateCharityby(id: any): Observable<Charity> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
+    
     return this.http.put<Charity>(this.serverUrl + `api/Charity/updateCharity/${id}`, httpOptions);
   }
 
   DeleteCharity(id: any): Observable<any> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    
     return this.http.delete<any>(this.serverUrl + `api/Charity/deleteCharity/${id}`);
   }
 
@@ -79,42 +81,21 @@ export class BackendCommunicationService {
   }
 
   addUser(user: any): Observable<any> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.post<any>(this.serverUrl + '/api/User/AddNewUser', user, httpOptions);
+    
+    return this.http.post<any>(this.serverUrl + '/api/User/AddNewUser', user, httpOptions)
   }
 
   UpdateUser(user: any, id: any): Observable<any> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.put<any>(this.serverUrl + `/api/User/updateUser/${id}`, user, httpOptions);
+    
+    return this.http.put<any>(this.serverUrl + `/api/User/updateUser/${id}`, user, httpOptions)
   }
 
   DeleteUser(id: any): Observable<any> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.delete<any>(this.serverUrl + `/api/User/deleteUser/${id}`);
+    
+    return this.http.delete<any>(this.serverUrl + `/api/User/deleteUser/${id}`)
   }
 
   //CasePayment
-  getCasePayment(): Observable<CasePayment> {
-    return this.http.get<CasePayment>(this.serverUrl + 'api/CasePayment');
-  }
 
-  getCasePaymentByID(id: any): Observable<CasePayment> {
-    return this.http.get<CasePayment>(this.serverUrl + `/api/CasePayment/(getCasePayment/${id}`);
-  }
-
-  AddCasePayment(): Observable<CasePayment> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-    return this.http.post<CasePayment>(this.serverUrl + 'api/CasePayment/AddNewCasePayment', httpOptions)
-  }
-
-  UpdateCasePaymentBy(id: any): Observable<CasePayment> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-    return this.http.put<CasePayment>(this.serverUrl + `/api/CasePayment/updateCasePayment/${id}`, httpOptions)
-  }
-
-  DeleteCasePayment(): Observable<CasePayment> {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-    return this.http.delete<CasePayment>(this.serverUrl + 'api/CasePayment/AddNewCasePayment', httpOptions)
-  }
 
 }
