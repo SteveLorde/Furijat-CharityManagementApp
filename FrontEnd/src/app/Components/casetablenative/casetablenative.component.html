@@ -22,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="tablerow" *ngFor="let case of Cases | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p} | casestatusvalidfilter">
+    <tr class="tablerow" *ngFor="let case of Cases | searchFilter: searchText | paginate: { itemsPerPage: 3, currentPage: p}">
       <td>{{ case.id }}</td>
       <td>{{ case.firstName }}</td>
       <td>{{ case.lastName }}</td>

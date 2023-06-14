@@ -4,129 +4,22 @@ using BackEndAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    partial class FurijatContextModelSnapshot : ModelSnapshot
+    [Migration("20230614001541_updatecharity")]
+    partial class updatecharity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.CharityDonators", b =>
-                {
-                    b.Property<int>("DonatorID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CharityID")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("PaidAmount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("DonatorID", "CharityID");
-
-                    b.HasIndex("CharityID");
-
-                    b.ToTable("CharityDonators");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.CharityManagment", b =>
-                {
-                    b.Property<int>("CaseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CharityID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorCaseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorID1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Deserves_Debt")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PaidAmount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("CaseID", "CharityID", "CreditorID");
-
-                    b.HasIndex("CharityID");
-
-                    b.HasIndex("CreditorID1", "CreditorCaseID");
-
-                    b.ToTable("CharityManagment");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.Creditor", b =>
-                {
-                    b.Property<int>("CreditorID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CaseID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Deserves_Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Payment_Account")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(11)
-                        .HasColumnType("nvarchar(11)");
-
-                    b.HasKey("CreditorID", "CaseID");
-
-                    b.ToTable("Creditor");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.CreditorCases", b =>
-                {
-                    b.Property<int>("CaseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorCaseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorID1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Deserves_Debt")
-                        .HasColumnType("int");
-
-                    b.HasKey("CaseID", "CreditorID");
-
-                    b.HasIndex("CreditorID1", "CreditorCaseID");
-
-                    b.ToTable("CreditorCases");
-                });
 
             modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
                 {
@@ -254,57 +147,6 @@ namespace BackEndAPI.Migrations
                     b.ToTable("Donatores");
                 });
 
-            modelBuilder.Entity("BackEndAPI.Data.Entites.CharityDonators", b =>
-                {
-                    b.HasOne("BackEndAPI.Models.Charity", null)
-                        .WithMany("CharityDonators")
-                        .HasForeignKey("CharityID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackEndAPI.Data.Entites.Donator", null)
-                        .WithMany("CharityDonators")
-                        .HasForeignKey("DonatorID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.CharityManagment", b =>
-                {
-                    b.HasOne("BackEndAPI.Data.Entites.Case", null)
-                        .WithMany("CharityManagment")
-                        .HasForeignKey("CaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackEndAPI.Models.Charity", null)
-                        .WithMany("CharityManagment")
-                        .HasForeignKey("CharityID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackEndAPI.Data.Entites.Creditor", null)
-                        .WithMany("CharityManagment")
-                        .HasForeignKey("CreditorID1", "CreditorCaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.CreditorCases", b =>
-                {
-                    b.HasOne("BackEndAPI.Data.Entites.Case", null)
-                        .WithMany("CreditorCases")
-                        .HasForeignKey("CaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackEndAPI.Data.Entites.Creditor", null)
-                        .WithMany("CreditorCases")
-                        .HasForeignKey("CreditorID1", "CreditorCaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
                 {
                     b.HasOne("BackEndAPI.Data.Entites.Admin", "Admin")
@@ -347,32 +189,6 @@ namespace BackEndAPI.Migrations
                         .HasForeignKey("BackEndAPI.Data.Entites.Donator", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.Creditor", b =>
-                {
-                    b.Navigation("CharityManagment");
-
-                    b.Navigation("CreditorCases");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
-                {
-                    b.Navigation("CharityDonators");
-
-                    b.Navigation("CharityManagment");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.Case", b =>
-                {
-                    b.Navigation("CharityManagment");
-
-                    b.Navigation("CreditorCases");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.Donator", b =>
-                {
-                    b.Navigation("CharityDonators");
                 });
 #pragma warning restore 612, 618
         }

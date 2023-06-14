@@ -4,14 +4,16 @@ using BackEndAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    partial class FurijatContextModelSnapshot : ModelSnapshot
+    [Migration("20230614010958_AddedCharityDonators")]
+    partial class AddedCharityDonators
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,30 +104,6 @@ namespace BackEndAPI.Migrations
                     b.HasKey("CreditorID", "CaseID");
 
                     b.ToTable("Creditor");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.CreditorCases", b =>
-                {
-                    b.Property<int>("CaseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorCaseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CreditorID1")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Deserves_Debt")
-                        .HasColumnType("int");
-
-                    b.HasKey("CaseID", "CreditorID");
-
-                    b.HasIndex("CreditorID1", "CreditorCaseID");
-
-                    b.ToTable("CreditorCases");
                 });
 
             modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
@@ -290,21 +268,6 @@ namespace BackEndAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BackEndAPI.Data.Entites.CreditorCases", b =>
-                {
-                    b.HasOne("BackEndAPI.Data.Entites.Case", null)
-                        .WithMany("CreditorCases")
-                        .HasForeignKey("CaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackEndAPI.Data.Entites.Creditor", null)
-                        .WithMany("CreditorCases")
-                        .HasForeignKey("CreditorID1", "CreditorCaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
                 {
                     b.HasOne("BackEndAPI.Data.Entites.Admin", "Admin")
@@ -352,8 +315,6 @@ namespace BackEndAPI.Migrations
             modelBuilder.Entity("BackEndAPI.Data.Entites.Creditor", b =>
                 {
                     b.Navigation("CharityManagment");
-
-                    b.Navigation("CreditorCases");
                 });
 
             modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
@@ -366,8 +327,6 @@ namespace BackEndAPI.Migrations
             modelBuilder.Entity("BackEndAPI.Data.Entites.Case", b =>
                 {
                     b.Navigation("CharityManagment");
-
-                    b.Navigation("CreditorCases");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Donator", b =>

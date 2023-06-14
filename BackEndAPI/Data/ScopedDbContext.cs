@@ -1,4 +1,5 @@
-﻿using BackEndAPI.Data.Interfaces;
+﻿using BackEndAPI.Data.Entites;
+using BackEndAPI.Data.Interfaces;
 using BackEndAPI.Database;
 using BackEndAPI.Models;
 using Microsoft.AspNetCore.Http;
@@ -24,11 +25,11 @@ namespace BackEndAPI.Data
 
         public IRepository<Case> Cases { get; private set; }
 
-        public IRepository<CasePayment> CasePayments { get; private set; }
+      //  public IRepository<CasePayment> CasePayments { get; private set; }
 
         public IRepository<Charity> Charities { get; private set; }
 
-        public IRepository<UserType> Roles { get; private set; }
+      
         public ScopedDbContext(FurijatContext context, IHttpContextAccessor httpContextAccessor)
 
         {
@@ -39,9 +40,8 @@ namespace BackEndAPI.Data
         private void FillProperties()
         {
             Users = new Repository<User>(_context, _httpContextAccessor);
-            Roles = new Repository<UserType>(_context, _httpContextAccessor);
             Cases = new Repository<Case>(_context, _httpContextAccessor);
-            CasePayments = new Repository<CasePayment>(_context, _httpContextAccessor);
+            //CasePayments = new Repository<CasePayment>(_context, _httpContextAccessor);
             Charities = new Repository<Charity>(_context, _httpContextAccessor);
         }
 
