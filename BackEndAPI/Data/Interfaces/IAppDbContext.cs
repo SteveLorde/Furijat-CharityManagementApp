@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using System.Threading;
 using BackEndAPI.Models;
+using BackEndAPI.Data.Entites;
 
 namespace BackEndAPI.Data.Interfaces
 {
@@ -13,9 +14,13 @@ namespace BackEndAPI.Data.Interfaces
     {
         public IRepository<User> Users { get; }
         public IRepository<Case> Cases { get; }
-        public IRepository<CasePayment> CasePayments { get; }
         public IRepository<Charity> Charities { get; }
-        public IRepository<UserType> Roles { get; }
+        public IRepository<Admin> Admins { get; }
+        public IRepository<Creditor> Creditors { get; }
+        public IRepository<Donator> Donators { get; }
+        public IRepository<CharityDonators> CharityDonators { get; }
+        public IRepository<CreditorCases> CreditorCases { get; }
+
 
         #region Methods
         IDbContextTransaction BeginTransaction();

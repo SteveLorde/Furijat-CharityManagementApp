@@ -1,8 +1,15 @@
+import { UserType } from 'src/app/Models/UserType'
+
+
 export interface User {
 
-  UserID: number;
-  Name: string;
-  Phone: number;
-  Email: string;
+  userId: number
+  uType: string
+  password: string
+  userName: string
+  firstName: string
+  lastNaame: string
+  userTypeID: number
+  token: string
 
 }

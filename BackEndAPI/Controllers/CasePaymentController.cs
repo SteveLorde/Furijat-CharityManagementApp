@@ -20,68 +20,68 @@ namespace BackEndAPI.Controllers
         }
 
         // GET: api/CasePayment
-        [HttpGet]
-        public ActionResult<IEnumerable<CasePayment>> GetCasePayments()
-        {
-            return _context.CasePayments.All.ToList();
-        }
+        //[HttpGet]
+        //public ActionResult<IEnumerable<CasePayment>> GetCasePayments()
+        //{
+        //    return _context.CasePayments.All.ToList();
+        //}
 
-        // GET: api/Users/get CasePayment
-        [HttpGet("(getCasePayment/{id}")]
-        public async Task<ActionResult<CasePayment>> GetCasePayment(int id)
-        {
-            var _CasePayment = await _context.CasePayments.All
+        //// GET: api/Users/get CasePayment
+        //[HttpGet("(getCasePayment/{id}")]
+        //public async Task<ActionResult<CasePayment>> GetCasePayment(int id)
+        //{
+        //    var _CasePayment = await _context.CasePayments.All
 
-                .SingleOrDefaultAsync(e => e.Id == id);
+        //        .SingleOrDefaultAsync(e => e.Id == id);
 
-            if (_CasePayment == null)
-            {
-                return NotFound();
-            }
-            return _CasePayment;
-        }
+        //    if (_CasePayment == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return _CasePayment;
+        //}
 
-        // POST: api/CasePayment/AddNewCasePayment
-        [HttpPost("AddNewCasePayment")]
-        public async Task<ActionResult<CasePayment>> PostUser(CasePayment _CasePayment)
-        {
-            await _context.CasePayments.AddAsync(_CasePayment);
-            await _context.SaveChangesAsync();
+        //// POST: api/CasePayment/AddNewCasePayment
+        //[HttpPost("AddNewCasePayment")]
+        //public async Task<ActionResult<CasePayment>> PostUser(CasePayment _CasePayment)
+        //{
+        //    await _context.CasePayments.AddAsync(_CasePayment);
+        //    await _context.SaveChangesAsync();
 
-            return _CasePayment;
-        }
+        //    return _CasePayment;
+        //}
 
         // PUT: api/CasePayments/updateCasePayment
-        [HttpPut("updateCasePayment/{id}")]
-        public async Task<IActionResult> PutCasePayment(int id, CasePayment _CasePayment)
-        {
-            if (id != _CasePayment.Id)
-            {
-                return BadRequest();
-            }
+        //[HttpPut("updateCasePayment/{id}")]
+        //public async Task<IActionResult> PutCasePayment(int id, CasePayment _CasePayment)
+        //{
+        //    if (id != _CasePayment.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.CasePayments.Update(_CasePayment).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+        //    _context.CasePayments.Update(_CasePayment).State = EntityState.Modified;
+        //    await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // DELETE: api/CasePayment/deleteCasePayment
-        [HttpDelete("deleteCasePayment/{id}")]
-        public async Task<IActionResult> DeleteCasePayment(int id)
-        {
-            var _CasePayment = await _context.CasePayments.All.SingleOrDefaultAsync(e => e.Id == id); ;
+        //[HttpDelete("deleteCasePayment/{id}")]
+        //public async Task<IActionResult> DeleteCasePayment(int id)
+        //{
+        //    var _CasePayment = await _context.CasePayments.All.SingleOrDefaultAsync(e => e.Id == id); ;
 
-            if (_CasePayment == null)
-            {
-                return NotFound();
-            }
+        //    if (_CasePayment == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.CasePayments.Remove(_CasePayment);
-            await _context.SaveChangesAsync();
+        //    _context.CasePayments.Remove(_CasePayment);
+        //    await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
 
 

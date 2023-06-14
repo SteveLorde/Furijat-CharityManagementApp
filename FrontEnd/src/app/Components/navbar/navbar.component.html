@@ -1,0 +1,89 @@
+<nav class="navbar nav-tabs navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['']"
+      ><img src="../../../assets/images/FurijatWhite.png" alt="logo"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown ">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            [routerLink]="['/case']"
+          >
+            Cases
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/addcase']"
+                routerLinkActive="active"
+                >add cases</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a
+            [routerLink]="['/charitylist']"
+            routerLinkActive="active"
+            class="nav-link"
+            >charitylist</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            [routerLink]="['/profile']"
+            routerLinkActive="active"
+            class="nav-link"
+            >Profile</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [routerLink]="['/about']"
+            routerLinkActive="active"
+            class="nav-link"
+            >About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [routerLink]="['/contactform']"
+            routerLinkActive="active"
+            class="nav-link"
+            >Contact
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['register']" class="nav-link">Register</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['login']" class="nav-link">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

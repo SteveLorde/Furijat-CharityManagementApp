@@ -1,0 +1,47 @@
+<div class="searchbar mt-5 py-5 d-flex justify-content-center">
+  <input
+    type="search"
+    name="search"
+    placeholder="Search Case Name"
+    [(ngModel)]="searchText"
+    class="rounded"
+  />
+</div>
+<div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th scope="col">Charity ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Location</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="active-row"
+        *ngFor="
+          let charity of charity
+            | searchFilter : searchText
+            | paginate : { itemsPerPage: 3, currentPage: p }
+        "
+      >
+        <td>{{ charity.id }}</td>
+        <td>{{ charity.name }}</td>
+        <td>{{ charity.description }}</td>
+        <td>{{ charity.location }}</td>
+        <td>{{ charity.phonenumber }}</td>
+        <td>
+          <a [routerLink]="['/donatecharity', charity.id]">Donate</a>
+        </td>
+        <td>
+          <button (click)="DeleteCharity(charity.id)">Delete Charity</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<pagination-controls (pageChange)="p = $event"> </pagination-controls>

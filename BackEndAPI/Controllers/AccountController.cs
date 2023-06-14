@@ -44,7 +44,7 @@ namespace BackEndAPI.Controllers
         {
 
             var user = await _db.Users.All
-                .Include(e => e.UserType)
+                //.Include(e => e.UserType)
                 .SingleOrDefaultAsync(e => e.UserName == _user.Username.ToLower()); ;
 
             if (user == null) return Unauthorized("Invalid username");
@@ -58,6 +58,8 @@ namespace BackEndAPI.Controllers
             return new UserDTO()
             {
                 UserName = user.UserName,
+                UserId = user.Id,
+                // UserTypeID = user.UserType.Id,
                 Token = _tokenService.CreateToken(user)
             };
         }

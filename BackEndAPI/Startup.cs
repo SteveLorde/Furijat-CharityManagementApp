@@ -20,6 +20,12 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BackEndAPI.DTOs;
 using BackEndAPI.Views;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+using Microsoft.AspNetCore.Http.Features;
+using BackEndAPI.Services.EmailService;
+using QuestPDF.Infrastructure;
 
 namespace BackEndAPI
 {
@@ -35,6 +41,9 @@ namespace BackEndAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+
+            services.AddTransient<IMailService, MailService>();
 
             services.AddControllers();
 
@@ -42,15 +51,18 @@ namespace BackEndAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEndAPI", Version = "v1" });
             });
-            //services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
+            services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
             services.InstallServicesInAssembly(Configuration);
 
             
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, FurijatContext db)
         {
+
+            QuestPDF.Settings.License = LicenseType.Community;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -58,11 +70,27 @@ namespace BackEndAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BackEndAPI v1"));
             }
 
+
+            db.Database.EnsureCreated();
+
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"Assets")),
+                RequestPath = new PathString("/Assets")
+            });
 
             app.UseRouting();
 
-            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
+            app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin 
+    .AllowCredentials());
+
+
 
             app.UseAuthentication();
             app.UseAuthorization();

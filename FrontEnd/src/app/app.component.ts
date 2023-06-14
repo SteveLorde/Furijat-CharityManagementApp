@@ -8,33 +8,27 @@ import { BackendCommunicationService } from 'src/app/Services/BackendCommunicati
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public forecasts?: WeatherForecast[];
+
+  Login: any
+  IsLoggedIn: any
 
   constructor(http: HttpClient) {
+    this.IsLoggedIn = localStorage.getItem('loggedin')
+  }
+
+  ngOnInit() {
+    if (this.IsLoggedIn == 1) {
+      this.Login = "Profile"
+    }
+    else
+    {
+      this.Login = "Login"
+      localStorage.removeItem('authToken')
+    }
   }
 
   title = 'FrontEnd';
-}
 
 
-/* test function
-getCars(): void {
-  this.Backend.getAll().subscribe(
-    (data: Car[]) => {
-      this.cars = data;
-      this.success = 'successful retrieval of the list';
-    },
-    (err) => {
-      console.log(err);
-      this.error = err;
-    }
-  );
-}
-*/
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
 }

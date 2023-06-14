@@ -8,9 +8,11 @@ using BackEndAPI.Data.Interfaces;
 using System.Threading.Tasks;
 using BackEndAPI.Views;
 using BackEndAPI.DTOs;
+using BackEndAPI.Data.Entites;
 
 namespace BackEndAPI.Controllers
 {
+
     public class CasesController : BaseApiController
     {
         private readonly IAppDbContext _context;
@@ -51,7 +53,6 @@ namespace BackEndAPI.Controllers
         {
             await _context.Cases.AddAsync(_case);
             await _context.SaveChangesAsync();
-
             return _case;
         }
 

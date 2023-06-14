@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+/* .btn {
+  background-color: white;
+  color: #ac8719;
+  font-size: larger;
+  border-color: #ac8719;
+  font-family: monospace;
+  font-weight: bold;
+}
+.btn:hover {
+  background-color: #f7ca44;
+  color: white;
+  border-color: #f7ca44;
+} */
+input:focus {
+  outline: none !important;
+  border-color: #719ece;
+  box-shadow: 0 0 10px #719ece;
+}

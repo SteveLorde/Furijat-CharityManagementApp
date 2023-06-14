@@ -1,0 +1,124 @@
+<div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+  <div class="blob">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path
+        fill="#FFF7D4"
+        d="M29.5,-29.8C33.7,-25.2,29.5,-12.6,31.8,2.3C34.1,17.2,42.8,34.3,38.5,44.8C34.3,55.3,17.2,59.1,-1.7,60.8C-20.6,62.5,-41.1,62.1,-47.3,51.6C-53.5,41.1,-45.3,20.6,-36.5,8.8C-27.7,-3,-18.3,-5.9,-12.1,-10.5C-5.9,-15,-3,-21.2,4.8,-26C12.6,-30.8,25.2,-34.3,29.5,-29.8Z"
+        transform="translate(100 100)"
+      />
+    </svg>
+  </div>
+
+  <form [formGroup]="AddCaseForm" (ngSubmit)="AddCase()">
+    <div class="row container">
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="firstName"> First Name </label>
+
+          <input
+            class="form-control"
+            formControlName="firstName"
+            placeholder="user name"
+            type="text"
+            id="firstName"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="LastName"> Last Name </label>
+
+          <input
+            id="LastName"
+            class="form-control"
+            formControlName="lastname"
+            placeholder="Last name"
+            type="text"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="Description"> Description </label>
+
+          <input
+            id="Description"
+            class="form-control"
+            formControlName="description"
+            placeholder="description"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="Description"> Address </label>
+
+          <input
+            id=" Address"
+            class="form-control"
+            formControlName="address"
+            placeholder="address"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="Amount-Needed"> Amount Needed </label>
+
+          <input
+            id="Amount-Needed"
+            class="form-control"
+            formControlName="amountneeded"
+            placeholder="Amount needed"
+            type="number"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="Current-Amount"> Current Amount </label>
+
+          <input
+            id="Current-Amount"
+            class="form-control"
+            formControlName="currentAmount"
+            placeholder="Current Amount"
+            type="number"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="Total-Amount"> Total Amount </label>
+
+          <input
+            id="Total-Amount"
+            class="form-control"
+            formControlName="totalAmount"
+            placeholder="Total amount"
+            type="number"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label for="charity" class="pb-1"> Select Charity </label>
+          <select class="form-select" formControlName="charityid" id="charity">
+            <option [selected]="true">Select Charity to Add Case</option>
+            <option *ngFor="let charity of charity" [ngValue]="charity.id">
+              {{ charity.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-center mt-2">
+        <input class="btn btn-lg m-auto" type="submit" value="Add Case" />
+      </div>
+    </div>
+  </form>
+</div>

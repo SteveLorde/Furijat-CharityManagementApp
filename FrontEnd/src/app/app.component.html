@@ -1,24 +1,39 @@
-﻿<h1 id="tableLabel">Weather forecast</h1>
+<!--
+<a [routerLink]="['/login']">
+  {{Login}}
+</a>
+<a [routerLink]="['/']">
+  Home
+</a>
+<a [routerLink]="['/Case']">
+  Cases page
+</a>
+<a [routerLink]="['/charitylist']">
+  Charity List
+</a>
+<a [routerLink]="['/register']">
+  Register
+</a>
+<a [routerLink]="['/addcase']">
+  Add Case
+</a>
+<a [routerLink]="['/addcharity']">
+  Add Charity
+</a>
+<a [routerLink]="['/validatecase']">
+  Validate Cases
+</a>
+<a [routerLink]="['/adminpanel']">
+  Admin Panel
+</a>
+<!--
+<a [routerLink]="['/contactform']">
+  ContactForm (Frontend Demo)
+</a>
 
-<p>This component demonstrates fetching data from the server.</p>
+<a [routerLink]="['/contactformbackend']">
+  ContactForm (Backend)
+</a>
+-->
 
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
-
-<table *ngIf="forecasts">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
-    </tbody>
-</table>
+<router-outlet></router-outlet>

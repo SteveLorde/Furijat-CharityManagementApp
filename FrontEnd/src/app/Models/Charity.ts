@@ -1,10 +1,15 @@
+import { User } from './User'
+
 export interface Charity {
 
-  CharityID: number;
-  Name: string;
-  Description?: string;
-  Location: string;
-  Phone: number;
-  Email: string;
+  id: number
+  name: string
+  description: string
+  location: string
+  phone: string
+  email: string
+  fund: number
+  testproperty: number
+  user: User
 
 }
