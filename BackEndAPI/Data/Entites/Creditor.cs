@@ -4,9 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEndAPI.Data.Entites
 {
-    public class Creditor
+    public class Creditor:BaseModel
     {
-        public int CreditorID { get; set; }
 
         public int CaseID { get; set; }
 

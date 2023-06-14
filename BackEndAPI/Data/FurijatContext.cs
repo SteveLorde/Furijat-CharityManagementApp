@@ -27,10 +27,10 @@ namespace BackEndAPI.Database
             modelBuilder.Entity<Case>().ToTable("Cases");
             modelBuilder.Entity<Admin>().ToTable("Admin");
             modelBuilder.Entity<Donator>().ToTable("Donatores");
-            modelBuilder.Entity<Creditor>().HasKey(x => new { x.CreditorID, x.CaseID });
+            modelBuilder.Entity<Creditor>().HasKey(x => new { x.Id, x.CaseID });
             modelBuilder.Entity<CharityManagment>().HasKey(CM => new { CM.CaseID, CM.CharityID,CM.CreditorID});
             modelBuilder.Entity<CharityDonators>().HasKey(CD => new {CD.DonatorID, CD.CharityID });
-            modelBuilder.Entity<CreditorCases>().HasKey(CC => new { CC.CaseID, CC.CreditorID });
+            modelBuilder.Entity<CreditorCases>().HasKey(CC => new { CC.CaseID, CC.Id });
 
 
 
