@@ -21,8 +21,7 @@ namespace BackEndAPI.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().UseTpcMappingStrategy()
-                .ToTable("Users");
+            modelBuilder.Entity<User>().ToTable("Users");
 
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Case>().ToTable("Cases");
