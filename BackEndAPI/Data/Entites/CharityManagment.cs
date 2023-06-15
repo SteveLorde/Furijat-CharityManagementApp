@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEndAPI.Data.Entites
 {
-    public class CharityManagment
+    public class CharityManagment:BaseModel
     {
         public int CreditorID { get; set; }
 
