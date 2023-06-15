@@ -61,16 +61,13 @@ namespace BackEndAPI.Controllers
         }
 
 
-
-
-
         // PUT: api/Charity/updateCharity/5
         [HttpPut("updateCharity/{id}")]
         public async Task<IActionResult> PutCharity(int id, CharityDTO charityDTO)
         {
             if (id != charityDTO.Id)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             var _Charity = await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == id);
