@@ -23,7 +23,7 @@ namespace BackEndAPI.Models
         public string Website { get; set; }
 
         public Admin Admin { get; set; }
-        [ForeignKey("AdminID")]
+        [ForeignKey("Id")]
         public int AdminID { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<CharityManagment> CharityManagment { get; set; }
