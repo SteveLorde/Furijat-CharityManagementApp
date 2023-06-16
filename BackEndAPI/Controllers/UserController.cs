@@ -89,7 +89,7 @@ namespace BackEndAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                var _user = await _context.Users.FindAsyncById(id);
+                var _user = await _context.Users.All.SingleOrDefaultAsync(o => o.Id == id);
                 if (_user == null)
                 {
 

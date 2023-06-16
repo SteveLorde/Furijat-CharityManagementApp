@@ -88,7 +88,7 @@ namespace BackEndAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                var _case = await _context.Cases.FindAsyncById(id);
+                var _case = await _context.Cases.All.SingleOrDefaultAsync(o => o.Id == id);
                 if (_case == null)
                 {
 
