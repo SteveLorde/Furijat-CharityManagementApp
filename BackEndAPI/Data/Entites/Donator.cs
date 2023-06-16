@@ -12,6 +12,5 @@ namespace BackEndAPI.Data.Entites
         public decimal PaidAmount { get; set; }
         public string Status { get; set; }
         public virtual ICollection<CharityDonators> CharityDonators { get; set; }
-
     }
 }

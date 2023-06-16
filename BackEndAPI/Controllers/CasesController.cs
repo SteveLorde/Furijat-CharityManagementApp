@@ -1,23 +1,18 @@
 ﻿using AutoMapper;
 using BackEndAPI.DTOs;
-using BackEndAPI.Models;
-using BackEndAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BackEndAPI.Data.Interfaces;
-using BackEndAPI.Interfaces;
-using Nest;
-using System.Linq.Expressions;
 using System;
-using System.Security.Policy;
 using BackEndAPI.Data.Entites;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEndAPI.Controllers
 {
-
+    //[Authorize]
     public class CasesController : BaseApiController
     {
         private readonly IAppDbContext _context;
@@ -33,19 +28,21 @@ namespace BackEndAPI.Controllers
         // GET: api/Cases
         [HttpGet]
 
-        public async Task<ActionResult<IEnumerable<CasesDTO>>> GetAllCases()
+        public async Task<ActionResult<IEnumerable<CaseDTO>>> GetAllCases()
         {
             // retrieve all cases from the database
             var cases = await _context.Cases.All.ToListAsync();
 
-            // map the entities to DTOs and return them
-            return _mapper.Map<IEnumerable<CasesDTO>>(cases).ToList();
+            if(cases.Any())
+                return _mapper.Map<IEnumerable<CaseDTO>>(cases).ToList();
+            else 
+                return new List<CaseDTO>();
         }
 
 
         // GET: api/Case/getCase/5
         [HttpGet("getCase/{id}")]
-        public async Task<ActionResult<CasesDTO>> GetCase(int id)
+        public async Task<ActionResult<CaseDTO>> GetCase(int id)
         {
             var Case = await _context.Cases.All
                  //.Include(e => e.Case)
@@ -56,7 +53,7 @@ namespace BackEndAPI.Controllers
                 return NotFound();
             }
 
-            var casesDto = _mapper.Map<CasesDTO>(Case);
+            var casesDto = _mapper.Map<CaseDTO>(Case);
 
             return casesDto;
         }
@@ -64,7 +61,7 @@ namespace BackEndAPI.Controllers
 
         // PUT: api/Case/updateCase/5
         [HttpPut("updateCase/{d}")]
-        public async Task<IActionResult> PutCase(int id, CasesDTO casesDTO)
+        public async Task<IActionResult> PutCase(int id, CaseDTO casesDTO)
         {
             if (id != casesDTO.Id)
             {
@@ -114,7 +111,7 @@ namespace BackEndAPI.Controllers
 
         // Create: api/Cases/AddNewCases
         [HttpPost("AddNewCase")]
-        public async Task<ActionResult<CasesDTO>> CreateCase(CasesDTO caseCreateDto)
+        public async Task<ActionResult<CaseDTO>> CreateCase(CaseDTO caseCreateDto)
         {
             // map the DTO to a Charity entity
             var Cases = _mapper.Map<Case>(caseCreateDto);
@@ -132,7 +129,7 @@ namespace BackEndAPI.Controllers
 
         // DELETE: api/Cases/deleteCase
         [HttpDelete("deleteCase/{id}")]
-        public async Task<ActionResult<CasesDTO>> Delete(int id)
+        public async Task<ActionResult<CaseDTO>> Delete(int id)
         {
             var _Case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == id);
 
@@ -144,7 +141,7 @@ namespace BackEndAPI.Controllers
             _context.Cases.Remove(_Case);
             await _context.SaveChangesAsync();
 
-            var CasesDTO = _mapper.Map<CasesDTO>(_Case);
+            var CasesDTO = _mapper.Map<CaseDTO>(_Case);
 
             return Ok(CasesDTO);
         }
