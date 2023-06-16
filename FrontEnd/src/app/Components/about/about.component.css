@@ -1,5 +1,5 @@
 h2 {
-  color: rgb(199, 107, 26);
+  color: rgb(233, 177, 73);
 }
 p {
   line-height: 35px;
@@ -42,12 +42,13 @@ p {
 }
 
 .block-30 {
-  background-image: url("../../../assets/images/bg_2.jpg");
+  background-image: url("../../../assets/images/Promote-charity-event-1-768x348.png");
   background-size: cover;
+  background-repeat: no-repeat;
   background-color: #ccc;
   background-attachment: scroll;
   position: relative;
-  background-position: center;
+  background-position: top;
 }
 @media (max-width: 991.98px) {
   .block-30 {
@@ -104,10 +105,10 @@ p {
   content: "";
 }
 .block-30 .heading {
-  color: #fff;
+  color: #ffffff;
   font-size: 40px;
   line-height: 1.1;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   font-family: "Dosis", sans-serif;
 }
 @media (min-width: 768px) {
