@@ -29,7 +29,16 @@ namespace BackEndAPI.Data
 
         public IRepository<Charity> Charities { get; private set; }
 
-      
+        public IRepository<Admin> Admins { get; private set; }
+
+        public IRepository<Creditor> Creditors { get; private set; }
+
+        public IRepository<Donator> Donators { get; private set; }
+
+        public IRepository<CharityDonators> CharityDonators { get; private set; }
+
+        public IRepository<CreditorCases> CreditorCases { get; private set; }
+
         public ScopedDbContext(FurijatContext context, IHttpContextAccessor httpContextAccessor)
 
         {
@@ -41,8 +50,12 @@ namespace BackEndAPI.Data
         {
             Users = new Repository<User>(_context, _httpContextAccessor);
             Cases = new Repository<Case>(_context, _httpContextAccessor);
-            //CasePayments = new Repository<CasePayment>(_context, _httpContextAccessor);
             Charities = new Repository<Charity>(_context, _httpContextAccessor);
+            Admins = new Repository<Admin>(_context, _httpContextAccessor);
+            Creditors = new Repository<Creditor>(_context, _httpContextAccessor);
+            Donators = new Repository<Donator>(_context, _httpContextAccessor);
+            CharityDonators = new Repository<CharityDonators>(_context, _httpContextAccessor);
+            CreditorCases = new Repository<CreditorCases>(_context, _httpContextAccessor);
         }
 
         #region Database Methods

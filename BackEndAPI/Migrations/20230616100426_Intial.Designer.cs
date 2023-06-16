@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    [Migration("20230614112411_issuefix")]
-    partial class issuefix
+    [Migration("20230616100426_Intial")]
+    partial class Intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,11 +133,6 @@ namespace BackEndAPI.Migrations
             modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AdminID")
                         .HasColumnType("int");
 
                     b.Property<string>("Bank_Account")
@@ -160,17 +155,10 @@ namespace BackEndAPI.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Website")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AdminID");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Charities");
                 });
@@ -181,6 +169,9 @@ namespace BackEndAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CharityId")
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -202,6 +193,8 @@ namespace BackEndAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CharityId");
 
                     b.ToTable("Users");
                 });
@@ -311,17 +304,18 @@ namespace BackEndAPI.Migrations
                 {
                     b.HasOne("BackEndAPI.Data.Entites.Admin", "Admin")
                         .WithMany()
-                        .HasForeignKey("AdminID")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BackEndAPI.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Admin");
+                });
 
-                    b.Navigation("User");
+            modelBuilder.Entity("BackEndAPI.Models.User", b =>
+                {
+                    b.HasOne("BackEndAPI.Models.Charity", null)
+                        .WithMany("Users")
+                        .HasForeignKey("CharityId");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Admin", b =>
@@ -363,6 +357,8 @@ namespace BackEndAPI.Migrations
                     b.Navigation("CharityDonators");
 
                     b.Navigation("CharityManagment");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Case", b =>

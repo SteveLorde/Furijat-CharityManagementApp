@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using BackEndAPI.DTOs;
+using BackEndAPI.Models;
+using BackEndAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BackEndAPI.Models;
-using BackEndAPI.Interfaces;
-using BackEndAPI.Data.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using BackEndAPI.Views;
-using BackEndAPI.DTOs;
+using BackEndAPI.Data.Interfaces;
+using BackEndAPI.Interfaces;
+using Nest;
+using System.Linq.Expressions;
+using System;
+using System.Security.Policy;
 using BackEndAPI.Data.Entites;
 
 namespace BackEndAPI.Controllers
@@ -16,80 +21,132 @@ namespace BackEndAPI.Controllers
     public class CasesController : BaseApiController
     {
         private readonly IAppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public CasesController(IAppDbContext context)
+
+        public CasesController(IAppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Cases
         [HttpGet]
-        public ActionResult<IEnumerable<Case>> GetCases()
+
+        public async Task<ActionResult<IEnumerable<CasesDTO>>> GetAllCases()
         {
-            return _context.Cases.All.ToList();
+            // retrieve all cases from the database
+            var cases = await _context.Cases.All.ToListAsync();
+
+            // map the entities to DTOs and return them
+            return _mapper.Map<IEnumerable<CasesDTO>>(cases).ToList();
         }
 
-        // GET: api/Cases/getCase/5
-        [HttpGet("(getCase/{id}")]
 
-       
-        public async Task<ActionResult<Case>> GetCase(int id)
+        // GET: api/Case/getCase/5
+        [HttpGet("getCase/{id}")]
+        public async Task<ActionResult<CasesDTO>> GetCase(int id)
         {
-            var _Case = await _context.Cases.All
+            var Case = await _context.Cases.All
+                 //.Include(e => e.Case)
+                 .SingleOrDefaultAsync(e => e.Id == id);
 
-                .SingleOrDefaultAsync(e => e.Id == id);
+            if (Case == null)
+            {
+                return NotFound();
+            }
+
+            var casesDto = _mapper.Map<CasesDTO>(Case);
+
+            return casesDto;
+        }
+
+
+        // PUT: api/Case/updateCase/5
+        [HttpPut("updateCase/{d}")]
+        public async Task<IActionResult> PutCase(int id, CasesDTO casesDTO)
+        {
+            if (id != casesDTO.Id)
+            {
+                return NotFound();
+            }
+
+            var _Case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == id);
 
             if (_Case == null)
             {
                 return NotFound();
             }
-            return _Case;
-        }
 
 
-        // POST: api/Cases/AddNewCase
-        [HttpPost("AddNewCase")]
-        public async Task<ActionResult<Case>> PostCase(Case _case)
-        {
-            await _context.Cases.AddAsync(_case);
-            await _context.SaveChangesAsync();
-            return _case;
-        }
+            // Update charity model with values from DTO
+            _mapper.Map(casesDTO, _Case);
 
-        // PUT: api/Cases/updateCase/5
-        [HttpPut("updateCase/{id}")]
-        public async Task<IActionResult> PutCase(int id, Case _case)
-        {
-            if (id != _case.Id)
+            try
             {
-                return BadRequest();
+                await _context.SaveChangesAsync();
             }
+            catch (DbUpdateConcurrencyException)
+            {
+                var _case = await _context.Cases.All.SingleOrDefaultAsync(o => o.Id == id);
+                if (_case == null)
+                {
 
-            _context.Cases.Update(_case).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+                }
+                if (!CasesExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return NoContent();
         }
 
-        // DELETE: api/Cases/deleteCase/5
-        [HttpDelete("deleteCase/{id}")]
-        public async Task<IActionResult> DeleteCase(int id)
+        private bool CasesExists(int id)
         {
-            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == id); 
+            throw new NotImplementedException();
+        }
 
-            if (_case == null)
+
+        // Create: api/Cases/AddNewCases
+        [HttpPost("AddNewCase")]
+        public async Task<ActionResult<CasesDTO>> CreateCase(CasesDTO caseCreateDto)
+        {
+            // map the DTO to a Charity entity
+            var Cases = _mapper.Map<Case>(caseCreateDto);
+
+            // add the entity to the context and save changes
+            _context.Cases.Add(Cases);
+            await _context.SaveChangesAsync();
+
+            // map the entity back to a DTO and return it
+            //var caseDto = _mapper.Map<CaseDTO>(case);
+
+            return CreatedAtAction(nameof(GetCase), new { id = Cases.Id }, caseCreateDto);
+        }
+
+
+        // DELETE: api/Cases/deleteCase
+        [HttpDelete("deleteCase/{id}")]
+        public async Task<ActionResult<CasesDTO>> Delete(int id)
+        {
+            var _Case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == id);
+
+            if (_Case == null)
             {
                 return NotFound();
             }
 
-            _context.Cases.Remove(_case);
+            _context.Cases.Remove(_Case);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            var CasesDTO = _mapper.Map<CasesDTO>(_Case);
+
+            return Ok(CasesDTO);
         }
-
-
-
-
     }
 }

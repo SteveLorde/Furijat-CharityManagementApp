@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using BackEndAPI.Data.Entites;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BackEndAPI.Data.Entites
+namespace BackEndAPI.DTOs
 {
-    public class Creditor
+    public class CreditorDTO
     {
-        public int CreditorID { get; set; }
+        public int Id { get; set; }
         public int CaseID { get; set; }
 
         [MaxLength(11)]
@@ -19,7 +19,5 @@ namespace BackEndAPI.Data.Entites
 
         public virtual ICollection<CharityManagment> CharityManagment { get; set; }
         public virtual ICollection<CreditorCases> CreditorCases { get; set; }
-
-
     }
 }

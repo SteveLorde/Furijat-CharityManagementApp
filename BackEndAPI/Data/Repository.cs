@@ -13,7 +13,7 @@ using BackEndAPI.Data.Entites;
 
 namespace BackEndAPI.Data
 {
-    public class Repository<T> : IRepository<T> where T : BaseModel
+    public class Repository<T> : IRepository<T> where T : class
     {
         protected DbSet<T> _orginalSet;
         protected FurijatContext _context;
@@ -64,10 +64,10 @@ namespace BackEndAPI.Data
          => _orginalSet.UpdateRange(entities);
 
 
-        public Task<T> FindAsyncById(int id)
-        {
-            return _orginalSet.SingleOrDefaultAsync(m => m.Id == id);
-        }
+        //public Task<T> FindAsyncById(int id)
+        //{
+        //    return _orginalSet.SingleOrDefaultAsync(m => m.Id == id);
+        //}
 
         public Task ToListAsync()
         {

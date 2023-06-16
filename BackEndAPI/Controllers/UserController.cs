@@ -1,76 +1,141 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using AutoMapper;
+using BackEndAPI.DTOs;
+using BackEndAPI.Models;
+using BackEndAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BackEndAPI.Models;
-using BackEndAPI.Interfaces;
-using BackEndAPI.Data.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using BackEndAPI.Data.Interfaces;
+using BackEndAPI.Interfaces;
+using Nest;
+using System.Linq.Expressions;
+using System;
+using System.Security.Policy;
+using BackEndAPI.Data.Entites;
 using BackEndAPI.Views;
 
 namespace BackEndAPI.Controllers
 {
+
     public class UserController : BaseApiController
     {
         private readonly IAppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public UserController(IAppDbContext context)
+
+        public UserController(IAppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // GET: api/Users
         [HttpGet]
-        public ActionResult<IEnumerable<User>> GetCases()
+
+        public async Task<ActionResult<IEnumerable<UserDTO>>> GetAllUsers()
         {
-            return _context.Users.All.ToList();
+            // retrieve all Users from the database
+            var users = await _context.Users.All.ToListAsync();
+
+            // map the entities to DTOs and return them
+            return _mapper.Map<IEnumerable<UserDTO>>(users).ToList();
         }
 
-        // GET: api/Users/get a pecific User
-        [HttpGet("(getUser/{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+
+        // GET: api/Users/getUser/5
+        [HttpGet("getUser/{id}")]
+        public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
-            var _User = await _context.Users.All
-              
-                .SingleOrDefaultAsync(e => e.Id == id);
+            var User = await _context.Users.All
+                 //.Include(e => e.User)
+                 .SingleOrDefaultAsync(e => e.Id == id);
+
+            if (User == null)
+            {
+                return NotFound();
+            }
+
+            var userDto = _mapper.Map<UserDTO>(User);
+
+            return userDto;
+        }
+
+
+        // PUT: api/User/updateUser/5
+        [HttpPut("updateUser/{id}")]
+        public async Task<IActionResult> PutUser(int id, UserDTO userDTO)
+        {
+            if (id != userDTO.UserId)
+            {
+                return NotFound();
+            }
+
+            var _User = await _context.Users.All.SingleOrDefaultAsync(e => e.Id == id);
 
             if (_User == null)
             {
                 return NotFound();
             }
-            return _User;
-        }
 
-        // POST: api/Users/AddNewUser
-        [HttpPost("AddNewUser")]
-        public async Task<ActionResult<User>> PostUser(User _User)
-        {
-            await _context.Users.AddAsync(_User);
-            await _context.SaveChangesAsync();
 
-            return _User;
-        }
+            // Update user model with values from DTO
+            _mapper.Map(userDTO, _User);
 
-        // PUT: api/Users/updateUser
-        [HttpPut("updateUser/{id}")]
-        public async Task<IActionResult> PutUser(int id, User _User)
-        {
-            if (id != _User.Id)
+            try
             {
-                return BadRequest();
+                await _context.SaveChangesAsync();
             }
+            catch (DbUpdateConcurrencyException)
+            {
+                var _user = await _context.Users.All.SingleOrDefaultAsync(o => o.Id == id);
+                if (_user == null)
+                {
 
-            _context.Users.Update(_User).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+                }
+                if (!UserExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return NoContent();
         }
 
+        private bool UserExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        // Create: api/Users/AddNewUsers
+        [HttpPost("AddNewUser")]
+        public async Task<ActionResult<UserDTO>> CreateCUser(UserDTO userCreateDto)
+        {
+            // map the DTO to a Users entity
+            var User = _mapper.Map<User>(userCreateDto);
+
+            // add the entity to the context and save changes
+            _context.Users.Add(User);
+            await _context.SaveChangesAsync();
+
+            // map the entity back to a DTO and return it
+            //var userDto = _mapper.Map<UserDTO>(user);
+
+            return CreatedAtAction(nameof(GetUser), new { id = User.Id },userCreateDto);
+        }
+
+
         // DELETE: api/Users/deleteUser
         [HttpDelete("deleteUser/{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<ActionResult<UserDTO>> Delete(int id)
         {
-            var _User = await _context.Users.All.SingleOrDefaultAsync(e => e.Id == id); ;
+            var _User = await _context.Users.All.SingleOrDefaultAsync(e => e.Id == id);
 
             if (_User == null)
             {
@@ -80,12 +145,9 @@ namespace BackEndAPI.Controllers
             _context.Users.Remove(_User);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            var UserDTO = _mapper.Map<UserDTO>(_User);
+
+            return Ok(UserDTO);
         }
-
-
-
-
     }
 }
-
