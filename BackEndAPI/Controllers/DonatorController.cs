@@ -14,11 +14,11 @@ using System.Linq.Expressions;
 using System;
 using System.Security.Policy;
 using BackEndAPI.Data.Entites;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEndAPI.Controllers
 {
-
+    [Authorize]
     public class DonatorController : BaseApiController
     {
         private readonly IAppDbContext _context;
@@ -36,6 +36,9 @@ namespace BackEndAPI.Controllers
 
         public async Task<ActionResult<IEnumerable<DonatorDTO>>> GetAllDonators()
         {
+            if(User.Claims.Any(c => c.Type == "admin" )) 
+            { 
+            }
             // retrieve all donators from the database
             var donators = await _context.Donators.All.ToListAsync();
 

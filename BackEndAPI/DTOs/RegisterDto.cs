@@ -13,5 +13,7 @@ namespace BackEndAPI.DTOs
         [Required]
         [StringLength(10, MinimumLength = 4)]
         public string Password { get; set; }
+        [Required]
+        public string UserType { get; set; }
     }
 }

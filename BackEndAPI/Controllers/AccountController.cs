@@ -29,7 +29,10 @@ namespace BackEndAPI.Controllers
             {
                 UserName = _user.Username.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(_user.Password)),
-                PasswordSalt = hmac.Key
+                PasswordSalt = hmac.Key,
+                UserType = _user.UserType,
+                FirstName = _user.FirstName,
+                LastNaame = _user.LastName
             };
             await _db.Users.AddAsync(user);
             await _db.SaveChangesAsync();
