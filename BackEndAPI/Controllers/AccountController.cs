@@ -32,7 +32,7 @@ namespace BackEndAPI.Controllers
                 PasswordSalt = hmac.Key,
                 UserType = _user.UserType,
                 FirstName = _user.FirstName,
-                LastNaame = _user.LastName
+                LastName = _user.LastName
             };
             await _db.Users.AddAsync(user);
             await _db.SaveChangesAsync();
@@ -40,7 +40,7 @@ namespace BackEndAPI.Controllers
             {
                 UserName = user.UserName,
                 FirstName = user.FirstName,
-                LastName = user.LastNaame,
+                LastName = user.LastName,
                 Token = _tokenService.CreateToken(user)
             };
         }
