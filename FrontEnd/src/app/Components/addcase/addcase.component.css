@@ -8,7 +8,7 @@
   transform-origin: 50% 50%;
 }
 label {
-  color: rgb(255, 197, 109);
+  color: rgb(241, 184, 97);
 }
 input:focus {
   outline: none;
@@ -16,12 +16,14 @@ input:focus {
   box-shadow: 0 0 10px #f3e6b6;
 }
 .btn {
-  color: rgb(255, 197, 109) !important;
-  border-color: wheat;
+  color: rgb(206, 147, 59) !important;
+  border-color: rgb(224, 168, 64);
 }
 .btn:hover {
   color: white !important;
+  background-color: rgb(224, 108, 6);
 }
+
 .d-flex {
   border-radius: 15px 50px;
   background: #fff8de;

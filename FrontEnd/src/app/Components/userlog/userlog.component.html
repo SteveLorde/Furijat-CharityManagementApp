@@ -1,45 +1,49 @@
-<p>userlog works!</p>
+<div class="container">
+  <h2 class="text-center">Cases Donated to</h2>
 
-<h2 *ngIf="UserType === '2' ">Cases Donated to</h2>
-<table *ngIf="UserType === '2' ">
-  <thead>
-    <tr>
-      <th scope="col">Case ID</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Address</th>
-      <th scope="col">Current Amount</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let case of DonatedCases">
-      <td>{{ case.id }}</td>
-      <td>{{ case.firstName }}</td>
-      <td>{{ case.lastName }}</td>
-      <td>{{ case.description }}</td>
-      <td>{{ case.address }}</td>
-      <td>{{ case.currentAmount }}</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 *ngIf="UserType === '1' ">Charities you donated to</h2>
-
-<table *ngIf="UserType === '1' ">
-  <thead>
-    <tr>
-      <th scope="col">Charity ID</th>
-      <th scope="col">Charity Name</th>
-      <th scope="col">Description</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let charity of DonatedCharities">
-      <td>{{ charity.id }}</td>
-      <td>{{ charity.name }}</td>
-      <td>{{ charity.description }}</td>
-    </tr>
-  </tbody>
-</table>
+  <table class="styled-table m-auto mb-3">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">Case ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Address</th>
+        <th scope="col">Current Amount</th>
+        <th scope="col">Date & Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let case of DonatedCases">
+        <td>{{ DonatedCases.id }}</td>
+        <td>{{ DonatedCases.firstName }}</td>
+        <td>{{ DonatedCases.lastName }}</td>
+        <td>{{ DonatedCases.description }}</td>
+        <td>{{ DonatedCases.address }}</td>
+        <td>{{ DonatedCases.currentAmount }}</td>
+        <td>{{ DonatedCases.dateTime | date : "medium" }}</td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+  <h2 class="text-center">Charities Donated to</h2>
+  <table class="styled-table m-auto">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">Charity ID</th>
+        <th scope="col">Charity Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date & Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let charity of DonatedCharities">
+        <td>{{ DonatedCharities.id }}</td>
+        <td>{{ DonatedCharities.name }}</td>
+        <td>{{ DonatedCharities.description }}</td>
+        <td>{{ DonatedCharities.dateTime | date : "medium" }}</td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+</div>

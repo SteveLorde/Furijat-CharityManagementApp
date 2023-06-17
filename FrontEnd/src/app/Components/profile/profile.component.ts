@@ -10,7 +10,6 @@ import { BackendCommunicationService } from '../../Services/BackendCommunication
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
   //create object "user" of User model
   user = {} as User
   id: any

@@ -1,0 +1,51 @@
+<form [formGroup]="ContactForm" (ngSubmit)="submit()">
+  <div class="row container">
+    <div class="col-md-6">
+      <div class="pb-3">
+        <label class="pb-1" for="emailsend"> Email To Send To </label>
+
+        <input
+          formControlName="ToEmail"
+          placeholder="Email To Send To"
+          type="text"
+          id="emailsend"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="pb-3">
+        <label class="pb-1" for="Subject"> Subject </label>
+
+        <input
+          formControlName="Subject"
+          id="Subject"
+          placeholder="Subject"
+          type="email"
+        />
+      </div>
+    </div>
+
+    <div>
+      <label class="pb-1" for="Message"> Message </label>
+      <textarea
+        class="MailBody"
+        id="Messsage"
+        cols="30"
+        rows="10"
+        formControlName="Body"
+        placeholder="type your message"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="custom-btn btn-6 btn btn-lg px-3"
+      value="Submit Mail"
+    >
+      <span>Submit </span>
+    </button>
+  </div>
+</form>
+
+<h2>{{ this.mailsent }}</h2>

@@ -1,7 +1,7 @@
-<div class="container d-flex justify-content-center flex-column pt-3">
+<div class="container d-flex justify-content-center flex-column py-5 my-5">
   <form [formGroup]="ContactForm" (ngSubmit)="submit(contactmessage)">
     <div class="row">
-      <div class="form-floating mb-3 col-lg-12 col-md-6">
+      <div class="form-floating mb-3 col-lg-6">
         <input
           formControlName="name"
           type="text "
@@ -13,7 +13,7 @@
         <label for="name" class="ps-4">Your Name </label>
       </div>
 
-      <div class="form-floating mb-3 col-lg-12 col-md-6 pb-2">
+      <div class="form-floating mb-3 col-lg-6 pb-2">
         <input
           formControlName="email"
           type="email"
@@ -24,7 +24,7 @@
         <label for="email" class="ps-4">Your Email </label>
       </div>
 
-      <div class="form-floating col-md-6 col-lg-12 text-lg-center w-50 m-auto">
+      <div class="form-floating col-md-6 col-lg-12 text-lg-center m-auto">
         <textarea
           formControlName="message"
           class="form-control"
@@ -35,19 +35,9 @@
         <label for="floatingTextarea2" class="ps-4">Type your message</label>
       </div>
 
-      <!-- <div class="">
-        <textarea
-          formControlName="message"
-          placeholder="type your message"
-          cols="30"
-          rows="4"
-          class="form-control"
-        ></textarea>
-      </div> -->
-
       <input
         type="submit"
-        class="btn btn-outline-success mt-2"
+        class="btn btn-outline-success mt-5 col-lg-4 m-auto"
         value="Submit Mail"
       />
     </div>
