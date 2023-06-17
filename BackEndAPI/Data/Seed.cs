@@ -7,6 +7,7 @@ using System.IO;
 using BackEndAPI.Database;
 using BackEndAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using BackEndAPI.Data.Entites;
 
 namespace BackEndAPI.Data
 {
@@ -36,10 +37,16 @@ namespace BackEndAPI.Data
 
             var charityData = await File.ReadAllTextAsync("Data/CharitySeedData.json");
             var Charities = JsonSerializer.Deserialize<List<Charity>>(charityData);
-            foreach (var charity in Charities)
-            {
-                context.Charities.Add(charity);
-            }
+            context.Charities.AddRange(Charities);
+            await context.SaveChangesAsync();
+        }
+        public static async Task SeedCases(FurijatContext context)
+        {
+            if (await context.Cases.AnyAsync()) return;
+
+            var CaseData = await File.ReadAllTextAsync("Data/CaseSeedData.json");
+            var cases = JsonSerializer.Deserialize<List<Case>>(CaseData);
+            context.Cases.AddRange(cases);
             await context.SaveChangesAsync();
         }
 

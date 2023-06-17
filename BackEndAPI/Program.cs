@@ -22,6 +22,7 @@ namespace BackEndAPI
                 await context.Database.MigrateAsync();
                 await Seed.SeedUser(context);
                 await Seed.SeedCharities(context);
+                await Seed.SeedCases(context);
             }
             catch (System.Exception ex)
             {
