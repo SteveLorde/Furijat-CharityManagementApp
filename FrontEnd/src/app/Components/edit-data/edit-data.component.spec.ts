@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DebtorpanelComponent } from './debtorpanel.component';
+import { EditDataComponent } from './edit-data.component';
 
-describe('DebtorpanelComponent', () => {
-  let component: DebtorpanelComponent;
-  let fixture: ComponentFixture<DebtorpanelComponent>;
+describe('EditDataComponent', () => {
+  let component: EditDataComponent;
+  let fixture: ComponentFixture<EditDataComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DebtorpanelComponent ]
+      declarations: [ EditDataComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DebtorpanelComponent);
+    fixture = TestBed.createComponent(EditDataComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

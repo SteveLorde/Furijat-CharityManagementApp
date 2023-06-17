@@ -61,9 +61,9 @@ export class BackendCommunicationService {
     return this.http.post<any>(this.serverUrl + 'api/Charity/AddNewCharity', charity, httpOptions);
   }
 
-  UpdateCharityby(id: any): Observable<Charity> {
+  UpdateCharitybyID(id: any, charity:any): Observable<Charity> {
     
-    return this.http.put<Charity>(this.serverUrl + `api/Charity/updateCharity/${id}`, httpOptions);
+    return this.http.put<Charity>(this.serverUrl + `api/Charity/updateCharity/${id}`, charity, httpOptions);
   }
 
   DeleteCharity(id: any): Observable<any> {

@@ -17,6 +17,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { ContactformComponent } from './Components/contactform/contactform.component';
+import { ProvideassistanceComponent } from './Components/provideassistance/provideassistance.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,7 @@ const routes: Routes = [
       { path: 'validatecase', component: ValidatecaseComponent },
       { path: 'contactform', component: ContactformComponent },
       { path: 'addcase', component: AddcaseComponent },
+      { path: 'provideassistancecharity', component: ProvideassistanceComponent },
     ],
   },
   {

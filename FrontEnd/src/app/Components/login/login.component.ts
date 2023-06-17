@@ -56,16 +56,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('authToken', res.token)
         //variable used to check if logged in (to influnece other HTML elements)
         localStorage.setItem('loggedin', "1")
-        localStorage.setItem('UID', res.userId)
-        //set user role
-        if (res.userId == 1) {
-          this.role = 'admin'
-        }
-        else if (res.userId == 2) { this.role = 'charity' }
-        else if (res.userId == 3) { this.role = 'debtor' }
-        else if (res.userId == 4) { this.role = 'donator' }
-        else if (res.userId == 5) { this.role = 'creditor' }
-        //this.loginreq.username = this.loginreq.username
+        localStorage.setItem('UserType', res.uType)
         this.loggedin = 1
         this.GoProfile()
       })
@@ -73,9 +64,5 @@ export class LoginComponent implements OnInit {
 
   GoProfile() {
     this.router.navigateByUrl('profile');
-  }
-
-  GoRegister() {
-    this.router.navigateByUrl('register')
   }
 }

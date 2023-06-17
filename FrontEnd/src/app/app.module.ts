@@ -35,6 +35,12 @@ import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.compon
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { ContactformComponent  } from './Components/contactform/contactform.component';
+import { DonatorprofileComponent } from './Components/donatorprofile/donatorprofile.component';
+import { CreditorprofileComponent } from './Components/Profiles/creditorprofile/creditorprofile.component';
+import { DebtorprofileComponent } from './Components/Profiles/debtorprofile/debtorprofile.component';
+import { CharityprofileComponent } from './Components/Profiles/charityprofile/charityprofile.component';
+import { ProvideassistanceComponent } from './Components/provideassistance/provideassistance.component';
+import { EditDataComponent } from './Components/edit-data/edit-data.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +69,12 @@ import { ContactformComponent  } from './Components/contactform/contactform.comp
     NotfoundComponent,
     FooterComponent,
     ContactformComponent,
+    DonatorprofileComponent,
+    CreditorprofileComponent,
+    DebtorprofileComponent,
+    CharityprofileComponent,
+    ProvideassistanceComponent,
+    EditDataComponent,
   ],
   imports: [
     BrowserModule,

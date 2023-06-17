@@ -11,7 +11,7 @@ import { Charity } from '../../Models/Charity';
   styleUrls: ['./userlog.component.css'],
 })
 export class UserlogComponent implements OnInit {
-  DonatedCases: CaseDTO[] = [];
+  DonatedCases: Case[] = [];
   DonatedCharities: Charity[] = [];
 
   constructor(private donatelog: DonatelogService) {}
