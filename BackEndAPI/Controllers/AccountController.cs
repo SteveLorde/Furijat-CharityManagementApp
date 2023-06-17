@@ -39,6 +39,8 @@ namespace BackEndAPI.Controllers
             return new UserDTO()
             {
                 UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastNaame,
                 Token = _tokenService.CreateToken(user)
             };
         }

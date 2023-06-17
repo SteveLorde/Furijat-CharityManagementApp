@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    [Migration("20230617163121_DatabaseUpdates")]
+    [Migration("20230617164035_DatabaseUpdates")]
     partial class DatabaseUpdates
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
