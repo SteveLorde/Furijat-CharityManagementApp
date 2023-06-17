@@ -10,16 +10,18 @@
         <th scope="col">Description</th>
         <th scope="col">Address</th>
         <th scope="col">Current Amount</th>
+        <th scope="col">Date & Time</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let case of DonatedCases">
-        <td>{{ case.id }}</td>
-        <td>{{ case.firstName }}</td>
-        <td>{{ case.lastName }}</td>
-        <td>{{ case.description }}</td>
-        <td>{{ case.address }}</td>
-        <td>{{ case.currentAmount }}</td>
+        <td>{{ DonatedCases.id }}</td>
+        <td>{{ DonatedCases.firstName }}</td>
+        <td>{{ DonatedCases.lastName }}</td>
+        <td>{{ DonatedCases.description }}</td>
+        <td>{{ DonatedCases.address }}</td>
+        <td>{{ DonatedCases.currentAmount }}</td>
+        <td>{{ DonatedCases.dateTime | date : "medium" }}</td>
       </tr>
       <tr></tr>
     </tbody>
@@ -31,13 +33,15 @@
         <th scope="col">Charity ID</th>
         <th scope="col">Charity Name</th>
         <th scope="col">Description</th>
+        <th scope="col">Date & Time</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let charity of DonatedCharities">
-        <td>{{ charity.id }}</td>
-        <td>{{ charity.name }}</td>
-        <td>{{ charity.description }}</td>
+        <td>{{ DonatedCharities.id }}</td>
+        <td>{{ DonatedCharities.name }}</td>
+        <td>{{ DonatedCharities.description }}</td>
+        <td>{{ DonatedCharities.dateTime | date : "medium" }}</td>
       </tr>
       <tr></tr>
     </tbody>

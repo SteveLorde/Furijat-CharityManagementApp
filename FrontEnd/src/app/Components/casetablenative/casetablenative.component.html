@@ -17,8 +17,6 @@
         <th scope="col">Address</th>
         <th scope="col">Current Amount</th>
         <th scope="col">Total Amount</th>
-        <!-- <th scope="col"></th>
-        <th scope="col"></th> -->
         <th scope="col">Charity</th>
         <th scope="col">Status</th>
         <th scope="col">Action</th>
@@ -48,7 +46,10 @@
           <a [routerLink]="['/donate', case.id]">Donate</a>
         </td>
       </tr>
+      <tr></tr>
     </tbody>
   </table>
 </div>
-<pagination-controls (pageChange)="p = $event"> </pagination-controls>
+<app-file-upload></app-file-upload>
+<pagination-controls (pageChange)="p = $event" class="controls">
+</pagination-controls>

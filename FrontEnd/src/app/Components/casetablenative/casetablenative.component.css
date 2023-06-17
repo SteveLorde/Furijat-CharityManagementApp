@@ -52,3 +52,11 @@ thead tr {
   width: 90%;
   padding-left: 10px;
 }
+
+.controls {
+  color: #af3c06 !important;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 18px;
+  text-align: right;
+  margin-top: 25px;
+}
