@@ -49,7 +49,7 @@ namespace BackEndAPI.Controllers
         {
             var Creditor = await _context.Creditors.All
                  //.Include(e => e.Creditor)
-                 .SingleOrDefaultAsync(e => e.Id == id);
+                 .SingleOrDefaultAsync(e => e.CreditorID == id);
 
             if (Creditor == null)
             {
@@ -71,7 +71,7 @@ namespace BackEndAPI.Controllers
                 return NotFound();
             }
 
-            var _Creditor = await _context.Creditors.All.SingleOrDefaultAsync(e => e.Id == id);
+            var _Creditor = await _context.Creditors.All.SingleOrDefaultAsync(e => e.CreditorID == id);
 
             if (_Creditor == null)
             {
@@ -88,7 +88,7 @@ namespace BackEndAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                var _creditor = await _context.Creditors.FindAsyncById(id);
+                var _creditor = await _context.Creditors.All.SingleOrDefaultAsync(o=>o.CreditorID == id);
                 if (_creditor == null)
                 {
 
@@ -126,7 +126,7 @@ namespace BackEndAPI.Controllers
             // map the entity back to a DTO and return it
             //var creditorDto = _mapper.Map<CreditorDTO>(creditor);
 
-            return CreatedAtAction(nameof(GetCreditor), new { id = creditor.Id }, creditorCreateDto);
+            return CreatedAtAction(nameof(GetCreditor), new { id = creditor.CreditorID }, creditorCreateDto);
         }
 
 
@@ -134,7 +134,7 @@ namespace BackEndAPI.Controllers
         [HttpDelete("deleteCreditor/{id}")]
         public async Task<ActionResult<CreditorDTO>> Delete(int id)
         {
-            var _Creditor = await _context.Creditors.All.SingleOrDefaultAsync(e => e.Id == id);
+            var _Creditor = await _context.Creditors.All.SingleOrDefaultAsync(e => e.CreditorID == id);
 
             if (_Creditor == null)
             {

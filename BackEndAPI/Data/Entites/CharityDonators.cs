@@ -2,7 +2,7 @@
 
 namespace BackEndAPI.Data.Entites
 {
-    public class CharityDonators:BaseModel
+    public class CharityDonators
     {
         public int CharityID { get; set; }
         public int DonatorID { get; set; }

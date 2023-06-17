@@ -67,7 +67,7 @@ namespace BackEndAPI.Controllers
         [HttpPut("updateUser/{id}")]
         public async Task<IActionResult> PutUser(int id, UserDTO userDTO)
         {
-            if (id != userDTO.UserId)
+            if (id != userDTO.Id)
             {
                 return NotFound();
             }
@@ -89,7 +89,7 @@ namespace BackEndAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                var _user = await _context.Users.FindAsyncById(id);
+                var _user = await _context.Users.All.SingleOrDefaultAsync(o => o.Id == id);
                 if (_user == null)
                 {
 

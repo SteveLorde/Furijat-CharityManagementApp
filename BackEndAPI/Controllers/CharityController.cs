@@ -87,7 +87,7 @@ namespace BackEndAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                var _charity = await _context.Charities.FindAsyncById(id);
+                var _charity = await _context.Charities.All.SingleOrDefaultAsync(o => o.Id == id);
                 if (_charity == null)
                 {
 

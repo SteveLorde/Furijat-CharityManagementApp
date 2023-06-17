@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BackEndAPI.Data.Entites;
 using BackEndAPI.DTOs;
 using BackEndAPI.Models;
 using BackEndAPI.Views;
@@ -19,6 +20,12 @@ namespace BackEndAPI.Installers
                 cfg.CreateMap<CharityDTO, Charity>();
                 cfg.CreateMap<UserDTO, User>();
                 cfg.CreateMap<User, UserDTO>();
+                cfg.CreateMap<UserDTO, Admin>();
+                cfg.CreateMap<Admin, UserDTO>();
+                cfg.CreateMap<CaseDTO, Case>();
+                cfg.CreateMap<Case, CaseDTO>();
+                cfg.CreateMap<DonatorDTO, Donator>();
+                cfg.CreateMap<Donator, DonatorDTO>();
             }).CreateMapper());
         }
     }
