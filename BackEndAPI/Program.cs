@@ -21,6 +21,7 @@ namespace BackEndAPI
                 var context = services.GetRequiredService<FurijatContext>();
                 await context.Database.MigrateAsync();
                 await Seed.SeedUser(context);
+                await Seed.SeedCharities(context);
             }
             catch (System.Exception ex)
             {

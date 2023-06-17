@@ -30,5 +30,18 @@ namespace BackEndAPI.Data
             await context.SaveChangesAsync();
         }
 
+        public static async Task SeedCharities(FurijatContext context)
+        {
+            if (await context.Charities.AnyAsync()) return;
+
+            var charityData = await File.ReadAllTextAsync("Data/CharitySeedData.json");
+            var Charities = JsonSerializer.Deserialize<List<Charity>>(charityData);
+            foreach (var charity in Charities)
+            {
+                context.Charities.Add(charity);
+            }
+            await context.SaveChangesAsync();
+        }
+
     }
 }
