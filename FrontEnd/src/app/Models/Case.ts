@@ -2,14 +2,17 @@ import { Charity } from "./Charity"
 
 export interface Case {
 
-  id: number
+  id: 0,
+  userName: string
   firstName: string
   lastName: string
+  userType: string
+  token: string
+  charityId: number
+  phone: string
   description: string
   address: string
-  currentAmount: number
   totalAmount: number
-  status: string
-  charity: Charity
-
+  marriageStatus: string
+  charities: Charity
 }

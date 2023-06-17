@@ -1,3 +1,4 @@
+import { Case } from './Case'
 import { User } from './User'
 
 export interface Charity {
@@ -10,5 +11,8 @@ export interface Charity {
   phone: string
   email: string
   website: string
+  users: User
+  cases: Case
+
 
 }
