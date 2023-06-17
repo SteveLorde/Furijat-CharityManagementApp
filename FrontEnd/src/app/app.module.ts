@@ -41,6 +41,7 @@ import { DebtorprofileComponent } from './Components/Profiles/debtorprofile/debt
 import { CharityprofileComponent } from './Components/Profiles/charityprofile/charityprofile.component';
 import { ProvideassistanceComponent } from './Components/provideassistance/provideassistance.component';
 import { EditDataComponent } from './Components/edit-data/edit-data.component';
+import { ErrorwindowComponent } from './Components/errorwindow/errorwindow.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { EditDataComponent } from './Components/edit-data/edit-data.component';
     CharityprofileComponent,
     ProvideassistanceComponent,
     EditDataComponent,
+    ErrorwindowComponent,
   ],
   imports: [
     BrowserModule,

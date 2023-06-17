@@ -6,10 +6,9 @@ export interface Charity {
   name: string
   description: string
   location: string
+  bank_Account: string
   phone: string
   email: string
-  fund: number
-  testproperty: number
-  user: User
+  website: string
 
 }

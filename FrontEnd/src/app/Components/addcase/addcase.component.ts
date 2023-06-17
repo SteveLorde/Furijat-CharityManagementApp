@@ -36,7 +36,7 @@ export class AddcaseComponent implements OnInit {
   })
 
   AddCase() {
-    this.CaseReq = { charity: { user: {} as User } as Charity } as Case
+    this.CaseReq = {} as Case
     this.CaseReq.firstName = this.AddCaseForm.get('firstname').value
     this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
     this.CaseReq.description = this.AddCaseForm.get('description').value

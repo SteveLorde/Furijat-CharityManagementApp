@@ -24,21 +24,25 @@ export class EditDataComponent {
       this.editelement = res
     })
   }
+
   getcharity() {
     this.http.getCasesById(this.id).subscribe((res) => {
       this.editelement = res
     })
   }
+
   getcreditor() {
     this.http.getCasesById(this.id).subscribe((res) => {
       this.editelement = res
     })
   }
+
   getdonator() {
     this.http.getCasesById(this.id).subscribe((res) => {
       this.editelement = res
     })
   }
+
   getuser() {
     this.http.getCasesById(this.id).subscribe((res) => {
       this.editelement = res

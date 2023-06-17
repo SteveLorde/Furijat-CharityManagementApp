@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Case } from '../../Models/Case';
+import { Charity } from '../../Models/Charity';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { CasePaymentService } from '../../Services/CasePayment/case-payment.service';
 
@@ -10,38 +11,46 @@ import { CasePaymentService } from '../../Services/CasePayment/case-payment.serv
   styleUrls: ['./provideassistance.component.css']
 })
 export class ProvideassistanceComponent {
-  case = {} as Case
-  id: any
-  donateamount: number = 0
 
-  constructor(private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService, private casepayservice: CasePaymentService) { }
+  charity: Charity
+  cases: Case
+  id: any
+  //paymentmethodVISA: boolean = false
+  //paymentmethodFawry: boolean = false
+  paymentmethod: any
+  donateamount: number = 0
+  cardnumber: number = 0
+  cardccv: number = 0
+  fawrynumber: number = 0
+
+  constructor(private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
-    //Retrieve Case from Database by ID
     this.id = this._Activatedroute.snapshot.paramMap.get("id");
-    this._servercom.getCasesById(this.id).subscribe((res: any) => {
-      this.case = res
+    this._servercom.getCharitybyId(this.id).subscribe((res: any) => {
+      this.charity = res
     })
-    //this.case.currentAmount = this.case.currentAmount + this.donateamount
   }
 
+
   Donate() {
-    this.case.currentAmount = this.case.currentAmount + this.donateamount
-    console.log("current amount is ", this.case.currentAmount)
-    this.CreateCasePayment()
-    this._servercom.updateCase(this.case, this.id).subscribe()
+    //this.charity. = this.donateamount
+    //this.donatelog.PushtoListCharity(this.charity)
+    //api request to POST donation to specific charity
     this.Close()
   }
 
+  /*
   CreateCasePayment() {
-    //this.casepayservice.Setcasepayment(this.case.id, this.donateamount)
-    this.casepayservice.AddCasePayment().subscribe()
-    console.log("Creating CasePay" + this.casepayservice.casepayment)
+    this.casepayservice.casepayment.id = this.case.id
+    //this.casepayservice.casepayment.paymentMethod =
+    this.casepayservice.casepayment.paymentAmount = this.donateamount
+    this.casepayservice.CasePay()
   }
+  */
 
   Close() {
-    this.router.navigateByUrl('/Profile')
+    this.router.navigateByUrl('/charitylist')
   }
-
 
 }

@@ -6,6 +6,7 @@ import { Case } from 'src/app/Models/Case'
 import { Charity } from 'src/app/Models/Charity'
 import { User } from '../../Models/User';
 import { CasePayment } from '../../Models/CasePayment';
+import { Creditor } from '../../Models/Creditor';
 
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
 
@@ -95,7 +96,46 @@ export class BackendCommunicationService {
     return this.http.delete<any>(this.serverUrl + `/api/User/deleteUser/${id}`)
   }
 
-  //CasePayment
+  //Creditor
+  GetCreditor(): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/api/Creditor')
+  }
+  GetCreditorByID(id: any): Observable<any> {
+    return this.http.get<any>(this.serverUrl + `/api/Creditor/getCreditor/${id}`)
+  }
 
+  addCreditor(creditor: any): Observable<any> {
+
+    return this.http.post<any>(this.serverUrl + '/api/Creditor/AddNewCreditor', creditor, httpOptions)
+  }
+
+  UpdateCreditorByID(id: any, creditor: any): Observable<any> {
+    return this.http.put<any>(this.serverUrl + `/api/Creditor/updateCreditor/${id}`, creditor)
+  }
+
+  DeleteCreditor(id: any): Observable<any> {
+    return this.http.delete<any>(this.serverUrl + `/api/Creditor/deleteCreditor/${id}`)
+  }
+
+  //Donator
+  GetDonator(): Observable<any> {
+    return this.http.get<any>(this.serverUrl + '/api/Donator')
+  }
+
+  GetDonatorByID(id: any): Observable<any> {
+    return this.http.get<any>(this.serverUrl + `/api/Donator/getDonator/${id}`)
+  }
+
+  addDonator(donator: any): Observable<any> {
+    return this.http.post<any>(this.serverUrl + '/api/Donator/AddNewDonator', donator, httpOptions)
+  }
+
+  UpdateDonatorByID(id: any, donator: any): Observable<any> {
+    return this.http.put<any>(this.serverUrl + `/api/Donator/updateDonator/${id}`, donator)
+  }
+
+  DeleteDonator(id: any): Observable<any> {
+    return this.http.delete<any>(this.serverUrl + `/api/Donator/deleteDonator/${id}`)
+  }
 
 }

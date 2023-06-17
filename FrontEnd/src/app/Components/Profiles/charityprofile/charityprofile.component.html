@@ -35,10 +35,10 @@
         <td>{{ case.status }}</td>
         <td></td>
         <td>
-          <button (click)="">Approve</button>
+          <button (click)="approve(case.id, case)">Approve</button>
         </td>
         <td>
-          <button (click)="">Reject</button>
+          <button (click)="reject(case.id, case)">Reject</button>
         </td>
       </tr>
       <tr></tr>
@@ -83,10 +83,10 @@
         <td>{{ case.status }}</td>
         <td></td>
         <td>
-          <button (click)="">Provide Assistance</button>
+          <button (click)="ProvideAssistance()">Provide Assistance</button>
         </td>
         <td>
-          <button (click)="">Delete</button>
+          <button (click)=" DeleteCase(case.id)">Delete</button>
         </td>
       </tr>
       <tr></tr>

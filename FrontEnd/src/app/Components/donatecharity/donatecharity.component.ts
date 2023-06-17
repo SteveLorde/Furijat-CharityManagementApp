@@ -35,7 +35,7 @@ export class DonatecharityComponent implements OnInit {
 
 
   Donate() {
-    this.charity.fund = this.donateamount
+    //this.charity. = this.donateamount
     this.donatelog.PushtoListCharity(this.charity)
     //api request to POST donation to specific charity
     this.Close()

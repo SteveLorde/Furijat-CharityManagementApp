@@ -61,7 +61,7 @@ export class CharityprofileComponent {
     this.router.navigateByUrl('/provideassistancebycharity')
   }
 
-  DeleteCase(id: any, element: Case) {
+  DeleteCase(id: any) {
 
   }
 

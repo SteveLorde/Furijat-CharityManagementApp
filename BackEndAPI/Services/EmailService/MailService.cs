@@ -21,6 +21,7 @@ namespace BackEndAPI.Services.EmailService
             email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
             email.Subject = mailRequest.Subject;
             var builder = new BodyBuilder();
+            
             if (mailRequest.Attachments != null)
             {
                 byte[] fileBytes;
@@ -37,6 +38,7 @@ namespace BackEndAPI.Services.EmailService
                     }
                 }
             }
+            
             builder.HtmlBody = mailRequest.Body;
             email.Body = builder.ToMessageBody();
             using var smtp = new SmtpClient();
