@@ -6,9 +6,7 @@ namespace BackEndAPI.DTOs
     {
         public string Phone { get; set; }
         public string Address { get; set; }
-
         public decimal PaidAmount { get; set; }
-
         public string Status { get; set; }
 
     }

@@ -15,11 +15,8 @@ namespace BackEndAPI.Data.Interfaces
         public IRepository<User> Users { get; }
         public IRepository<Case> Cases { get; }
         public IRepository<Charity> Charities { get; }
-        public IRepository<Admin> Admins { get; }
         public IRepository<Creditor> Creditors { get; }
         public IRepository<Donator> Donators { get; }
-        public IRepository<CharityDonators> CharityDonators { get; }
-        public IRepository<CreditorCases> CreditorCases { get; }
 
 
         #region Methods
