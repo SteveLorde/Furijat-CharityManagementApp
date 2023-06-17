@@ -12,8 +12,9 @@ namespace BackEndAPI.Views
         public string FirstName { get; set; }
         [MinLength(3, ErrorMessage = "The MinLength 3")]
         public string LastName { get; set; }
-        public string UType { get; set; }
+        public string UserType { get; set; }
         public string Token { get; set; }
+        public int CharityId { get; set; }
     }
 
 }

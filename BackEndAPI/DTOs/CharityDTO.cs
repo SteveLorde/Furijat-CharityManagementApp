@@ -17,5 +17,7 @@ namespace BackEndAPI.DTOs
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Website { get; set; }
+        public virtual ICollection<UserDTO> Users { get; set; }
+        public virtual ICollection<Case> Cases { get; set; }
     }
 }

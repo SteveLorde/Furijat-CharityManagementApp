@@ -16,10 +16,5 @@ namespace BackEndAPI.Data.Entites
 
         public string Address { get; set; }
         public decimal Deserves_Amount { get; set; }
-
-        public virtual ICollection<CharityManagment> CharityManagment { get; set; }
-        public virtual ICollection<CreditorCases> CreditorCases { get; set; }
-
-
     }
 }

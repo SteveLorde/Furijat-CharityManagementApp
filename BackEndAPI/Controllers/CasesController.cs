@@ -9,6 +9,7 @@ using BackEndAPI.Data.Interfaces;
 using System;
 using BackEndAPI.Data.Entites;
 using Microsoft.AspNetCore.Authorization;
+using BackEndAPI.Models;
 
 namespace BackEndAPI.Controllers
 {
@@ -115,7 +116,6 @@ namespace BackEndAPI.Controllers
         {
             // map the DTO to a Charity entity
             var Cases = _mapper.Map<Case>(caseCreateDto);
-
             // add the entity to the context and save changes
             _context.Cases.Add(Cases);
             await _context.SaveChangesAsync();
@@ -124,6 +124,32 @@ namespace BackEndAPI.Controllers
             //var caseDto = _mapper.Map<CaseDTO>(case);
 
             return CreatedAtAction(nameof(GetCase), new { id = Cases.Id }, caseCreateDto);
+        }
+        
+        // Create: api/Cases/AddCharity
+        [HttpPost("AddCharity")]
+        public async Task<IActionResult> AddCharity(int caseId,int charityId)
+        {
+            // check if case exists
+            var Cases = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == caseId);
+            if (Cases == null)
+            {
+                return NotFound("Case not found");
+            }
+
+            // add charity to case 
+            var charity = _context.Charities.All.SingleOrDefault(e => e.Id == charityId);
+            if (charity == null)
+            {
+                return NotFound("Charity not found");
+            }
+            if(Cases.Charities == null)
+            {
+                Cases.Charities = new List<Charity>();
+            }
+            Cases.Charities.Add(charity);
+            await _context.SaveChangesAsync();
+            return Ok(new { message = "Case created successfully" });
         }
 
 

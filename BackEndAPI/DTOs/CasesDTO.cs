@@ -14,6 +14,7 @@ namespace BackEndAPI.DTOs
         public string Address { get; set; }
         public decimal TotalAmount { get; set; }
         public string MarriageStatus { get; set; }
+        public ICollection<Charity> Charities { get; set; }
     }
 }
 
