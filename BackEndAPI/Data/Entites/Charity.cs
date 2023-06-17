@@ -22,10 +22,8 @@ namespace BackEndAPI.Models
         public string Email { get; set; }
         public string Website { get; set; }
         [ForeignKey("Id")]
-        public Admin Admin { get; set; }
+        public User Admin { get; set; }
         public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<CharityManagment> CharityManagment { get; set; }
-        public virtual ICollection<CharityDonators> CharityDonators { get; set; }
 
     }
 }
