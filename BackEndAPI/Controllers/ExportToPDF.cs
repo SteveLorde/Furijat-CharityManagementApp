@@ -41,7 +41,7 @@ namespace BackEndAPI.Controllers
 
                     page.Header().Column(column =>
                     {
-                        column.Item().Text();
+                        //column.Item().Text();
                         column.Item().Row(x =>
                         {
                             x.RelativeItem().Width(2, Unit.Inch).Image("Assets/FurijateBlue.png");
