@@ -164,7 +164,7 @@ namespace BackEndAPI.Migrations
                         column: x => x.CharityId,
                         principalTable: "Charities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Donation_Donators_DonatorId",
                         column: x => x.DonatorId,
