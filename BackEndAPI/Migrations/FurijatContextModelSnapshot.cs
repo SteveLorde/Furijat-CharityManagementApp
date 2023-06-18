@@ -93,12 +93,14 @@ namespace BackEndAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Deserves_Debt")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("DonatorId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Paid_Amount")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Time")

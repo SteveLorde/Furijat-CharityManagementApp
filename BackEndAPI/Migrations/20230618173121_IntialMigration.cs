@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BackEndAPI.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class IntialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -71,8 +71,8 @@ namespace BackEndAPI.Migrations
                     CharityId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CurrentAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    CurrentAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MarriageStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -100,7 +100,7 @@ namespace BackEndAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PaidAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PaidAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -125,7 +125,7 @@ namespace BackEndAPI.Migrations
                     Payment_Account = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Deserves_Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Deserves_Amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -145,7 +145,7 @@ namespace BackEndAPI.Migrations
                     CaseId = table.Column<int>(type: "int", nullable: false),
                     CharityId = table.Column<int>(type: "int", nullable: false),
                     DonatorId = table.Column<int>(type: "int", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -162,7 +162,7 @@ namespace BackEndAPI.Migrations
                         column: x => x.CharityId,
                         principalTable: "Charities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Donation_Donators_DonatorId",
                         column: x => x.DonatorId,
@@ -178,8 +178,8 @@ namespace BackEndAPI.Migrations
                     CaseId = table.Column<int>(type: "int", nullable: false),
                     CharityId = table.Column<int>(type: "int", nullable: false),
                     CreditorId = table.Column<int>(type: "int", nullable: false),
-                    Paid_Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Deserves_Debt = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Paid_Amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    Deserves_Debt = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DonatorId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -197,13 +197,13 @@ namespace BackEndAPI.Migrations
                         column: x => x.CharityId,
                         principalTable: "Charities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_PaymentToCreditors_Creditor_CreditorId_CaseId",
                         columns: x => new { x.CreditorId, x.CaseId },
                         principalTable: "Creditor",
                         principalColumns: new[] { "CreditorID", "CaseID" },
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_PaymentToCreditors_Donators_DonatorId",
                         column: x => x.DonatorId,
