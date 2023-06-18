@@ -61,7 +61,7 @@ namespace BackEndAPI.Controllers
 
 
         // PUT: api/Case/updateCase/5
-        [HttpPut("updateCase/{d}")]
+        [HttpPut("updateCase/{id}")]
         public async Task<IActionResult> PutCase(int id, CaseDTO casesDTO)
         {
             if (id != casesDTO.Id)

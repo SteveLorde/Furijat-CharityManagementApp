@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 
 @Component({
@@ -14,9 +14,11 @@ export class EditDataComponent {
 
   editelement: any
 
-  constructor(private http: BackendCommunicationService, private router: Router) { }
+  constructor(private http: BackendCommunicationService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.queryParamMap.get('id');
+    this.edittype = this.route.snapshot.queryParamMap.get('edittype');
   }
 
   getcase() {

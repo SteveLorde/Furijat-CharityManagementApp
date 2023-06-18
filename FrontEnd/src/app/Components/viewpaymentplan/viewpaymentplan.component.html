@@ -1,1 +1,18 @@
 <p>viewpaymentplan works!</p>
+
+
+<h2>Case Status</h2>
+<h2>{{case.status}}</h2>
+
+<h2>Case Charity</h2>
+<h2>{{case.charity.name}}</h2>
+
+<h2>Progress of Assistance {{case.currentAmount}} / {{case.totalAmount}}</h2>
+
+<button (click)="EditCase()">Edit Case Data</button>
+
+<button (click)="ContactCase()">Send Email to Case</button>
+
+<button (click)="DebtResolution()">Resolve Debt from Case</button>
+
+<app-contactform *ngIf="contactcase"></app-contactform>

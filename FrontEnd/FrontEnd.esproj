@@ -18,6 +18,7 @@
     <Folder Include="src\app\Services\CasePayment\" />
     <Folder Include="src\app\Services\CreditorService\" />
     <Folder Include="src\app\Services\DonatorService\" />
+    <Folder Include="src\app\Services\EditService\" />
     <Folder Include="src\app\Services\UserStorageService\" />
     <Folder Include="src\assets\UI\" />
   </ItemGroup>

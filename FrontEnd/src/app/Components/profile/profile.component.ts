@@ -23,14 +23,16 @@ export class ProfileComponent implements OnInit {
   constructor(private _servercom: BackendCommunicationService) { }
 
   ngOnInit(): void {
-    this.id = localStorage.getItem('UID')
+    this.id = localStorage.getItem('userid')
     this.usertype = localStorage.getItem('UserType')
+    //this.usertype = localStorage.getItem('UserType')
     this.GetProfile()
   }
 
   GetProfile() {
     this._servercom.getUserbyId(this.id).subscribe((res: User) => {
-      this.user = res
+      console.log(res)
+      this.user.userName = res.userName
       this.user.userType = res.userType
     })
   }

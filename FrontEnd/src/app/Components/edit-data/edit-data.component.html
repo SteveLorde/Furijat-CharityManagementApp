@@ -1,69 +1,61 @@
 <p>edit-data works!</p>
 
-<div *ngIf="edittype === 'charity'">
-  <h2>Edit Charity {{editelement.name}}</h2>
-  <h3>Charity Name</h3>
-  <input [(ngModel)]="editelement.id" />
-  <h3>Charity Description</h3>
-  <input [(ngModel)]="editelement.description" />
-  <h3>Charity Bank Account  </h3>
-  <input [(ngModel)]="editelement.bank_Account" />
-  <h3>Charity Phone  </h3>
-  <input [(ngModel)]="editelement.phone" />
-  <h3>Charity Email  </h3>
-  <input [(ngModel)]="editelement.email" />
-  <h3>Charity Website  </h3>
-  <input [(ngModel)]="editelement.website" />
-  <button (click)="SubmitEditCase()"></button>
-</div>
+<div [ngSwitch]="edittype">
+  <div *ngSwitchCase="'charity'">
+    <h2>Edit Charity {{editelement.name}}</h2>
+    <h3>Charity Name</h3>
+    <input [(ngModel)]="editelement.id" />
+    <h3>Charity Description</h3>
+    <input [(ngModel)]="editelement.description" />
+    <h3>Charity Bank Account  </h3>
+    <input [(ngModel)]="editelement.bank_Account" />
+    <h3>Charity Phone  </h3>
+    <input [(ngModel)]="editelement.phone" />
+    <h3>Charity Email  </h3>
+    <input [(ngModel)]="editelement.email" />
+    <h3>Charity Website  </h3>
+    <input [(ngModel)]="editelement.website" />
+    <button (click)="SubmitEditCase()"></button>
+  </div>
 
-<div *ngIf="edittype === 'case'">
-  <h2>Edit Charity {{editelement.name}}</h2>
-  <h3>Charity Name</h3>
-  <input [(ngModel)]="editelement.id" />
-  <h3>Charity Description</h3>
-  <input [(ngModel)]="editelement.description" />
-  <h3>Charity Bank Account  </h3>
-  <input [(ngModel)]="editelement.bank_Account" />
-  <h3>Charity Phone  </h3>
-  <input [(ngModel)]="editelement.phone" />
-  <h3>Charity Email  </h3>
-  <input [(ngModel)]="editelement.email" />
-  <h3>Charity Website  </h3>
-  <input [(ngModel)]="editelement.website" />
-  <button (click)="SubmitEditCase()"></button>
-</div>
+  <div *ngSwitchCase="'case'">
+    <h2>Edit Case {{editelement.name}}</h2>
+    <h3>Case Name</h3>
+    <input [(ngModel)]="editelement.id" />
+    <h3>Case Description</h3>
+    <input [(ngModel)]="editelement.description" />
+    <h3>Case Bank Account  </h3>
+    <input [(ngModel)]="editelement.bank_Account" />
+    <h3>Case Phone  </h3>
+    <input [(ngModel)]="editelement.phone" />
+    <h3>Case Email  </h3>
+    <input [(ngModel)]="editelement.email" />
+    <h3>Case Website  </h3>
+    <input [(ngModel)]="editelement.website" />
+    <button (click)="SubmitEditCase()"></button>
+  </div>
 
-<div *ngIf="edittype === 'donator'">
-  <h2>Edit Charity {{editelement.name}}</h2>
-  <h3>Charity Name</h3>
-  <input [(ngModel)]="editelement.id" />
-  <h3>Charity Description</h3>
-  <input [(ngModel)]="editelement.description" />
-  <h3>Charity Bank Account  </h3>
-  <input [(ngModel)]="editelement.bank_Account" />
-  <h3>Charity Phone  </h3>
-  <input [(ngModel)]="editelement.phone" />
-  <h3>Charity Email  </h3>
-  <input [(ngModel)]="editelement.email" />
-  <h3>Charity Website  </h3>
-  <input [(ngModel)]="editelement.website" />
-  <button (click)="SubmitEditCase()"></button>
-</div>
+  <div *ngSwitchCase="'donator'" >
+    <h2>Edit donator {{editelement.name}}</h2>
+    <h3>Donator Name</h3>
+    <input [(ngModel)]="editelement.id" />
+    <button (click)="SubmitEditCase()"></button>
+  </div>
 
-<div *ngIf="edittype === 'creditor'">
-  <h2>Edit Charity {{editelement.name}}</h2>
-  <h3>Charity Name</h3>
-  <input [(ngModel)]="editelement.id" />
-  <h3>Charity Description</h3>
-  <input [(ngModel)]="editelement.description" />
-  <h3>Charity Bank Account  </h3>
-  <input [(ngModel)]="editelement.bank_Account" />
-  <h3>Charity Phone  </h3>
-  <input [(ngModel)]="editelement.phone" />
-  <h3>Charity Email  </h3>
-  <input [(ngModel)]="editelement.email" />
-  <h3>Charity Website  </h3>
-  <input [(ngModel)]="editelement.website" />
-  <button (click)="SubmitEditCase()"></button>
+  <div *ngSwitchCase="'creditor'" >
+    <h2>Edit Charity {{editelement.name}}</h2>
+    <h3>Charity Name</h3>
+    <input [(ngModel)]="editelement.id" />
+    <h3>Charity Description</h3>
+    <input [(ngModel)]="editelement.description" />
+    <h3>Charity Bank Account  </h3>
+    <input [(ngModel)]="editelement.bank_Account" />
+    <h3>Charity Phone  </h3>
+    <input [(ngModel)]="editelement.phone" />
+    <h3>Charity Email  </h3>
+    <input [(ngModel)]="editelement.email" />
+    <h3>Charity Website  </h3>
+    <input [(ngModel)]="editelement.website" />
+    <button (click)="SubmitEditCase()"></button>
+  </div>
 </div>
