@@ -38,9 +38,11 @@ namespace BackEndAPI.Controllers
             await _db.SaveChangesAsync();
             return new UserDTO()
             {
+                Id = user.Id,
                 UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                UserType = user.UserType,
                 Token = _tokenService.CreateToken(user)
             };
         }
@@ -64,7 +66,9 @@ namespace BackEndAPI.Controllers
             {
                 UserName = user.UserName,
                 Id = user.Id,
-                // UserTypeID = user.UserType.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                UserType = user.UserType,
                 Token = _tokenService.CreateToken(user)
             };
         }
