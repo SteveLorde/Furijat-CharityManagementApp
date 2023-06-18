@@ -4,14 +4,16 @@ using BackEndAPI.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    partial class FurijatContextModelSnapshot : ModelSnapshot
+    [Migration("20230618122342_addedadmin")]
+    partial class addedadmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,29 +50,34 @@ namespace BackEndAPI.Migrations
 
                     b.HasKey("CreditorID", "CaseID");
 
-                    b.HasIndex("CaseID");
-
                     b.ToTable("Creditor");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Donation", b =>
                 {
-                    b.Property<int>("CaseID")
-                        .HasColumnType("int");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("DonatorID")
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("CaseID")
                         .HasColumnType("int");
 
                     b.Property<int>("CharityID")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("DonatorID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Time")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("CaseID", "DonatorID", "CharityID");
+                    b.HasKey("Id");
+
+                    b.HasIndex("CaseID");
 
                     b.HasIndex("CharityID");
 
@@ -222,17 +229,6 @@ namespace BackEndAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.ToTable("Donatores");
-                });
-
-            modelBuilder.Entity("BackEndAPI.Data.Entites.Creditor", b =>
-                {
-                    b.HasOne("BackEndAPI.Data.Entites.Case", "Case")
-                        .WithMany()
-                        .HasForeignKey("CaseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Case");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Donation", b =>

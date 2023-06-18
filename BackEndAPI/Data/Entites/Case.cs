@@ -16,6 +16,7 @@ namespace BackEndAPI.Data.Entites
         public string? Status { get; set; }
         public string MarriageStatus { get; set; }
         public virtual ICollection<Charity> Charities { get; set; }
+      
     }
 
 }

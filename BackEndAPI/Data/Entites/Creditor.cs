@@ -7,6 +7,7 @@ namespace BackEndAPI.Data.Entites
     public class Creditor
     {
         public int CreditorID { get; set; }
+        public Case Case { get; set; }
         public int CaseID { get; set; }
 
         [MaxLength(11)]

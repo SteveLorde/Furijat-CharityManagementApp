@@ -26,6 +26,7 @@ namespace BackEndAPI.Models
 
         public virtual ICollection<User> Users { get; set; }
         public virtual ICollection<Case> Cases { get; set; }
+     
 
     }
 }
