@@ -118,10 +118,10 @@ namespace BackEndAPI.Controllers
         public async Task<ActionResult<UserDTO>> CreateCUser(UserDTO userCreateDto)
         {
             // map the DTO to a Users entity
-            var User = _mapper.Map<User>(userCreateDto);
+            var User = _mapper.Map<Admin>(userCreateDto);
 
             // add the entity to the context and save changes
-            _context.Users.Add(User);
+            _context.Admins.Add(User);
             await _context.SaveChangesAsync();
 
             // map the entity back to a DTO and return it
