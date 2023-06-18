@@ -12,6 +12,7 @@ namespace BackEndAPI.Data.Entites
         public string Address { get; set; }
         public decimal PaidAmount { get; set; }
         public string? Status { get; set; }
+        //public virtual ICollection<Donation> Donation { get; set; }
 
         public static implicit operator Donator(int v)
         {

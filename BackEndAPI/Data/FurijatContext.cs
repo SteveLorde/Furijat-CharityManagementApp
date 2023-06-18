@@ -16,7 +16,7 @@ namespace BackEndAPI.Database
         public DbSet<Creditor> Creditor { get; set; }
         public DbSet<Charity> Charities { get; set; }
         public DbSet<Case> Cases { get; set; }
-        public DbSet<Donator> Donator { get; set; }
+        public DbSet<Donator> Donators { get; set; }
         public DbSet<Donation> Donation { get; set; }
         public DbSet<Admin> Admin { get; set; }
 
@@ -26,9 +26,10 @@ namespace BackEndAPI.Database
             modelBuilder.Entity<Charity>().ToTable("Charities");
             modelBuilder.Entity<Case>().ToTable("Cases");
             modelBuilder.Entity<Admin>().ToTable("Admin");
-            modelBuilder.Entity<Donator>().ToTable("Donatores");
-            modelBuilder.Entity<Creditor>().HasKey(x => new { x.CreditorID, x.CaseID });
-            modelBuilder.Entity<Donation>().HasKey(d => new { d.CaseID,d.DonatorID,d.CharityID });
+            modelBuilder.Entity<Donator>().ToTable("Donators");
+            modelBuilder.Entity<Creditor>().ToTable("Creditor").HasKey(x => new { x.CreditorID, x.CaseID });
+            modelBuilder.Entity<Donation>().ToTable("Donation").HasKey(d => new { d.CaseId,d.DonatorId,d.CharityId });
+            base .OnModelCreating(modelBuilder);
         }
 
     }
