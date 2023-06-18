@@ -21,8 +21,12 @@ namespace BackEndAPI.Models
         [Required]
         public string Email { get; set; }
         public string Website { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+
+        public string? Status { get; set; }
+
         public virtual ICollection<Case> Cases { get; set; }
+        public virtual ICollection<Donation> Donation { get; set; }
+        public virtual ICollection<PaymentToCreditor> PaymentToCreditor { get; set; }
 
     }
 }

@@ -12,6 +12,7 @@ import { MailServiceBackendService } from 'src/app/Services/MailServiceBackend/m
 })
 export class ContactformComponent implements OnInit {
   charity: Charity
+  selectedemail: any
   contactmessage: ContactMessage
   errorMessage: any
 
@@ -25,7 +26,7 @@ export class ContactformComponent implements OnInit {
   }
 
   ContactForm = new UntypedFormGroup({
-    name: new UntypedFormControl(''),
+    //name: new UntypedFormControl(''),
     Subject: new UntypedFormControl(''),
     Body: new UntypedFormControl(''),
     ToEmail: new UntypedFormControl(''),
@@ -39,7 +40,7 @@ export class ContactformComponent implements OnInit {
 
   submit(contactmessage: ContactMessage) {
     contactmessage = this.ContactForm.value
-    //console.log(contactmessage)
+    contactmessage.ToEmail = "mostafa.maher98@gmail.com"
     this.mailservice.postmessage(contactmessage).subscribe((res: any) => {
       if (res.ok) {
         this.ContactForm.reset();
