@@ -2,7 +2,7 @@
 
 namespace BackEndAPI.Migrations
 {
-    public partial class DonationTable : Migration
+    public partial class ckv : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

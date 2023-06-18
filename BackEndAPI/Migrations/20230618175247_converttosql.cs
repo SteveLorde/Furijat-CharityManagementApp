@@ -2,7 +2,7 @@
 
 namespace BackEndAPI.Migrations
 {
-    public partial class fixedstuff2 : Migration
+    public partial class converttosql : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
