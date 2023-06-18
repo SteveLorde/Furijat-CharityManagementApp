@@ -43,6 +43,7 @@ import { ProvideassistanceComponent } from './Components/provideassistance/provi
 import { EditDataComponent } from './Components/edit-data/edit-data.component';
 import { ErrorwindowComponent } from './Components/errorwindow/errorwindow.component';
 import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpaymentplan.component';
+import { AdminprofileComponent } from './Components/Profiles/adminprofile/adminprofile.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpayme
     EditDataComponent,
     ErrorwindowComponent,
     ViewpaymentplanComponent,
+    AdminprofileComponent,
   ],
   imports: [
     BrowserModule,
