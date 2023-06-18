@@ -43,9 +43,9 @@ export class RegisterComponent implements OnInit {
 
 
   RegisterUser = new UntypedFormGroup({
-    userName: new UntypedFormControl(),
+    userName: new UntypedFormControl(''. [Validators.required]),
     //EMail: new FormControl(),
-    password: new UntypedFormControl(),
+    password: new UntypedFormControl('', [Validators.required]),
     firstName: new UntypedFormControl(),
     lastName: new UntypedFormControl(),
   })

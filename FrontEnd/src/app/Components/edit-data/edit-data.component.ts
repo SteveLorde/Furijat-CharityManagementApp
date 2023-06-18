@@ -16,12 +16,18 @@ export class EditDataComponent {
   constructor(private http: BackendCommunicationService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.queryParamMap.get('id');
-    this.edittype = this.route.snapshot.queryParamMap.get('edittype');
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+      this.edittype = params['edittype']
+    })
     this.getcharity()
     this.getcase()
     this.getcreditor()
     this.getdonator()
+  }
+
+  GoProfile() {
+    this.router.navigateByUrl('/profile')
   }
 
   getcase() {
@@ -31,7 +37,7 @@ export class EditDataComponent {
   }
 
   getcharity() {
-    this.http.getCasesById(this.id).subscribe((res) => {
+    this.http.getCharitybyId(this.id).subscribe((res) => {
       this.editelement = res
     })
   }
@@ -56,27 +62,22 @@ export class EditDataComponent {
 
   SubmitEditCase() {
     this.http.updateCase(this.editelement, this.editelement.id).subscribe()
-    this.router.navigateByUrl('/profile')
   }
 
   SubmitEditCharity() {
-    this.http.UpdateCharitybyID(this.editelement, this.editelement.id).subscribe()
-    this.router.navigateByUrl('/profile')
+    this.http.UpdateCharitybyID(this.editelement.id,this.editelement).subscribe()
   }
 
   SubmitEditDonator() {
     this.http.UpdateCharitybyID(this.editelement, this.editelement.id).subscribe()
-    this.router.navigateByUrl('/profile')
   }
 
   SubmitEditCreditor() {
     this.http.UpdateCharitybyID(this.editelement, this.editelement.id).subscribe()
-    this.router.navigateByUrl('/profile')
   }
 
   SubmitEditUser() {
     this.http.UpdateUser(this.editelement, this.editelement.id).subscribe()
-    this.router.navigateByUrl('/profile')
   }
 
 

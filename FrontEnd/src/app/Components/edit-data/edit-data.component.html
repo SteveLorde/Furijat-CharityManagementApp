@@ -1,10 +1,11 @@
 <p>edit-data works!</p>
 
+<button (click)="GoProfile()"></button>
 
   <div>
     <h2>Edit Charity {{editelement.name}}</h2>
     <h3>Charity Name</h3>
-    <input [(ngModel)]="editelement.id" />
+    <input [(ngModel)]="editelement.name" />
     <h3>Charity Description</h3>
     <input [(ngModel)]="editelement.description" />
     <h3>Charity Bank Account  </h3>

@@ -45,7 +45,7 @@ const routes: Routes = [
       { path: 'addcase', component: AddcaseComponent },
       { path: 'provideassistancecharity/:id/', component: ProvideassistanceComponent },
       { path: 'viewpaymentplan/:id', component: ViewpaymentplanComponent },
-      { path: 'edit/:id', component: EditDataComponent },
+      { path: 'edit', component: EditDataComponent },
     ],
   },
   {

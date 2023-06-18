@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Case } from '../../../Models/Case';
 import { Charity } from '../../../Models/Charity';
 import { Creditor } from '../../../Models/Creditor';
@@ -39,21 +40,32 @@ export class AdminprofileComponent {
     })
   }
 
-  EditCase(element: Charity) {
+  EditCharity(element: Charity) {
+    console.log('id of charity to edit is ' + element.id)
     this.router.navigate(['/edit'], { queryParams: { id: element.id, edittype: 'charity' } })
+  }
+
+  DeleteCharity(element: Charity) {
+    console.log("deleting charity" + element.name)
+    /*this.http.DeleteCharity(element.id).subscribe((res: any) => {
+    },
+      error => {
+        Swal.fire('error deleting case', 'eror')
+      })
+    location.reload()*/
   }
 
   Approve(element: Charity) {
     element.status = 'approved'
     this.http.UpdateCharitybyID(element.id, element).subscribe((res: any) => {
     })
-    this.router.navigateByUrl('/profile')
+    location.reload()
   }
 
   Reject(element: Charity) {
     element.status = 'rejected'
     this.http.UpdateCharitybyID(element.id,element).subscribe((res: any) => {
-    this.router.navigateByUrl('/profile')
+    location.reload()
     })
   }
   /*

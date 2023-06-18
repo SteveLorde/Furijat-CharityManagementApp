@@ -67,7 +67,10 @@
         <td>{{ charity.charity }}</td>
         <td>{{ charity.status }}</td>
         <td>
-          <button [routerLink]="['/edit',charity.id]">Update Charity</button>
+          <button (click)="EditCharity(charity)">Update Charity</button>
+        </td>
+        <td>
+          <button (click)="DeleteCharity(charity)">Delete Charity</button>
         </td>
       </tr>
       <tr></tr>
