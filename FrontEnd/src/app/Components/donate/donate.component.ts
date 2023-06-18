@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Case } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { DonatelogService } from 'src/app/Services/DonateLog/donatelog.service';
+import { DonatorService } from '../../Services/DonatorService/donator.service';
 import { CasePaymentService } from 'src/app/Services/CasePayment/case-payment.service'
+import { Charity } from '../../Models/Charity';
+import { Donation } from '../../Models/Donation';
+import { MailServiceBackendService } from '../../Services/MailServiceBackend/mail-service-backend.service';
+import { ContactMessage } from '../../Models/ContactMessage';
 
 @Component({
   selector: 'app-donate',
@@ -13,17 +17,21 @@ import { CasePaymentService } from 'src/app/Services/CasePayment/case-payment.se
 export class DonateComponent implements OnInit {
 
   case = {} as Case
+  charity = {} as Charity
+  donation = {} as Donation
   id: any
   donateamount: number = 0
-paymentmethod: any
+  paymentmethod: any
 
-  constructor(private donatelog: DonatelogService, private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService, private casepayservice: CasePaymentService) { }
+
+  constructor(private donate: DonatorService, private router: Router, private _Activatedroute: ActivatedRoute, private http: BackendCommunicationService, private mailservice: MailServiceBackendService) { }
 
   ngOnInit(): void {
     //Retrieve Case from Database by ID
     this.id = this._Activatedroute.snapshot.paramMap.get("id");
-    this._servercom.getCasesById(this.id).subscribe((res: any) => {
+    this.http.getCasesById(this.id).subscribe((res: Case) => {
       this.case = res
+      this.charity = res.charity
     })
     //this.case.currentAmount = this.case.currentAmount + this.donateamount
   }
@@ -31,19 +39,28 @@ paymentmethod: any
   Donate() {
     this.case.currentAmount = this.case.currentAmount + this.donateamount
     console.log("current amount is ", this.case.currentAmount)
-    this.CreateCasePayment()
-    this._servercom.updateCase(this.case, this.id).subscribe()
+    this.CreateDonationPayment()
+    this.http.updateCase(this.case, this.id).subscribe()
     this.Close()
   }
 
-  CreateCasePayment() {
-    //this.casepayservice.Setcasepayment(this.case.id, this.donateamount)
-    this.casepayservice.AddCasePayment().subscribe()
-    console.log("Creating CasePay" + this.casepayservice.casepayment)
+  CreateDonationPayment() {
+    this.donation.caseId.id = this.case.id
+    this.donation.CharityId.id = this.charity.id
+    this.donation.Amount = this.donateamount
+    this.donation.Time = "6-6-2023"
+    this.donate.createDonation(this.donation).subscribe()
+  }
+
+  NotifyDonator() {
+    const mail = {} as ContactMessage
+    mail.ToEmail = "mostafa.maher98@gmail.com"
+    mail.Subject = "Donation Notification for Charity" + this.charity.name + "for Case" + this.case.id + this.case.firstName + this.case.lastName
+    mail.Body = "You have Donated on" + this.donation.Time + "To Charity" + this.charity.name + "for case" + this.case.firstName + this.case.lastName
   }
 
   Close() {
-    this.router.navigateByUrl('/Case')
+    this.router.navigateByUrl('/Profile')
   }
 
 

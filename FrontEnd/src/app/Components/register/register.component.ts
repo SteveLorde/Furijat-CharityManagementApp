@@ -56,5 +56,35 @@ export class RegisterComponent implements OnInit {
     this.authService.register(user).subscribe((res: any) => {
       if (res) console.log('user', res.userName, 'registered')
     })
+    this.router.navigateByUrl('/profile')
   }
+
+  RegisterAsCharity(user: User) {
+    user = this.RegisterUser.value
+    user.userType = "Charity"
+    this.authService.register(user).subscribe()
+    this.router.navigateByUrl('/addcharity')
+  }
+
+  RegisterAsCase(user: User) {
+    user = this.RegisterUser.value
+    user.userType = "Case"
+    this.authService.register(user).subscribe()
+    this.router.navigateByUrl('/addcase')
+  }
+
+  Back() {
+    this.router.navigateByUrl('/home')
+  }
+
+  /*
+  Back() {
+    this.router.navigateByUrl('/home')
+  }
+
+  Back() {
+    this.router.navigateByUrl('/home')
+  }
+  */
+
 }

@@ -11,6 +11,7 @@ export interface Charity {
   phone: string
   email: string
   website: string
+  status: string
   users: User
   cases: Case
 

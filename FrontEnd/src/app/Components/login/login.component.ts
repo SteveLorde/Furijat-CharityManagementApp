@@ -11,6 +11,7 @@ import { Login } from '../../Models/Login';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthGuard } from '../../Services/AuthGuard/authguard';
 import { User } from '../../Models/User';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
   loginerror: string = ""
   //role variable for user
   role: any
+  error:any
 
   constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard) {
   }
@@ -51,7 +53,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginreq = this.LogintForm.value
     this.authService.login(this.loginreq)
-      .subscribe((res: User) => {
+      .subscribe((res: User | any) => {
         //this.id = res.userId
         //set token
         localStorage.setItem('authToken', res.token)
@@ -61,10 +63,18 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userid', res.userId.toString())
         this.loggedin = 1
         this.GoProfile()
-      })
+      },
+        error => {
+          this.error = error
+          Swal.fire('Invalid Username or Password')
+        })
   }
 
   GoProfile() {
     this.router.navigateByUrl('profile');
+  }
+
+  Back() {
+    this.router.navigateByUrl('/home')
   }
 }

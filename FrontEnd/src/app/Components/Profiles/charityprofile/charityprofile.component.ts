@@ -16,10 +16,12 @@ export class CharityprofileComponent {
   constructor(private http: BackendCommunicationService, private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
   user = {} as User
   Cases = { charity: {} as Charity } as Case
+  charity = { cases: {} as Case } as Charity
   id: any
   utid: any
   usertype: any
@@ -27,6 +29,16 @@ export class CharityprofileComponent {
 
   GenerateReport() {
 
+  }
+
+  UserTypeCharity() {
+    const usertype = localStorage.getItem('UserType')
+    const CharityLogID = localStorage.getItem('UserType')
+    if (usertype == 'Charity') {
+      this.http.getCharitybyId(this.charity).subscribe((res: Charity) => {
+        this.charity = res
+      })
+    }
   }
 
   Message() {
