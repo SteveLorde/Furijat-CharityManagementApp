@@ -12,7 +12,7 @@ namespace BackEndAPI.Data.Entites
         public int CreditorId { get; set; }
         public Creditor Creditor { get; set; }
         public decimal Paid_Amount { get; set; }
-        public decimal Deserves_Debt { get; set; }
+      
         public DateTime Time { get; set; }
 
     }
