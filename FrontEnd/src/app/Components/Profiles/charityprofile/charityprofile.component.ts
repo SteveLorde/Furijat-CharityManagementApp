@@ -27,6 +27,10 @@ export class CharityprofileComponent {
   charity = { cases: {} as Case } as Charity
   Donations = {} as Donation
 
+  filtercharityid: any = this.charity.id
+
+  statusfilter: any 
+
   id: any
   utid: any
   usertype: any
@@ -55,13 +59,13 @@ export class CharityprofileComponent {
   Message() {
     this.router.navigateByUrl('/contactform');
   }
-  /*
+  
   GetCases() {
     this.http.getCases().subscribe((res) => {
       this.Cases = res
     })
   }
-  */
+  
 
   EditCase(element: Case) {
     this.router.navigate(['/edit'], { queryParams: { id: element.id, edittype: 'case' } })

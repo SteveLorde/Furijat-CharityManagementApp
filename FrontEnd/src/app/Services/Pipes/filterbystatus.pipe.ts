@@ -5,8 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterbystatusPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(items: any[], status: string): any[] {
+    if (!items) {
+      return [];
+    }
+    if (!status) {
+      return items;
+    }
+    return items.filter(item => item.status === status);
+    }
   }
-
-}
