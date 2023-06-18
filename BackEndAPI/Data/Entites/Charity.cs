@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEndAPI.Models
 {
-    public class Charity:BaseModel
+    public class Charity : BaseModel
     {
         [MinLength(3)]
         public string Name { get; set; }
@@ -22,7 +22,7 @@ namespace BackEndAPI.Models
         public string Email { get; set; }
         public string Website { get; set; }
 
-        public string? Status { get; set; }
+        public string Status { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
         public virtual ICollection<Case> Cases { get; set; }
