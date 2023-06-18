@@ -26,7 +26,7 @@ namespace BackEndAPI.Models
 
         public virtual ICollection<Case> Cases { get; set; }
         public virtual ICollection<Donation> Donation { get; set; }
-
+        public virtual ICollection<PaymentToCreditor> PaymentToCreditor { get; set; }
 
     }
 }
