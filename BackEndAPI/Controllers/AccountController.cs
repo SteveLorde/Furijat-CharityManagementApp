@@ -21,7 +21,7 @@ namespace BackEndAPI.Controllers
             _db = db;
         }
         [HttpPost("register")]
-        public async Task<ActionResult<UserDTO>> Register(RegisterDto _user)
+        public async Task<ActionResult<UserDTO>> Register(RegisterDTO _user)
         {
             if (await UserExists(_user.Username)) return BadRequest("Username is taken");
             using var hmac = new HMACSHA512();
@@ -29,18 +29,23 @@ namespace BackEndAPI.Controllers
             {
                 UserName = _user.Username.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(_user.Password)),
-                PasswordSalt = hmac.Key
+                PasswordSalt = hmac.Key,
+                UserType = _user.UserType,
+                FirstName = _user.FirstName,
+                LastName = _user.LastName
             };
             await _db.Users.AddAsync(user);
             await _db.SaveChangesAsync();
             return new UserDTO()
             {
                 UserName = user.UserName,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
                 Token = _tokenService.CreateToken(user)
             };
         }
         [HttpPost("login")]
-        public async Task<ActionResult<UserDTO>> Login(LoginDto _user)
+        public async Task<ActionResult<UserDTO>> Login(LoginDTO _user)
         {
 
             var user = await _db.Users.All
@@ -58,7 +63,7 @@ namespace BackEndAPI.Controllers
             return new UserDTO()
             {
                 UserName = user.UserName,
-                UserId = user.Id,
+                Id = user.Id,
                 // UserTypeID = user.UserType.Id,
                 Token = _tokenService.CreateToken(user)
             };

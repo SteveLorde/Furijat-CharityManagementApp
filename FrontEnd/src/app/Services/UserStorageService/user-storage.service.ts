@@ -7,9 +7,11 @@ import { UserType } from '../../Models/UserType';
 })
 export class UserStorageService {
 
+
+
   user: User = {
       userId: 0,
-      uType: '',
+      userType: '',
       password: '',
       userName: '',
       firstName: '',

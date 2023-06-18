@@ -1,15 +1,10 @@
 ﻿using BackEndAPI.Data.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using BackEndAPI.Models;
+using System.Linq;
 
 namespace BackEndAPI.Controllers
 {
@@ -40,19 +35,28 @@ namespace BackEndAPI.Controllers
                 container.Page(page =>
                 {
                     page.Size(PageSizes.A4);
-                    page.Margin(2, Unit.Centimetre);
+                    page.Margin(1, Unit.Centimetre);
                     page.PageColor(Colors.White);
                     page.DefaultTextStyle(x => x.FontSize(9));
 
-                    page.Header()
-                        .Text("Hello PDF!")
-                        .SemiBold().FontSize(36).FontColor(Colors.Blue.Medium);
+                    page.Header().Column(column =>
+                    {
+                        //column.Item().Text();
+                        column.Item().Row(x =>
+                        {
+                            x.RelativeItem().Width(2, Unit.Inch).Image("Assets/FurijateBlue.png");
+                            x.RelativeItem().Text("List of Cases in your charity").FontSize(24);
+                        }
+                        );
+                    });
+                    //.Text("Hello PDF!")
+                    //.SemiBold().FontSize(36).FontColor(Colors.Blue.Medium)
 
                     page.Content()
                     .Column(x =>
                     {
                         x.Item().Text("List of Cases in Charity").FontSize(36);
-                        foreach (var entity in charitydebtors )
+                        foreach (var entity in charitydebtors)
                         {
                             string thisEntity = $"Name:{entity.FirstName} Description:{entity.Description} Total Amount of Money Needed:{entity.TotalAmount}";
 
@@ -63,7 +67,7 @@ namespace BackEndAPI.Controllers
                         }
                     }
                     );
-                       
+
 
                     page.Footer()
                         .AlignCenter()
@@ -81,5 +85,14 @@ namespace BackEndAPI.Controllers
 
             //return Ok(charitydebtors);
         }
+        /*
+        [HttpGet("DonatorDonations")]
+        [HttpGet("RegisteredDonators")]
+        [HttpGet("RegisteredCreditors")]
+        [HttpGet("CharityAssistances")]
+        [HttpGet("EXTRA")]
+        [HttpGet("EXTA")]
+        [HttpGet("EXTRA")]
+        */
     }
 }

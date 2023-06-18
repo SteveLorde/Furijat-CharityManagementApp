@@ -4,26 +4,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BackEndAPI.Data.Entites
 {
-   
-        public class Case:User
-        {
 
-        public Case():base()
-        {
-        }
-            [MaxLength(11)]
-            public string Phone { get; set; }
-            public string Description { get; set; }
-            public string Address { get; set; }
-            public decimal TotalAmount { get; set; }
-            public string MarriageStatus { get; set; }
-            public virtual ICollection<CharityManagment> CharityManagment { get; set; }
-            public virtual ICollection<CreditorCases> CreditorCases { get; set; }
-
-
-
-
-
+    public class Case : User
+    {
+        [MaxLength(11)]
+        public string Phone { get; set; }
+        public string Description { get; set; }
+        public string Address { get; set; }
+        public decimal CurrentAmount { get; set; }
+        public decimal TotalAmount { get; set; }
+        public string? Status { get; set; }
+        public string MarriageStatus { get; set; }
+        public virtual ICollection<Charity> Charities { get; set; }
     }
 
 }

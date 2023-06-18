@@ -15,7 +15,7 @@ namespace BackEndAPI.Models
         public string FirstName { get; set; }
         [MinLength(3)]
 
-        public string LastNaame { get; set; }
+        public string LastName { get; set; }
         public string UserType { get; set; }
 
     }

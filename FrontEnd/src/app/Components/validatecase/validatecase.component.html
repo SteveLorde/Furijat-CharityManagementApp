@@ -1,10 +1,7 @@
-<p>validatecase works!</p>
-
 <h2>Cases awaiting confirmation</h2>
 
-
-<table>
-  <thead>
+<table class="styled-table m-auto my-4">
+  <thead class="text-center">
     <tr>
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
@@ -17,8 +14,15 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let case of caseelement  |  searchFilter: searchText |  paginate: { itemsPerPage: 20, currentPage: p} | casestatusfilternotvalid">
+  <tbody class="text-center">
+    <tr
+      *ngFor="
+        let case of caseelement
+          | searchFilter : searchText
+          | paginate : { itemsPerPage: 20, currentPage: p }
+          | casestatusfilternotvalid
+      "
+    >
       <td>{{ case.firstName }}</td>
       <td>{{ case.lastName }}</td>
       <td>{{ case.description }}</td>
@@ -33,42 +37,3 @@
     </tr>
   </tbody>
 </table>
-
-
-
-
-
-<!--
- <p>addcase works!</p>
-<form [formGroup]="AddCaseForm" (ngSubmit)="AddCaseToValidate(caseelement,casetoadd)">
-  <div>
-    FirstName:
-    <input formControlName="firstName" placeholder="username" type="text" />
-  </div>
-  <div>
-    LastName:
-    <input formControlName="lastName" placeholder="lastname" type="text" />
-  </div>
-  <div>
-    Description:
-    <input formControlName="description" placeholder="description" type="text" />
-  </div>
-  <div>
-    Address:
-    <input formControlName="address" placeholder="address" type="text" />
-  </div>
-  <div>
-    Amount Needed:
-    <input formControlName="amountneeded" placeholder="amountneeded" type="number" />
-  </div>
-  <div>
-    Current Amount:
-    <input formControlName="currentamount" placeholder="currentamount" type="number" />
-  </div>
-  <div>
-    Total Amount:
-    <input formControlName="totalamount" placeholder="totalamount" type="number" />
-  </div>
-  <input type="submit" value="Add Case to Validate List">
-</form>
-  -->

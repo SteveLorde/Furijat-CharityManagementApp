@@ -127,6 +127,9 @@
     </div>
   </div>
 </section> -->
+
+
+
 <section class="text-center text-lg-start fler mt-5 pt-5">
   <div class="container py-4">
     <div class="row g-0 align-items-center">
@@ -146,12 +149,10 @@
                   <div class="form-outline">
                     <div>
                       <label>First Name</label>
-                      <input
-                        formControlName="FirstName"
-                        placeholder="Enter your first name"
-                        type="text"
-                        class="form-control"
-                      />
+                      <input formControlName="firstName"
+                             placeholder="Enter your first name"
+                             type="text"
+                             class="form-control" />
                     </div>
                   </div>
                 </div>
@@ -159,12 +160,10 @@
                   <div class="form-outline">
                     <div>
                       <label>Last Name</label>
-                      <input
-                        formControlName="LastName"
-                        placeholder="Enter your last name"
-                        type="text"
-                        class="form-control"
-                      />
+                      <input formControlName="lastName"
+                             placeholder="Enter your last name"
+                             type="text"
+                             class="form-control" />
                     </div>
                   </div>
                 </div>
@@ -174,15 +173,17 @@
               <div class="form-outline mb-4">
                 <div>
                   <label>User Name</label>
-                  <input
-                    formControlName="UserName"
-                    placeholder="Enter your user name"
-                    type="text"
-                    class="form-control"
-                  />
+                  <input formControlName="userName"
+                         placeholder="Enter your user name"
+                         type="text"
+                         class="form-control" />
+
+
                 </div>
               </div>
-              <!-- Email input -->
+
+
+                          <!-- Email input
               <div class="form-outline mb-4">
                 <div>
                   <label>Email</label>
@@ -194,31 +195,38 @@
                   />
                 </div>
               </div>
+                -->
 
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <div>
                   <label>Password</label>
-                  <input
-                    formControlName="Password"
-                    placeholder="Enter Your Password"
-                    type="password"
-                    class="form-control"
-                  />
+                  <input formControlName="password"
+                         placeholder="Enter Your Password"
+                         type="password"
+                         class="form-control" />
                 </div>
               </div>
 
               <!-- Submit button -->
               <div class="text-center d-grid gap-2">
-                <button
-                  type="button "
-                  class="btn btn-outline-primary btn-rounded"
-                >
-                  Register Account
+                <!-- <button
+    type="button "
+    class="btn btn-outline-primary btn-rounded"
+  >
+    Register Account
+  </button> -->
+
+                <button class="btn custom-btn btn-2 btn-lg m-auto">
+                  <span> Register Account</span>
                 </button>
+                <button (click)="RegisterAsCharity(user)" class="btn custom-btn btn-2 btn-lg m-auto">Register as Charity</button>
+
+                <button (click)="RegisterAsCase(user)" class="btn custom-btn btn-2 btn-lg m-auto">Register as Case</button>
+
                 <a routerLink="/login" class="text-decoration-none ps-2">
-                  You Have Account !</a
-                >
+                  You Have Account !
+                </a>
               </div>
             </form>
           </div>
