@@ -15,13 +15,11 @@
         <div class="pb-3">
           <label class="pb-1" for="firstName"> First Name </label>
 
-          <input
-            class="form-control"
-            formControlName="firstName"
-            placeholder="user name"
-            type="text"
-            id="firstName"
-          />
+          <input class="form-control"
+                 formControlName="firstName"
+                 placeholder="user name"
+                 type="text"
+                 id="firstName" />
         </div>
       </div>
 
@@ -29,13 +27,11 @@
         <div class="pb-3">
           <label class="pb-1" for="LastName"> Last Name </label>
 
-          <input
-            id="LastName"
-            class="form-control"
-            formControlName="lastname"
-            placeholder="Last name"
-            type="text"
-          />
+          <input id="LastName"
+                 class="form-control"
+                 formControlName="lastname"
+                 placeholder="Last name"
+                 type="text" />
         </div>
       </div>
 
@@ -43,65 +39,55 @@
         <div class="pb-3">
           <label class="pb-1" for="Description"> Description </label>
 
-          <input
-            id="Description"
-            class="form-control"
-            formControlName="description"
-            placeholder="description"
-            type="text"
-          />
+          <input id="Description"
+                 class="form-control"
+                 formControlName="description"
+                 placeholder="description"
+                 type="text" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="pb-3">
           <label class="pb-1" for="address"> Address </label>
 
-          <input
-            id=" Address"
-            class="form-control"
-            formControlName="address"
-            placeholder="address"
-            type="text"
-          />
+          <input id=" Address"
+                 class="form-control"
+                 formControlName="address"
+                 placeholder="address"
+                 type="text" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="pb-3">
           <label class="pb-1" for="Amount-Needed"> Amount Needed </label>
 
-          <input
-            id="Amount-Needed"
-            class="form-control"
-            formControlName="amountneeded"
-            placeholder="Amount needed"
-            type="number"
-          />
+          <input id="Amount-Needed"
+                 class="form-control"
+                 formControlName="amountneeded"
+                 placeholder="Amount needed"
+                 type="number" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="pb-3">
           <label class="pb-1" for="Current-Amount"> Current Amount </label>
 
-          <input
-            id="Current-Amount"
-            class="form-control"
-            formControlName="currentAmount"
-            placeholder="Current Amount"
-            type="number"
-          />
+          <input id="Current-Amount"
+                 class="form-control"
+                 formControlName="currentAmount"
+                 placeholder="Current Amount"
+                 type="number" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="pb-3">
           <label class="pb-1" for="Total-Amount"> Total Amount </label>
 
-          <input
-            id="Total-Amount"
-            class="form-control"
-            formControlName="totalAmount"
-            placeholder="Total amount"
-            type="number"
-          />
+          <input id="Total-Amount"
+                 class="form-control"
+                 formControlName="totalAmount"
+                 placeholder="Total amount"
+                 type="number" />
         </div>
       </div>
       <div class="col-md-6">
@@ -118,11 +104,21 @@
 
       <div class="text-center mt-2">
         <!-- <input class="btn btn-lg m-auto" type="submit" value="Add Case" />
-         -->
+    -->
         <button type="submit" class="custom-btn btn-6 btn btn-lg px-3">
-          <span>Add Case</span>
+          <span>Seek Assistance</span>
         </button>
       </div>
+
+      <!--
+   <div *ngIf="loggedintype === 'case'" class="text-center mt-2">
+     <!-- <input class="btn btn-lg m-auto" type="submit" value="Add Case" />
+
+    <button (click)="RequestAssistance()" type="submit" class="custom-btn btn-6 btn btn-lg px-3">
+      <span>Request Assistance</span>
+    </button>
+  </div>
+   -->
     </div>
   </form>
 </div>

@@ -1,7 +1,11 @@
 import { Case } from "./Case"
 
 export interface Creditor {
-  name: string
-  cases: Case[]
-
+  id: number
+  caseID: number
+  phone: string
+  description: string
+  payment_Account: string
+  address: string
+  deserves_Amount: number
 }

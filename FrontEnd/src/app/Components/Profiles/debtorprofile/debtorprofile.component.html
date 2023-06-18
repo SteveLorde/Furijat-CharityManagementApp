@@ -6,7 +6,7 @@
 
 
 
-<div *ngIf="assistanceform === 'true' ">
+<div *ngIf="assistanceform">
   <app-addcase ></app-addcase>
   <app-file-upload></app-file-upload>
 </div>
@@ -18,7 +18,7 @@
 <h2>{{case.charity.name}}</h2>
 
 <h2>Current Amount of Assistance</h2>
-<h3>{{case.currentamount}}</h3>
+<h3>{{case.currentAmount}}</h3>
 
 <h2>Total Amount Of Debt</h2>
-<h3>{{case.totalamount}}</h3>
+<h3>{{case.totalAmount}}</h3>

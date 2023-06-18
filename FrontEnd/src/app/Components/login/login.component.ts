@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
         //variable used to check if logged in (to influnece other HTML elements)
         localStorage.setItem('loggedin', "1")
         localStorage.setItem('UserType', res.userType)
-        localStorage.setItem('userid', res.id.toString())
+        localStorage.setItem('userid', res.userId.toString())
         this.loggedin = 1
         this.GoProfile()
       })
