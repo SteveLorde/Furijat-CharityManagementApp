@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BackEndAPI.Database
 {
-    public class FurijatContext:DbContext
+    public class FurijatContext : DbContext
     {
         public FurijatContext(DbContextOptions<FurijatContext> option) : base(option)
         {
-        
+
         }
-    
+
         public DbSet<User> Users { get; set; }
         public DbSet<Creditor> Creditor { get; set; }
         public DbSet<Charity> Charities { get; set; }
@@ -29,8 +29,28 @@ namespace BackEndAPI.Database
             modelBuilder.Entity<Donator>().ToTable("Donators");
             modelBuilder.Entity<PaymentToCreditor>().ToTable("PaymentToCreditors").HasKey(p => new { p.CharityId, p.CreditorId,p.CaseId });
             modelBuilder.Entity<Creditor>().ToTable("Creditor").HasKey(x => new { x.CreditorID, x.CaseID });
-            modelBuilder.Entity<Donation>().ToTable("Donation").HasKey(d => new { d.CaseId,d.DonatorId,d.CharityId });
-            base .OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Donation>().ToTable("Donation").HasKey(d => new { d.CaseId, d.DonatorId, d.CharityId });
+            modelBuilder.Entity<Case>()
+            .Property(c => c.CurrentAmount)
+            .HasPrecision(18, 2);
+            modelBuilder.Entity<Case>()
+            .Property(c => c.TotalAmount)
+            .HasPrecision(18, 2);
+            modelBuilder.Entity<Creditor>()
+            .Property(c => c.Deserves_Amount)
+            .HasPrecision(18, 2);
+            modelBuilder.Entity<Donation>()
+            .Property(c => c.Amount)
+            .HasPrecision(18, 2);
+            modelBuilder.Entity<Donator>()
+            .Property(c => c.PaidAmount)
+            .HasPrecision(18, 2);
+            modelBuilder.Entity<PaymentToCreditor>()
+            .Property(c => c.Paid_Amount)
+            .HasPrecision(18, 2);
+            modelBuilder.Entity<PaymentToCreditor>()
+            .Property(c => c.Deserves_Debt)
+            .HasPrecision(18, 2);
         }
 
     }
