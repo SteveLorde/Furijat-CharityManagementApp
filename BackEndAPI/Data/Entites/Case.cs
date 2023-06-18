@@ -20,7 +20,7 @@ namespace BackEndAPI.Data.Entites
         public string MarriageStatus { get; set; }
       
         public virtual ICollection<Donation> Donation { get; set; }
-
+        public virtual ICollection<PaymentToCreditor> PaymentToCreditor { get; set; }
     }
 
 }

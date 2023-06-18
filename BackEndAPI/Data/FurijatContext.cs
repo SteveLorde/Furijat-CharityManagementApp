@@ -19,7 +19,7 @@ namespace BackEndAPI.Database
         public DbSet<Donator> Donators { get; set; }
         public DbSet<Donation> Donation { get; set; }
         public DbSet<Admin> Admin { get; set; }
-
+        public DbSet<PaymentToCreditor> PaymentToCreditors { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("Users");
@@ -27,6 +27,7 @@ namespace BackEndAPI.Database
             modelBuilder.Entity<Case>().ToTable("Cases");
             modelBuilder.Entity<Admin>().ToTable("Admin");
             modelBuilder.Entity<Donator>().ToTable("Donators");
+            modelBuilder.Entity<PaymentToCreditor>().ToTable("PaymentToCreditors").HasKey(p => new { p.CharityId, p.CreditorId,p.CaseId });
             modelBuilder.Entity<Creditor>().ToTable("Creditor").HasKey(x => new { x.CreditorID, x.CaseID });
             modelBuilder.Entity<Donation>().ToTable("Donation").HasKey(d => new { d.CaseId,d.DonatorId,d.CharityId });
             base .OnModelCreating(modelBuilder);
