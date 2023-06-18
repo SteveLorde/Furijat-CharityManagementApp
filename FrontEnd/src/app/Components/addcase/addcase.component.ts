@@ -24,6 +24,8 @@ export class AddcaseComponent implements OnInit {
 
   }
 
+ 
+
   AddCaseForm = new UntypedFormGroup({
     firstname: new UntypedFormControl(),
     lastname: new UntypedFormControl(),
@@ -43,7 +45,7 @@ export class AddcaseComponent implements OnInit {
     this.CaseReq.address = this.AddCaseForm.get('address').value
     this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
     this.CaseReq.totalAmount = this.AddCaseForm.get('totalamount').value
-    this.CaseReq.status = "notvalid"
+    this.CaseReq.status = "Pending"
     this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
     this._servercom.addCase(this.CaseReq).subscribe((res: any) => { })
   }

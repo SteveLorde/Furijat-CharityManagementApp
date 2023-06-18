@@ -15,6 +15,7 @@ export class DonateComponent implements OnInit {
   case = {} as Case
   id: any
   donateamount: number = 0
+paymentmethod: any
 
   constructor(private donatelog: DonatelogService, private router: Router, private _Activatedroute: ActivatedRoute, private _servercom: BackendCommunicationService, private casepayservice: CasePaymentService) { }
 

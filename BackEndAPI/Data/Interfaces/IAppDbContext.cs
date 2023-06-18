@@ -18,7 +18,6 @@ namespace BackEndAPI.Data.Interfaces
         public IRepository<Creditor> Creditors { get; }
         public IRepository<Donator> Donators { get; }
 
-
         #region Methods
         IDbContextTransaction BeginTransaction();
         Task<IDbContextTransaction> BeginTransactionAsync(CancellationToken cancellationToken = default);

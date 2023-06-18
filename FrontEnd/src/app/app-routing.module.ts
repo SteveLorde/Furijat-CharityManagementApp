@@ -10,7 +10,7 @@ import { AuthGuard } from './Services/AuthGuard/authguard';
 import { DonateComponent } from 'src/app/Components/donate/donate.component';
 import { ProfileComponent } from 'src/app/Components/profile/profile.component';
 import { CharitydonationComponent } from 'src/app/Components/charitydonation/charitydonation.component';
-import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
+//import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { AboutComponent } from './Components/about/about.component';
@@ -18,6 +18,7 @@ import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { ContactformComponent } from './Components/contactform/contactform.component';
 import { ProvideassistanceComponent } from './Components/provideassistance/provideassistance.component';
+import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpaymentplan.component';
 
 const routes: Routes = [
   {
@@ -36,12 +37,13 @@ const routes: Routes = [
       { path: 'donate/:id', component: DonateComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'charitylist', component: CharitydonationComponent },
-      { path: 'donatecharity/:id', component: DonatecharityComponent },
+      //{ path: 'donatecharity/:id', component: DonatecharityComponent },
       { path: 'addcharity', component: AddcharityComponent },
       { path: 'validatecase', component: ValidatecaseComponent },
       { path: 'contactform', component: ContactformComponent },
       { path: 'addcase', component: AddcaseComponent },
       { path: 'provideassistancecharity', component: ProvideassistanceComponent },
+      { path: 'viewpaymentplan', component: ViewpaymentplanComponent },
     ],
   },
   {

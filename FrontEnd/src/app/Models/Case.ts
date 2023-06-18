@@ -12,7 +12,9 @@ export interface Case {
   phone: string
   description: string
   address: string
+  currentAmount: number
   totalAmount: number
   marriageStatus: string
-  charities: Charity
+  status: string
+  charity: Charity
 }

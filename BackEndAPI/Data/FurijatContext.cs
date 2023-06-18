@@ -17,6 +17,7 @@ namespace BackEndAPI.Database
         public DbSet<Charity> Charities { get; set; }
         public DbSet<Case> Cases { get; set; }
         public DbSet<Donator> Donator { get; set; }
+        public DbSet<Donation> Donation { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

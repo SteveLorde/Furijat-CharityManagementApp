@@ -1,5 +1,12 @@
 ﻿[
   {
+    "id": "889ded40f17a7648c1919cad",
+    "FirstName": "SuperAdmin",
+    "UserName": "SuperAdmin",
+    "LastName": "SuperAdmin",
+    "UserType": "Admin"
+  },
+  {
     "id": "648ded40f17a7648c1919cad",
     "FirstName": "Sanford",
     "UserName": "Mosley",

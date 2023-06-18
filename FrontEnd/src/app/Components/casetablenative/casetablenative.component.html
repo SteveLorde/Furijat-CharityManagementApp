@@ -43,7 +43,7 @@
         <td>{{ case.charity }}</td>
         <td>{{ case.status }}</td>
         <td>
-          <a [routerLink]="['/donate', case.id]">Donate</a>
+          <a *ngIf="UserType === 'Donator' " [routerLink]="['/donate', case.id]">Donate</a>
         </td>
       </tr>
       <tr></tr>
