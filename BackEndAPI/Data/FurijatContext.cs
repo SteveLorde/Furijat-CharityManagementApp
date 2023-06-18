@@ -48,9 +48,9 @@ namespace BackEndAPI.Database
             modelBuilder.Entity<PaymentToCreditor>()
             .Property(c => c.Paid_Amount)
             .HasPrecision(18, 2);
-            modelBuilder.Entity<PaymentToCreditor>()
-            .Property(c => c.Deserves_Debt)
-            .HasPrecision(18, 2);
+            //modelBuilder.Entity<PaymentToCreditor>()
+            //.Property(c => c.Deserves_Debt)
+            //.HasPrecision(18, 2);
         }
 
     }
