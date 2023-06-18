@@ -19,8 +19,8 @@ namespace BackEndAPI.DTOs
         public string Website { get; set; }
         public string? Status { get; set; }
         public virtual ICollection<UserDTO> Users { get; set; }
-        public virtual ICollection<Case> Cases { get; set; }
-        public virtual ICollection<Donation> Donation { get; set; }
+        public virtual ICollection<CaseDTO> Cases { get; set; }
+        //public virtual ICollection<Dona> Donation { get; set; }
 
     }
 }

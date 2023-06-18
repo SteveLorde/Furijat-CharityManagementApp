@@ -15,8 +15,8 @@ namespace BackEndAPI.DTOs
         public decimal TotalAmount { get; set; }
         public string MarriageStatus { get; set; }
         public string? Status { get; set; }
-        public ICollection<Charity> Charities { get; set; }
-        public virtual ICollection<Donation> Donation { get; set; }
+        public ICollection<CharityDTO> Charities { get; set; }
+        //public virtual ICollection<Donation> Donation { get; set; }
     }
 }
 

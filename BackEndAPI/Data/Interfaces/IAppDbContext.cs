@@ -17,6 +17,7 @@ namespace BackEndAPI.Data.Interfaces
         public IRepository<Charity> Charities { get; }
         public IRepository<Creditor> Creditors { get; }
         public IRepository<Donator> Donators { get; }
+        public IRepository<PaymentToCreditor> PaymentToCreditor { get; }
 
         #region Methods
         IDbContextTransaction BeginTransaction();

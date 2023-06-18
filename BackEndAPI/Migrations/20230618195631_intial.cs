@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BackEndAPI.Migrations
 {
-    public partial class IntialMigration : Migration
+    public partial class intial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -179,7 +179,6 @@ namespace BackEndAPI.Migrations
                     CharityId = table.Column<int>(type: "int", nullable: false),
                     CreditorId = table.Column<int>(type: "int", nullable: false),
                     Paid_Amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    Deserves_Debt = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DonatorId = table.Column<int>(type: "int", nullable: true)
                 },
