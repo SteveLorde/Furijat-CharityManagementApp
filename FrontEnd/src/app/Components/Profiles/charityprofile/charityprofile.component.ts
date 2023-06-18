@@ -4,6 +4,7 @@ import { Charity } from '../../../Models/Charity';
 import { User } from '../../../Models/User';
 import { BackendCommunicationService } from '../../../Services/BackendCommunication/backend-communication.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class CharityprofileComponent {
   constructor(private http: BackendCommunicationService, private router: Router) { }
 
   ngOnInit(): void {
-
+    this.UserTypeCharity()
   }
 
   user = {} as User
@@ -44,13 +45,13 @@ export class CharityprofileComponent {
   Message() {
     this.router.navigateByUrl('/contactform');
   }
-
+  /*
   GetCases() {
     this.http.getCases().subscribe((res) => {
       this.Cases = res
     })
   }
-
+  */
 
   EditCase() {
 
@@ -69,12 +70,20 @@ export class CharityprofileComponent {
     element.charity.id = 0
     this.http.updateCase(id,element).subscribe()
   }
+
   ProvideAssistance() {
     this.router.navigateByUrl('/provideassistancebycharity')
   }
 
   DeleteCase(id: any) {
-
+    this.http.DeleteCase(id).subscribe((res: any) => {
+      Swal.fire('Case Deleted')
+      this.router.navigateByUrl('/profile')
+    },
+      error => {
+        Swal.fire('Error, Case not deleted')
+      }
+    )
   }
 
 }

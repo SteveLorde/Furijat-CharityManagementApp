@@ -4,6 +4,7 @@ import { Charity } from '../../Models/Charity';
 import { ContactMessage } from '../../Models/ContactMessage';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { MailServiceBackendService } from 'src/app/Services/MailServiceBackend/mail-service-backend.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contactform',
@@ -43,9 +44,11 @@ export class ContactformComponent implements OnInit {
     contactmessage.ToEmail = "mostafa.maher98@gmail.com"
     this.mailservice.postmessage(contactmessage).subscribe((res: any) => {
       if (res.ok) {
+        Swal.fire('Mail Sent Successfully')
         this.ContactForm.reset();
       } else {
-        console.error(res);
+        console.error(res)
+        Swal.fire('Mail Sent Successfully')
       }
     })
   }

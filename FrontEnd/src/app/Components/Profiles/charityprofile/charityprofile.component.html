@@ -24,8 +24,7 @@
     </thead>
     <tbody>
       <tr class="tablerow text-center"
-          *ngFor="
-          let case of Cases
+          *ngFor=" let case of Cases
             | paginate : { itemsPerPage: 5, currentPage: p }
         ">
         <td>{{ case.id }}</td>
@@ -87,7 +86,7 @@
         <td>{{ case.status }}</td>
         <td></td>
         <td>
-          <button (click)="ProvideAssistance()">Provide Assistance</button>
+          <button [routerLink]="['/provideassistance',case.id]">Provide Assistance</button>
         </td>
         <td>
           <button (click)=" DeleteCase(case.id)">Delete</button>

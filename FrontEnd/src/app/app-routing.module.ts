@@ -42,7 +42,7 @@ const routes: Routes = [
       { path: 'validatecase', component: ValidatecaseComponent },
       { path: 'contactform', component: ContactformComponent },
       { path: 'addcase', component: AddcaseComponent },
-      { path: 'provideassistancecharity', component: ProvideassistanceComponent },
+      { path: 'provideassistancecharity/:id', component: ProvideassistanceComponent },
       { path: 'viewpaymentplan', component: ViewpaymentplanComponent },
     ],
   },
