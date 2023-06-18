@@ -5,6 +5,8 @@ import { User } from '../../../Models/User';
 import { BackendCommunicationService } from '../../../Services/BackendCommunication/backend-communication.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Donation } from '../../../Models/Donation';
+import { DonatorService } from '../../../Services/DonatorService/donator.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ import Swal from 'sweetalert2';
 })
 export class CharityprofileComponent {
 
-  constructor(private http: BackendCommunicationService, private router: Router) { }
+  constructor(private http: BackendCommunicationService, private router: Router, private donationservice: DonatorService) { }
 
   ngOnInit(): void {
     this.UserTypeCharity()
@@ -23,6 +25,8 @@ export class CharityprofileComponent {
   user = {} as User
   Cases = { charity: {} as Charity } as Case
   charity = { cases: {} as Case } as Charity
+  Donations = {} as Donation
+
   id: any
   utid: any
   usertype: any
@@ -42,6 +46,12 @@ export class CharityprofileComponent {
     }
   }
 
+  GetDonations() {
+    this.donationservice.getDonations().subscribe((res: Donation) => {
+      this.Donations = res
+    })
+  }
+
   Message() {
     this.router.navigateByUrl('/contactform');
   }
@@ -53,8 +63,8 @@ export class CharityprofileComponent {
   }
   */
 
-  EditCase() {
-
+  EditCase(element: Case) {
+    this.router.navigate(['/edit'], { queryParams: { id: element.id, edittype: 'case' } })
   }
 
   approve(element: any, id:any ) {

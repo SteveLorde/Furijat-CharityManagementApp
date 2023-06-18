@@ -44,6 +44,8 @@ import { EditDataComponent } from './Components/edit-data/edit-data.component';
 import { ErrorwindowComponent } from './Components/errorwindow/errorwindow.component';
 import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpaymentplan.component';
 import { AdminprofileComponent } from './Components/Profiles/adminprofile/adminprofile.component';
+import { FilterbycharityidPipe } from './Services/Pipes/filterbycharityid.pipe';
+import { FilterbystatusPipe } from './Services/Pipes/filterbystatus.pipe';
 
 @NgModule({
   declarations: [
@@ -81,6 +83,8 @@ import { AdminprofileComponent } from './Components/Profiles/adminprofile/adminp
     ErrorwindowComponent,
     ViewpaymentplanComponent,
     AdminprofileComponent,
+    FilterbycharityidPipe,
+    FilterbystatusPipe,
   ],
   imports: [
     BrowserModule,

@@ -89,10 +89,38 @@
           <button [routerLink]="['/provideassistance',case.id]">Provide Assistance</button>
         </td>
         <td>
-          <button (click)=" DeleteCase(case.id)">Delete</button>
+          <button (click)=" EditCase(case.id)">Update Case</button>
         </td>
         <td>
-          <button (click)=" DeleteCase(case.id)">Delete</button>
+          <button (click)=" DeleteCase(case.id)">Delete Case</button>
+        </td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+</div>
+
+<!--Accept Donations-->
+<h2>Donations Requests</h2>
+<div *ngIf="usertype === 'charity'" class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+  <table class="styled-table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Donation Requests</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tablerow text-center"
+          *ngFor="
+          let donation of Donations
+            | paginate : { itemsPerPage: 5, currentPage: p }
+        ">
+        <td>{{ donation }}</td>
+        <td>
+          <button (click)="ApproveDonation(donation.id)">Approve</button>
+        </td>
+        <td>
+          <button (click)="RejectDonation(donation.id)">Reject</button>
         </td>
       </tr>
       <tr></tr>
