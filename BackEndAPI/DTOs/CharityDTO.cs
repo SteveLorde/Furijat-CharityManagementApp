@@ -24,11 +24,11 @@ namespace BackEndAPI.DTOs
         public string Email { get; set; }
         public string Website { get; set; }
 
-       
-       
+        public Admin Admin { get; set; }
+        [ForeignKey("AdminID")]
         public int AdminID { get; set; }
-       
-
-    
+        public virtual User User { get; set; }
+        public virtual ICollection<CharityManagment> CharityManagment { get; set; }
+        public virtual ICollection<CharityDonators> CharityDonators { get; set; }
     }
 }
