@@ -30,9 +30,9 @@ namespace BackEndAPI.Database
             modelBuilder.Entity<PaymentToCreditor>().ToTable("PaymentToCreditors").HasKey(p => new { p.CharityId, p.CreditorId,p.CaseId });
             modelBuilder.Entity<Creditor>().ToTable("Creditor").HasKey(x => new { x.CreditorID, x.CaseID });
             modelBuilder.Entity<Donation>().ToTable("Donation").HasKey(d => new { d.CaseId, d.DonatorId, d.CharityId });
-            modelBuilder.Entity<Case>()
-            .Property(c => c.CurrentAmount)
-            .HasPrecision(18, 2);
+            //modelBuilder.Entity<Case>()
+            //.Property(c => c.CurrentAmount)
+            //.HasPrecision(18, 2);
             modelBuilder.Entity<Case>()
             .Property(c => c.TotalAmount)
             .HasPrecision(18, 2);

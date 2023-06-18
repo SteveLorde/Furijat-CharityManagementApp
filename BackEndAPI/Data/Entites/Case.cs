@@ -14,7 +14,7 @@ namespace BackEndAPI.Data.Entites
         public Charity Charity { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
-        public decimal CurrentAmount { get; set; }
+      //  public decimal CurrentAmount { get; set; }
         public decimal TotalAmount { get; set; }
         public string? Status { get; set; }
         public string MarriageStatus { get; set; }
