@@ -10,7 +10,7 @@
 <div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
   <table class="styled-table">
     <thead>
-      <tr>
+      <tr class="text-center">
         <th scope="col">Charity ID</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
@@ -22,7 +22,7 @@
     </thead>
     <tbody>
       <tr
-        class="active-row"
+        class="active-row text-center"
         *ngFor="
           let charity of charity
             | searchFilter : searchText
@@ -34,11 +34,21 @@
         <td>{{ charity.description }}</td>
         <td>{{ charity.location }}</td>
         <td>{{ charity.phonenumber }}</td>
+        <td>{{ charity.Email }}</td>
         <td>
-          <a [routerLink]="['/donatecharity', charity.id]">Donate</a>
+          <a
+            class="btn btn-outline-success"
+            [routerLink]="['/donatecharity', charity.id]"
+            >Donate</a
+          >
         </td>
         <td>
-          <button (click)="DeleteCharity(charity.id)">Delete Charity</button>
+          <button
+            class="btn btn-outline-danger"
+            (click)="DeleteCharity(charity.id)"
+          >
+            Delete Charity
+          </button>
         </td>
       </tr>
     </tbody>

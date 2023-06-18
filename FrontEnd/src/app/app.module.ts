@@ -22,12 +22,10 @@ import { AddcaseComponent } from 'src/app/Components/addcase/addcase.component';
 import { DonateComponent } from 'src/app/Components/donate/donate.component';
 import { ProfileComponent } from 'src/app/Components/profile/profile.component';
 import { CharitydonationComponent } from 'src/app/Components/charitydonation/charitydonation.component';
-import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
+//import { DonatecharityComponent } from 'src/app/Components/donatecharity/donatecharity.component';
 import { AddcharityComponent } from 'src/app/Components/addcharity/addcharity.component';
 import { ValidatecaseComponent } from 'src/app/Components/validatecase/validatecase.component';
 import { UserlogComponent } from 'src/app/Components/userlog/userlog.component';
-import { ContactformComponent } from 'src/app/Components/contactform/contactform.component';
-import { ContactformbackendComponent } from 'src/app/Components/contactformbackend/contactformbackend.component';
 import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe';
 import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe';
 import { NavbarComponent } from './Components/navbar/navbar.component';
@@ -36,6 +34,16 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { ContactformComponent  } from './Components/contactform/contactform.component';
+import { DonatorprofileComponent } from './Components/Profiles/donatorprofile/donatorprofile.component';
+import { CreditorprofileComponent } from './Components/Profiles/creditorprofile/creditorprofile.component';
+import { DebtorprofileComponent } from './Components/Profiles/debtorprofile/debtorprofile.component';
+import { CharityprofileComponent } from './Components/Profiles/charityprofile/charityprofile.component';
+import { ProvideassistanceComponent } from './Components/provideassistance/provideassistance.component';
+import { EditDataComponent } from './Components/edit-data/edit-data.component';
+import { ErrorwindowComponent } from './Components/errorwindow/errorwindow.component';
+import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpaymentplan.component';
+import { AdminprofileComponent } from './Components/Profiles/adminprofile/adminprofile.component';
 
 @NgModule({
   declarations: [
@@ -54,17 +62,25 @@ import { FooterComponent } from './Components/footer/footer.component';
     DonateComponent,
     ProfileComponent,
     CharitydonationComponent,
-    DonatecharityComponent,
+    //DonatecharityComponent,
     AddcharityComponent,
     ValidatecaseComponent,
     UserlogComponent,
-    ContactformComponent,
-    ContactformbackendComponent,
     AboutComponent,
     AuthLayoutComponent,
     BlankLayoutComponent,
     NotfoundComponent,
     FooterComponent,
+    ContactformComponent,
+    DonatorprofileComponent,
+    CreditorprofileComponent,
+    DebtorprofileComponent,
+    CharityprofileComponent,
+    ProvideassistanceComponent,
+    EditDataComponent,
+    ErrorwindowComponent,
+    ViewpaymentplanComponent,
+    AdminprofileComponent,
   ],
   imports: [
     BrowserModule,

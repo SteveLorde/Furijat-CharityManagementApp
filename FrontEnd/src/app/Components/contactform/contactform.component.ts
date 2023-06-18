@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
-import { Charity } from '../../Models/CharityDTO';
+import { FormGroup, FormControl, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
+import { Charity } from '../../Models/Charity';
 import { ContactMessage } from '../../Models/ContactMessage';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { MailserviceService } from 'src/app/Services/MailService/mailservice.service';
+import { MailServiceBackendService } from 'src/app/Services/MailServiceBackend/mail-service-backend.service';
 
 @Component({
   selector: 'app-contactform',
@@ -11,12 +11,13 @@ import { MailserviceService } from 'src/app/Services/MailService/mailservice.ser
   styleUrls: ['./contactform.component.css'],
 })
 export class ContactformComponent implements OnInit {
-  charity: Charity;
-  contactmessage: ContactMessage;
-  errorMessage: any;
+  charity: Charity
+  selectedemail: any
+  contactmessage: ContactMessage
+  errorMessage: any
 
   constructor(
-    private mailservice: MailserviceService,
+    private mailservice: MailServiceBackendService,
     private _servercom: BackendCommunicationService
   ) {}
 
@@ -25,10 +26,11 @@ export class ContactformComponent implements OnInit {
   }
 
   ContactForm = new UntypedFormGroup({
-    name: new UntypedFormControl(),
-    message: new UntypedFormControl(),
-    email: new UntypedFormControl(),
-  });
+    //name: new UntypedFormControl(''),
+    Subject: new UntypedFormControl(''),
+    Body: new UntypedFormControl(''),
+    ToEmail: new UntypedFormControl(''),
+  })
 
   GetCharities() {
     this._servercom.getCharity().subscribe((res: any) => {
@@ -37,14 +39,14 @@ export class ContactformComponent implements OnInit {
   }
 
   submit(contactmessage: ContactMessage) {
-    contactmessage = this.ContactForm.value;
-    //console.log(contactmessage)
+    contactmessage = this.ContactForm.value
+    contactmessage.ToEmail = "mostafa.maher98@gmail.com"
     this.mailservice.postmessage(contactmessage).subscribe((res: any) => {
       if (res.ok) {
         this.ContactForm.reset();
       } else {
         console.error(res);
       }
-    });
+    })
   }
 }

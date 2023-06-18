@@ -1,0 +1,29 @@
+﻿[
+  {
+    "Name": "Red Cross",
+    "Description": "We are an international humanitarian organization with a vision for everyone to attain their right to health and promote human dignity.",
+    "Bank_Account": "01234567",
+    "Location": "New York, USA",
+    "Phone": "+1 234 567 8900",
+    "Email": "redcross@example.com",
+    "Website": "www.redcross.org"
+  },
+  {
+    "Name": "Doctors Without Borders",
+    "Description": "An international medical humanitarian organization working in 70+ countries providing emergency aid.",
+    "Bank_Account": "98765432",
+    "Location": "Paris, France",
+    "Phone": "+33 123 456 789",
+    "Email": "doctors@example.com",
+    "Website": "www.doctorswithoutborders.org"
+  },
+  {
+    "Name": "Save the Children",
+    "Description": "We work around the world helping children a safe and happy childhood.",
+    "Bank_Account": "5555444",
+    "Location": "London, UK",
+    "Phone": "+44 1234 567 890",
+    "Email": "savechildren@example.com",
+    "Website": "www.savethechildren.org"
+  }
+]

@@ -1,25 +1,80 @@
-<p>donate works!</p>
 
 
-<div>
-  <h2>Case ID</h2>
-  <p>{{case.id}}</p>
-  <h2>Case First Name</h2>
-  <p>{{case.firstName}}</p>
-  <h2>Case Description</h2>
-  <p>{{case.description}}</p>
-  <h2>Case Current Amount</h2>
-  <p>{{case.currentAmount}}</p>
-  <h2>Case Total Amount Needed</h2>
-  <p>{{case.totalAmount}}</p>
+<h2>Your Donation will be forwarded to the respective Charity of this case</h2>
+
+<div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+  <table class="styled-table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Case ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Address</th>
+        <th scope="col">Case Current Amount</th>
+        <th scope="col">Case Total Amount Needed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="active-row text-center" *ngFor="let cases of case">
+        <td>{{ case.id }}</td>
+        <td>{{ case.firstName }}</td>
+        <td>{{ case.lastName }}</td>
+        <td>{{ case.description }}</td>
+        <td>{{ case.address }}</td>
+        <td>{{ case.currentAmount }}</td>
+        <td>{{ case.totalAmount }}</td>
+        <td>{{ case.status }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <h2></h2>
 <input type="number" [(ngModel)]="donateamount" />
 
-<h2>amount that is about to be donated</h2>
-<p>amount is {{donateamount}}</p>
+<!-- <h2>amount that is about to be donated</h2> -->
+<p>amount is {{ donateamount }}</p>
 
-<button (click)="Close()">Close</button>
 
-<button (click)="Donate()"> Donate</button>
+<div class="paymentform">
+  <div class="form-check form-check-inline">
+    <input [(ngModel)]="paymentmethod"
+           class="form-check-input"
+           type="radio"
+           name="paymentmethod"
+           id="paymentmethod"
+           value="VISA" />
+    <label class="form-check-label" for="paymentmethod">VISA</label>
+  </div>
+  <!-- fawry method -->
+  <div class="form-check form-check-inline">
+    <input [(ngModel)]="paymentmethod"
+           class="form-check-input"
+           type="radio"
+           name="paymentmethod"
+           id="paymentmethod"
+           value="Fawry" />
+    <label class="form-check-label" for="paymentmethod">Fawry</label>
+  </div>
+
+  <!-- <h2>amount that is about to be donated</h2> -->
+
+  <div [ngSwitch]="paymentmethod">
+    <div *ngSwitchCase="'VISA'" class="VISAPayment">
+      <h3>Card Number</h3>
+      <input type="number" [(ngModel)]="cardnumber" />
+      <h3>CCV</h3>
+      <input type="number" [(ngModel)]="cardccv" />
+    </div>
+
+    <div *ngSwitchCase="'Fawry'" class="FawryPayment">
+      <h3>Fawry Number</h3>
+      <input type="number" [(ngModel)]="fawrynumber" />
+    </div>
+  </div>
+</div>
+
+<!--the click function will retrieve inputted donation info-->
+<button class="btn btn-info" (click)="Donate()">Donate</button>
+<button class="btn btn-danger ms-3" (click)="Close()">Close</button>

@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import { AuthService } from 'src/app/Services/Authorization/auth.service'
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard  {
-  constructor(private authService: AuthService,  private router: Router) { }
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) { }
+
+  currentuserole: any
 
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     //If token data exist, user may login to application
-    if (localStorage.getItem('TokenInfo')) {
+    if (localStorage.getItem('authToken')) {
       return true;
     }
 

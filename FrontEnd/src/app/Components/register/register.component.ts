@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  UntypedFormControl,
-  UntypedFormGroup,
   NgForm,
   Validators,
   FormGroup,
   FormControl,
+  UntypedFormControl,
+  UntypedFormGroup,
 } from '@angular/forms';
 import {
   HttpClient,
@@ -13,7 +13,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { UserDTO } from '../../Models/UserDTO';
+import { User } from '../../Models/User';
 import { AuthService } from '../../Services/Authorization/auth.service';
 import { Router } from '@angular/router';
 
@@ -23,32 +23,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) { }
 
-  user: UserDTO;
+  user: User
+  //imgsrc = environment.baseUrl + 'api/GetFile?filename=kfc.jpg'
+
+  registerusertype: string
+
 
   ngOnInit(): void {
-    this.getprofilepic();
+    this.getprofilepic()
   }
 
-  imgsrc = environment.baseUrl + 'api/GetFile?filename=kfc.jpg';
+
 
   getprofilepic() {
-    this.imgsrc;
+    //this.imgsrc
   }
 
-  RegisterUser: FormGroup = new FormGroup({
-    UserName: new FormControl(''),
-    FirstName: new FormControl(''),
-    LastName: new FormControl(''),
-    EMail: new FormControl(''),
-    Password: new FormControl(''),
-  });
 
-  register(user: UserDTO) {
-    user = this.RegisterUser.value;
+  RegisterUser = new UntypedFormGroup({
+    userName: new UntypedFormControl(),
+    //EMail: new FormControl(),
+    password: new UntypedFormControl(),
+    firstName: new UntypedFormControl(),
+    lastName: new UntypedFormControl(),
+  })
+
+  register(user: User) {
+    user = this.RegisterUser.value
+    user.userType = "donator"
     this.authService.register(user).subscribe((res: any) => {
-      if (res) console.log('user', res.userName, 'registered');
-    });
+      if (res) console.log('user', res.userName, 'registered')
+    })
   }
 }

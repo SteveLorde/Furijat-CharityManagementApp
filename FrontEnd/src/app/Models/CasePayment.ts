@@ -1,10 +1,10 @@
-import { CaseDTO } from "./CaseDTO";
+import { Case } from "./Case";
 
 export interface CasePayment {
 
-  id: number;
-  paymentMethod: string;
-  paymentAmount: number;
-  cases: CaseDTO
+  id: number
+  paymentMethod: string
+  paymentAmount: number
+  case: Case
 
 }

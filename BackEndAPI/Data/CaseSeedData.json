@@ -1,0 +1,35 @@
+﻿[
+  {
+    "Phone": "0123456789",
+    "Description": "Funding needed for medical bills",
+    "Address": "123 Main St, New York, NY 10001",
+    "TotalAmount": 5000,
+    "MarriageStatus": "Married",
+    "UserName": "user1",
+    "FirstName": "John",
+    "LastName": "Doe",
+    "UserType": "Normal"
+  },
+  {
+    "Phone": "0987654321",
+    "Description": "Need money for education",
+    "Address": "456 Central Ave, Los Angeles, CA 90002",
+    "TotalAmount": 3000,
+    "MarriageStatus": "Single",
+    "UserName": "user2",
+    "FirstName": "Jane",
+    "LastName": "Doe",
+    "UserType": "Normal"
+  },  
+  {
+    "Phone": "0876543209",
+    "Description": "Requesting food and clothing",
+    "Address": "789 South St, Chicago, IL 60003",
+    "TotalAmount": 2000,
+    "MarriageStatus": "Married",
+    "UserName": "user10",
+    "FirstName": "John",
+    "LastName": "Smith",
+    "UserType": "Normal"
+  }
+]

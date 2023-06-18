@@ -1,55 +1,50 @@
-<div class="container d-flex justify-content-center flex-column pt-3">
+<div class="container d-flex justify-content-center flex-column py-5 my-5">
   <form [formGroup]="ContactForm" (ngSubmit)="submit(contactmessage)">
     <div class="row">
-      <div class="form-floating mb-3 col-lg-12 col-md-6">
+      <div class="form-floating mb-3 col-lg-6">
         <input
-          formControlName="name"
-          type="text "
-          class="form-control"
-          id="name"
-          placeholder="charity name"
-          required
-        />
+               type="text"
+               class="form-control"
+               id="name"
+               placeholder="charity name"
+               required />
         <label for="name" class="ps-4">Your Name </label>
       </div>
 
-      <div class="form-floating mb-3 col-lg-12 col-md-6 pb-2">
-        <input
-          formControlName="email"
-          type="email"
-          class="form-control"
-          id="email"
-          placeholder="name@example.com"
-        />
+      <div class="form-floating mb-3 col-lg-6 pb-2">
+        <input formControlName="email"
+               type="email"
+               class="form-control"
+               id="email"
+               placeholder="name@example.com" />
         <label for="email" class="ps-4">Your Email </label>
       </div>
 
-      <div class="form-floating col-md-6 col-lg-12 text-lg-center w-50 m-auto">
-        <textarea
-          formControlName="message"
-          class="form-control"
-          id="floatingTextarea2"
-          placeholder="type your message"
-          style="height: 100px"
-        ></textarea>
+      <div class="form-floating mb-3 col-lg-6 pb-2">
+        <input id="subject" formControlName="Subject"  class="form-control" placeholder="Message Subject" />
+        <label for="subject" class="ps-4">Subject </label>
+      </div>
+
+      <div class="form-floating mb-3 col-lg-6 pb-2">
+        <label for="email" class="ps-4"></label>
+        <select class="form-control" formControlName="ToEmail">
+          <option value="" disabled selected>Select your option</option>
+          <option [ngValue]="null" *ngFor="let charities of charity">{{charities.name}}({{charities.email}})</option>
+        </select>
+      </div>
+
+      <div class="form-floating col-md-6 col-lg-12 text-lg-center m-auto">
+        <textarea formControlName="Body"
+                  class="form-control"
+                  id="floatingTextarea2"
+                  placeholder="type your message"
+                  style="height: 100px"></textarea>
         <label for="floatingTextarea2" class="ps-4">Type your message</label>
       </div>
 
-      <!-- <div class="">
-        <textarea
-          formControlName="message"
-          placeholder="type your message"
-          cols="30"
-          rows="4"
-          class="form-control"
-        ></textarea>
-      </div> -->
-
-      <input
-        type="submit"
-        class="btn btn-outline-success mt-2"
-        value="Submit Mail"
-      />
+      <input type="submit"
+             class="btn btn-outline-success mt-5 col-lg-4 m-auto"
+             value="Submit Mail" />
     </div>
   </form>
 </div>

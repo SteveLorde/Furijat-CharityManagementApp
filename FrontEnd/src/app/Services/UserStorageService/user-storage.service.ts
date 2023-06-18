@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserDTO } from '../../Models/UserDTO';
+import { User } from '../../Models/User';
 import { UserType } from '../../Models/UserType';
 
 @Injectable({
@@ -7,9 +7,9 @@ import { UserType } from '../../Models/UserType';
 })
 export class UserStorageService {
 
-  user: UserDTO = {
+  user: User = {
       userId: 0,
-      uType: '',
+      userType: '',
       password: '',
       userName: '',
       firstName: '',

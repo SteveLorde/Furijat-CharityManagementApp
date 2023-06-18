@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Charity } from 'src/app/Models/CharityDTO';
+import { Charity } from 'src/app/Models/Charity';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 
 

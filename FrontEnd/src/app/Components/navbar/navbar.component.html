@@ -1,4 +1,4 @@
-<nav class="navbar nav-tabs navbar-expand-lg">
+<nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['']"
       ><img src="../../../assets/images/FurijatWhite.png" alt="logo"
@@ -7,14 +7,14 @@
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
+      data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown ">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
           <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"
@@ -35,7 +35,7 @@
           <ul class="dropdown-menu">
             <li>
               <a
-                class="dropdown-item"
+                class="dropdown-item text-bg-dark"
                 [routerLink]="['/addcase']"
                 routerLinkActive="active"
                 >add cases</a
@@ -44,14 +44,36 @@
           </ul>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            [routerLink]="['/charitylist']"
+          >
+            charitylist
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a
+                class="dropdown-item text-bg-dark"
+                [routerLink]="['/addcharity']"
+                routerLinkActive="active"
+                >add charity</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <!-- <li class="nav-item">
           <a
             [routerLink]="['/charitylist']"
             routerLinkActive="active"
             class="nav-link"
             >charitylist</a
           >
-        </li>
+        </li> -->
 
         <li class="nav-item">
           <a

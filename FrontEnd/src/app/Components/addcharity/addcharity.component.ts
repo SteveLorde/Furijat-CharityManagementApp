@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { Charity } from 'src/app/Models/CharityDTO';
+import { Charity } from 'src/app/Models/Charity';
 import { Router } from '@angular/router';
 
 @Component({
