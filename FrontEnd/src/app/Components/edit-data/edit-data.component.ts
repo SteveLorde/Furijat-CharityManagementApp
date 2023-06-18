@@ -11,7 +11,6 @@ export class EditDataComponent {
 
   edittype: any
   id: any
-
   editelement: any
 
   constructor(private http: BackendCommunicationService, private router: Router, private route: ActivatedRoute) { }
@@ -19,6 +18,10 @@ export class EditDataComponent {
   ngOnInit(): void {
     this.id = this.route.snapshot.queryParamMap.get('id');
     this.edittype = this.route.snapshot.queryParamMap.get('edittype');
+    this.getcharity()
+    this.getcase()
+    this.getcreditor()
+    this.getdonator()
   }
 
   getcase() {

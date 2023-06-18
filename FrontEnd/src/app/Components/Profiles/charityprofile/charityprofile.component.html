@@ -82,13 +82,12 @@
         <td>{{ case.phone }}</td>
         <td>{{ case.charity.name }}</td>
         <td>{{ case.status }}</td>
-
         <td></td>
         <td>
           <button [routerLink]="['/provideassistance',case.id]">Provide Assistance</button>
         </td>
         <td>
-          <button (click)=" EditCase(case.id)">Update Case</button>
+          <button (click)="EditCase(case.id)">Update Case</button>
         </td>
         <td>
           <button (click)=" DeleteCase(case.id)">Delete Case</button>
@@ -112,7 +111,7 @@
       <tr class="tablerow text-center"
           *ngFor="
           let donation of Donations
-            | paginate : { itemsPerPage: 5, currentPage: p } |  ">
+            | paginate : { itemsPerPage: 5, currentPage: p }">
         <td>{{ donation }}</td>
         <td>
           <button (click)="ApproveDonation(donation.id)">Approve</button>

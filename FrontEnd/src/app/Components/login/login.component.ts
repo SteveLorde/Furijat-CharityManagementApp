@@ -56,7 +56,8 @@ export class LoginComponent implements OnInit {
       .subscribe((res: any) => {
           localStorage.setItem('authToken', res.token)
           localStorage.setItem('loggedin', "1")
-          localStorage.setItem('UserType', res.userType)
+        localStorage.setItem('UserType', res.userType)
+        localStorage.setItem('username', res.userName)
           const userid = res.id.toString()
         localStorage.setItem('userid', userid)
         this.GoProfile()

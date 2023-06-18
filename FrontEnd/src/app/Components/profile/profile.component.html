@@ -8,9 +8,9 @@
       </tr>
     </thead>
     <tbody class="text-center">
-      <tr *ngFor="let users of user">
-        <td>{{ user.userName }}</td>
-        <td>.{{ user.userType }}</td>
+      <tr>
+        <td>{{ username }}</td>
+        <td>{{ usertype }}</td>
         <td *ngIf="usertype === 'case'">{{case.status}}</td>
       </tr>
       <tr></tr>
@@ -20,16 +20,18 @@
 
 
 <div [ngSwitch]="usertype">
-  <app-adminprofile *ngSwitchCase="'charity'"></app-adminprofile>
+  <app-adminprofile *ngSwitchCase="'admin'"></app-adminprofile>
   <app-charityprofile *ngSwitchCase="'charity'"></app-charityprofile>
   <app-debtorprofile *ngSwitchCase="'case'"></app-debtorprofile>
   <app-donatorprofile *ngSwitchCase="'donator'"></app-donatorprofile>
   <app-creditorprofile *ngSwitchCase="'creditor'"></app-creditorprofile>
 </div>
 
+<!--
 <div>
   <app-file-upload></app-file-upload>
 </div>
+  -->
 
 <pagination-controls (pageChange)="p = $event" class="controls"> </pagination-controls>
 
