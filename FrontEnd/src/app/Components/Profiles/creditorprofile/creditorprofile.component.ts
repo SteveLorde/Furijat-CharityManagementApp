@@ -23,7 +23,11 @@ export class CreditorprofileComponent {
   }
 
   GetCreditorandCasebyID(id: any) {
-
+    this.http.GetCreditorByID(id).subscribe((res: Creditor) => {
+      this.http.getCasesById(res.caseID).subscribe((res: Case) => {
+        this.Cases = res
+      })
+    })
   }
 
   TrackProgress() {
