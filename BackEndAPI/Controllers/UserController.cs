@@ -67,7 +67,7 @@ namespace BackEndAPI.Controllers
         [HttpPut("updateUser/{id}")]
         public async Task<IActionResult> PutUser(int id, UserDTO userDTO)
         {
-            if (id != userDTO.UserId)
+            if (id != userDTO.Id)
             {
                 return NotFound();
             }

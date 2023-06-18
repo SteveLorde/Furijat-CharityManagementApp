@@ -34,18 +34,6 @@ thead tr {
   color: #e06c06;
 }
 
-.searchbar input[type="search"] {
-  border: 1px solid #e06c06;
-  box-shadow: 1px 1.5px 1px 1.5px #e06c06;
-  color: rgb(17, 19, 177);
-  font-size: 20px;
-  width: 203px;
-  transition: width 0.4s ease-in-out;
-}
 ::placeholder {
   padding-left: 5px;
-}
-.searchbar input[type="search"]:focus {
-  width: 90%;
-  padding-left: 10px;
 }

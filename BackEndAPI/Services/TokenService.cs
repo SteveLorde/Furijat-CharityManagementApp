@@ -13,6 +13,7 @@ namespace BackEndAPI.Services
     public class TokenService : ITokenService
     {
         private readonly SymmetricSecurityKey _key;
+        public const string AdminClaim = "role:admin";
 
         public TokenService(IConfiguration config)
         {
@@ -21,7 +22,7 @@ namespace BackEndAPI.Services
         public string CreateToken(User user)
         {
             var claims = new List<Claim>{
-                new Claim(JwtRegisteredClaimNames.NameId, user.UserName)
+                new Claim(user.UserType.ToLower(), user.UserName)
             };
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
             var tokenDescriptor = new SecurityTokenDescriptor

@@ -11,24 +11,16 @@ namespace BackEndAPI.DTOs
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        [MaxLength(200)]
         public string Description { get; set; }
         public string Bank_Account { get; set; }
-
-
         public string Location { get; set; }
-
         public string Phone { get; set; }
-        [EmailAddress]
-        [Required]
         public string Email { get; set; }
         public string Website { get; set; }
+        public string? Status { get; set; }
+        public virtual ICollection<UserDTO> Users { get; set; }
+        public virtual ICollection<Case> Cases { get; set; }
+        public virtual ICollection<Donation> Donation { get; set; }
 
-        public Admin Admin { get; set; }
-        [ForeignKey("AdminID")]
-        public int AdminID { get; set; }
-        public virtual User User { get; set; }
-        public virtual ICollection<CharityManagment> CharityManagment { get; set; }
-        public virtual ICollection<CharityDonators> CharityDonators { get; set; }
     }
 }

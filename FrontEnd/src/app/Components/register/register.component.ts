@@ -4,6 +4,8 @@ import {
   Validators,
   FormGroup,
   FormControl,
+  UntypedFormControl,
+  UntypedFormGroup,
 } from '@angular/forms';
 import {
   HttpClient,
@@ -24,7 +26,8 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) { }
 
   user: User
-  imgsrc = environment.baseUrl + 'api/GetFile?filename=kfc.jpg'
+  //imgsrc = environment.baseUrl + 'api/GetFile?filename=kfc.jpg'
+
   registerusertype: string
 
 
@@ -35,21 +38,53 @@ export class RegisterComponent implements OnInit {
 
 
   getprofilepic() {
-    this.imgsrc
+    //this.imgsrc
   }
 
 
-  RegisterUser = new FormGroup({
-    userName: new FormControl(),
-    EMail: new FormControl(),
-    Password: new FormControl(),
-    registerusertype: new FormControl(),
+  RegisterUser = new UntypedFormGroup({
+    userName: new UntypedFormControl(),
+    //EMail: new FormControl(),
+    password: new UntypedFormControl(),
+    firstName: new UntypedFormControl(),
+    lastName: new UntypedFormControl(),
   })
 
   register(user: User) {
-    //user = this.RegisterUser.value
+    user = this.RegisterUser.value
+    user.userType = "donator"
     this.authService.register(user).subscribe((res: any) => {
-      if (res) console.log('user', res.userName, 'registered');
+      if (res) console.log('user', res.userName, 'registered')
     })
+    this.router.navigateByUrl('/profile')
   }
+
+  RegisterAsCharity(user: User) {
+    user = this.RegisterUser.value
+    user.userType = "Charity"
+    this.authService.register(user).subscribe()
+    this.router.navigateByUrl('/addcharity')
+  }
+
+  RegisterAsCase(user: User) {
+    user = this.RegisterUser.value
+    user.userType = "Case"
+    this.authService.register(user).subscribe()
+    this.router.navigateByUrl('/addcase')
+  }
+
+  Back() {
+    this.router.navigateByUrl('/home')
+  }
+
+  /*
+  Back() {
+    this.router.navigateByUrl('/home')
+  }
+
+  Back() {
+    this.router.navigateByUrl('/home')
+  }
+  */
+
 }

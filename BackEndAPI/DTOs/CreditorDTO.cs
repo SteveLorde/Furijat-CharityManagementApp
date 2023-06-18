@@ -13,11 +13,7 @@ namespace BackEndAPI.DTOs
         public string Phone { get; set; }
         public string Description { get; set; }
         public string Payment_Account { get; set; }
-
         public string Address { get; set; }
         public decimal Deserves_Amount { get; set; }
-
-        public virtual ICollection<CharityManagment> CharityManagment { get; set; }
-        public virtual ICollection<CreditorCases> CreditorCases { get; set; }
     }
 }

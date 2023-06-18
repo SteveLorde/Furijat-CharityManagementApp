@@ -4,7 +4,7 @@ import { UserType } from 'src/app/Models/UserType'
 export interface User {
 
   userId: number
-  uType: string
+  userType: string
   password: string
   userName: string
   firstName: string

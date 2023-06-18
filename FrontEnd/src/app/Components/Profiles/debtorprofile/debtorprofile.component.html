@@ -1,0 +1,29 @@
+<p>debtorprofile works!</p>
+
+
+<h3>Case Status</h3>
+<h3>{{case.status}}</h3>
+
+
+<button (click)="assistanceform = !assistanceform"></button>
+<button></button>
+<button></button>
+
+
+
+<div *ngIf="assistanceform">
+  <app-addcase></app-addcase>
+  <app-file-upload></app-file-upload>
+</div>
+
+<h2>Your Case Status</h2>
+<h2>{{case.status}}</h2>
+
+<h2>Your Charity</h2>
+<h2>{{case.charity.name}}</h2>
+
+<h2>Current Amount of Assistance</h2>
+<h3>{{case.currentAmount}}</h3>
+
+<h2>Total Amount Of Debt</h2>
+<h3>{{case.totalAmount}}</h3>

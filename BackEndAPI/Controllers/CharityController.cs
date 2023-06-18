@@ -147,5 +147,22 @@ namespace BackEndAPI.Controllers
 
             return Ok(charityDTO);
         }
+        // GET: api/Charity/getCharityCases/5
+        [HttpGet("getCharityCases/{id}")]
+        public async Task<ActionResult<ICollection<CharityDTO>>> GetCharityCases(int id)
+        {
+            var Charity = await _context.Charities.All
+                 //.Include(e => e.Charity)
+                 .SingleOrDefaultAsync(e => e.Id == id);
+
+            if (Charity == null)
+            {
+                return NotFound();
+            }
+
+            var casesDto = _mapper.Map<ICollection<CharityDTO>>(Charity.Cases).ToList();
+
+            return casesDto;
+        }
     }
 }

@@ -1,14 +1,10 @@
-<p>case-list works!</p>
+<div class="container">
+  <app-casetablenative></app-casetablenative>
+</div>
 
-<app-casetablenative></app-casetablenative>
-
-<app-file-upload></app-file-upload>
-
-<!---
-  <app-casestable></app-casestable>
-  [dataSource]="myDataArray"
-
-
+<!-- -
+<app-casestable></app-casestable>
+[dataSource]="myDataArray"
 
 <label>Name: </label>
 <input [(ngModel)]="case.name" />
@@ -34,9 +30,7 @@
   </tbody>
 </table>
 
-
-
-  <div class="CaseList">
+<div class="CaseList">
   <table class="table">
     <thead>
       <tr>
@@ -47,7 +41,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="
+      <tr
+        *ngFor="
           let student of Students
             | paginate
               : {
@@ -55,7 +50,8 @@
                   currentPage: pagination,
                   totalItems: allStudents
                 }
-        ">
+        "
+      >
         <td scope="row">{{ student.id }}</td>
         <td>{{ student.first_name }}</td>
         <td>{{ student.last_name }}</td>
@@ -64,8 +60,12 @@
     </tbody>
   </table>
   <div class="d-flex justify-content-center">
-    <pagination-controls class="my-pagination" previousLabel="" nextLabel="" (pageChange)="renderPage($event)">
+    <pagination-controls
+      class="my-pagination"
+      previousLabel=""
+      nextLabel=""
+      (pageChange)="renderPage($event)"
+    >
     </pagination-controls>
   </div>
-</div>
--->
+</div> -->

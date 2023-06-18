@@ -16,13 +16,17 @@ export class AddcaseComponent implements OnInit {
   charity: Charity
   CaseReq: Case
   charityemail: any
+  loggedintype: any
 
-  constructor(private _servercom: BackendCommunicationService) { }
+  constructor(private http: BackendCommunicationService) { }
 
   ngOnInit(): void {
+    this.loggedintype = localStorage.getItem('UserType')
     this.GetCharities()
 
   }
+
+ 
 
   AddCaseForm = new UntypedFormGroup({
     firstname: new UntypedFormControl(),
@@ -36,20 +40,35 @@ export class AddcaseComponent implements OnInit {
   })
 
   AddCase() {
-    this.CaseReq = { charity: { user: {} as User } as Charity } as Case
+    this.CaseReq = {} as Case
     this.CaseReq.firstName = this.AddCaseForm.get('firstname').value
     this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
     this.CaseReq.description = this.AddCaseForm.get('description').value
     this.CaseReq.address = this.AddCaseForm.get('address').value
     this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
     this.CaseReq.totalAmount = this.AddCaseForm.get('totalamount').value
-    this.CaseReq.status = "notvalid"
+    this.CaseReq.status = "Pending"
     this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
-    this._servercom.addCase(this.CaseReq).subscribe((res: any) => { })
+    this.http.addCase(this.CaseReq).subscribe((res: any) => { })
   }
 
+  /*
+  RequestAssistance() {
+    this.CaseReq = {} as Case
+    this.CaseReq.firstName = this.AddCaseForm.get('firstname').value
+    this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
+    this.CaseReq.description = this.AddCaseForm.get('description').value
+    this.CaseReq.address = this.AddCaseForm.get('address').value
+    this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
+    this.CaseReq.totalAmount = this.AddCaseForm.get('totalamount').value
+    this.CaseReq.status = "Pending"
+    this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
+    this.http.updateCase(this.CaseReq).subscribe((res: any) => { })
+  }
+  */
+
   GetCharities() {
-    this._servercom.getCharity().subscribe((res: any) => {
+    this.http.getCharity().subscribe((res: any) => {
       this.charity = res;
     });
   }

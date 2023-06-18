@@ -6,12 +6,14 @@ nav {
   background-color: #242632;
 }
 a {
-  color: white;
+color: #ffffff;
   font-family: Oswald;
 }
 a:hover {
   color: #f18d35;
 }
-.active {
-  color: #f18d35;
+
+a .active {
+  color: #f18d35 !important;
 }
+
