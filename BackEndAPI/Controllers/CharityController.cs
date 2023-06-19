@@ -77,13 +77,15 @@ namespace BackEndAPI.Controllers
                 return NotFound();
             }
 
-
             // Update charity model with values from DTO
             _mapper.Map(charityDTO, _Charity);
+
+            _context.Charities.Update(_Charity);
 
             try
             {
                 await _context.SaveChangesAsync();
+                return Ok("updated successfully");
             }
             catch (DbUpdateConcurrencyException)
             {

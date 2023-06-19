@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    [Migration("20230618175247_converttosql")]
-    partial class converttosql
+    [Migration("20230618191339_deleteattrofcase")]
+    partial class deleteattrofcase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -200,10 +200,6 @@ namespace BackEndAPI.Migrations
 
                     b.Property<int>("CharityId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("CurrentAmount")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
