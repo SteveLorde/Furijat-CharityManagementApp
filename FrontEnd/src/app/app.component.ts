@@ -17,11 +17,6 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    localStorage.setItem('authToken', '0')
-    localStorage.setItem('loggedin', '0')
-    localStorage.setItem('usertype', '0')
-    localStorage.setItem('username', '0')
-    localStorage.setItem('userid', '0')
   }
 
   title = 'FrontEnd';
