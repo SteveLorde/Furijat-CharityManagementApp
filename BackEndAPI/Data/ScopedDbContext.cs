@@ -22,6 +22,7 @@ namespace BackEndAPI.Data
         private FurijatContext _context;
         protected IHttpContextAccessor _httpContextAccessor;
         public IRepository<User> Users { get; private set; }
+        public IRepository<Admin> Admins { get; private set; }
 
         public IRepository<Case> Cases { get; private set; }
 
@@ -45,6 +46,7 @@ namespace BackEndAPI.Data
         private void FillProperties()
         {
             Users = new Repository<User>(_context, _httpContextAccessor);
+            Admins = new Repository<Admin>(_context, _httpContextAccessor);
             Cases = new Repository<Case>(_context, _httpContextAccessor);
             Charities = new Repository<Charity>(_context, _httpContextAccessor);
             Creditors = new Repository<Creditor>(_context, _httpContextAccessor);

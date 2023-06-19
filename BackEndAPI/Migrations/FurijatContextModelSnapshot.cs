@@ -120,6 +120,12 @@ namespace BackEndAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AdminId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AdminId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("Bank_Account")
                         .HasColumnType("nvarchar(max)");
 
@@ -147,6 +153,8 @@ namespace BackEndAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdminId1");
 
                     b.ToTable("Charities");
                 });
@@ -186,7 +194,14 @@ namespace BackEndAPI.Migrations
                 {
                     b.HasBaseType("BackEndAPI.Models.User");
 
-                    b.ToTable("Admin");
+                    b.Property<int>("CharityId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("CharityId")
+                        .IsUnique()
+                        .HasFilter("[CharityId] IS NOT NULL");
+
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Case", b =>
@@ -311,13 +326,30 @@ namespace BackEndAPI.Migrations
                     b.Navigation("Creditor");
                 });
 
+            modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
+                {
+                    b.HasOne("BackEndAPI.Data.Entites.Admin", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId1");
+
+                    b.Navigation("Admin");
+                });
+
             modelBuilder.Entity("BackEndAPI.Data.Entites.Admin", b =>
                 {
+                    b.HasOne("BackEndAPI.Models.Charity", "Charity")
+                        .WithOne()
+                        .HasForeignKey("BackEndAPI.Data.Entites.Admin", "CharityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BackEndAPI.Models.User", null)
                         .WithOne()
                         .HasForeignKey("BackEndAPI.Data.Entites.Admin", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
+
+                    b.Navigation("Charity");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Case", b =>

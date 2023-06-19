@@ -18,14 +18,14 @@ namespace BackEndAPI.Database
         public DbSet<Case> Cases { get; set; }
         public DbSet<Donator> Donators { get; set; }
         public DbSet<Donation> Donation { get; set; }
-        public DbSet<Admin> Admin { get; set; }
+        public DbSet<Admin> Admins { get; set; }
         public DbSet<PaymentToCreditor> PaymentToCreditors { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Charity>().ToTable("Charities");
             modelBuilder.Entity<Case>().ToTable("Cases");
-            modelBuilder.Entity<Admin>().ToTable("Admin");
+            modelBuilder.Entity<Admin>().ToTable("Admins");
             modelBuilder.Entity<Donator>().ToTable("Donators");
             modelBuilder.Entity<PaymentToCreditor>().ToTable("PaymentToCreditors").HasKey(p => new { p.CharityId, p.CreditorId,p.CaseId });
             modelBuilder.Entity<Creditor>().ToTable("Creditor").HasKey(x => new { x.CreditorID, x.CaseID });
@@ -51,6 +51,10 @@ namespace BackEndAPI.Database
             //modelBuilder.Entity<PaymentToCreditor>()
             //.Property(c => c.Deserves_Debt)
             //.HasPrecision(18, 2);
+            modelBuilder.Entity<Admin>()
+            .HasOne(a => a.Charity)
+            .WithOne()
+            .HasForeignKey<Admin>(a => a.CharityId); // Admin depends on Charity
         }
 
     }
