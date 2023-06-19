@@ -15,27 +15,27 @@ using System;
 namespace BackEndAPI.Controllers
 {
     //[Authorize]
-    public class DonationController : BaseApiController
+    public class PaymentToCreditorController : BaseApiController
     {
         //private readonly IAppDbContext _context;
-        private readonly FurijatContext _context;
+        private readonly IAppDbContext _context;
         private readonly IMapper _mapper;
 
 
-        public DonationController(FurijatContext context, IMapper mapper)
+        public PaymentToCreditorController(IAppDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        
+
         [HttpGet]
-        public ActionResult GetDonations()
+        public ActionResult GetPaymentToCreditor()
         {
             try
             {
-                var donations = _context.Donation;
-                return Ok(donations);
+                var PaymentToCreditor = _context.PaymentToCreditor.All;
+                return Ok(PaymentToCreditor);
             }
             catch (Exception e)
             {
@@ -43,27 +43,13 @@ namespace BackEndAPI.Controllers
             }
         }
 
-        [HttpGet("getdonationfordonator/{id}")]
-        public IActionResult GetDonationsByDonatorID(string id)
+        [HttpGet("getPaymentforCreditor/{id}")]
+        public IActionResult GetPaymentByCreditorID(string id)
         {
             try
             {
-                Donation donations = (Donation)_context.Donation.Where(e => e.Donator.Id == int.Parse(id)).ToList();
-                return Ok(donations);
-            }
-            catch (Exception e)
-            {
-                return NotFound(e);
-            }
-        }
-        
-        [HttpGet("getdonationforcharity/{id}")]
-        public IActionResult GetDonationsByCharityID(string id)
-        {
-            try
-            {
-                Donation donations = (Donation)_context.Donation.Where(e => e.Charity.Id == int.Parse(id)).ToList();
-                return Ok(donations);
+                PaymentToCreditor PaymentToCreditor = _context.PaymentToCreditor.All.SingleOrDefault(e => e.Charity.Id == int.Parse(id));
+                return Ok(PaymentToCreditor);
             }
             catch (Exception e)
             {
@@ -71,13 +57,28 @@ namespace BackEndAPI.Controllers
             }
         }
 
-        [HttpPost("AddDonation")]
-        public IActionResult AddDonation(Donation donation)
+        [HttpGet("getPaymentToCreditor/{id}")]
+        public IActionResult GetPaymentByCharityID(string id)
         {
             try
             {
-                _context.Donation.Add(donation);
-                return Ok("Donation Recorded");
+                PaymentToCreditor PaymentToCreditor = _context.PaymentToCreditor.All.SingleOrDefault(e => e.Charity.Id == int.Parse(id));
+                return Ok(PaymentToCreditor);
+            }
+            catch (Exception e)
+            {
+                return NotFound(e);
+            }
+        }
+
+        [HttpPost("AddPaymentToCreditor")]
+        public async Task<IActionResult> AddPaymentToCreditor(PaymentToCreditor PaymentToCreditor)
+        {
+            try
+            {
+                _context.PaymentToCreditor.Add(PaymentToCreditor);
+                await _context.SaveChangesAsync();
+                return Ok("PaymentToCreditor Recorded");
             }
             catch (Exception e)
             {
@@ -87,3 +88,4 @@ namespace BackEndAPI.Controllers
         }
     }
 }
+

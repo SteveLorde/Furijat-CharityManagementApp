@@ -33,6 +33,8 @@ namespace BackEndAPI.Data
 
         public IRepository<Donator> Donators { get; private set; }
 
+        public IRepository<PaymentToCreditor> PaymentToCreditor {get; private set; }
+
         public ScopedDbContext(FurijatContext context, IHttpContextAccessor httpContextAccessor)
 
         {
@@ -47,6 +49,7 @@ namespace BackEndAPI.Data
             Charities = new Repository<Charity>(_context, _httpContextAccessor);
             Creditors = new Repository<Creditor>(_context, _httpContextAccessor);
             Donators = new Repository<Donator>(_context, _httpContextAccessor);
+            PaymentToCreditor = new Repository<PaymentToCreditor>(_context, _httpContextAccessor);
         }
 
         #region Database Methods

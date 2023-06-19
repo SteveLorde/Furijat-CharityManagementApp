@@ -199,10 +199,6 @@ namespace BackEndAPI.Migrations
                     b.Property<int>("CharityId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("CurrentAmount")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
