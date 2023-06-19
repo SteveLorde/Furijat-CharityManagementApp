@@ -14,11 +14,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="tablerow text-center"
-          *ngFor="
-          let case of Cases
-            | paginate : { itemsPerPage: 5, currentPage: p }
-        ">
+      <tr
+        class="tablerow text-center"
+        *ngFor="
+          let case of Cases | paginate : { itemsPerPage: 5, currentPage: p }
+        "
+      >
         <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
@@ -29,9 +30,7 @@
         <td>{{ case.phone }}</td>
         <td>{{ case.status }}</td>
         <td></td>
-        <td>
-
-        </td>
+        <td></td>
       </tr>
       <tr></tr>
     </tbody>

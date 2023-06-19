@@ -5,6 +5,7 @@ import {
   UntypedFormControl,
   UntypedFormGroup,
   Validators,
+  FormBuilder,
 } from '@angular/forms';
 import { AuthService } from 'src/app/Services/Authorization/auth.service';
 import { Login } from '../../Models/Login';
@@ -25,17 +26,26 @@ export class LoginComponent implements OnInit {
   //store user id in variable "id"
   id: any;
   //store error response during login
-  loginerror: string = ""
+  loginerror: string = '';
   //role variable for user
-  role: any
+  role: any;
 
-  constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard) {
-  }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private authguard: AuthGuard
+  ) {}
 
   LogintForm: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-  })
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+  });
 
   ngOnInit() {
     this.loggedin = localStorage.getItem('loggedin');
@@ -49,19 +59,18 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginreq = this.LogintForm.value
-    this.authService.login(this.loginreq)
-      .subscribe((res: User) => {
-        //this.id = res.userId
-        //set token
-        localStorage.setItem('authToken', res.token)
-        //variable used to check if logged in (to influnece other HTML elements)
-        localStorage.setItem('loggedin', "1")
-        localStorage.setItem('UserType', res.userType)
-        localStorage.setItem('userid', res.userId.toString())
-        this.loggedin = 1
-        this.GoProfile()
-      })
+    this.loginreq = this.LogintForm.value;
+    this.authService.login(this.loginreq).subscribe((res: User) => {
+      //this.id = res.userId
+      //set token
+      localStorage.setItem('authToken', res.token);
+      //variable used to check if logged in (to influnece other HTML elements)
+      localStorage.setItem('loggedin', '1');
+      localStorage.setItem('UserType', res.userType);
+      localStorage.setItem('userid', res.userId.toString());
+      this.loggedin = 1;
+      this.GoProfile();
+    });
   }
 
   GoProfile() {
