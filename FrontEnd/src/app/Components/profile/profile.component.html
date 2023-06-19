@@ -14,15 +14,13 @@
       <tr></tr>
     </tbody>
   </table>
+
+  <app-charityprofile *ngIf="usertype == 'charity'"></app-charityprofile>
+
+  <div>
+    <app-file-upload></app-file-upload>
+  </div>
+
+  <pagination-controls (pageChange)="p = $event" class="controls">
+  </pagination-controls>
 </div>
-
-<app-charityprofile *ngIf="usertype == 'charity'"></app-charityprofile>
-
-
-
-<div>
-  <app-file-upload></app-file-upload>
-</div>
-
-<pagination-controls (pageChange)="p = $event" class="controls"> </pagination-controls>
-

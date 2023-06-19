@@ -1,24 +1,28 @@
-<p>debtorprofile works!</p>
+<div class="container">
+  <button (click)="assistanceform = !assistanceform" class="btn"></button>
 
-<button (click)="assistanceform = !assistanceform"></button>
-<button></button>
-<button></button>
+  <div *ngIf="assistanceform">
+    <app-addcase></app-addcase>
+    <app-file-upload></app-file-upload>
+  </div>
+  <table class="styled-table m-auto my-4">
+    <thead class="text-center">
+      <tr>
+        <th scope="col">Your Case Status</th>
+        <th scope="col">Your Charity</th>
+        <th scope="col">Current Amount of Assistance</th>
+        <th scope="col">Total Amount Of Debt</th>
+      </tr>
+    </thead>
 
-
-
-<div *ngIf="assistanceform">
-  <app-addcase ></app-addcase>
-  <app-file-upload></app-file-upload>
+    <tbody class="text-center">
+      <tr *ngFor="let cases of case">
+        <td>{{ case.status }}</td>
+        <td>{{ case.charity.name }}</td>
+        <td>{{ case.currentAmount }}</td>
+        <td>{{ case.totalAmount }}</td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
 </div>
-
-<h2>Your Case Status</h2>
-<h2>{{case.status}}</h2>
-
-<h2>Your Charity</h2>
-<h2>{{case.charity.name}}</h2>
-
-<h2>Current Amount of Assistance</h2>
-<h3>{{case.currentAmount}}</h3>
-
-<h2>Total Amount Of Debt</h2>
-<h3>{{case.totalAmount}}</h3>
