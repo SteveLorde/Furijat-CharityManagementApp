@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CasePayment } from '../../Models/CasePayment';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -12,7 +11,7 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
   providedIn: 'root'
 })
 export class CasePaymentService {
-
+  /*
   casepayment = { } as CasePayment
 
   serverUrl = environment.baseUrl;
@@ -47,5 +46,5 @@ export class CasePaymentService {
     return this.http.delete<CasePayment>(this.serverUrl + 'api/CasePayment/AddNewCasePayment', httpOptions)
   }
 
-
+*/
 }

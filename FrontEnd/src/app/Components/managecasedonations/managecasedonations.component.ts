@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Donation } from '../../Models/Donation';
+import { PaymentToCreditor } from '../../Models/PaymentToCreditor';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { DonatorService } from '../../Services/DonatorService/donator.service';
 
@@ -35,7 +36,12 @@ export class ManagecasedonationsComponent {
   }
 
   ApproveDonation(element: Donation) {
-    
+    const paymentcreditor = {} as PaymentToCreditor
+    paymentcreditor.caseId = element.caseId
+    paymentcreditor.charityId = element.caseId
+    paymentcreditor.paid_Amount = element.amount
+    paymentcreditor.time = element.time
+    this.http.AddPToC(paymentcreditor).subscribe()
   }
 
   RejectDonation(element: Donation) {

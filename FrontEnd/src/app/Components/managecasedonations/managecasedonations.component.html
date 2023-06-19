@@ -12,7 +12,7 @@
       <tr class="tablerow text-center"
           *ngFor="
           let donation of Donations
-            | paginate : { itemsPerPage: 5, currentPage: p | filterpendingdonationsbycaseid: caseid  | filterbystatus: donationstatus  }">
+            | paginate : { itemsPerPage: 5, currentPage: p | filterpendingdonationsbycaseid: caseid }">
         <td>{{ donation }}</td>
         <td>
           <button (click)="ApproveDonation(donation)">Approve</button>

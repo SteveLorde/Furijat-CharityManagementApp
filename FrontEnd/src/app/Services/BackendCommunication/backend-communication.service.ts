@@ -5,8 +5,8 @@ import { Observable} from 'rxjs';
 import { Case } from 'src/app/Models/Case'
 import { Charity } from 'src/app/Models/Charity'
 import { User } from '../../Models/User';
-import { CasePayment } from '../../Models/CasePayment';
 import { Creditor } from '../../Models/Creditor';
+import { PaymentToCreditor } from '../../Models/PaymentToCreditor';
 
 const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
 
@@ -136,6 +136,20 @@ export class BackendCommunicationService {
 
   DeleteDonator(id: any): Observable<any> {
     return this.http.delete<any>(this.serverUrl + `/api/Donator/deleteDonator/${id}`)
+  }
+
+  //PaymentToCreditor
+  GetPToC(): Observable<PaymentToCreditor>
+  {
+    return this.http.get<PaymentToCreditor>(this.serverUrl + '/api/PaymentToCreditor')
+  }
+
+  GetPToCByID(id: any): Observable<PaymentToCreditor> {
+    return this.http.get<PaymentToCreditor>(this.serverUrl + `/api/PaymentToCreditor/getPaymentforCreditor/${id}`)
+  }
+
+  AddPToC(paymentcreditor: PaymentToCreditor): Observable<PaymentToCreditor> {
+    return this.http.post<PaymentToCreditor>(this.serverUrl + `/api/PaymentToCreditor/AddPaymentToCreditor`, paymentcreditor)
   }
 
 }

@@ -24,6 +24,8 @@ export class ViewpaymentplanComponent {
   contactcase: boolean = false
   edittype: string = 'case'
 
+  @ViewChild(ChildComponent) childComponent: ChildComponent
+
 
   constructor(private router: Router, private _Activatedroute: ActivatedRoute, private http: BackendCommunicationService, private mailservice: MailServiceBackendService) { }
 
