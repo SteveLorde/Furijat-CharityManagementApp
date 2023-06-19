@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'case', component: CaseListComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'donate/:id', component: DonateComponent },
+      { path: 'donate', component: DonateComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'charitylist', component: CharitydonationComponent },
       //{ path: 'donatecharity/:id', component: DonatecharityComponent },

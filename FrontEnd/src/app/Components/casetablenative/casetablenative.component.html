@@ -19,7 +19,6 @@
         <th scope="col">Total Amount</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Charity</th>
-        <th scope="col">Status</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -29,7 +28,7 @@
         *ngFor="
           let case of Cases
             | searchFilter : searchText
-            | paginate : { itemsPerPage: 3, currentPage: p }
+            | paginate : { itemsPerPage: 3, currentPage: p | filterbystatus: statusfilter }
         "
       >
         <td>{{ case.id }}</td>
@@ -40,10 +39,9 @@
         <td>{{ case.currentAmount }}</td>
         <td>{{ case.totalAmount }}</td>
         <td>{{ case.phone }}</td>
-        <td>{{ case.charity }}</td>
-        <td>{{ case.status }}</td>
+        <td>{{ case.charity.name }}</td>
         <td>
-          <a *ngIf="UserType === 'Donator' " [routerLink]="['/donate', case.id]">Donate</a>
+          <button (click)="Donate(case.id)">Donate</button>
         </td>
       </tr>
       <tr></tr>

@@ -17,14 +17,11 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    if (this.IsLoggedIn == 1) {
-      this.Login = "Profile"
-    }
-    else
-    {
-      this.Login = "Login"
-      localStorage.removeItem('authToken')
-    }
+    localStorage.setItem('authToken', '0')
+    localStorage.setItem('loggedin', '0')
+    localStorage.setItem('usertype', '0')
+    localStorage.setItem('username', '0')
+    localStorage.setItem('userid', '0')
   }
 
   title = 'FrontEnd';
