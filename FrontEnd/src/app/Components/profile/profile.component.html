@@ -12,6 +12,7 @@
         <td>{{ username }}</td>
         <td>{{ usertype }}</td>
         <td *ngIf="usertype === 'case'">{{case.status}}</td>
+        <td *ngIf="usertype === 'case'">{{case.status}}</td>
       </tr>
       <tr></tr>
     </tbody>
@@ -20,6 +21,12 @@
 
 
 <div [ngSwitch]="usertype">
+  <div *ngSwitchCase="'user'">
+    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsCharity()">Register as Charity</button>
+    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsCase()">Register as Debtor</button>
+    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsDonator()">Register as Donator</button>
+
+  </div>
   <app-adminprofile *ngSwitchCase="'admin'"></app-adminprofile>
   <app-charityprofile *ngSwitchCase="'charity'"></app-charityprofile>
   <app-debtorprofile *ngSwitchCase="'case'"></app-debtorprofile>

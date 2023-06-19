@@ -53,15 +53,24 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginreq = this.LogintForm.value
     this.authService.login(this.loginreq)
-      .subscribe((res: any) => {
-          localStorage.setItem('authToken', res.token)
-          localStorage.setItem('loggedin', "1")
+      .subscribe(
+        (res: any) => {
+        localStorage.setItem('authToken', res.token)
+        localStorage.setItem('loggedin', "1")
         localStorage.setItem('usertype', res.userType)
         localStorage.setItem('username', res.userName)
-          const userid = res.id.toString()
+        const userid = res.id.toString()
         localStorage.setItem('userid', userid)
         this.GoProfile()
-        })
+        },
+        (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Error',
+            text: error.message,
+          })
+        }
+      )
   }
 
   GoProfile() {

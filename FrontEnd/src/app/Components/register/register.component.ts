@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
 
   register(user: User) {
     user = this.RegisterUser.value
-    user.userType = "donator"
+    user.userType = "user"
     this.authService.register(user).subscribe((res: any) => {
       if (res) console.log('user', res.userName, 'registered')
     })

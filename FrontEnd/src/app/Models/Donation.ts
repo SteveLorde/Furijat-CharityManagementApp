@@ -3,10 +3,13 @@ import { Charity } from "./Charity"
 import { Donator } from "./Donator"
 
 export interface Donation {
-  id: number
-  caseId: Case
-  CharityId: Charity
-  DonatorId: Donator
-  Amount: number
-  Time: string
+  
+  caseId: number
+  case: Case
+  charityId: number
+  charity: Charity
+  donatorId: number
+  donator: Donator
+  amount: number
+  time: string
 }

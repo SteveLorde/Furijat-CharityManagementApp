@@ -5,14 +5,29 @@
 <h3>{{case.status}}</h3>
 
 
-<button (click)="assistanceform = !assistanceform"></button>
-<button></button>
-<button></button>
-
-
+<button (click)="assistanceform = !assistanceform">Assistance Form</button>
+<button>Contact</button>
 
 <div *ngIf="assistanceform">
-  <app-addcase></app-addcase>
+  <h3>Your First Name</h3>
+  <input class="form-control" formControlName="firstName" />
+  <h3>Your Last Name</h3>
+  <input class="form-control" formControlName="lastName" />
+  <h3>Your Case Description</h3>
+  <input class="form-control" formControlName="firstName" />
+  <h3>Required Amount</h3>
+  <input class="form-control" formControlName="firstName" />
+  <h3>Your Address</h3>
+  <input class="form-control" formControlName="firstName" />
+  <h3>Your Phone Number</h3>
+  <input class="form-control" formControlName="firstName" />
+  <h3>Choose Charity to request</h3>
+  <select class="form-control" formControlName="selectedcharity">
+    <option value="" disabled selected>Select Charity to apply for</option>
+    <option [ngValue]="null" *ngFor="let charities of Charities">{{charities.name}})</option>
+  </select>
+  <button (click)="ApplyForAssistance()"></button>
+
   <app-file-upload></app-file-upload>
 </div>
 
@@ -23,7 +38,10 @@
 <h2>{{case.charity.name}}</h2>
 
 <h2>Current Amount of Assistance</h2>
+
+<!--
 <h3>{{case.currentAmount}}</h3>
+  -->
 
 <h2>Total Amount Of Debt</h2>
 <h3>{{case.totalAmount}}</h3>

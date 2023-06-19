@@ -68,17 +68,19 @@
                  type="number" />
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="pb-3">
-          <label class="pb-1" for="Current-Amount"> Current Amount </label>
+      <!--
+  <div class="col-md-6">
+    <div class="pb-3">
+      <label class="pb-1" for="Current-Amount"> Current Amount </label>
 
-          <input id="Current-Amount"
-                 class="form-control"
-                 formControlName="currentAmount"
-                 placeholder="Current Amount"
-                 type="number" />
-        </div>
-      </div>
+      <input id="Current-Amount"
+             class="form-control"
+             formControlName="currentAmount"
+             placeholder="Current Amount"
+             type="number" />
+    </div>
+  </div>
+    -->
       <div class="col-md-6">
         <div class="pb-3">
           <label class="pb-1" for="Total-Amount"> Total Amount </label>
@@ -101,6 +103,8 @@
           </select>
         </div>
       </div>
+
+      <app-file-upload>Upload Document</app-file-upload>
 
       <div class="text-center mt-2">
         <!-- <input class="btn btn-lg m-auto" type="submit" value="Add Case" />
