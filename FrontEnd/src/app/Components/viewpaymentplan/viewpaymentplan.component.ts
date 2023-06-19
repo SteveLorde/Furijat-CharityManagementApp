@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -7,6 +7,8 @@ import { Charity } from '../../Models/Charity';
 import { ContactMessage } from '../../Models/ContactMessage';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { MailServiceBackendService } from '../../Services/MailServiceBackend/mail-service-backend.service';
+import { ContactformComponent } from 'src/app/Components/contactform/contactform.component'
+import { Donation } from '../../Models/Donation';
 
 @Component({
   selector: 'app-viewpaymentplan',
@@ -23,8 +25,9 @@ export class ViewpaymentplanComponent {
   errorMessage: any
   contactcase: boolean = false
   edittype: string = 'case'
+  Donations: Donation
 
-  @ViewChild(ChildComponent) childComponent: ChildComponent
+  @ViewChild(ContactformComponent) contactformhtmlelement: ContactformComponent
 
 
   constructor(private router: Router, private _Activatedroute: ActivatedRoute, private http: BackendCommunicationService, private mailservice: MailServiceBackendService) { }
@@ -39,7 +42,6 @@ export class ViewpaymentplanComponent {
   }
 
   ContactForm = new UntypedFormGroup({
-    //name: new UntypedFormControl(''),
     Subject: new UntypedFormControl(''),
     Body: new UntypedFormControl(''),
     ToEmail: new UntypedFormControl(''),
@@ -51,6 +53,7 @@ export class ViewpaymentplanComponent {
 
   ContactCase() {
     this.contactcase = !this.contactcase
+    this.contactformhtmlelement.selectedemailroute = "case@gmail.com"
   }
 
   DebtResolution() {
