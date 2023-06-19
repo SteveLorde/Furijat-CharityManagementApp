@@ -13,7 +13,6 @@ namespace BackEndAPI.Services
     public class TokenService : ITokenService
     {
         private readonly SymmetricSecurityKey _key;
-        public const string AdminClaim = "role:admin";
 
         public TokenService(IConfiguration config)
         {
