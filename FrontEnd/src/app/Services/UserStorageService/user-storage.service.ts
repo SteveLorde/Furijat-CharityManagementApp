@@ -6,7 +6,7 @@ import { UserType } from '../../Models/UserType';
   providedIn: 'root'
 })
 export class UserStorageService {
-
+  /*
 
 
   user: User = {
@@ -32,5 +32,6 @@ export class UserStorageService {
       this.user.userName = name
     }
   }
-
+  */
 }
+

@@ -53,25 +53,19 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginreq = this.LogintForm.value
     this.authService.login(this.loginreq)
-      .subscribe((res: User | any) => {
-        //this.id = res.userId
-        //set token
-        localStorage.setItem('authToken', res.token)
-        //variable used to check if logged in (to influnece other HTML elements)
-        localStorage.setItem('loggedin', "1")
+      .subscribe((res: any) => {
+          localStorage.setItem('authToken', res.token)
+          localStorage.setItem('loggedin', "1")
         localStorage.setItem('UserType', res.userType)
-        localStorage.setItem('userid', res.userId.toString())
-        this.loggedin = 1
+        localStorage.setItem('username', res.userName)
+          const userid = res.id.toString()
+        localStorage.setItem('userid', userid)
         this.GoProfile()
-      },
-        error => {
-          this.error = error
-          Swal.fire('Invalid Username or Password')
         })
   }
 
   GoProfile() {
-    this.router.navigateByUrl('profile');
+    this.router.navigateByUrl('/profile');
   }
 
   Back() {

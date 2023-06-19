@@ -1,1 +1,115 @@
-<p>adminprofile works!</p>
+
+<h2>Validate Charities Requests</h2>
+
+<div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+  <table class="styled-table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Charity ID</th>
+        <th scope="col">Charity Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Charity</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tablerow text-center"
+          *ngFor="
+          let charity of charities
+            | paginate : { itemsPerPage: 5, currentPage: p } | filterbystatus: pendingcharity">
+        <td>{{ charity.id }}</td>
+        <td>{{ charity.name }}</td>
+        <td>{{ charity.description }}</td>
+        <td>{{ charity.address }}</td>
+        <td>{{ charity.phone }}</td>
+        <td>{{ charity.charity }}</td>
+        <td>{{ charity.status }}</td>
+        <td>
+          <button (click)="Approve(charity)">Approve Case</button>
+        </td>
+        <td>
+          <button (click)="Reject(charity)">Reject Case</button>
+        </td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Charities in System</h2>
+<div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+  <table class="styled-table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Charity ID</th>
+        <th scope="col">Charity Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Charity</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tablerow text-center"
+          *ngFor="
+          let charity of charities
+            | paginate : { itemsPerPage: 5, currentPage: p } | filterbystatus: approvedcharity">
+        <td>{{ charity.id }}</td>
+        <td>{{ charity.name }}</td>
+        <td>{{ charity.description }}</td>
+        <td>{{ charity.address }}</td>
+        <td>{{ charity.phone }}</td>
+        <td>{{ charity.charity }}</td>
+        <td>{{ charity.status }}</td>
+        <td>
+          <button (click)="EditCharity(charity)">Update Charity</button>
+        </td>
+        <td>
+          <button (click)="DeleteCharity(charity)">Delete Charity</button>
+        </td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+</div>
+
+<!--
+<h2>Validate Cases in System</h2>
+<app-validatecase></app-validatecase>
+
+<h2>Charities in System</h2>
+
+<h2>Donators in System</h2>
+
+<h2>Donators in System</h2>
+<div>
+  <table class="styled-table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Donators</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tablerow text-center"
+          *ngFor="
+          let donator of Donators
+            | searchFilter : searchText
+            | paginate : { itemsPerPage: 5, currentPage: p }
+        ">
+        <td>{{ donator }}</td>
+        <td>
+          <button></button>
+          <a>Edit</a>
+          <a>Delete</a>
+        </td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+</div>
+  -->

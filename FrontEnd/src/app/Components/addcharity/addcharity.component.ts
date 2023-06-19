@@ -3,6 +3,7 @@ import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Charity } from 'src/app/Models/Charity';
 import { Router } from '@angular/router';
+import { User } from '../../Models/User';
 
 @Component({
   selector: 'app-addcharity',
@@ -12,10 +13,12 @@ import { Router } from '@angular/router';
 export class AddcharityComponent implements OnInit {
 
   charity: Charity
+  user: User
 
-  constructor(private _servercom: BackendCommunicationService, private router: Router) { }
+  constructor(private http: BackendCommunicationService, private router: Router) { }
 
   ngOnInit(): void {
+    
   }
 
 
@@ -29,8 +32,13 @@ export class AddcharityComponent implements OnInit {
 
   AddCharity(charity: Charity) {
     charity = this.AddCharityForm.value
+    charity.status = "pending"
     console.log(charity)
-    this._servercom.addCharity(charity).subscribe()
+    this.http.addCharity(charity).subscribe()
+    this.http.getUserbyId(this.user.id).subscribe((res: User) => {
+
+    })
+    
   }
 
   onSubmit() {

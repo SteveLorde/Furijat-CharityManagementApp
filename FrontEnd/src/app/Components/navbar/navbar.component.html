@@ -17,86 +17,67 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active"
-            >Home</a
-          >
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active">Home</a>
         </li>
 
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            [routerLink]="['/case']"
-          >
+          <a class="nav-link dropdown-toggle"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false"
+             [routerLink]="['/case']">
             Cases
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a
-                class="dropdown-item text-bg-dark"
-                [routerLink]="['/addcase']"
-                routerLinkActive="active"
-                >add cases</a
-              >
+              <a class="dropdown-item text-bg-dark"
+                 [routerLink]="['/addcase']"
+                 routerLinkActive="active">add cases</a>
             </li>
           </ul>
         </li>
 
         <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            [routerLink]="['/charitylist']"
-          >
+          <a class="nav-link dropdown-toggle"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false"
+             [routerLink]="['/charitylist']">
             charitylist
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a
-                class="dropdown-item text-bg-dark"
-                [routerLink]="['/addcharity']"
-                routerLinkActive="active"
-                >add charity</a
-              >
+              <a class="dropdown-item text-bg-dark"
+                 [routerLink]="['/addcharity']"
+                 routerLinkActive="active">add charity</a>
             </li>
           </ul>
         </li>
 
         <!-- <li class="nav-item">
-          <a
-            [routerLink]="['/charitylist']"
-            routerLinkActive="active"
-            class="nav-link"
-            >charitylist</a
-          >
-        </li> -->
+    <a
+      [routerLink]="['/charitylist']"
+      routerLinkActive="active"
+      class="nav-link"
+      >charitylist</a
+    >
+  </li> -->
 
         <li class="nav-item">
-          <a
-            [routerLink]="['/profile']"
-            routerLinkActive="active"
-            class="nav-link"
-            >Profile</a
-          >
+          <a [routerLink]="['/profile']"
+             routerLinkActive="active"
+             class="nav-link">Profile</a>
         </li>
         <li class="nav-item">
-          <a
-            [routerLink]="['/about']"
-            routerLinkActive="active"
-            class="nav-link"
-            >About</a
-          >
+          <a [routerLink]="['/about']"
+             routerLinkActive="active"
+             class="nav-link">About</a>
         </li>
         <li class="nav-item">
-          <a
-            [routerLink]="['/contactform']"
-            routerLinkActive="active"
-            class="nav-link"
-            >Contact
+          <a [routerLink]="['/contactform']"
+             routerLinkActive="active"
+             class="nav-link">
+            Contact
           </a>
         </li>
         <li class="nav-item">
@@ -104,6 +85,9 @@
         </li>
         <li class="nav-item">
           <a [routerLink]="['login']" class="nav-link">Login</a>
+        </li>
+        <li *ngIf="signoutvisible" class="nav-item signout">
+          <a (click)="Signout()" class="nav-link">SignOut</a>
         </li>
       </ul>
     </div>

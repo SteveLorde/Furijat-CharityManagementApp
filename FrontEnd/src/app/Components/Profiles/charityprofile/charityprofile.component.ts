@@ -4,6 +4,9 @@ import { Charity } from '../../../Models/Charity';
 import { User } from '../../../Models/User';
 import { BackendCommunicationService } from '../../../Services/BackendCommunication/backend-communication.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Donation } from '../../../Models/Donation';
+import { DonatorService } from '../../../Services/DonatorService/donator.service';
 
 
 @Component({
@@ -13,15 +16,21 @@ import { Router } from '@angular/router';
 })
 export class CharityprofileComponent {
 
-  constructor(private http: BackendCommunicationService, private router: Router) { }
+  constructor(private http: BackendCommunicationService, private router: Router, private donationservice: DonatorService) { }
 
   ngOnInit(): void {
-
+    this.UserTypeCharity()
   }
 
   user = {} as User
   Cases = { charity: {} as Charity } as Case
   charity = { cases: {} as Case } as Charity
+  Donations = {} as Donation
+
+  filtercharityid: any = this.charity.id
+
+  statusfilter: any 
+
   id: any
   utid: any
   usertype: any
@@ -41,19 +50,25 @@ export class CharityprofileComponent {
     }
   }
 
+  GetDonations() {
+    this.donationservice.getDonations().subscribe((res: Donation) => {
+      this.Donations = res
+    })
+  }
+
   Message() {
     this.router.navigateByUrl('/contactform');
   }
-
+  
   GetCases() {
     this.http.getCases().subscribe((res) => {
       this.Cases = res
     })
   }
+  
 
-
-  EditCase() {
-
+  EditCase(element: Case) {
+    this.router.navigate(['/edit'], { queryParams: { id: element.id, edittype: 'case' } })
   }
 
   approve(element: any, id:any ) {
@@ -69,12 +84,20 @@ export class CharityprofileComponent {
     element.charity.id = 0
     this.http.updateCase(id,element).subscribe()
   }
+
   ProvideAssistance() {
     this.router.navigateByUrl('/provideassistancebycharity')
   }
 
   DeleteCase(id: any) {
-
+    this.http.DeleteCase(id).subscribe((res: any) => {
+      Swal.fire('Case Deleted')
+      this.router.navigateByUrl('/profile')
+    },
+      error => {
+        Swal.fire('Error, Case not deleted')
+      }
+    )
   }
 
 }
