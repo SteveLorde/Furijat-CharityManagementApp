@@ -83,8 +83,7 @@
   color: #E06C06;
 } */
 footer {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(87, 67, 3, 0.9)),
-    url(../../../assets/images/img_1.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(87, 67, 3, 0.9));
 
   width: 100%;
 

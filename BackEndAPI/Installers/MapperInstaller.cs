@@ -24,6 +24,10 @@ namespace BackEndAPI.Installers
                 cfg.CreateMap<Case, CaseDTO>();
                 cfg.CreateMap<DonatorDTO, Donator>();
                 cfg.CreateMap<Donator, DonatorDTO>();
+                cfg.CreateMap<PaymentToCreditorDTO, PaymentToCreditor>();
+                cfg.CreateMap<PaymentToCreditor, PaymentToCreditorDTO>();
+                cfg.CreateMap<DonationDTO, Donation>();
+                cfg.CreateMap<Donation, DonationDTO>();
             }).CreateMapper());
         }
     }
