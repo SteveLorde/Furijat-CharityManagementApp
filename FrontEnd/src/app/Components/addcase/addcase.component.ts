@@ -45,17 +45,31 @@ export class AddcaseComponent implements OnInit {
     description: new UntypedFormControl(),
     location: new UntypedFormControl(),
     totalAmount: new UntypedFormControl(),
-    //charityid: new UntypedFormControl(),
+    // charityid: new UntypedFormControl(),
   });
 
   AddCase() {
+    // let CaseReq: Case = this.AddCaseForm.value;
+    // CaseReq.status = 'pending';
+    // this.http.addCase(CaseReq).subscribe();
+    // this.user.userType = 'Case';
+    // console.log(CaseReq);
+    // console.log(CaseReq.firstName);
+    // this.http.UpdateUser(this.user.id, this.user).subscribe(
+    //   (res: User) => {
+    //     Swal.fire({
+    //       title: `Case ${CaseReq.firstName} registered successfully`,
+    //       showCancelButton: false,
+    //       confirmButtonText: 'OK',
+    //     }).then((result) => {
+    //       this.router.navigateByUrl('/login');
+    //     });
+    //   },
 
     let CaseReq: Case = this.AddCaseForm.value;
     CaseReq.status = 'pending';
     this.http.addCase(CaseReq).subscribe();
     this.user.userType = 'Case';
-    console.log(CaseReq);
-    console.log(CaseReq.firstName);
     this.http.UpdateUser(this.user.id, this.user).subscribe(
       (res: User) => {
         Swal.fire({
@@ -67,25 +81,11 @@ export class AddcaseComponent implements OnInit {
         });
       },
 
-    let CaseReq: Case = this.AddCaseForm.value
-    CaseReq.status = "pending"
-    this.http.addCase(CaseReq).subscribe()
-    this.user.userType = "Case"
-    this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
-      Swal.fire({
-        title: `Case ${CaseReq.firstName} registered successfully`,
-        showCancelButton: false,
-        confirmButtonText: 'OK'
-      }).then((result) => {
-        this.router.navigateByUrl('/login')
-      });
-    },
-
       (error) => {
         Swal.fire(error.error);
       }
-    )
-  },
+    );
+  }
 
   GetCharities() {
     this.http.getCharity().subscribe((res: any) => {
