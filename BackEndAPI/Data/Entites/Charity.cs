@@ -23,6 +23,8 @@ namespace BackEndAPI.Models
         public string Website { get; set; }
 
         public string? Status { get; set; }
+        public int AdminId { get; set; }
+        public Admin Admin { get; set; }
 
         public virtual ICollection<Case> Cases { get; set; }
         public virtual ICollection<Donation> Donation { get; set; }
