@@ -3,7 +3,6 @@ import { Case } from 'src/app/Models/Case';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DonatorService } from '../../Services/DonatorService/donator.service';
-import { CasePaymentService } from 'src/app/Services/CasePayment/case-payment.service'
 import { Charity } from '../../Models/Charity';
 import { Donation } from '../../Models/Donation';
 import { MailServiceBackendService } from '../../Services/MailServiceBackend/mail-service-backend.service';
