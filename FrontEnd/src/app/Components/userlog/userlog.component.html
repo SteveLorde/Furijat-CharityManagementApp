@@ -10,10 +10,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let case of DonatedCases">
-        <td>{{ DonatedCases.name }}</td>
-        <td>{{ DonatedCases.charity.name }}</td>
-        <td>{{ DonatedCases.Amount }}</td>
+      <tr *ngFor="let donation of Donations">
+        <td>{{ donation.case.firstname }}{{ donation.case.lastname }}</td>
+        <td>{{ donation.charity.name }}</td>
+        <td>{{ donation.amount }}</td>
+        <td>{{ donation.time }}</td>
       </tr>
       <tr></tr>
     </tbody>

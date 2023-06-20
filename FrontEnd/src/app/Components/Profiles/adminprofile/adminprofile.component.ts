@@ -47,12 +47,10 @@ export class AdminprofileComponent {
 
   DeleteCharity(element: Charity) {
     console.log("deleting charity" + element.name)
-    /*this.http.DeleteCharity(element.id).subscribe((res: any) => {
-    },
-      error => {
-        Swal.fire('error deleting case', 'eror')
-      })
-    location.reload()*/
+    this.http.DeleteCharity(element.id).subscribe((res: any) => {
+      Swal.fire('Deleting Charity' + element.name)
+      location.reload()
+    })
   }
 
   Approve(element: Charity) {
@@ -64,7 +62,8 @@ export class AdminprofileComponent {
 
   Reject(element: Charity) {
     element.status = 'rejected'
-    this.http.UpdateCharitybyID(element.id,element).subscribe((res: any) => {
+    this.http.DeleteCharity(element.id).subscribe((res: any) => {
+      Swal.fire('Rejecting Charity' + element.name)
     location.reload()
     })
   }

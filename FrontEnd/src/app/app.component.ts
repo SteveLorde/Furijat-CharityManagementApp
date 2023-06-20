@@ -19,7 +19,7 @@ export class AppComponent {
   ngOnInit() {
   }
 
-  title = 'FrontEnd';
+  title = 'Furijat Application';
 
 
 

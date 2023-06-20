@@ -10,7 +10,6 @@
         <th scope="col">Description</th>
         <th scope="col">Address</th>
         <th scope="col">Phone Number</th>
-        <th scope="col">Charity</th>
         <th scope="col">Status</th>
         <th scope="col">Action</th>
       </tr>
@@ -18,20 +17,18 @@
     <tbody>
       <tr class="tablerow text-center"
           *ngFor="
-          let charity of charities
-            | paginate : { itemsPerPage: 5, currentPage: p } | filterbystatus: pendingcharity">
+          let charity of charities | filterbystatus: pendingcharity | paginate : { itemsPerPage: 5, currentPage: p }">
         <td>{{ charity.id }}</td>
         <td>{{ charity.name }}</td>
         <td>{{ charity.description }}</td>
-        <td>{{ charity.address }}</td>
+        <td>{{ charity.location }}</td>
         <td>{{ charity.phone }}</td>
-        <td>{{ charity.charity }}</td>
         <td>{{ charity.status }}</td>
         <td>
-          <button (click)="Approve(charity)">Approve Case</button>
+          <button (click)="Approve(charity)">Approve Charity</button>
         </td>
         <td>
-          <button (click)="Reject(charity)">Reject Case</button>
+          <button (click)="Reject(charity)">Reject Charity</button>
         </td>
       </tr>
       <tr></tr>
@@ -49,7 +46,6 @@
         <th scope="col">Description</th>
         <th scope="col">Address</th>
         <th scope="col">Phone Number</th>
-        <th scope="col">Charity</th>
         <th scope="col">Status</th>
         <th scope="col">Action</th>
       </tr>
@@ -57,14 +53,12 @@
     <tbody>
       <tr class="tablerow text-center"
           *ngFor="
-          let charity of charities
-            | paginate : { itemsPerPage: 5, currentPage: p } | filterbystatus: approvedcharity">
+          let charity of charities | filterbystatus: approvedcharity | paginate : { itemsPerPage: 5, currentPage: p }">
         <td>{{ charity.id }}</td>
         <td>{{ charity.name }}</td>
         <td>{{ charity.description }}</td>
-        <td>{{ charity.address }}</td>
+        <td>{{ charity.location }}</td>
         <td>{{ charity.phone }}</td>
-        <td>{{ charity.charity }}</td>
         <td>{{ charity.status }}</td>
         <td>
           <button (click)="EditCharity(charity)">Update Charity</button>

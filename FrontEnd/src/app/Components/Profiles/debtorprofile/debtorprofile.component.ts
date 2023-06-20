@@ -19,6 +19,7 @@ export class DebtorprofileComponent {
 
   case: Case
 
+
   constructor(private http: BackendCommunicationService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -26,6 +27,8 @@ export class DebtorprofileComponent {
     this.userid = localStorage.getItem('userid')
     this.GetCasebyID(this.userid)
   }
+
+
 
   form = this.fb.group({
     firstName: ['', Validators.required],

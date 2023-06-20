@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: 'Login Error',
-            text: error.message,
+            text: error.error,
           })
         }
       )

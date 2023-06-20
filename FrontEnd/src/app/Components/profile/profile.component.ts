@@ -10,6 +10,7 @@ import { DonatorprofileComponent } from 'src/app/Components/Profiles/donatorprof
 import { CreditorprofileComponent } from 'src/app/Components/Profiles/creditorprofile/creditorprofile.component'
 import { DebtorprofileComponent } from 'src/app/Components/Profiles/debtorprofile/debtorprofile.component'
 import { CharityprofileComponent } from 'src/app/Components/Profiles/charityprofile/charityprofile.component'
+import { DonatorService } from '../../Services/DonatorService/donator.service';
 
 @Component({
   selector: 'app-profile',
@@ -28,7 +29,7 @@ export class ProfileComponent implements OnInit {
 
 
 
-  constructor(private _servercom: BackendCommunicationService, private authService: AuthService, private router: Router) { }
+  constructor(private _servercom: BackendCommunicationService, private authService: AuthService, private router: Router, private donatorservice: DonatorService) { }
 
   ngOnInit(): void {
     
@@ -43,21 +44,28 @@ export class ProfileComponent implements OnInit {
   GetProfile() {
     this.usertype = localStorage.getItem('usertype')
     switch (this.usertype) {
-      case "user":
+      case "User":
         this.username = localStorage.getItem('username')
         this.usertype = "user"
         break
-      case "charity":
+      case "Admin":
+        this.username = localStorage.getItem('username')
+        this.usertype = "Admin"
+        break
+      case "Charity":
         this.username = localStorage.getItem('username')
         this.usertype = "charity"
         this.charityprofilechild.CharityID = this.user.charityId
         this.charityprofilechild.GetProfileCharity()
         break
-      case "case":
+      case "Case":
         break
-      case "donator":
+      case "Donator":
+        this.username = localStorage.getItem('username')
+        this.usertype = "Donator"
+        //this.donatorprofilechild.donationlog.donatorid = 
         break
-      case "creditor":
+      case "Creditor":
         break
     }
   }
