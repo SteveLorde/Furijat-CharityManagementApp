@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { Donator } from '../../../Models/Donator';
-import { User } from '../../../Models/User';
-import { BackendCommunicationService } from '../../../Services/BackendCommunication/backend-communication.service';
-import { UserStorageService } from '../../../Services/UserStorageService/user-storage.service';
+import { Donator } from '../../Models/Donator';
+import { User } from '../../Models/User';
+import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
+import { UserStorageService } from '../../Services/UserStorageService/user-storage.service';
 
 @Component({
   selector: 'app-adddonator',

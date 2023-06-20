@@ -21,16 +21,19 @@ import { UserStorageService } from '../../Services/UserStorageService/user-stora
 })
 export class LoginComponent implements OnInit {
   //create object "loginrequest" of Login model
-  loginreq: Login;
+  loginreq: Login = {
+      username: '',
+      password: ''
+  } 
   //variable that changes to 1/true if login request is successful
-  loggedin: any = 0;
+  loggedin: number = 0;
   //store user id in variable "id"
   id: any;
   //store error response during login
   loginerror: string = ""
   //role variable for user
-  role: any
-  error:any
+  role: any = ""
+  error: string = ""
 
   constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard, private userstorage: UserStorageService) {
   }
@@ -41,7 +44,7 @@ export class LoginComponent implements OnInit {
   })
 
   ngOnInit() {
-    this.loggedin = localStorage.getItem('loggedin');
+    //this.loggedin = localStorage.getItem('loggedin');
     if (this.loggedin == 1) {
       this.GoProfile();
     }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../../../Models/Case';
 import { Creditor } from '../../../Models/Creditor';
+import { Charity } from '../../../Models/Charity';
 import { BackendCommunicationService } from '../../../Services/BackendCommunication/backend-communication.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { BackendCommunicationService } from '../../../Services/BackendCommunicat
 })
 export class CreditorprofileComponent {
 
-  creditor: Creditor
+  creditor: Creditor 
   p: number = 1
   Cases: Case
 
@@ -22,7 +23,7 @@ export class CreditorprofileComponent {
     //this.GetCreditorandCasebyID(this.userid)
   }
 
-  GetCreditorandCasebyID(id: any) {
+  GetCreditorandCasebyID(id: number) {
     this.http.GetCreditorByID(id).subscribe((res: Creditor) => {
       this.http.getCasesById(res.caseID).subscribe((res: Case) => {
         this.Cases = res
