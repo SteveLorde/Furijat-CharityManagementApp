@@ -41,10 +41,11 @@ export class AddcharityComponent implements OnInit {
     charity.status = "pending"
     console.log(charity)
     this.http.addCharity(charity).subscribe()
+    /*
     this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
       Swal.fire({
-        title: 'Account Registered Successfully',
-        showCancelButton: true,
+        title: `Charity ${charity.name} registered successfully`,
+        showCancelButton: false,
         confirmButtonText: 'Login',
         cancelButtonText: 'Home'
       }).then((result) => {
@@ -55,10 +56,7 @@ export class AddcharityComponent implements OnInit {
       (error) => {
         Swal.fire(error.error)
       })
+      */
   }
 
-  onSubmit() {
-    console.log(this.AddCharityForm.value);
-    this.router.navigateByUrl('/charitylist')
-  }
 }
