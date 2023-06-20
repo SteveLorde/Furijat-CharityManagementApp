@@ -17,15 +17,15 @@ import { DonatorService } from '../../../Services/DonatorService/donator.service
 export class AdminprofileComponent {
 
 
-  cases: Case
-  charities: Charity
-  donators: Donator
-  creditos: Creditor
-  users: User
+  cases = {} as Case
+  charities = {} as Charity
+  donators = {} as Donator
+  creditor = {} as Creditor
+  users = {} as User
   p: number = 1
 
-  pendingcharity: any = 'pending'
-  approvedcharity: any = 'approved'
+  pendingcharity: string = 'pending'
+  approvedcharity: string = 'approved'
 
   constructor(private http: BackendCommunicationService, private donatorservice: DonatorService, private router: Router) { }
 

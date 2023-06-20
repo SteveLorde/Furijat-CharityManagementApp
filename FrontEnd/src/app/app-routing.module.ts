@@ -21,8 +21,8 @@ import { ProvideassistanceComponent } from './Components/provideassistance/provi
 import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpaymentplan.component';
 import { EditDataComponent } from './Components/edit-data/edit-data.component';
 import { ManagecasedonationsComponent } from './Components/managecasedonations/managecasedonations.component';
-import { AddcreditorComponent } from './Components/addcase/addcreditor/addcreditor.component';
-import { AdddonatorComponent } from './Components/addcase/adddonator/adddonator.component';
+import { AddcreditorComponent } from './Components/addcreditor/addcreditor.component';
+import { AdddonatorComponent } from './Components/adddonator/adddonator.component';
 
 
 const routes: Routes = [

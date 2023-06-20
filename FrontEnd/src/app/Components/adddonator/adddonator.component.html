@@ -1,0 +1,37 @@
+<div>
+<form [formGroup]="AddDonatorForm" (ngSubmit)="AddDonator()">
+  <div class="row container">
+    <div class="col-md-6">
+      <div class="pb-3">
+        <label class="pb-1" for=" Your Address"> Address </label>
+
+        <input formControlName="address"
+               id=" address"
+               placeholder="Your Address"
+               type="text"
+               class="form-control" />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="pb-3">
+        <label class="pb-1" for="Phone"> Phone </label>
+
+        <input id="phone"
+               class="form-control"
+               formControlName="phone"
+               placeholder="phone number"
+               type="text" />
+      </div>
+    </div>
+   
+    <div class="text-center mt-2">
+      <button type="submit"
+              class="custom-btn btn-6 btn btn-lg px-3"
+              value="Add Donator">
+        <span>Register as Donator</span>
+      </button>
+    </div>
+  </div>
+</form>
+</div>
