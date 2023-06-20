@@ -49,6 +49,7 @@ export class AddcaseComponent implements OnInit {
   });
 
   AddCase() {
+
     let CaseReq: Case = this.AddCaseForm.value;
     CaseReq.status = 'pending';
     this.http.addCase(CaseReq).subscribe();
@@ -65,11 +66,26 @@ export class AddcaseComponent implements OnInit {
           this.router.navigateByUrl('/login');
         });
       },
+
+    let CaseReq: Case = this.AddCaseForm.value
+    CaseReq.status = "pending"
+    this.http.addCase(CaseReq).subscribe()
+    this.user.userType = "Case"
+    this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
+      Swal.fire({
+        title: `Case ${CaseReq.firstName} registered successfully`,
+        showCancelButton: false,
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        this.router.navigateByUrl('/login')
+      });
+    },
+
       (error) => {
         Swal.fire(error.error);
       }
-    );
-  }
+    )
+  },
 
   GetCharities() {
     this.http.getCharity().subscribe((res: any) => {
