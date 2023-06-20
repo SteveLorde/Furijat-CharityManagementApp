@@ -23,9 +23,9 @@ import { UserStorageService } from '../../Services/UserStorageService/user-stora
 export class LoginComponent implements OnInit {
   //create object "loginrequest" of Login model
   loginreq: Login = {
-      username: '',
-      password: ''
-  } 
+    username: '',
+    password: '',
+  };
   //variable that changes to 1/true if login request is successful
   loggedin: number = 0;
   //store user id in variable "id"
@@ -33,17 +33,14 @@ export class LoginComponent implements OnInit {
   //store error response during login
   loginerror: string = '';
   //role variable for user
-<<<<<<< HEAD
-  role: any;
-=======
-  role: any = ""
-  error: string = ""
->>>>>>> 133dbdcf2d14c69243c73dc3e292b27cebf6e132
+  role: any = '';
+  error: string = '';
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private authguard: AuthGuard
+    private authguard: AuthGuard,
+    private userstorage: UserStorageService
   ) {}
 
   LogintForm: FormGroup = new FormGroup({
@@ -70,17 +67,21 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loginreq = this.LogintForm.value;
-    this.authService.login(this.loginreq).subscribe((res: User) => {
-      //this.id = res.userId
-      //set token
-      localStorage.setItem('authToken', res.token);
-      //variable used to check if logged in (to influnece other HTML elements)
-      localStorage.setItem('loggedin', '1');
-      localStorage.setItem('UserType', res.userType);
-
-      this.loggedin = 1;
-      this.GoProfile();
-    });
+    this.authService.login(this.loginreq).subscribe(
+      (res: any) => {
+        this.userstorage.user = res;
+        this.userstorage.loggedin = 1;
+        console.log(this.userstorage.user);
+        this.GoProfile();
+      },
+      (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Error',
+          text: error.error,
+        });
+      }
+    );
   }
 
   GoProfile() {

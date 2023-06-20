@@ -7,12 +7,14 @@
         <th *ngIf="usertype === 'case'" scope="col">User Type</th>
       </tr>
     </thead>
-    <tbody class="text-center">
-      <tr>
+    <tbody>
+      <tr class="text-center">
         <td>{{ username }}</td>
         <td>{{ usertype }}</td>
-        <td *ngIf="usertype === 'Case'">{{case.status}}</td>
-        <td *ngIf="usertype === 'Charity'">{{charity.status}}</td>
+        <!-- <td *ngIf="usertype === 'Case'">{{ case.status }}</td>
+        <td *ngIf="usertype === 'Charity'">{{ charity.status }}</td> -->
+        <td>hager</td>
+        <td>user</td>
       </tr>
       <tr></tr>
     </tbody>
@@ -27,16 +29,27 @@
   <pagination-controls (pageChange)="p = $event" class="controls">
   </pagination-controls>
 </div>
-<<<<<<< HEAD
-=======
-
 
 <div [ngSwitch]="usertype">
   <div *ngSwitchCase="'User'">
-    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsCharity()">Register as Charity</button>
-    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsCase()">Register as Debtor</button>
-    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsDonator()">Register as Donator</button>
-
+    <button
+      class="btn custom-btn btn-2 btn-lg m-auto"
+      (click)="RegisterAsCharity()"
+    >
+      Register as Charity
+    </button>
+    <button
+      class="btn custom-btn btn-2 btn-lg m-auto"
+      (click)="RegisterAsCase()"
+    >
+      Register as Debtor
+    </button>
+    <button
+      class="btn custom-btn btn-2 btn-lg m-auto"
+      (click)="RegisterAsDonator()"
+    >
+      Register as Donator
+    </button>
   </div>
   <app-adminprofile *ngSwitchCase="'Admin'"></app-adminprofile>
   <app-charityprofile *ngSwitchCase="'Charity'"></app-charityprofile>
@@ -51,6 +64,5 @@
 </div>
   -->
 
-<pagination-controls (pageChange)="p = $event" class="controls"> </pagination-controls>
-
->>>>>>> 5943e17344768e6da77ca16bfbf592486bb02e21
+<pagination-controls (pageChange)="p = $event" class="controls">
+</pagination-controls>
