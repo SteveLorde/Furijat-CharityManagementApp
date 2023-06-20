@@ -12,6 +12,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthGuard } from '../../Services/AuthGuard/authguard';
 import { User } from '../../Models/User';
 import Swal from 'sweetalert2';
+import { UserStorageService } from '../../Services/UserStorageService/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
   role: any
   error:any
 
-  constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard) {
+  constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard, private userstorage: UserStorageService) {
   }
 
   LogintForm: FormGroup = new FormGroup({
@@ -53,25 +54,25 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginreq = this.LogintForm.value
     this.authService.login(this.loginreq)
-      .subscribe((res: User | any) => {
-        //this.id = res.userId
-        //set token
-        localStorage.setItem('authToken', res.token)
-        //variable used to check if logged in (to influnece other HTML elements)
-        localStorage.setItem('loggedin', "1")
-        localStorage.setItem('UserType', res.userType)
-        localStorage.setItem('userid', res.userId.toString())
-        this.loggedin = 1
+      .subscribe(
+        (res: any) => {
+         this.userstorage.user = res
+         this.userstorage.loggedin = 1
+        console.log(this.userstorage.user)
         this.GoProfile()
-      },
-        error => {
-          this.error = error
-          Swal.fire('Invalid Username or Password')
-        })
+        },
+        (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Login Error',
+            text: error.error,
+          })
+        }
+      )
   }
 
   GoProfile() {
-    this.router.navigateByUrl('profile');
+    this.router.navigateByUrl('/profile');
   }
 
   Back() {

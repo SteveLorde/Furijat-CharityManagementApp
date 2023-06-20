@@ -8,5 +8,4 @@ export interface Creditor {
   payment_Account: string
   address: string
   deserves_Amount: number
-  status: string
 }

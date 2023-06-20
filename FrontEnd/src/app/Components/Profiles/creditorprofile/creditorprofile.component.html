@@ -1,3 +1,7 @@
+
+<button>Generate Report</button>
+
+
 <div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
   <table class="styled-table">
     <thead>
@@ -24,13 +28,12 @@
         <td>{{ case.lastName }}</td>
         <td>{{ case.description }}</td>
         <td>{{ case.address }}</td>
-        <td>{{ case.currentAmount }}</td>
         <td>{{ case.totalAmount }}</td>
         <td>{{ case.phone }}</td>
         <td>{{ case.status }}</td>
         <td></td>
         <td>
-
+          <a [routerLink]="['/viewpaymentplan',case.id]" >Track Case/Payment Plan</a>
         </td>
       </tr>
       <tr></tr>
