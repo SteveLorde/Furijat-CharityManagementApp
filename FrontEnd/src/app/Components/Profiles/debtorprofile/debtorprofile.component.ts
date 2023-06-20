@@ -19,6 +19,8 @@ export class DebtorprofileComponent {
 
   case: Case
 
+  caseidtofilter: any
+
 
   constructor(private http: BackendCommunicationService, private router: Router, private fb: FormBuilder) { }
 
@@ -46,6 +48,7 @@ export class DebtorprofileComponent {
   GetCasebyID(id: any) {
     this.http.getCasesById(id).subscribe((res: Case) => {
       this.case = res
+      this.caseidtofilter = res.id
     })
   }
 
@@ -53,6 +56,14 @@ export class DebtorprofileComponent {
     this.http.getCharity().subscribe((res: any) => {
       this.Charities = res
     })
+  }
+
+  AcceptCreditor(creditor) {
+
+  }
+
+  RejectCreditor(creditor) {
+
   }
 
   ApplyForAssistance() {

@@ -8,6 +8,39 @@
 <button (click)="assistanceform = !assistanceform">Assistance Form</button>
 <button>Contact</button>
 
+<h2>Creditors Requests</h2>
+  <div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+    <table class="styled-table">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">Creditor ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Address</th>
+          <th scope="col">Payment Method</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tablerow text-center"
+            *ngFor=" let creditor of Creditors | filterbycreditorsbycaseID:  ">
+          <td>{{ creditor.id }}</td>
+          <td>{{ creditor.phone }}</td>
+          <td>{{ creditor.address }}</td>
+          <td>{{ creditor.payment_Account }}</td>
+          <td>{{ creditor.status }}</td>
+          <td></td>
+          <td>
+            <button (click)="AcceptCreditor(creditor)">Accept</button>
+            <button (click)="RejectCreditor(creditor)">Reject</button>
+          </td>
+        </tr>
+        <tr></tr>
+      </tbody>
+    </table>
+  </div>
+
 <div *ngIf="assistanceform">
   <h3>Your First Name</h3>
   <input class="form-control" formControlName="firstName" />
