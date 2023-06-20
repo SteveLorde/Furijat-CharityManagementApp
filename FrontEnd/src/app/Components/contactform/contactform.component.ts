@@ -5,6 +5,7 @@ import { ContactMessage } from '../../Models/ContactMessage';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { MailServiceBackendService } from 'src/app/Services/MailServiceBackend/mail-service-backend.service';
 import Swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contactform',
@@ -17,17 +18,19 @@ export class ContactformComponent implements OnInit {
   contactmessage: ContactMessage
   errorMessage: any
 
+  selectedemailroute: any
+
   constructor(
-    private mailservice: MailServiceBackendService,
-    private _servercom: BackendCommunicationService
-  ) {}
+    private mailservice: MailServiceBackendService, private _servercom: BackendCommunicationService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.GetCharities();
+    this.route.queryParams.subscribe(params => {
+      this.selectedemailroute = params['selectedemail']
+    })
+    this.GetCharities()
   }
 
   ContactForm = new UntypedFormGroup({
-    //name: new UntypedFormControl(''),
     Subject: new UntypedFormControl(''),
     Body: new UntypedFormControl(''),
     ToEmail: new UntypedFormControl(''),

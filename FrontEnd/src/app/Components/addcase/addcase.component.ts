@@ -45,7 +45,7 @@ export class AddcaseComponent implements OnInit {
     this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
     this.CaseReq.description = this.AddCaseForm.get('description').value
     this.CaseReq.address = this.AddCaseForm.get('address').value
-    this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
+    //this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
     this.CaseReq.totalAmount = this.AddCaseForm.get('totalamount').value
     this.CaseReq.status = "Pending"
     this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value

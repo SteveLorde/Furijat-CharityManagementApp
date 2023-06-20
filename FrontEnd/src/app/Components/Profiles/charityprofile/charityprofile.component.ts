@@ -19,13 +19,15 @@ export class CharityprofileComponent {
   constructor(private http: BackendCommunicationService, private router: Router, private donationservice: DonatorService) { }
 
   ngOnInit(): void {
-    this.UserTypeCharity()
+    this.GetProfileCharity()
   }
 
   user = {} as User
   Cases = { charity: {} as Charity } as Case
   charity = { cases: {} as Case } as Charity
   Donations = {} as Donation
+
+  CharityID: any
 
   filtercharityid: any = this.charity.id
 
@@ -40,14 +42,11 @@ export class CharityprofileComponent {
 
   }
 
-  UserTypeCharity() {
-    const usertype = localStorage.getItem('UserType')
-    const CharityLogID = localStorage.getItem('UserType')
-    if (usertype == 'Charity') {
-      this.http.getCharitybyId(this.charity).subscribe((res: Charity) => {
+  GetProfileCharity() {
+    this.http.getCharitybyId(this.CharityID).subscribe((res: Charity) => {
         this.charity = res
       })
-    }
+      this.GetCases()
   }
 
   GetDonations() {
@@ -56,8 +55,8 @@ export class CharityprofileComponent {
     })
   }
 
-  Message() {
-    this.router.navigateByUrl('/contactform');
+  Message(element: Case) {
+    this.router.navigate(['/contactform'], { queryParams: { selectedemail: element.userName + '@gmail.com' } })
   }
   
   GetCases() {
@@ -67,32 +66,40 @@ export class CharityprofileComponent {
   }
   
 
-  EditCase(element: Case) {
-    this.router.navigate(['/edit'], { queryParams: { id: element.id, edittype: 'case' } })
+  ProvideAssistance() {
+    this.router.navigateByUrl('/provideassistancebycharity')
   }
 
   approve(element: any, id:any ) {
     element.id = id
-    element.status = "In Need"
+    element.status = "approved"
     element.charity.id =
     this.http.updateCase(id, element).subscribe()
   }
 
   reject(element: Case, id: any) {
     element.id = id
-    element.status = "waiting"
+    element.status = "pending"
     element.charity.id = 0
     this.http.updateCase(id,element).subscribe()
   }
 
-  ProvideAssistance() {
-    this.router.navigateByUrl('/provideassistancebycharity')
+  ManageCaseDonations(element: Case) {
+    this.router.navigate(['/managecasedonations'], { queryParams: { id: element.id} })
   }
 
-  DeleteCase(id: any) {
-    this.http.DeleteCase(id).subscribe((res: any) => {
-      Swal.fire('Case Deleted')
-      this.router.navigateByUrl('/profile')
+  DeleteCase(element: Case) {
+    this.http.DeleteCase(element.id).subscribe((res: any) => {
+      Swal.fire({
+        title: 'Case Deleted',
+        showCancelButton: false,
+        confirmButtonText: 'Ok',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload()
+        }
+      })
     },
       error => {
         Swal.fire('Error, Case not deleted')

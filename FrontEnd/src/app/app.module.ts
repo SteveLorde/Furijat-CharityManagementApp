@@ -46,6 +46,9 @@ import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpayme
 import { AdminprofileComponent } from './Components/Profiles/adminprofile/adminprofile.component';
 import { FilterbycharityidPipe } from './Services/Pipes/filterbycharityid.pipe';
 import { FilterbystatusPipe } from './Services/Pipes/filterbystatus.pipe';
+import { ManagecasedonationsComponent } from './Components/managecasedonations/managecasedonations.component';
+import { FilterbydonatoridPipe } from './Services/Pipes/filterbydonatorid.pipe';
+import { FilterbycaseidPipe } from './Services/Pipes/filterbycaseid.pipe';
 
 @NgModule({
   declarations: [
@@ -85,6 +88,9 @@ import { FilterbystatusPipe } from './Services/Pipes/filterbystatus.pipe';
     AdminprofileComponent,
     FilterbycharityidPipe,
     FilterbystatusPipe,
+    ManagecasedonationsComponent,
+    FilterbydonatoridPipe,
+    FilterbycaseidPipe,
   ],
   imports: [
     BrowserModule,

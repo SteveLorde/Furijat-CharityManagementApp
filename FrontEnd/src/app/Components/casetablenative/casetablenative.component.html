@@ -10,7 +10,6 @@
   <table class="styled-table">
     <thead>
       <tr class="text-center">
-        <th scope="col">Case ID</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Description</th>
@@ -19,7 +18,6 @@
         <th scope="col">Total Amount</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Charity</th>
-        <th scope="col">Status</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -28,11 +26,8 @@
         class="tablerow text-center"
         *ngFor="
           let case of Cases
-            | searchFilter : searchText
-            | paginate : { itemsPerPage: 3, currentPage: p }
-        "
+            | searchFilter : searchText | filterbystatus: statusfilter | paginate : { itemsPerPage: 3, currentPage: p  }"
       >
-        <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
         <td>{{ case.description }}</td>
@@ -40,10 +35,9 @@
         <td>{{ case.currentAmount }}</td>
         <td>{{ case.totalAmount }}</td>
         <td>{{ case.phone }}</td>
-        <td>{{ case.charity }}</td>
-        <td>{{ case.status }}</td>
+        <td> </td>
         <td>
-          <a *ngIf="UserType === 'Donator' " [routerLink]="['/donate', case.id]">Donate</a>
+          <button class="btn btn-outline-success" (click)="Donate(case.id)">Donate</button>
         </td>
       </tr>
       <tr></tr>

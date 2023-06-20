@@ -19,11 +19,20 @@ export class EditDataComponent {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       this.edittype = params['edittype']
+
+      if (this.edittype == 'charity') {
+        this.getcharity()
+      }
+      else if (this.edittype == 'case') {
+        this.getcase()
+      }
+      else if (this.edittype == 'donator') {
+        this.getdonator()
+      }
+      else if (this.edittype == 'creditor') {
+        this.getcreditor()
+      }
     })
-    this.getcharity()
-    this.getcase()
-    this.getcreditor()
-    this.getdonator()
   }
 
   GoProfile() {

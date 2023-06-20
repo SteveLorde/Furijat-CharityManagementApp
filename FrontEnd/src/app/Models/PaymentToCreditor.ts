@@ -1,15 +1,14 @@
 import { Case } from "./Case"
 import { Charity } from "./Charity"
-import { Donator } from "./Donator"
+import { Creditor } from "./Creditor"
 
-export interface Donation {
-  
+export interface PaymentToCreditor {
   caseId: number
   case: Case
   charityId: number
   charity: Charity
-  donatorId: number
-  donator: Donator
-  amount: number
+  creditorId: number
+  creditor: Creditor
+  paid_Amount: number
   time: string
 }
