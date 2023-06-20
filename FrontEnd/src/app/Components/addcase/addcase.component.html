@@ -70,23 +70,10 @@
                  type="number" />
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="pb-3">
-          <label for="charity" class="pb-1"> Select Charity </label>
-          <select class="form-select" formControlName="charityid" id="charity">
-            <option [selected]="true">Select Charity to Add Case</option>
-            <option *ngFor="let charity of charity" [ngValue]="charity.id">
-              {{ charity.name }}
-            </option>
-          </select>
-        </div>
-      </div>
-
-      <app-file-upload>Upload Document</app-file-upload>
 
       <div class="text-center mt-2">
         <button type="submit" class="custom-btn btn-6 btn btn-lg px-3">
-          <span>Seek Assistance</span>
+          <span>Register as Debtor</span>
         </button>
       </div>
 

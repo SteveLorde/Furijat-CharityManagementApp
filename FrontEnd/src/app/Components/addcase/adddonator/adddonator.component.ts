@@ -36,7 +36,7 @@ export class AdddonatorComponent {
     donator.id = this.userstorage.user.id
     donator = this.AddDonatorForm.value
     this.http.addDonator(donator).subscribe()
-    this.user.userType = "Donaor"
+    this.user.userType = "Donator"
     this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
       Swal.fire({
         title: `successfully registered as Donator`,

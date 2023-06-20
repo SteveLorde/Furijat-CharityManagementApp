@@ -26,6 +26,8 @@ export class DebtorprofileComponent {
 
   caseidtofilter: any
 
+  selectedcharity
+
 
   constructor(private http: BackendCommunicationService, private router: Router, private fb: FormBuilder, private userstorage: UserStorageService) { }
 
@@ -38,12 +40,14 @@ export class DebtorprofileComponent {
 
 
   form = this.fb.group({
+    /*
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     description: ['', Validators.required],
     address: ['', [Validators.required, Validators.email]],
     phonenumber: ['', Validators.minLength(7)],
     totalamount: ['', Validators.required],
+    */
     selectedcharity: ['', Validators.required],
   })
 
@@ -83,7 +87,7 @@ export class DebtorprofileComponent {
   ApplyForAssistance() {
 
   }
-  ToggleAssistFor() {
+  ToggleAssistForm() {
     this.assistanceform = !this.assistanceform
   }
 

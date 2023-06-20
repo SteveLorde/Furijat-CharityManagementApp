@@ -41,7 +41,7 @@
         <label for="email" class="ps-4"></label>
         <select class="form-control" formControlName="caseID">
           <option value="" disabled selected>Select a Case</option>
-          <option [ngValue]="null" *ngFor="let case of Cases">{{case.name}}({{case.totalamount}})</option>
+          <option [ngValue]="case.id" *ngFor="let case of Cases">{{case.name}}({{case.totalamount}})</option>
         </select>
       </div>
 
