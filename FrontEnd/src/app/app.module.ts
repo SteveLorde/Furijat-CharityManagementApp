@@ -51,6 +51,7 @@ import { FilterbydonatoridPipe } from './Services/Pipes/filterbydonatorid.pipe';
 import { FilterbycaseidPipe } from './Services/Pipes/filterbycaseid.pipe';
 import { AddcreditorComponent } from './Components/addcase/addcreditor/addcreditor.component';
 import { AdddonatorComponent } from './Components/addcase/adddonator/adddonator.component';
+import { FilterbycreditorsbycaseIDPipe } from './Services/Pipes/filterbycreditorsbycase-id.pipe';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { AdddonatorComponent } from './Components/addcase/adddonator/adddonator.
     FilterbycaseidPipe,
     AddcreditorComponent,
     AdddonatorComponent,
+    FilterbycreditorsbycaseIDPipe,
   ],
   imports: [
     BrowserModule,

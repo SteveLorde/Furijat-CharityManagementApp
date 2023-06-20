@@ -24,7 +24,7 @@ export class AddcharityComponent implements OnInit {
   }
 
   GetUser() {
-    this.user.id = this.userstorage.user.id
+    this.user = this.userstorage.user
   }
 
 
@@ -41,6 +41,7 @@ export class AddcharityComponent implements OnInit {
     charity.status = "pending"
     console.log(charity)
     this.http.addCharity(charity).subscribe()
+    this.user.userType = "Charity"
     this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
       Swal.fire({
         title: `Charity ${charity.name} registered successfully`,

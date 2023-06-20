@@ -31,7 +31,7 @@ export class AddcaseComponent implements OnInit {
   }
 
   GetUser() {
-      this.user.id = this.userstorage.user.id
+      this.user = this.userstorage.user
   }
  
 
@@ -48,6 +48,7 @@ export class AddcaseComponent implements OnInit {
     let CaseReq = this.AddCaseForm.value
     CaseReq.status = "pending"
     this.http.addCase(CaseReq).subscribe()
+    this.user.userType = "Case"
     this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
       Swal.fire({
         title: `Case ${CaseReq.name} registered successfully`,

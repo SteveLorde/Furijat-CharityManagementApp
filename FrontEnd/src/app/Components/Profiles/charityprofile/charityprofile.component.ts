@@ -31,7 +31,8 @@ export class CharityprofileComponent {
 
   filtercharityid: any = this.charity.id
 
-  statusfilter: any 
+  statusfilter: any = "pending"
+ approvedstatusfilter: any = "approved"
 
   id: any
   utid: any
@@ -73,7 +74,7 @@ export class CharityprofileComponent {
   approve(element: any, id:any ) {
     element.id = id
     element.status = "approved"
-    element.charity.id =
+    element.charity.id = this.charity.id
     this.http.updateCase(id, element).subscribe()
   }
 
