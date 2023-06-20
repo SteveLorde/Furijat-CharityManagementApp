@@ -94,6 +94,10 @@ a:hover {
 }
 .btn-secondary {
   color: #fff;
-  background-color: #f78f49;
+  background-color: #eea574;
   border-color: transparent;
+  width: 100px;
+}
+.btn-secondary:hover {
+  background-color: #f67515;
 }
