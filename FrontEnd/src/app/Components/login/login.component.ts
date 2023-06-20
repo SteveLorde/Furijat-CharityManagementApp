@@ -12,6 +12,8 @@ import { Login } from '../../Models/Login';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthGuard } from '../../Services/AuthGuard/authguard';
 import { User } from '../../Models/User';
+import Swal from 'sweetalert2';
+import { UserStorageService } from '../../Services/UserStorageService/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -74,6 +76,10 @@ export class LoginComponent implements OnInit {
   }
 
   GoProfile() {
-    this.router.navigateByUrl('profile');
+    this.router.navigateByUrl('/profile');
+  }
+
+  Back() {
+    this.router.navigateByUrl('/home');
   }
 }

@@ -2,6 +2,9 @@
 <button>Generate PDF Report</button>
 <button>Message</button>
 
+<h3>Charity Status</h3>
+<h3>{{charity.status}}</h3>
+
 <!-- Charity Validate Requests-->
 <h2>Validate Cases</h2>
 <div *ngIf="usertype === 'charity'" class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
@@ -21,10 +24,8 @@
     </thead>
     <tbody>
       <tr class="tablerow text-center"
-          *ngFor="
-          let case of Cases
-            | paginate : { itemsPerPage: 5, currentPage: p }
-        ">
+          *ngFor=" let case of Cases
+            | paginate : { itemsPerPage: 5, currentPage: p } | filterbystatus: statusfilter">
         <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
@@ -36,10 +37,10 @@
         <td>{{ case.status }}</td>
         <td></td>
         <td>
-          <button (click)="approve(case.id, case)">Approve</button>
+          <button (click)="approve(case)">Approve</button>
         </td>
         <td>
-          <button (click)="reject(case.id, case)">Reject</button>
+          <button (click)="reject(case)">Reject</button>
         </td>
       </tr>
       <tr></tr>
@@ -70,8 +71,7 @@
       <tr class="tablerow text-center"
           *ngFor="
           let case of Cases
-            | paginate : { itemsPerPage: 5, currentPage: p }
-        ">
+            | paginate : { itemsPerPage: 5, currentPage: p } | filterbycharityid: filtercharityid">
         <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
@@ -80,14 +80,20 @@
         <td>{{ case.currentAmount }}</td>
         <td>{{ case.totalAmount }}</td>
         <td>{{ case.phone }}</td>
-        <td>{{ case.charity.id }}</td>
+        <td>{{ case.charity.name }}</td>
         <td>{{ case.status }}</td>
         <td></td>
         <td>
-          <button (click)="ProvideAssistance()">Provide Assistance</button>
+          <button [routerLink]="['/provideassistance',case.id]">Provide Assistance</button>
         </td>
         <td>
-          <button (click)=" DeleteCase(case.id)">Delete</button>
+          <button (click)="EditCase(case)">Update Case</button>
+        </td>
+        <td>
+          <button (click)="ManageCaseDonations(case)">Manage Donations</button>
+        </td>
+        <td>
+          <button (click)=" DeleteCase(case)">Delete Case</button>
         </td>
       </tr>
       <tr></tr>

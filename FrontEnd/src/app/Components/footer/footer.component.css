@@ -12,8 +12,12 @@
 }
 
 footer {
+<<<<<<< HEAD
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(87, 67, 3, 0.9)),
     url(/assets/images/img_1.jpg);
+=======
+  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(87, 67, 3, 0.9));
+>>>>>>> 5943e17344768e6da77ca16bfbf592486bb02e21
 
   width: 100%;
 

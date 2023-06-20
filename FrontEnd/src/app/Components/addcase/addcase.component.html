@@ -46,6 +46,7 @@
                  type="text" />
         </div>
       </div>
+
       <div class="col-md-6">
         <div class="pb-3">
           <label class="pb-1" for="address"> Address </label>
@@ -57,28 +58,7 @@
                  type="text" />
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="pb-3">
-          <label class="pb-1" for="Amount-Needed"> Amount Needed </label>
 
-          <input id="Amount-Needed"
-                 class="form-control"
-                 formControlName="amountneeded"
-                 placeholder="Amount needed"
-                 type="number" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pb-3">
-          <label class="pb-1" for="Current-Amount"> Current Amount </label>
-
-          <input id="Current-Amount"
-                 class="form-control"
-                 formControlName="currentAmount"
-                 placeholder="Current Amount"
-                 type="number" />
-        </div>
-      </div>
       <div class="col-md-6">
         <div class="pb-3">
           <label class="pb-1" for="Total-Amount"> Total Amount </label>
@@ -102,23 +82,14 @@
         </div>
       </div>
 
+      <app-file-upload>Upload Document</app-file-upload>
+
       <div class="text-center mt-2">
-        <!-- <input class="btn btn-lg m-auto" type="submit" value="Add Case" />
-    -->
         <button type="submit" class="custom-btn btn-6 btn btn-lg px-3">
           <span>Seek Assistance</span>
         </button>
       </div>
 
-      <!--
-   <div *ngIf="loggedintype === 'case'" class="text-center mt-2">
-     <!-- <input class="btn btn-lg m-auto" type="submit" value="Add Case" />
-
-    <button (click)="RequestAssistance()" type="submit" class="custom-btn btn-6 btn btn-lg px-3">
-      <span>Request Assistance</span>
-    </button>
-  </div>
-   -->
     </div>
   </form>
 </div>

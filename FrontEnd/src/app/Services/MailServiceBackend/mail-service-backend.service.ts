@@ -23,4 +23,16 @@ export class MailServiceBackendService {
       }))
   }
 
+  fakemessagenewsletter(): Observable<any> {
+    const fakemessage = {} as ContactMessage
+    fakemessage.ToEmail = "mostafa.maher98@gmail.com"
+    fakemessage.Subject = "You Have Subscribed to Newsletters"
+    fakemessage.Body = "Thank you for subscribing to Newsletters"
+    return this.http.post<any>(this.mailsubmiturl, fakemessage, { observe: 'response' })
+      .pipe(map(data => {
+        return data.status
+      }))
+  }
+
+
 }

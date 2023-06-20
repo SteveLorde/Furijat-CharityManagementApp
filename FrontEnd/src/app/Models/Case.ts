@@ -1,8 +1,9 @@
 import { Charity } from "./Charity"
+import { Donation } from "./Donation"
 
 export interface Case {
 
-  id: 0,
+  id: number
   userName: string
   firstName: string
   lastName: string
@@ -12,9 +13,9 @@ export interface Case {
   phone: string
   description: string
   address: string
-  currentAmount: number
   totalAmount: number
   marriageStatus: string
   status: string
   charity: Charity
+  donation: Donation
 }

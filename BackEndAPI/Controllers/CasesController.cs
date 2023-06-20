@@ -61,7 +61,7 @@ namespace BackEndAPI.Controllers
 
 
         // PUT: api/Case/updateCase/5
-        [HttpPut("updateCase/{d}")]
+        [HttpPut("updateCase/{id}")]
         public async Task<IActionResult> PutCase(int id, CaseDTO casesDTO)
         {
             if (id != casesDTO.Id)
@@ -143,11 +143,8 @@ namespace BackEndAPI.Controllers
             {
                 return NotFound("Charity not found");
             }
-            if(Cases.Charities == null)
-            {
-                Cases.Charities = new List<Charity>();
-            }
-            Cases.Charities.Add(charity);
+    
+            Cases.Charity =charity;
             await _context.SaveChangesAsync();
             return Ok(new { message = "Case created successfully" });
         }

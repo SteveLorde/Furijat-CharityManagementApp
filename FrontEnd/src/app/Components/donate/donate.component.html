@@ -2,32 +2,18 @@
 
 <h2>Your Donation will be forwarded to the respective Charity of this case</h2>
 
+<h2>Charity Of This Case</h2>
+<h3>{{charity.name}}</h3>
+
 <div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
-  <table class="styled-table">
-    <thead>
-      <tr class="text-center">
-        <th scope="col">Case ID</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Address</th>
-        <th scope="col">Case Current Amount</th>
-        <th scope="col">Case Total Amount Needed</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="active-row text-center" *ngFor="let cases of case">
-        <td>{{ case.id }}</td>
-        <td>{{ case.firstName }}</td>
-        <td>{{ case.lastName }}</td>
-        <td>{{ case.description }}</td>
-        <td>{{ case.address }}</td>
-        <td>{{ case.currentAmount }}</td>
-        <td>{{ case.totalAmount }}</td>
-        <td>{{ case.status }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <h2>Case Name</h2>
+    <h2>{{ case.firstName }} {{ case.lastName }}</h2>
+   <h2>Case Description</h2>
+        <h2>{{ case.description }}</h2>
+  <h2>Case Address</h2>
+        <h2>{{ case.address }}</h2>
+  <h2>Case Total Debt</h2>
+        <h2>{{ case.totalAmount }}</h2>
 </div>
 
 <h2></h2>

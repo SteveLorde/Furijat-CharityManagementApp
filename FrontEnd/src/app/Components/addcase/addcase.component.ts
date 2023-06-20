@@ -4,6 +4,9 @@ import { BackendCommunicationService } from '../../Services/BackendCommunication
 import { Case } from 'src/app/Models/Case';
 import { Charity } from '../../Models/Charity';
 import { User } from '../../Models/User';
+import { UserStorageService } from '../../Services/UserStorageService/user-storage.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addcase',
@@ -17,64 +20,52 @@ export class AddcaseComponent implements OnInit {
   CaseReq: Case
   charityemail: any
   loggedintype: any
+  user: User
 
-  constructor(private http: BackendCommunicationService) { }
+  constructor(private http: BackendCommunicationService, private userstorage: UserStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loggedintype = localStorage.getItem('UserType')
+    this.GetUser()
     this.GetCharities()
 
   }
 
+  GetUser() {
+      this.user.id = this.userstorage.user.id
+  }
  
 
   AddCaseForm = new UntypedFormGroup({
     firstname: new UntypedFormControl(),
     lastname: new UntypedFormControl(),
     description: new UntypedFormControl(),
-    address: new UntypedFormControl(),
-    amountneeded: new UntypedFormControl(),
-    currentamount: new UntypedFormControl(),
+    location: new UntypedFormControl(),
     totalamount: new UntypedFormControl(),
     charityid: new UntypedFormControl(),
   })
 
   AddCase() {
-    this.CaseReq = {} as Case
-    this.CaseReq.firstName = this.AddCaseForm.get('firstname').value
-    this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
-    this.CaseReq.description = this.AddCaseForm.get('description').value
-    this.CaseReq.address = this.AddCaseForm.get('address').value
-    this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
-    this.CaseReq.totalAmount = this.AddCaseForm.get('totalamount').value
-    this.CaseReq.status = "Pending"
-    this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
-    this.http.addCase(this.CaseReq).subscribe((res: any) => { })
+    let CaseReq = this.AddCaseForm.value
+    CaseReq.status = "pending"
+    this.http.addCase(CaseReq).subscribe()
+    this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
+      Swal.fire({
+        title: `Case ${CaseReq.name} registered successfully`,
+        showCancelButton: false,
+        confirmButtonText: 'OK'
+      }).then((result) => {
+        this.router.navigateByUrl('/login')
+      });
+    },
+      (error) => {
+        Swal.fire(error.error)
+      })
   }
-
-  /*
-  RequestAssistance() {
-    this.CaseReq = {} as Case
-    this.CaseReq.firstName = this.AddCaseForm.get('firstname').value
-    this.CaseReq.lastName = this.AddCaseForm.get('lastname').value
-    this.CaseReq.description = this.AddCaseForm.get('description').value
-    this.CaseReq.address = this.AddCaseForm.get('address').value
-    this.CaseReq.currentAmount = this.AddCaseForm.get('currentamount').value
-    this.CaseReq.totalAmount = this.AddCaseForm.get('totalamount').value
-    this.CaseReq.status = "Pending"
-    this.CaseReq.charity.id = this.AddCaseForm.get('charityid').value
-    this.http.updateCase(this.CaseReq).subscribe((res: any) => { })
-  }
-  */
 
   GetCharities() {
     this.http.getCharity().subscribe((res: any) => {
       this.charity = res;
-    });
-  }
-
-  onSubmitTest() {
-    console.log(this.AddCaseForm.value);
+    })
   }
 
 }

@@ -7,6 +7,7 @@ namespace BackEndAPI.Data.Entites
     public class Creditor
     {
         public int CreditorID { get; set; }
+        public Case Case { get; set; }
         public int CaseID { get; set; }
 
         [MaxLength(11)]
@@ -18,5 +19,6 @@ namespace BackEndAPI.Data.Entites
 
         public string Address { get; set; }
         public decimal Deserves_Amount { get; set; }
+        public virtual ICollection<PaymentToCreditor> PaymentToCreditor { get; set; }
     }
 }

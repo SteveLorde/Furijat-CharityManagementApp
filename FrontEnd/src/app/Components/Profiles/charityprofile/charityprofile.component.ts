@@ -4,6 +4,9 @@ import { Charity } from '../../../Models/Charity';
 import { User } from '../../../Models/User';
 import { BackendCommunicationService } from '../../../Services/BackendCommunication/backend-communication.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Donation } from '../../../Models/Donation';
+import { DonatorService } from '../../../Services/DonatorService/donator.service';
 
 
 @Component({
@@ -13,13 +16,23 @@ import { Router } from '@angular/router';
 })
 export class CharityprofileComponent {
 
-  constructor(private http: BackendCommunicationService, private router: Router) { }
+  constructor(private http: BackendCommunicationService, private router: Router, private donationservice: DonatorService) { }
 
   ngOnInit(): void {
+    this.GetProfileCharity()
   }
 
   user = {} as User
   Cases = { charity: {} as Charity } as Case
+  charity = { cases: {} as Case } as Charity
+  Donations = {} as Donation
+
+  CharityID: any
+
+  filtercharityid: any = this.charity.id
+
+  statusfilter: any 
+
   id: any
   utid: any
   usertype: any
@@ -29,40 +42,69 @@ export class CharityprofileComponent {
 
   }
 
-  Message() {
-    this.router.navigateByUrl('/contactform');
+  GetProfileCharity() {
+    this.http.getCharitybyId(this.CharityID).subscribe((res: Charity) => {
+        this.charity = res
+      })
+      this.GetCases()
   }
 
+  GetDonations() {
+    this.donationservice.getDonations().subscribe((res: Donation) => {
+      this.Donations = res
+    })
+  }
+
+  Message(element: Case) {
+    this.router.navigate(['/contactform'], { queryParams: { selectedemail: element.userName + '@gmail.com' } })
+  }
+  
   GetCases() {
     this.http.getCases().subscribe((res) => {
       this.Cases = res
     })
   }
+  
 
-
-  EditCase() {
-
+  ProvideAssistance() {
+    this.router.navigateByUrl('/provideassistancebycharity')
   }
 
   approve(element: any, id:any ) {
     element.id = id
-    element.status = "In Need"
+    element.status = "approved"
     element.charity.id =
     this.http.updateCase(id, element).subscribe()
   }
 
   reject(element: Case, id: any) {
     element.id = id
-    element.status = "waiting"
+    element.status = "pending"
     element.charity.id = 0
     this.http.updateCase(id,element).subscribe()
   }
-  ProvideAssistance() {
-    this.router.navigateByUrl('/provideassistancebycharity')
+
+  ManageCaseDonations(element: Case) {
+    this.router.navigate(['/managecasedonations'], { queryParams: { id: element.id} })
   }
 
-  DeleteCase(id: any) {
-
+  DeleteCase(element: Case) {
+    this.http.DeleteCase(element.id).subscribe((res: any) => {
+      Swal.fire({
+        title: 'Case Deleted',
+        showCancelButton: false,
+        confirmButtonText: 'Ok',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload()
+        }
+      })
+    },
+      error => {
+        Swal.fire('Error, Case not deleted')
+      }
+    )
   }
 
 }
