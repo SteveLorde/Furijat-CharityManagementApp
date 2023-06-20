@@ -9,6 +9,7 @@ namespace BackEndAPI.DTOs
 {
     public class CharityDTO
     {
+        public string UserName { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

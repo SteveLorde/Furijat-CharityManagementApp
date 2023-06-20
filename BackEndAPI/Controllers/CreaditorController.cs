@@ -14,6 +14,10 @@ using System.Linq.Expressions;
 using System;
 using System.Security.Policy;
 using BackEndAPI.Data.Entites;
+using BackEndAPI.Services;
+using BackEndAPI.Views;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BackEndAPI.Controllers
 {
@@ -22,12 +26,13 @@ namespace BackEndAPI.Controllers
     {
         private readonly IAppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ITokenService _tokenService;
 
-
-        public CreditorController(IAppDbContext context, IMapper mapper)
+        public CreditorController(IAppDbContext context, IMapper mapper, ITokenService tokenService)
         {
             _context = context;
             _mapper = mapper;
+            _tokenService = tokenService;
         }
 
         // GET: api/Creditors
@@ -148,5 +153,57 @@ namespace BackEndAPI.Controllers
 
             return Ok(creditorDTO);
         }
+        [HttpPost("login")]
+        public async Task<ActionResult<CreditorDTO>> Login(LoginDTO _creditor)
+        {
+
+            var creditor = await _context.Creditors.All
+                //.Include(e => e.UserType)
+                .SingleOrDefaultAsync(e => e.UserName ==_creditor.Username.ToLower()); ;
+            creditor = creditor switch
+            {
+                //Admin => await _context.Admins.All
+                //    .Include(e => e.Charity)
+                //    .SingleOrDefaultAsync(e => e.UserName == _creditor.Username.ToLower()),
+                //Case => await _context.Cases.All
+                //    .Include(e => e.Charity)
+                   // .SingleOrDefaultAsync(e => e.UserName == _creditor.Username.ToLower()),
+               Creditor => await _context.Creditors.All
+                    .SingleOrDefaultAsync(e => e.UserName == _creditor.Username.ToLower()),
+                _ => null,
+            };
+
+            if (creditor == null) return Unauthorized("Invalid username");
+
+            using var hmac = new HMACSHA512(creditor.PasswordSalt);
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(_creditor.Password));
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != creditor.PasswordHash[i]) return Unauthorized("Invalid password");
+            }
+
+            //   var charity = user is Admin ? await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == (user as Admin).Charity.Id) : await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == (user as Case).Charity.Id);
+
+            return new CreditorDTO()
+            {
+                UserName = creditor.UserName,
+                Id = creditor.CreditorID,
+                Phone = creditor.Phone,
+                Description = creditor.Description,
+                Payment_Account = creditor.Payment_Account,
+                Address = creditor.Address,
+                Deserves_Amount = creditor.Deserves_Amount,
+                Token = _tokenService.CreateToken(creditor),
+                CaseID = creditor.CaseID
+            };
+        }
+        private async Task<bool> UserExists(string username)
+        {
+            if (await _context.Admins.All.AnyAsync(user => user.UserName == username.ToLower())) return true;
+            if (await _context.Cases.All.AnyAsync(user => user.UserName == username.ToLower())) return true;
+            if (await _context.Donators.All.AnyAsync(user => user.UserName == username.ToLower())) return true;
+            return false;
+        }
     }
 }
+
