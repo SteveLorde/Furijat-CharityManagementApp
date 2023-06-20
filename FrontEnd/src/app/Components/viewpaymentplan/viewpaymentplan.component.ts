@@ -37,7 +37,7 @@ export class ViewpaymentplanComponent {
     this.id = this._Activatedroute.snapshot.paramMap.get("id");
     this.http.getCasesById(this.id).subscribe((res: Case) => {
       this.case = res
-      this.charity = res.charity
+      this.charity = res.charities
     })
   }
 

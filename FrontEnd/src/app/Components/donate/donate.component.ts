@@ -30,7 +30,7 @@ export class DonateComponent implements OnInit {
     this.id = this._Activatedroute.snapshot.paramMap.get("id")
     this.http.getCasesById(this.id).subscribe((res: Case) => {
       this.case = res
-      this.charity = res.charity
+      this.charity = res.charities
     })
     //this.case.currentAmount = this.case.currentAmount + this.donateamount
   }

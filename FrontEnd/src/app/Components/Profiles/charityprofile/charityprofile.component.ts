@@ -23,7 +23,7 @@ export class CharityprofileComponent {
   }
 
   user = {} as User
-  Cases = { charity: {} as Charity } as Case
+  Cases = { charities: {} as Charity } as Case
   charity = { cases: {} as Case } as Charity
   Donations = {} as Donation
 
@@ -81,7 +81,7 @@ export class CharityprofileComponent {
   reject(element: Case, id: any) {
     element.id = id
     element.status = "pending"
-    element.charity.id = 0
+    element.charities.id = 0
     this.http.updateCase(id,element).subscribe()
   }
 

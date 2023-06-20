@@ -21,7 +21,7 @@ import { UserStorageService } from '../../Services/UserStorageService/user-stora
 export class ProfileComponent implements OnInit {
   //create object "user" of User model
   user = {} as User
-  Cases = { charity: {} as Charity } as Case
+  Cases = { charities: {} as Charity } as Case
   id: any
   utid: any
   usertype: any

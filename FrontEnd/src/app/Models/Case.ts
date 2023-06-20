@@ -16,6 +16,6 @@ export interface Case {
   totalAmount: number
   marriageStatus: string
   status: string
-  charity: Charity
+  charities: Charity
   donation: Donation
 }

@@ -36,12 +36,13 @@ export class AddcaseComponent implements OnInit {
  
 
   AddCaseForm = new UntypedFormGroup({
+    userName: new UntypedFormControl(),
     firstName: new UntypedFormControl(),
     lastName: new UntypedFormControl(),
     description: new UntypedFormControl(),
     location: new UntypedFormControl(),
     totalAmount: new UntypedFormControl(),
-    charityId: new UntypedFormControl(),
+    charity: new  UntypedFormControl(),
   })
 
   AddCase() {
@@ -49,6 +50,8 @@ export class AddcaseComponent implements OnInit {
     CaseReq.status = "pending"
     this.http.addCase(CaseReq).subscribe()
     this.user.userType = "Case"
+    CaseReq.charityId = this.AddCaseForm.get('charity').value
+    console.log(CaseReq)
     this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
       Swal.fire({
         title: `Case ${CaseReq.firstName} registered successfully`,

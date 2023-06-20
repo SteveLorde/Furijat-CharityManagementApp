@@ -11,6 +11,19 @@
 
   <form [formGroup]="AddCaseForm" (ngSubmit)="AddCase()">
     <div class="row container">
+
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="userName"> User Name </label>
+
+          <input class="form-control"
+                 formControlName="userName"
+                 placeholder="user name"
+                 type="text"
+                 id="userName" />
+        </div>
+      </div>
+
       <div class="col-md-6">
         <div class="pb-3">
           <label class="pb-1" for="firstName"> First Name </label>
@@ -68,6 +81,18 @@
                  formControlName="totalAmount"
                  placeholder="Total amount"
                  type="number" />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label for="charity" class="pb-1"> Select Charity </label>
+          <select class="form-select" formControlName="charityid" id="charity">
+            <option [selected]="true">Select Charity to Add Case</option>
+            <option *ngFor="let charity of charity" [ngValue]="charity.id">
+              {{ charity.name }}
+            </option>
+          </select>
         </div>
       </div>
 
