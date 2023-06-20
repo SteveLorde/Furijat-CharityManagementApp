@@ -56,12 +56,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginreq)
       .subscribe(
         (res: any) => {
-        localStorage.setItem('authToken', res.token)
-        localStorage.setItem('loggedin', "1")
-        localStorage.setItem('usertype', res.userType)
-        localStorage.setItem('username', res.userName)
-        const userid = res.id.toString()
-        localStorage.setItem('userid', userid)
+         this.userstorage.user = res
+         this.userstorage.loggedin = 1
+        console.log(this.userstorage.user)
         this.GoProfile()
         },
         (error) => {

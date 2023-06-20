@@ -1,5 +1,7 @@
 import { Component, HostBinding, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { UserStorageService } from '../../Services/UserStorageService/user-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +13,7 @@ export class NavbarComponent {
   loggedin: any
   signoutvisible: boolean = false
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private userstorage: UserStorageService) { }
 
   ngOnInit() {
     this.loggedin = localStorage.getItem('loggedin');
@@ -29,8 +31,20 @@ export class NavbarComponent {
     }
   }
 
+  CheckLogin() {
+    console.log("logged in is" + this.userstorage.loggedin)
+    if (this.userstorage.loggedin == 1) {
+      this.signoutvisible = true
+      this.router.navigateByUrl('/profile')
+    }
+    else
+    {
+      Swal.fire('Please Login or Register')
+    }
+  }
+
   Signout() {
-    localStorage.clear()
+    this.userstorage.DeleteStorage()
     this.router.navigateByUrl('/home')
     location.reload()
   }

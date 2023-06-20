@@ -21,6 +21,8 @@ import { ProvideassistanceComponent } from './Components/provideassistance/provi
 import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpaymentplan.component';
 import { EditDataComponent } from './Components/edit-data/edit-data.component';
 import { ManagecasedonationsComponent } from './Components/managecasedonations/managecasedonations.component';
+import { AddcreditorComponent } from './Components/addcase/addcreditor/addcreditor.component';
+import { AdddonatorComponent } from './Components/addcase/adddonator/adddonator.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,8 @@ const routes: Routes = [
       { path: 'charitylist', component: CharitydonationComponent },
       //{ path: 'donatecharity/:id', component: DonatecharityComponent },
       { path: 'addcharity', component: AddcharityComponent },
+      { path: 'adddonator', component: AdddonatorComponent },
+      { path: 'addcreditor', component: AddcreditorComponent },
       { path: 'validatecase', component: ValidatecaseComponent },
       { path: 'contactform', component: ContactformComponent },
       { path: 'addcase', component: AddcaseComponent },

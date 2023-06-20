@@ -11,6 +11,7 @@ import { CreditorprofileComponent } from 'src/app/Components/Profiles/creditorpr
 import { DebtorprofileComponent } from 'src/app/Components/Profiles/debtorprofile/debtorprofile.component'
 import { CharityprofileComponent } from 'src/app/Components/Profiles/charityprofile/charityprofile.component'
 import { DonatorService } from '../../Services/DonatorService/donator.service';
+import { UserStorageService } from '../../Services/UserStorageService/user-storage.service';
 
 @Component({
   selector: 'app-profile',
@@ -29,7 +30,7 @@ export class ProfileComponent implements OnInit {
 
 
 
-  constructor(private _servercom: BackendCommunicationService, private authService: AuthService, private router: Router, private donatorservice: DonatorService) { }
+  constructor(private _servercom: BackendCommunicationService, private authService: AuthService, private router: Router, private donatorservice: DonatorService, private userstorage: UserStorageService) { }
 
   ngOnInit(): void {
     
@@ -42,6 +43,8 @@ export class ProfileComponent implements OnInit {
   @ViewChild('childComponent', { static: true }) creditorprofilechild: CreditorprofileComponent
 
   GetProfile() {
+    this.usertype = this.userstorage.user.userType
+    /*
     this.usertype = localStorage.getItem('usertype')
     switch (this.usertype) {
       case "User":
@@ -68,6 +71,7 @@ export class ProfileComponent implements OnInit {
       case "Creditor":
         break
     }
+    */
   }
 
   GetCharityProfile() {
@@ -75,15 +79,19 @@ export class ProfileComponent implements OnInit {
   }
 
   RegisterAsCharity() {
-    this.router.navigate(['/addcharity'], { queryParams: { id: this.user.id } })
+    this.router.navigateByUrl('/addcharity')
   }
 
   RegisterAsCase() {
-    this.router.navigate(['/addcase'], { queryParams: { id: this.user.id } })
+    this.router.navigateByUrl('/addcase')
   }
 
   RegisterAsDonator() {
-    //this.router.navigate(['/addcase'], { queryParams: { id: this.user.id } })
+    this.router.navigateByUrl('/adddonator')
+  }
+
+  RegisterAsCreditor() {
+    this.router.navigateByUrl('/addcreditor')
   }
 
 }
