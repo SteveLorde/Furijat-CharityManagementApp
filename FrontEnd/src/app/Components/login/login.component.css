@@ -1,8 +1,3 @@
-html,
-body {
-  height: 100%;
-}
-
 body {
   display: flex;
   align-items: center;
@@ -96,4 +91,9 @@ a:hover {
 }
 .card-body h2 {
   color: #719ece;
+}
+.btn-secondary {
+  color: #fff;
+  background-color: #f78f49;
+  border-color: transparent;
 }
