@@ -44,6 +44,7 @@ export class ProfileComponent implements OnInit {
 
   GetProfile() {
     this.usertype = this.userstorage.user.userType
+    this.username = this.userstorage.user.userName
     /*
     this.usertype = localStorage.getItem('usertype')
     switch (this.usertype) {

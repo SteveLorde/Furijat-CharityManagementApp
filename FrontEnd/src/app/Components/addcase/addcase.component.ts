@@ -36,12 +36,12 @@ export class AddcaseComponent implements OnInit {
  
 
   AddCaseForm = new UntypedFormGroup({
-    firstname: new UntypedFormControl(),
-    lastname: new UntypedFormControl(),
+    firstName: new UntypedFormControl(),
+    lastName: new UntypedFormControl(),
     description: new UntypedFormControl(),
     location: new UntypedFormControl(),
-    totalamount: new UntypedFormControl(),
-    charityid: new UntypedFormControl(),
+    totalAmount: new UntypedFormControl(),
+    charityId: new UntypedFormControl(),
   })
 
   AddCase() {
