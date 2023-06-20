@@ -19,6 +19,7 @@ namespace BackEndAPI.DTOs
         public string Email { get; set; }
         public string Website { get; set; }
         public string? Status { get; set; }
+        public string Token { get; set; }
         public virtual ICollection<UserDTO> Users { get; set; }
         public virtual ICollection<CaseDTO> Cases { get; set; }
         //public virtual ICollection<Dona> Donation { get; set; }

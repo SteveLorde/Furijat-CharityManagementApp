@@ -28,6 +28,8 @@ namespace BackEndAPI.Installers
                 cfg.CreateMap<PaymentToCreditor, PaymentToCreditorDTO>();
                 cfg.CreateMap<DonationDTO, Donation>();
                 cfg.CreateMap<Donation, DonationDTO>();
+                cfg.CreateMap<Creditor, CreditorDTO>();
+                cfg.CreateMap<CreditorDTO, Creditor>();
             }).CreateMapper());
         }
     }

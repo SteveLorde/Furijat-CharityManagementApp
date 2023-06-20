@@ -18,6 +18,7 @@ using BackEndAPI.Services;
 using BackEndAPI.Views;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace BackEndAPI.Controllers
 {
@@ -153,6 +154,34 @@ namespace BackEndAPI.Controllers
 
             return Ok(creditorDTO);
         }
+        [HttpPost("register")]
+        public async Task<ActionResult<CreditorDTO>> Register(RegisterCreditorDTO _user)
+        {
+            if (await UserExists(_user.UserName)) return BadRequest("Username is taken");
+            using var hmac = new HMACSHA512();
+
+            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == _user.CaseID);
+
+            if (_case == null) return BadRequest("Invalid Case Id");
+
+            var creditor = new Creditor() { 
+            UserName = _user.UserName.ToLower(),
+            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(_user.Password)),
+            PasswordSalt = hmac.Key,
+            CaseID = _case.Id,
+            Phone = _user.Phone,
+            Description = _user.Description,
+            Address=_user.Address,
+            
+            };
+
+
+            _context.Creditors.Add(creditor);
+            await _context.SaveChangesAsync();
+            var dto=  _mapper.Map<CreditorDTO>(creditor);
+            dto.Token = _tokenService.CreateToken(creditor);
+            return dto;
+        }
         [HttpPost("login")]
         public async Task<ActionResult<CreditorDTO>> Login(LoginDTO _creditor)
         {
@@ -160,18 +189,7 @@ namespace BackEndAPI.Controllers
             var creditor = await _context.Creditors.All
                 //.Include(e => e.UserType)
                 .SingleOrDefaultAsync(e => e.UserName ==_creditor.Username.ToLower()); ;
-            creditor = creditor switch
-            {
-                //Admin => await _context.Admins.All
-                //    .Include(e => e.Charity)
-                //    .SingleOrDefaultAsync(e => e.UserName == _creditor.Username.ToLower()),
-                //Case => await _context.Cases.All
-                //    .Include(e => e.Charity)
-                   // .SingleOrDefaultAsync(e => e.UserName == _creditor.Username.ToLower()),
-               Creditor => await _context.Creditors.All
-                    .SingleOrDefaultAsync(e => e.UserName == _creditor.Username.ToLower()),
-                _ => null,
-            };
+            
 
             if (creditor == null) return Unauthorized("Invalid username");
 
@@ -199,10 +217,7 @@ namespace BackEndAPI.Controllers
         }
         private async Task<bool> UserExists(string username)
         {
-            if (await _context.Admins.All.AnyAsync(user => user.UserName == username.ToLower())) return true;
-            if (await _context.Cases.All.AnyAsync(user => user.UserName == username.ToLower())) return true;
-            if (await _context.Donators.All.AnyAsync(user => user.UserName == username.ToLower())) return true;
-            return false;
+            return await _context.Creditors.All.AnyAsync(user => user.UserName == username.ToLower());
         }
     }
 }

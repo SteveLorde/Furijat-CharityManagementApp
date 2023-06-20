@@ -7,5 +7,6 @@ namespace BackEndAPI.Interfaces
     {
         string CreateToken(User user);
         string CreateToken(Creditor creditor);
+        string CreateToken(Charity charity);
     }
 }

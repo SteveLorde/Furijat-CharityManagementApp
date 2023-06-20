@@ -7,11 +7,11 @@ namespace BackEndAPI.DTOs
 {
     public class DonationDTO
     {
-        public int CaseDTOId { get; set; }
+        public int CaseId { get; set; }
         public CaseDTO Case { get; set; }
-        public int CharityDTOId { get; set; }
+        public int CharityId { get; set; }
         public CharityDTO Charity { get; set; }
-        public int DonatorDTOId { get; set; }
+        public int DonatorId { get; set; }
         public DonatorDTO Donator { get; set; }
         public decimal Amount { get; set; }
         public DateTime Time { get; set; }
