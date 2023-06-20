@@ -39,7 +39,7 @@ export class DonateComponent implements OnInit {
     //this.case.currentAmount = this.case.currentAmount + this.donateamount
     //console.log("current amount is ", this.case.currentAmount)
     this.CreateDonationPayment()
-    this.http.updateCase(this.case, this.id).subscribe()
+    this.http.updateCase(this.id,this.case).subscribe()
     this.Close()
   }
 
