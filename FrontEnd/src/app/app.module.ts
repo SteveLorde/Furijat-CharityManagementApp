@@ -49,6 +49,8 @@ import { FilterbystatusPipe } from './Services/Pipes/filterbystatus.pipe';
 import { ManagecasedonationsComponent } from './Components/managecasedonations/managecasedonations.component';
 import { FilterbydonatoridPipe } from './Services/Pipes/filterbydonatorid.pipe';
 import { FilterbycaseidPipe } from './Services/Pipes/filterbycaseid.pipe';
+import { AddcreditorComponent } from './Components/addcase/addcreditor/addcreditor.component';
+import { AdddonatorComponent } from './Components/addcase/adddonator/adddonator.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,8 @@ import { FilterbycaseidPipe } from './Services/Pipes/filterbycaseid.pipe';
     ManagecasedonationsComponent,
     FilterbydonatoridPipe,
     FilterbycaseidPipe,
+    AddcreditorComponent,
+    AdddonatorComponent,
   ],
   imports: [
     BrowserModule,

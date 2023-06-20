@@ -31,32 +31,28 @@ export class AddcharityComponent implements OnInit {
   AddCharityForm = new UntypedFormGroup({
     name: new UntypedFormControl(),
     description: new UntypedFormControl(),
-    address: new UntypedFormControl(),
+    location: new UntypedFormControl(),
     phonenumber: new UntypedFormControl(),
     email: new UntypedFormControl(),
   })
 
   AddCharity() {
-    const charity = this.AddCharityForm.value
+    let charity = this.AddCharityForm.value
     charity.status = "pending"
     console.log(charity)
     this.http.addCharity(charity).subscribe()
-    /*
     this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
       Swal.fire({
         title: `Charity ${charity.name} registered successfully`,
         showCancelButton: false,
-        confirmButtonText: 'Login',
-        cancelButtonText: 'Home'
+        confirmButtonText: 'OK'
       }).then((result) => {
-        if (result.isConfirmed) {
-          this.router.navigate(['/login']) // Replace '/new-page' with the desired route
-        })
+        this.router.navigateByUrl('/login')
+      });
     },
       (error) => {
         Swal.fire(error.error)
       })
-      */
   }
 
 }
