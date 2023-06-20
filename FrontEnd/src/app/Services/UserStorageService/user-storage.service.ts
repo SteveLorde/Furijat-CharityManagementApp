@@ -6,32 +6,27 @@ import { UserType } from '../../Models/UserType';
   providedIn: 'root'
 })
 export class UserStorageService {
-  /*
 
-
-  user: User = {
-      userId: 0,
-      userType: '',
-      password: '',
-      userName: '',
-      firstName: '',
-      lastNaame: '',
-      userTypeID: 0,
-      token: ''
-  }
+  user = {} as User
+  loggedin: any
 
   constructor() { }
 
-  RetrieveLoginData(id: number, name: string) {
-    if (this.user.userId == 0) {
-      const errormessage = "Error, Not Valid User"
-    }
-    else
-    {
-      this.user.userId = id
+  RetrieveLogin(id: number, name: string, usertype: string) {
+      this.user.id = id
       this.user.userName = name
-    }
+      this.user.userType = usertype
+      this.loggedin = 1
   }
-  */
-}
+
+  DeleteStorage() {
+    this.user.id = null
+    this.user.userName = null
+    this.user.userType = null
+    this.loggedin = 0
+  }
+
+
+
+  }
 

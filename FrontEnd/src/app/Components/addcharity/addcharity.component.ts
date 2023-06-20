@@ -4,6 +4,8 @@ import { BackendCommunicationService } from '../../Services/BackendCommunication
 import { Charity } from 'src/app/Models/Charity';
 import { Router } from '@angular/router';
 import { User } from '../../Models/User';
+import { UserStorageService } from '../../Services/UserStorageService/user-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addcharity',
@@ -15,10 +17,14 @@ export class AddcharityComponent implements OnInit {
   charity: Charity
   user: User
 
-  constructor(private http: BackendCommunicationService, private router: Router) { }
+  constructor(private http: BackendCommunicationService, private router: Router, private userstorage: UserStorageService) { }
 
   ngOnInit(): void {
-    
+    this.GetUser()
+  }
+
+  GetUser() {
+    this.user.id = this.userstorage.user.id
   }
 
 
@@ -30,15 +36,25 @@ export class AddcharityComponent implements OnInit {
     email: new UntypedFormControl(),
   })
 
-  AddCharity(charity: Charity) {
-    charity = this.AddCharityForm.value
+  AddCharity() {
+    const charity = this.AddCharityForm.value
     charity.status = "pending"
     console.log(charity)
     this.http.addCharity(charity).subscribe()
-    this.http.getUserbyId(this.user.id).subscribe((res: User) => {
-
-    })
-    
+    this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
+      Swal.fire({
+        title: 'Account Registered Successfully',
+        showCancelButton: true,
+        confirmButtonText: 'Login',
+        cancelButtonText: 'Home'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.router.navigate(['/login']) // Replace '/new-page' with the desired route
+        })
+    },
+      (error) => {
+        Swal.fire(error.error)
+      })
   }
 
   onSubmit() {

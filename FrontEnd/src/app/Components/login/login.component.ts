@@ -12,6 +12,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthGuard } from '../../Services/AuthGuard/authguard';
 import { User } from '../../Models/User';
 import Swal from 'sweetalert2';
+import { UserStorageService } from '../../Services/UserStorageService/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
   role: any
   error:any
 
-  constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard) {
+  constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard, private userstorage: UserStorageService) {
   }
 
   LogintForm: FormGroup = new FormGroup({
