@@ -1,7 +1,7 @@
 <div class="container">
   <button (click)="assistanceform = !assistanceform" class="btn"></button>
 
-<<<<<<< HEAD
+  <<<<<<< HEAD
   <div *ngIf="assistanceform">
     <app-addcase></app-addcase>
     <app-file-upload></app-file-upload>
@@ -30,62 +30,59 @@
 =======
 
 <h3>Case Status</h3>
-<h3>{{case.status}}</h3>
-
+<h3>{{ case.status }}</h3>
+<h3>Total Amount of your Debt</h3>
+<h3>{{ case.totalAmount }}</h3>
+<h3>Your Charities</h3>
+<h3 *ngFor="let case of case">{{ case.charity.name }}</h3>
 
 <button (click)="assistanceform = !assistanceform">Assistance Form</button>
 <button>Contact</button>
 
 <h2>Creditors Requests</h2>
-  <div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
-    <table class="styled-table">
-      <thead>
-        <tr class="text-center">
-          <th scope="col">Creditor ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Address</th>
-          <th scope="col">Address</th>
-          <th scope="col">Payment Method</th>
-          <th scope="col">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="tablerow text-center"
-            *ngFor=" let creditor of Creditors | filterbycreditorsbycaseID:  ">
-          <td>{{ creditor.id }}</td>
-          <td>{{ creditor.phone }}</td>
-          <td>{{ creditor.address }}</td>
-          <td>{{ creditor.payment_Account }}</td>
-          <td>{{ creditor.status }}</td>
-          <td></td>
-          <td>
-            <button (click)="AcceptCreditor(creditor)">Accept</button>
-            <button (click)="RejectCreditor(creditor)">Reject</button>
-          </td>
-        </tr>
-        <tr></tr>
-      </tbody>
-    </table>
-  </div>
+<div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+  <table class="styled-table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Creditor ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Address</th>
+        <th scope="col">Payment Method</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="tablerow text-center"
+        *ngFor="
+          let creditor of Creditors | filterbycreditorsbycaseID : caseidtofilter
+        "
+      >
+        <td>{{ creditor.id }}</td>
+        <td>{{ creditor.phone }}</td>
+        <td>{{ creditor.address }}</td>
+        <td>{{ creditor.payment_Account }}</td>
+        <td>{{ creditor.status }}</td>
+        <td></td>
+        <td>
+          <button (click)="AcceptCreditor(creditor)">Accept</button>
+          <button (click)="RejectCreditor(creditor)">Reject</button>
+        </td>
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table>
+</div>
 
 <div *ngIf="assistanceform">
-  <h3>Your First Name</h3>
-  <input class="form-control" formControlName="firstName" />
-  <h3>Your Last Name</h3>
-  <input class="form-control" formControlName="lastName" />
-  <h3>Your Case Description</h3>
-  <input class="form-control" formControlName="firstName" />
-  <h3>Required Amount</h3>
-  <input class="form-control" formControlName="firstName" />
-  <h3>Your Address</h3>
-  <input class="form-control" formControlName="firstName" />
-  <h3>Your Phone Number</h3>
-  <input class="form-control" formControlName="firstName" />
   <h3>Choose Charity to request</h3>
   <select class="form-control" formControlName="selectedcharity">
     <option value="" disabled selected>Select Charity to apply for</option>
-    <option [ngValue]="null" *ngFor="let charities of Charities">{{charities.name}})</option>
+    <option [ngValue]="charities" *ngFor="let charities of Charities">
+      {{ charities.name }})
+    </option>
   </select>
   <button (click)="ApplyForAssistance()"></button>
 
@@ -93,10 +90,10 @@
 </div>
 
 <h2>Your Case Status</h2>
-<h2>{{case.status}}</h2>
+<h2>{{ case.status }}</h2>
 
 <h2>Your Charity</h2>
-<h2>{{case.charity.name}}</h2>
+<h2>{{ case.charity.name }}</h2>
 
 <h2>Current Amount of Assistance</h2>
 
@@ -105,5 +102,4 @@
   -->
 
 <h2>Total Amount Of Debt</h2>
-<h3>{{case.totalAmount}}</h3>
->>>>>>> 5943e17344768e6da77ca16bfbf592486bb02e21
+<h3>{{ case.totalAmount }}</h3>
