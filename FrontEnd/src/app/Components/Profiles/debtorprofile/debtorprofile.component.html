@@ -19,7 +19,7 @@
     <tbody class="text-center">
       <tr *ngFor="let cases of case">
         <td>{{ case.status }}</td>
-        <td>{{ case.charity.name }}</td>
+        <td>{{ case.charities.name }}</td>
         <td>{{ case.currentAmount }}</td>
         <td>{{ case.totalAmount }}</td>
       </tr>
@@ -93,7 +93,7 @@
 <h2>{{ case.status }}</h2>
 
 <h2>Your Charity</h2>
-<h2>{{ case.charity.name }}</h2>
+<h2>{{ case.charities.name }}</h2>
 
 <h2>Current Amount of Assistance</h2>
 
