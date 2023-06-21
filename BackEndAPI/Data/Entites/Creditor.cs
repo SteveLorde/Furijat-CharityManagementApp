@@ -6,6 +6,11 @@ namespace BackEndAPI.Data.Entites
 {
     public class Creditor
     {
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
+        [Required]
+
+        public string UserName { get; set; }
         public int CreditorID { get; set; }
         public Case Case { get; set; }
         public int CaseID { get; set; }

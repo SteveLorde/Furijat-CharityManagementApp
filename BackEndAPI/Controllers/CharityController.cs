@@ -13,6 +13,10 @@ using Nest;
 using System.Linq.Expressions;
 using System;
 using System.Security.Policy;
+using BackEndAPI.Data.Entites;
+using BackEndAPI.Services;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BackEndAPI.Controllers
 {
@@ -21,12 +25,13 @@ namespace BackEndAPI.Controllers
     {
         private readonly IAppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ITokenService _tokenService;
 
-
-        public CharityController(IAppDbContext context, IMapper mapper)
+        public CharityController(IAppDbContext context, IMapper mapper, ITokenService tokenService)
         {
             _context = context;
             _mapper = mapper;
+            _tokenService = tokenService;
         }
 
         // GET: api/Charities
@@ -166,5 +171,74 @@ namespace BackEndAPI.Controllers
 
             return casesDto;
         }
+        [HttpPost("register")]
+        public async Task<ActionResult<CharityDTO>> Register(RegisterCharityDTO _user)
+        {
+            if (await UserExists(_user.UserName)) return BadRequest("Username is taken");
+            using var hmac = new HMACSHA512();
+
+            //var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == _user.);
+
+           // if (_case == null) return BadRequest("Invalid Case Id");
+
+           var _charity = new Charity()
+            {
+                UserName = _user.UserName.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(_user.Password)),
+                PasswordSalt = hmac.Key,
+               //CaseID = _case.Id,
+                Phone = _user.Phone,
+                Description = _user.Description,
+              
+
+            };
+
+
+            _context.Charities.Add(_charity);
+            await _context.SaveChangesAsync();
+            var dto = _mapper.Map<CharityDTO>(_charity);
+            dto.Token = _tokenService.CreateToken(_charity);
+            return dto;
+        }
+        [HttpPost("login")]
+        public async Task<ActionResult<CharityDTO>> Login(LoginDTO _charity)
+        {
+
+            var charities = await _context.Charities.All
+                //.Include(e => e.UserType)
+                .SingleOrDefaultAsync(e => e.UserName == _charity.Username.ToLower()); ;
+
+
+            if (charities == null) return Unauthorized("Invalid username");
+
+            using var hmac = new HMACSHA512(charities.PasswordSalt);
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(_charity.Password));
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != charities.PasswordHash[i]) return Unauthorized("Invalid password");
+            }
+
+            //   var charity = user is Admin ? await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == (user as Admin).Charity.Id) : await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == (user as Case).Charity.Id);
+
+            return new CharityDTO()
+            {
+                UserName = charities.UserName,
+                Id = charities.Id,
+                Phone = charities.Phone,
+                Description = charities.Description,
+                Bank_Account=charities.Bank_Account,
+                Email=charities.Email,
+                Location= charities.Location,
+                Name = charities.Name,
+                Status= charities.Status,
+                Website=charities.Website,
+                
+            };
+        }
+        private async Task<bool> UserExists(string username)
+        {
+            return await _context.Charities.All.AnyAsync(user => user.UserName == username.ToLower());
+        }
+        //}
     }
 }

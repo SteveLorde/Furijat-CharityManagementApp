@@ -58,6 +58,40 @@ namespace BackEndAPI.Controllers
 
             return casesDto;
         }
+        // GET: api/Case/getCaseDonation/5
+        [HttpGet("getCaseDonation/{id}")]
+        public async Task<ActionResult<ICollection<DonationDTO>>> GetCaseDonation(int id)
+        {
+            var Case = await _context.Cases.All
+                 //.Include(e => e.Case)
+                 .SingleOrDefaultAsync(e => e.Id == id);
+
+            if (Case == null)
+            {
+                return NotFound();
+            }
+
+            var casesDto = _mapper.Map<ICollection<DonationDTO>>(Case.Donation).ToList();
+
+            return casesDto;
+        }
+        //// GET: api/Case/getCaseDonation/5
+        //[HttpPost("AddCaseDonation/{id}")]
+        //public async Task<ActionResult<ICollection<DonationDTO>>> AddCaseDonation(int id, DonationDTO donation)
+        //{
+        //    var Case = await _context.Cases.All
+        //         //.Include(e => e.Case)
+        //         .SingleOrDefaultAsync(e => e.Id == id);
+
+        //    if (Case == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var casesDto = _mapper.Map<ICollection<DonationDTO>>(Case.Donation).ToList();
+
+        //    return casesDto;
+        //}
 
 
         // PUT: api/Case/updateCase/5
@@ -78,7 +112,7 @@ namespace BackEndAPI.Controllers
 
 
             // Update charity model with values from DTO
-            _mapper.Map(casesDTO, _Case);
+         _mapper.Map(casesDTO, _Case);
 
             try
             {
