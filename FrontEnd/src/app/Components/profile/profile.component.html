@@ -11,10 +11,8 @@
       <tr class="text-center">
         <td>{{ username }}</td>
         <td>{{ usertype }}</td>
-        <!-- <td *ngIf="usertype === 'Case'">{{ case.status }}</td>
-        <td *ngIf="usertype === 'Charity'">{{ charity.status }}</td> -->
-        <td>hager</td>
-        <td>user</td>
+        <td *ngIf="usertype === 'Case'">{{ case.status }}</td>
+        <td *ngIf="usertype === 'Charity'">{{ charity.status }}</td>
       </tr>
       <tr></tr>
     </tbody>
@@ -26,28 +24,22 @@
     <app-file-upload></app-file-upload>
   </div>
 
-  <pagination-controls (pageChange)="p = $event" class="controls">
-  </pagination-controls>
+  <!-- <pagination-controls (pageChange)="p = $event" class="controls">
+  </pagination-controls> -->
 </div>
 
 <div [ngSwitch]="usertype">
-  <div *ngSwitchCase="'User'">
-    <button
-      class="btn custom-btn btn-2 btn-lg m-auto"
-      (click)="RegisterAsCharity()"
-    >
+  <div *ngSwitchCase="'User'" class="m-auto">
+    <button class="btn custom-btn btn-2 btn-lg" (click)="RegisterAsCharity()">
       Register as Charity
     </button>
     <button
-      class="btn custom-btn btn-2 btn-lg m-auto"
+      class="btn custom-btn middle my-3 btn-2 btn-lg"
       (click)="RegisterAsCase()"
     >
       Register as Debtor
     </button>
-    <button
-      class="btn custom-btn btn-2 btn-lg m-auto"
-      (click)="RegisterAsDonator()"
-    >
+    <button class="btn custom-btn btn-2 btn-lg" (click)="RegisterAsDonator()">
       Register as Donator
     </button>
   </div>

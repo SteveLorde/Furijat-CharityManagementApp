@@ -33,17 +33,18 @@
         <td>{{ charity.name }}</td>
         <td>{{ charity.description }}</td>
         <td>{{ charity.location }}</td>
-        <td>{{ charity.phonenumber }}</td>
-        <td>{{ charity.Email }}</td>
+        <!-- <td>{{ charity.phonenumber }}</td>
+        <td>{{ charity.Email }}</td> -->
+        <td>0102056495</td>
+        <td>adro125@gmail.com</td>
         <td>
           <a
-            class="btn btn-outline-success"
+            class="btn btn-outline-secondary"
             [routerLink]="['/donatecharity', charity.id]"
             >Donate</a
           >
         </td>
-        <td>
-        </td>
+        <td></td>
       </tr>
     </tbody>
   </table>
