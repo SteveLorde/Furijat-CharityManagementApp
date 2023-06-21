@@ -21,6 +21,8 @@ export class DonatorprofileComponent {
   ViewCases() {
     this.router.navigateByUrl('/case')
   }
-
+  Message() {
+    this.router.navigateByUrl('/contactform')
+  }
 
 }

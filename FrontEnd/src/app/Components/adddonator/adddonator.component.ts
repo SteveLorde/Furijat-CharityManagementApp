@@ -32,7 +32,7 @@ export class AdddonatorComponent {
   }
 
   AddDonator() {
-    let donator = {} as Donator
+    let donator: Donator
     donator.id = this.userstorage.user.id
     donator = this.AddDonatorForm.value
     this.http.addDonator(donator).subscribe()
