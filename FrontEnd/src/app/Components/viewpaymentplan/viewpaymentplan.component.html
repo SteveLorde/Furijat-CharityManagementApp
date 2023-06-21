@@ -1,17 +1,14 @@
-<p>viewpaymentplan works!</p>
-
-
 <h2>Case Status</h2>
-<h2>{{case.status}}</h2>
+<h2>{{ case.status }}</h2>
 
 <h2>Case Charity</h2>
-<h2>{{case.charities.name}}</h2>
+<h2>{{ case.charity.name }}</h2>
 
-<h2>Progress of Assistance {{case.totalAmount}}</h2>
+<h2>Progress of Assistance {{ case.totalAmount }}</h2>
 
 <h2>Donations to this Case</h2>
 <ul>
-  <li *ngFor="let donation of Donations">{{donation}}</li>
+  <li *ngFor="let donation of Donations">{{ donation }}</li>
 </ul>
 
 <button (click)="EditCase()">Edit Case Data</button>
@@ -21,3 +18,39 @@
 <button (click)="DebtResolution()">Resolve Debt from Case</button>
 
 <app-contactform *ngIf="contactcase"></app-contactform>
+
+<div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
+  <table class="styled-table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Case Status</th>
+        <th scope="col">Case Charity</th>
+        <th scope="col">Progress of Assistance</th>
+        <th scope="col">Donations to this Case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tablerow text-center" *ngFor="let cases of case">
+        <td>{{ case.status }}</td>
+        <td>{{ case.charity.name }}</td>
+        <td>{{ case.totalAmount }}</td>
+        <td>{{ case.description }}</td>
+        <td>{{ case.address }}</td>
+        <td>{{ case.totalAmount }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let donation of Donations">{{ donation }}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr></tr>
+      <button (click)="EditCase()">Edit Case Data</button>
+
+      <button (click)="ContactCase()">Send Email to Case</button>
+
+      <button (click)="DebtResolution()">Resolve Debt from Case</button>
+
+      <app-contactform *ngIf="contactcase"></app-contactform>
+    </tbody>
+  </table>
+</div>

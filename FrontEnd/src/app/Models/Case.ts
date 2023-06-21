@@ -1,5 +1,5 @@
-import { Charity } from "./Charity"
-import { Donation } from "./Donation"
+import { Charity } from './Charity';
+import { Donation } from './Donation';
 
 export interface Case {
 

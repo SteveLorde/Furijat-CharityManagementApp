@@ -7,25 +7,41 @@
         <th *ngIf="usertype === 'case'" scope="col">User Type</th>
       </tr>
     </thead>
-    <tbody class="text-center">
-      <tr>
+    <tbody>
+      <tr class="text-center">
         <td>{{ username }}</td>
         <td>{{ usertype }}</td>
-        <td *ngIf="usertype === 'Case'">{{case.status}}</td>
-        <td *ngIf="usertype === 'Charity'">{{charity.status}}</td>
+        <td *ngIf="usertype === 'Case'">{{ case.status }}</td>
+        <td *ngIf="usertype === 'Charity'">{{ charity.status }}</td>
       </tr>
       <tr></tr>
     </tbody>
   </table>
+
+  <app-charityprofile *ngIf="usertype == 'charity'"></app-charityprofile>
+
+  <div>
+    <app-file-upload></app-file-upload>
+  </div>
+
+  <!-- <pagination-controls (pageChange)="p = $event" class="controls">
+  </pagination-controls> -->
 </div>
 
-
 <div [ngSwitch]="usertype">
-  <div *ngSwitchCase="'User'">
-    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsCharity()">Register as Charity</button>
-    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsCase()">Register as Debtor</button>
-    <button class="btn custom-btn btn-2 btn-lg m-auto" (click)="RegisterAsDonator()">Register as Donator</button>
-
+  <div *ngSwitchCase="'User'" class="m-auto">
+    <button class="btn custom-btn btn-2 btn-lg" (click)="RegisterAsCharity()">
+      Register as Charity
+    </button>
+    <button
+      class="btn custom-btn middle my-3 btn-2 btn-lg"
+      (click)="RegisterAsCase()"
+    >
+      Register as Debtor
+    </button>
+    <button class="btn custom-btn btn-2 btn-lg" (click)="RegisterAsDonator()">
+      Register as Donator
+    </button>
   </div>
   <app-adminprofile *ngSwitchCase="'Admin'"></app-adminprofile>
   <app-charityprofile *ngSwitchCase="'Charity'"></app-charityprofile>
@@ -40,5 +56,5 @@
 </div>
   -->
 
-<pagination-controls (pageChange)="p = $event" class="controls"> </pagination-controls>
-
+<pagination-controls (pageChange)="p = $event" class="controls">
+</pagination-controls>

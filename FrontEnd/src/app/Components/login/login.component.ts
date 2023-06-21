@@ -5,6 +5,7 @@ import {
   UntypedFormControl,
   UntypedFormGroup,
   Validators,
+  FormBuilder,
 } from '@angular/forms';
 import { AuthService } from 'src/app/Services/Authorization/auth.service';
 import { Login } from '../../Models/Login';
@@ -21,24 +22,37 @@ import { UserStorageService } from '../../Services/UserStorageService/user-stora
 })
 export class LoginComponent implements OnInit {
   //create object "loginrequest" of Login model
-  loginreq: Login 
+  loginreq: Login = {
+    username: '',
+    password: '',
+  };
   //variable that changes to 1/true if login request is successful
   loggedin: number = 0;
   //store user id in variable "id"
   id: any
   //store error response during login
-  loginerror: string = ""
+  loginerror: string = '';
   //role variable for user
-  role: any = ""
-  error: string = ""
+  role: any = '';
+  error: string = '';
 
-  constructor(private router: Router, private authService: AuthService, private authguard: AuthGuard, private userstorage: UserStorageService) {
-  }
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private authguard: AuthGuard,
+    private userstorage: UserStorageService
+  ) {}
 
   LogintForm: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-  })
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+  });
 
   ngOnInit() {
     //this.loggedin = localStorage.getItem('loggedin');
@@ -52,23 +66,22 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginreq = this.LogintForm.value
-    this.authService.login(this.loginreq)
-      .subscribe(
-        (res: any) => {
-         this.userstorage.user = res
-         this.userstorage.loggedin = 1
-        console.log(this.userstorage.user)
-        this.GoProfile()
-        },
-        (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Login Error',
-            text: error.error,
-          })
-        }
-      )
+    this.loginreq = this.LogintForm.value;
+    this.authService.login(this.loginreq).subscribe(
+      (res: any) => {
+        this.userstorage.user = res;
+        this.userstorage.loggedin = 1;
+        console.log(this.userstorage.user);
+        this.GoProfile();
+      },
+      (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Error',
+          text: error.error,
+        });
+      }
+    );
   }
 
   GoProfile() {
@@ -76,6 +89,6 @@ export class LoginComponent implements OnInit {
   }
 
   Back() {
-    this.router.navigateByUrl('/home')
+    this.router.navigateByUrl('/home');
   }
 }

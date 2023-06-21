@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEndAPI.Models
 {
-    public class Charity:BaseModel
+    public class Charity : BaseModel
     {
         [MinLength(3)]
         public string Name { get; set; }

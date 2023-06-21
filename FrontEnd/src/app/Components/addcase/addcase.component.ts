@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms'
+import {
+  UntypedFormGroup,
+  UntypedFormControl,
+  Validators,
+} from '@angular/forms';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
 import { Case } from 'src/app/Models/Case';
 import { Charity } from '../../Models/Charity';
@@ -11,65 +15,81 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-addcase',
   templateUrl: './addcase.component.html',
-  styleUrls: ['./addcase.component.css']
+  styleUrls: ['./addcase.component.css'],
 })
 export class AddcaseComponent implements OnInit {
+  charity: Charity;
+  CaseReq: Case;
+  charityemail: any;
+  loggedintype: any;
+  user: User;
 
- 
-  charity: Charity
-  CaseReq: Case
-  charityemail: any
-  loggedintype: any
-  user: User
-
-  constructor(private http: BackendCommunicationService, private userstorage: UserStorageService, private router: Router) { }
+  constructor(
+    private http: BackendCommunicationService,
+    private userstorage: UserStorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.GetUser()
-    this.GetCharities()
-
+    this.GetUser();
+    this.GetCharities();
   }
 
   GetUser() {
-      this.user = this.userstorage.user
+    this.user = this.userstorage.user;
   }
- 
 
   AddCaseForm = new UntypedFormGroup({
-    userName: new UntypedFormControl(),
     firstName: new UntypedFormControl(),
     lastName: new UntypedFormControl(),
     description: new UntypedFormControl(),
     location: new UntypedFormControl(),
     totalAmount: new UntypedFormControl(),
-    charity: new  UntypedFormControl(),
-  })
+    // charityid: new UntypedFormControl(),
+  });
 
   AddCase() {
-    let CaseReq: Case = this.AddCaseForm.value
-    CaseReq.status = "pending"
-    this.http.addCase(CaseReq).subscribe()
-    this.user.userType = "Case"
-    CaseReq.charityId = this.AddCaseForm.get('charity').value
-    console.log(CaseReq)
-    this.http.UpdateUser(this.user.id, this.user).subscribe((res: User) => {
-      Swal.fire({
-        title: `Case ${CaseReq.firstName} registered successfully`,
-        showCancelButton: false,
-        confirmButtonText: 'OK'
-      }).then((result) => {
-        this.router.navigateByUrl('/login')
-      });
-    },
+    // let CaseReq: Case = this.AddCaseForm.value;
+    // CaseReq.status = 'pending';
+    // this.http.addCase(CaseReq).subscribe();
+    // this.user.userType = 'Case';
+    // console.log(CaseReq);
+    // console.log(CaseReq.firstName);
+    // this.http.UpdateUser(this.user.id, this.user).subscribe(
+    //   (res: User) => {
+    //     Swal.fire({
+    //       title: `Case ${CaseReq.firstName} registered successfully`,
+    //       showCancelButton: false,
+    //       confirmButtonText: 'OK',
+    //     }).then((result) => {
+    //       this.router.navigateByUrl('/login');
+    //     });
+    //   },
+
+    let CaseReq: Case = this.AddCaseForm.value;
+    CaseReq.status = 'pending';
+    this.http.addCase(CaseReq).subscribe();
+    this.user.userType = 'Case';
+    this.http.UpdateUser(this.user.id, this.user).subscribe(
+      (res: User) => {
+        Swal.fire({
+          title: `Case ${CaseReq.firstName} registered successfully`,
+          showCancelButton: false,
+          confirmButtonText: 'OK',
+        }).then((result) => {
+          this.router.navigateByUrl('/login');
+        });
+      },
+
       (error) => {
-        Swal.fire(error.error)
-      })
+        Swal.fire(error.error);
+      }
+    );
   }
 
   GetCharities() {
     this.http.getCharity().subscribe((res: any) => {
       this.charity = res;
-    })
+    });
   }
-
 }

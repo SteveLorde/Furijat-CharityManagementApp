@@ -1,6 +1,4 @@
-
 <button>Generate Report</button>
-
 
 <div class="max-vh-100 d-flex align-items-center justify-content-center mt-3">
   <table class="styled-table">
@@ -18,11 +16,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="tablerow text-center"
-          *ngFor="
-          let case of Cases
-            | paginate : { itemsPerPage: 5, currentPage: p }
-        ">
+      <tr
+        class="tablerow text-center"
+        *ngFor="
+          let case of Cases | paginate : { itemsPerPage: 5, currentPage: p }
+        "
+      >
         <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
@@ -32,8 +31,13 @@
         <td>{{ case.phone }}</td>
         <td>{{ case.status }}</td>
         <td></td>
+
+        <td></td>
+
         <td>
-          <a [routerLink]="['/viewpaymentplan',case.id]" >Track Case/Payment Plan</a>
+          <a [routerLink]="['/viewpaymentplan', case.id]"
+            >Track Case/Payment Plan</a
+          >
         </td>
       </tr>
       <tr></tr>
