@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEndAPI.Migrations
 {
     [DbContext(typeof(FurijatContext))]
-    [Migration("20230618175247_converttosql")]
-    partial class converttosql
+    [Migration("20230620142250_addFKinadmin")]
+    partial class addFKinadmin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -122,6 +122,12 @@ namespace BackEndAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AdminId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("AdminId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("Bank_Account")
                         .HasColumnType("nvarchar(max)");
 
@@ -149,6 +155,8 @@ namespace BackEndAPI.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdminId1");
 
                     b.ToTable("Charities");
                 });
@@ -188,7 +196,19 @@ namespace BackEndAPI.Migrations
                 {
                     b.HasBaseType("BackEndAPI.Models.User");
 
-                    b.ToTable("Admin");
+                    b.Property<int>("CharityId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("CharityId")
+                        .IsUnique()
+                        .HasFilter("[CharityId] IS NOT NULL");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Case", b =>
@@ -200,10 +220,6 @@ namespace BackEndAPI.Migrations
 
                     b.Property<int>("CharityId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("CurrentAmount")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -222,7 +238,12 @@ namespace BackEndAPI.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasIndex("CharityId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Cases");
                 });
@@ -317,13 +338,38 @@ namespace BackEndAPI.Migrations
                     b.Navigation("Creditor");
                 });
 
+            modelBuilder.Entity("BackEndAPI.Models.Charity", b =>
+                {
+                    b.HasOne("BackEndAPI.Data.Entites.Admin", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId1");
+
+                    b.Navigation("Admin");
+                });
+
             modelBuilder.Entity("BackEndAPI.Data.Entites.Admin", b =>
                 {
+                    b.HasOne("BackEndAPI.Models.Charity", "Charity")
+                        .WithOne()
+                        .HasForeignKey("BackEndAPI.Data.Entites.Admin", "CharityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BackEndAPI.Models.User", null)
                         .WithOne()
                         .HasForeignKey("BackEndAPI.Data.Entites.Admin", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
+
+                    b.HasOne("BackEndAPI.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Charity");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Case", b =>
@@ -340,7 +386,15 @@ namespace BackEndAPI.Migrations
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
+                    b.HasOne("BackEndAPI.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Charity");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BackEndAPI.Data.Entites.Donator", b =>

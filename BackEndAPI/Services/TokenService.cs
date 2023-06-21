@@ -7,13 +7,13 @@ using System.Security.Claims;
 using System.Text;
 using System;
 using BackEndAPI.Models;
+using BackEndAPI.Data.Entites;
 
 namespace BackEndAPI.Services
 {
     public class TokenService : ITokenService
     {
         private readonly SymmetricSecurityKey _key;
-        public const string AdminClaim = "role:admin";
 
         public TokenService(IConfiguration config)
         {
@@ -23,6 +23,40 @@ namespace BackEndAPI.Services
         {
             var claims = new List<Claim>{
                 new Claim(user.UserType.ToLower(), user.UserName)
+            };
+            var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddDays(7),
+                SigningCredentials = creds
+            };
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+
+        public string CreateToken(Creditor creditor)
+        {
+            var claims = new List<Claim>{
+                new Claim("creditor", creditor.UserName)
+            };
+            var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddDays(7),
+                SigningCredentials = creds
+            };
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
+
+        public string CreateToken(Charity charity)
+        {
+            var claims = new List<Claim>{
+                new Claim("charity", charity.UserName)
             };
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
             var tokenDescriptor = new SecurityTokenDescriptor

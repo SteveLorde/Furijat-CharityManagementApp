@@ -6,6 +6,7 @@ namespace BackEndAPI.DTOs
 {
     public class CreditorDTO
     {
+        public string UserName { get; set; }
         public int Id { get; set; }
         public int CaseID { get; set; }
 
@@ -15,5 +16,6 @@ namespace BackEndAPI.DTOs
         public string Payment_Account { get; set; }
         public string Address { get; set; }
         public decimal Deserves_Amount { get; set; }
+        public string Token { get; set; }
     }
 }

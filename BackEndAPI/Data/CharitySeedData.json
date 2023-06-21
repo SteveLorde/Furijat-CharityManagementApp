@@ -1,29 +1,29 @@
 ﻿[
   {
-    "Name": "Red Cross",
-    "Description": "We are an international humanitarian organization with a vision for everyone to attain their right to health and promote human dignity.",
-    "Bank_Account": "01234567",
-    "Location": "New York, USA",
-    "Phone": "+1 234 567 8900",
-    "Email": "redcross@example.com",
-    "Website": "www.redcross.org"
+    "Name": "Mersal",
+    "Description": "Mersal is a non-profit charitable organization working in the field of health. Mersal seeks to provide all types of medical care with high quality to everyone who needs it.",
+    "Bank_Account": "701840",
+    "Location": "8,Street 263,New Maadi",
+    "Phone": "01200002870",
+    "Email": "info@mersal-ngo.org",
+    "Website": "https://mersal-ngo.org/home/contactus"
   },
   {
-    "Name": "Doctors Without Borders",
-    "Description": "An international medical humanitarian organization working in 70+ countries providing emergency aid.",
+    "Name": "Resala",
+    "Description": "The goal of the founding team was to spread volunteerism and positivity in society and to cultivate belonging.",
     "Bank_Account": "98765432",
-    "Location": "Paris, France",
-    "Phone": "+33 123 456 789",
-    "Email": "doctors@example.com",
-    "Website": "www.doctorswithoutborders.org"
+    "Location": "5 Mansi Yassin Street - Al-Tawbeq - Faisal - in front of B-Tech",
+    "Phone": "1945",
+    "Email": "contact_us@resala.org",
+    "Website": "https://resala.org"
   },
   {
-    "Name": "Save the Children",
-    "Description": "We work around the world helping children a safe and happy childhood.",
-    "Bank_Account": "5555444",
-    "Location": "London, UK",
-    "Phone": "+44 1234 567 890",
-    "Email": "savechildren@example.com",
-    "Website": "www.savethechildren.org"
+    "Name": "Alorman",
+    "Description": "Providing non-traditional charitable services that aim, within a specific period of time, to move the needy segments from the circle of need to the circle of production and sufficiency.",
+    "Bank_Account": "16823971",
+    "Location": "Al Haram - 7 El Haj Moussa St. Off Yehia Shaheen St. Off El Haram Main St. - in front of Tikka Al Taawun Restaurant",
+    "Phone": " 19455",
+    "Email": "info@dar-alorman.com.",
+    "Website": "https://www.dar-alorman.com/"
   }
 ]

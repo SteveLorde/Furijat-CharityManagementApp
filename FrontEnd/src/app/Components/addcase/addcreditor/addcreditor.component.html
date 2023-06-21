@@ -1,0 +1,57 @@
+<div>
+  <form [formGroup]="AddDonatorForm" (ngSubmit)="AddCreditor()">
+    <div class="row container">
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for=" Your Address"> Address </label>
+
+          <input formControlName="address"
+                 id=" address"
+                 placeholder="Your Address"
+                 type="text"
+                 class="form-control" />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="Phone"> Phone </label>
+
+          <input id="phone"
+                 class="form-control"
+                 formControlName="phone"
+                 placeholder="phone number"
+                 type="text" />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="pb-3">
+          <label class="pb-1" for="Phone"> Payment Account </label>
+
+          <input id="phone"
+                 class="form-control"
+                 formControlName="phone"
+                 placeholder="phone number"
+                 type="text" />
+        </div>
+      </div>
+
+      <div class="form-floating mb-3 col-lg-6 pb-2">
+        <label for="email" class="ps-4"></label>
+        <select class="form-control" formControlName="caseID">
+          <option value="" disabled selected>Select a Case</option>
+          <option [ngValue]="case.id" *ngFor="let case of Cases">{{case.name}}({{case.totalamount}})</option>
+        </select>
+      </div>
+
+      <div class="text-center mt-2">
+        <button type="submit"
+                class="custom-btn btn-6 btn btn-lg px-3"
+                value="Add Creditor">
+          <span>Register as Creditor</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

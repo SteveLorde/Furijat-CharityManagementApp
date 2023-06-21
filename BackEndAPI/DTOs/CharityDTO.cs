@@ -9,6 +9,7 @@ namespace BackEndAPI.DTOs
 {
     public class CharityDTO
     {
+        public string UserName { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -18,9 +19,10 @@ namespace BackEndAPI.DTOs
         public string Email { get; set; }
         public string Website { get; set; }
         public string? Status { get; set; }
+        public string Token { get; set; }
         public virtual ICollection<UserDTO> Users { get; set; }
-        public virtual ICollection<Case> Cases { get; set; }
-        public virtual ICollection<Donation> Donation { get; set; }
+        public virtual ICollection<CaseDTO> Cases { get; set; }
+        //public virtual ICollection<Dona> Donation { get; set; }
 
     }
 }

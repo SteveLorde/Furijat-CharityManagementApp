@@ -3,13 +3,12 @@ import { UserType } from 'src/app/Models/UserType'
 
 export interface User {
 
-  userId: number
-  userType: string
-  password: string
+  id: number
   userName: string
   firstName: string
-  lastNaame: string
-  userTypeID: number
+  lastName: string
+  userType: string
   token: string
+  charityId: number
 
 }

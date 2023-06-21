@@ -16,6 +16,8 @@ import { environment } from 'src/environments/environment';
 import { User } from '../../Models/User';
 import { AuthService } from '../../Services/Authorization/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { error } from 'console';
 
 @Component({
   selector: 'app-register',
@@ -43,48 +45,43 @@ export class RegisterComponent implements OnInit {
 
 
   RegisterUser = new UntypedFormGroup({
-    userName: new UntypedFormControl(),
+    userName: new UntypedFormControl('',[Validators.required]),
+    //userName: new UntypedFormControl('', [Validators.required]),
     //EMail: new FormControl(),
-    password: new UntypedFormControl(),
+    password: new UntypedFormControl('', [Validators.required]),
     firstName: new UntypedFormControl(),
     lastName: new UntypedFormControl(),
   })
 
-  register(user: User) {
-    user = this.RegisterUser.value
-    user.userType = "donator"
+  Register() {
+    const user = this.RegisterUser.value
+    user.userType = "User"
     this.authService.register(user).subscribe((res: any) => {
-      if (res) console.log('user', res.userName, 'registered')
-    })
-    this.router.navigateByUrl('/profile')
-  }
+      if (res) {
+        Swal.fire({
+          title: 'Account Registered Successfully',
+          showCancelButton: true,
+          confirmButtonText: 'Login',
+          cancelButtonText: 'Home'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/login']); // Replace '/new-page' with the desired route
+          }
+        })
+      }
+    }),
+      (error) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Register Error',
+          text: error.error,
+        })
+      }
 
-  RegisterAsCharity(user: User) {
-    user = this.RegisterUser.value
-    user.userType = "Charity"
-    this.authService.register(user).subscribe()
-    this.router.navigateByUrl('/addcharity')
-  }
-
-  RegisterAsCase(user: User) {
-    user = this.RegisterUser.value
-    user.userType = "Case"
-    this.authService.register(user).subscribe()
-    this.router.navigateByUrl('/addcase')
-  }
-
-  Back() {
-    this.router.navigateByUrl('/home')
-  }
-
-  /*
-  Back() {
-    this.router.navigateByUrl('/home')
   }
 
   Back() {
     this.router.navigateByUrl('/home')
   }
-  */
 
 }

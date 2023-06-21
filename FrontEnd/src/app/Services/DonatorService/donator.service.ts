@@ -19,11 +19,11 @@ export class DonatorService {
   }
   //GET Donations By ID
   getDonationsofDonatorID(id: any): Observable<Donation> {
-    return this.http.get<Donation>(this.serverUrl + `api/getdonationfordonator/${id}`);
+    return this.http.get<Donation>(this.serverUrl + `api/Donation/getdonationfordonator/${id}`);
   }
 
   getDonationsofCharityID(id: any): Observable<Donation> {
-    return this.http.get<Donation>(this.serverUrl + `api/getdonationforcharity/${id}`);
+    return this.http.get<Donation>(this.serverUrl + `api/Donation/getdonationforcharity/${id}`);
   }
 
   //Create Donation Recipit

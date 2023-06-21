@@ -24,10 +24,7 @@
     </thead>
     <tbody>
       <tr class="tablerow text-center"
-          *ngFor="
-          let case of Cases
-            | paginate : { itemsPerPage: 5, currentPage: p }
-        ">
+          *ngFor=" let case of Cases | filterbycharityid: filtercharityid | filterbystatus: statusfilter | paginate : { itemsPerPage: 5, currentPage: p }">
         <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
@@ -39,10 +36,10 @@
         <td>{{ case.status }}</td>
         <td></td>
         <td>
-          <button (click)="approve(case.id, case)">Approve</button>
+          <button (click)="approve(case)">Approve</button>
         </td>
         <td>
-          <button (click)="reject(case.id, case)">Reject</button>
+          <button (click)="reject(case)">Reject</button>
         </td>
       </tr>
       <tr></tr>
@@ -72,9 +69,7 @@
     <tbody>
       <tr class="tablerow text-center"
           *ngFor="
-          let case of Cases
-            | paginate : { itemsPerPage: 5, currentPage: p }
-        ">
+          let case of Cases | filterbycharityid: filtercharityid | filterbystatus: approvedstatusfilter | paginate : { itemsPerPage: 5, currentPage: p }  ">
         <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
@@ -83,14 +78,17 @@
         <td>{{ case.currentAmount }}</td>
         <td>{{ case.totalAmount }}</td>
         <td>{{ case.phone }}</td>
-        <td>{{ case.charity.id }}</td>
+        <td>{{ case.charity.name }}</td>
         <td>{{ case.status }}</td>
         <td></td>
         <td>
-          <button (click)="ProvideAssistance()">Provide Assistance</button>
+          <button (click)="EditCase(case)">Update Case</button>
         </td>
         <td>
-          <button (click)=" DeleteCase(case.id)">Delete</button>
+          <button (click)="ManageCaseDonations(case)">Manage Donations</button>
+        </td>
+        <td>
+          <button (click)=" DeleteCase(case)">Delete Case</button>
         </td>
       </tr>
       <tr></tr>

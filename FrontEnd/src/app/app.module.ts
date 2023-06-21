@@ -44,6 +44,14 @@ import { EditDataComponent } from './Components/edit-data/edit-data.component';
 import { ErrorwindowComponent } from './Components/errorwindow/errorwindow.component';
 import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpaymentplan.component';
 import { AdminprofileComponent } from './Components/Profiles/adminprofile/adminprofile.component';
+import { FilterbycharityidPipe } from './Services/Pipes/filterbycharityid.pipe';
+import { FilterbystatusPipe } from './Services/Pipes/filterbystatus.pipe';
+import { ManagecasedonationsComponent } from './Components/managecasedonations/managecasedonations.component';
+import { FilterbydonatoridPipe } from './Services/Pipes/filterbydonatorid.pipe';
+import { FilterbycaseidPipe } from './Services/Pipes/filterbycaseid.pipe';
+import { AddcreditorComponent } from './Components/addcase/addcreditor/addcreditor.component';
+import { AdddonatorComponent } from './Components/addcase/adddonator/adddonator.component';
+import { FilterbycreditorsbycaseIDPipe } from './Services/Pipes/filterbycreditorsbycase-id.pipe';
 
 @NgModule({
   declarations: [
@@ -81,6 +89,14 @@ import { AdminprofileComponent } from './Components/Profiles/adminprofile/adminp
     ErrorwindowComponent,
     ViewpaymentplanComponent,
     AdminprofileComponent,
+    FilterbycharityidPipe,
+    FilterbystatusPipe,
+    ManagecasedonationsComponent,
+    FilterbydonatoridPipe,
+    FilterbycaseidPipe,
+    AddcreditorComponent,
+    AdddonatorComponent,
+    FilterbycreditorsbycaseIDPipe,
   ],
   imports: [
     BrowserModule,

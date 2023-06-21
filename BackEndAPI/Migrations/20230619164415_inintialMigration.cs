@@ -3,30 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BackEndAPI.Migrations
 {
-    public partial class IntialMigration : Migration
+    public partial class inintialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Charities",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
-                    Bank_Account = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Website = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Charities", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -46,16 +26,66 @@ namespace BackEndAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Admin",
+                name: "Donators",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PaidAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Admin", x => x.Id);
+                    table.PrimaryKey("PK_Donators", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Admin_Users_Id",
+                        name: "FK_Donators_Users_Id",
+                        column: x => x.Id,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Charities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
+                    Bank_Account = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Website = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AdminId = table.Column<int>(type: "int", nullable: false),
+                    AdminId1 = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Charities", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Admins",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    CharityId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admins", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Admins_Charities_CharityId",
+                        column: x => x.CharityId,
+                        principalTable: "Charities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Admins_Users_Id",
                         column: x => x.Id,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -71,7 +101,6 @@ namespace BackEndAPI.Migrations
                     CharityId = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CurrentAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     TotalAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MarriageStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -87,27 +116,6 @@ namespace BackEndAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Cases_Users_Id",
-                        column: x => x.Id,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Donators",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PaidAmount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Donators", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Donators_Users_Id",
                         column: x => x.Id,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -179,7 +187,6 @@ namespace BackEndAPI.Migrations
                     CharityId = table.Column<int>(type: "int", nullable: false),
                     CreditorId = table.Column<int>(type: "int", nullable: false),
                     Paid_Amount = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
-                    Deserves_Debt = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
                     Time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DonatorId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -213,9 +220,21 @@ namespace BackEndAPI.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Admins_CharityId",
+                table: "Admins",
+                column: "CharityId",
+                unique: true,
+                filter: "[CharityId] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cases_CharityId",
                 table: "Cases",
                 column: "CharityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Charities_AdminId1",
+                table: "Charities",
+                column: "AdminId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Creditor_CaseID",
@@ -246,12 +265,21 @@ namespace BackEndAPI.Migrations
                 name: "IX_PaymentToCreditors_DonatorId",
                 table: "PaymentToCreditors",
                 column: "DonatorId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Charities_Admins_AdminId1",
+                table: "Charities",
+                column: "AdminId1",
+                principalTable: "Admins",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Admin");
+            migrationBuilder.DropForeignKey(
+                name: "FK_Admins_Charities_CharityId",
+                table: "Admins");
 
             migrationBuilder.DropTable(
                 name: "Donation");
@@ -270,6 +298,9 @@ namespace BackEndAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "Charities");
+
+            migrationBuilder.DropTable(
+                name: "Admins");
 
             migrationBuilder.DropTable(
                 name: "Users");

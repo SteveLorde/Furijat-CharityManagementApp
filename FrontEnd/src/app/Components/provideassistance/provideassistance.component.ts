@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Case } from '../../Models/Case';
 import { Charity } from '../../Models/Charity';
 import { BackendCommunicationService } from '../../Services/BackendCommunication/backend-communication.service';
-import { CasePaymentService } from '../../Services/CasePayment/case-payment.service';
 
 @Component({
   selector: 'app-provideassistance',

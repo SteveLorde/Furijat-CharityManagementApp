@@ -19,6 +19,11 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { ContactformComponent } from './Components/contactform/contactform.component';
 import { ProvideassistanceComponent } from './Components/provideassistance/provideassistance.component';
 import { ViewpaymentplanComponent } from './Components/viewpaymentplan/viewpaymentplan.component';
+import { EditDataComponent } from './Components/edit-data/edit-data.component';
+import { ManagecasedonationsComponent } from './Components/managecasedonations/managecasedonations.component';
+import { AddcreditorComponent } from './Components/addcase/addcreditor/addcreditor.component';
+import { AdddonatorComponent } from './Components/addcase/adddonator/adddonator.component';
+
 
 const routes: Routes = [
   {
@@ -34,16 +39,20 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'case', component: CaseListComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'donate/:id', component: DonateComponent },
+      { path: 'donate', component: DonateComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'charitylist', component: CharitydonationComponent },
       //{ path: 'donatecharity/:id', component: DonatecharityComponent },
       { path: 'addcharity', component: AddcharityComponent },
+      { path: 'adddonator', component: AdddonatorComponent },
+      { path: 'addcreditor', component: AddcreditorComponent },
       { path: 'validatecase', component: ValidatecaseComponent },
       { path: 'contactform', component: ContactformComponent },
       { path: 'addcase', component: AddcaseComponent },
-      { path: 'provideassistancecharity', component: ProvideassistanceComponent },
+      { path: 'provideassistancecharity/:id/', component: ProvideassistanceComponent },
       { path: 'viewpaymentplan', component: ViewpaymentplanComponent },
+      { path: 'edit', component: EditDataComponent },
+      { path: 'managecasedonations', component: ManagecasedonationsComponent },
     ],
   },
   {

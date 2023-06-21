@@ -17,17 +17,9 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    if (this.IsLoggedIn == 1) {
-      this.Login = "Profile"
-    }
-    else
-    {
-      this.Login = "Login"
-      localStorage.removeItem('authToken')
-    }
   }
 
-  title = 'FrontEnd';
+  title = 'Furijat Application';
 
 
 

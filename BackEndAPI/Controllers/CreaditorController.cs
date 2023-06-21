@@ -14,6 +14,11 @@ using System.Linq.Expressions;
 using System;
 using System.Security.Policy;
 using BackEndAPI.Data.Entites;
+using BackEndAPI.Services;
+using BackEndAPI.Views;
+using System.Security.Cryptography;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace BackEndAPI.Controllers
 {
@@ -22,12 +27,13 @@ namespace BackEndAPI.Controllers
     {
         private readonly IAppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly ITokenService _tokenService;
 
-
-        public CreditorController(IAppDbContext context, IMapper mapper)
+        public CreditorController(IAppDbContext context, IMapper mapper, ITokenService tokenService)
         {
             _context = context;
             _mapper = mapper;
+            _tokenService = tokenService;
         }
 
         // GET: api/Creditors
@@ -148,5 +154,71 @@ namespace BackEndAPI.Controllers
 
             return Ok(creditorDTO);
         }
+        [HttpPost("register")]
+        public async Task<ActionResult<CreditorDTO>> Register(RegisterCreditorDTO _user)
+        {
+            if (await UserExists(_user.UserName)) return BadRequest("Username is taken");
+            using var hmac = new HMACSHA512();
+
+            var _case = await _context.Cases.All.SingleOrDefaultAsync(e => e.Id == _user.CaseID);
+
+            if (_case == null) return BadRequest("Invalid Case Id");
+
+            var creditor = new Creditor() { 
+            UserName = _user.UserName.ToLower(),
+            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(_user.Password)),
+            PasswordSalt = hmac.Key,
+            CaseID = _case.Id,
+            Phone = _user.Phone,
+            Description = _user.Description,
+            Address=_user.Address,
+            
+            };
+
+
+            _context.Creditors.Add(creditor);
+            await _context.SaveChangesAsync();
+            var dto=  _mapper.Map<CreditorDTO>(creditor);
+            dto.Token = _tokenService.CreateToken(creditor);
+            return dto;
+        }
+        [HttpPost("login")]
+        public async Task<ActionResult<CreditorDTO>> Login(LoginDTO _creditor)
+        {
+
+            var creditor = await _context.Creditors.All
+                //.Include(e => e.UserType)
+                .SingleOrDefaultAsync(e => e.UserName ==_creditor.Username.ToLower()); ;
+            
+
+            if (creditor == null) return Unauthorized("Invalid username");
+
+            using var hmac = new HMACSHA512(creditor.PasswordSalt);
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(_creditor.Password));
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != creditor.PasswordHash[i]) return Unauthorized("Invalid password");
+            }
+
+            //   var charity = user is Admin ? await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == (user as Admin).Charity.Id) : await _context.Charities.All.SingleOrDefaultAsync(e => e.Id == (user as Case).Charity.Id);
+
+            return new CreditorDTO()
+            {
+                UserName = creditor.UserName,
+                Id = creditor.CreditorID,
+                Phone = creditor.Phone,
+                Description = creditor.Description,
+                Payment_Account = creditor.Payment_Account,
+                Address = creditor.Address,
+                Deserves_Amount = creditor.Deserves_Amount,
+                Token = _tokenService.CreateToken(creditor),
+                CaseID = creditor.CaseID
+            };
+        }
+        private async Task<bool> UserExists(string username)
+        {
+            return await _context.Creditors.All.AnyAsync(user => user.UserName == username.ToLower());
+        }
     }
 }
+

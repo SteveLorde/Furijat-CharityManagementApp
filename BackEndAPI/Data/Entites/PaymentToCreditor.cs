@@ -1,5 +1,6 @@
 ﻿using BackEndAPI.Models;
 using System;
+using System.Collections.Generic;
 
 namespace BackEndAPI.Data.Entites
 {
@@ -14,6 +15,11 @@ namespace BackEndAPI.Data.Entites
         public decimal Paid_Amount { get; set; }
       
         public DateTime Time { get; set; }
+
+        public static explicit operator PaymentToCreditor(List<PaymentToCreditor> v)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

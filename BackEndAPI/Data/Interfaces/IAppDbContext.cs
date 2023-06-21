@@ -13,10 +13,12 @@ namespace BackEndAPI.Data.Interfaces
     public interface IAppDbContext
     {
         public IRepository<User> Users { get; }
+        public IRepository<Admin> Admins { get; }
         public IRepository<Case> Cases { get; }
         public IRepository<Charity> Charities { get; }
         public IRepository<Creditor> Creditors { get; }
         public IRepository<Donator> Donators { get; }
+        public IRepository<PaymentToCreditor> PaymentToCreditor { get; }
 
         #region Methods
         IDbContextTransaction BeginTransaction();

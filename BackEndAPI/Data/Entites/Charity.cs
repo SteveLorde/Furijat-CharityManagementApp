@@ -23,7 +23,13 @@ namespace BackEndAPI.Models
         public string Website { get; set; }
 
         public string? Status { get; set; }
+        public int AdminId { get; set; }
+        public Admin Admin { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
+        [Required]
 
+        public string UserName { get; set; }
         public virtual ICollection<Case> Cases { get; set; }
         public virtual ICollection<Donation> Donation { get; set; }
         public virtual ICollection<PaymentToCreditor> PaymentToCreditor { get; set; }
