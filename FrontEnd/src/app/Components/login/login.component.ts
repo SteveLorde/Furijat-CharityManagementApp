@@ -21,14 +21,11 @@ import { UserStorageService } from '../../Services/UserStorageService/user-stora
 })
 export class LoginComponent implements OnInit {
   //create object "loginrequest" of Login model
-  loginreq: Login = {
-      username: '',
-      password: ''
-  } 
+  loginreq: Login 
   //variable that changes to 1/true if login request is successful
   loggedin: number = 0;
   //store user id in variable "id"
-  id: any;
+  id: any
   //store error response during login
   loginerror: string = ""
   //role variable for user
