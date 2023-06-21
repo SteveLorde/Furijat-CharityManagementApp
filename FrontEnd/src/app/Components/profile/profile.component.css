@@ -40,3 +40,13 @@ thead tr {
   text-align: right;
   margin-top: 25px;
 }
+button {
+  color: white;
+  background-color: #555454;
+  border-color: transparent;
+  margin: 0 15px;
+}
+button:hover {
+  color: black;
+  background-color: burlywood;
+}

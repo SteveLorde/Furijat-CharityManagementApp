@@ -15,7 +15,7 @@ namespace BackEndAPI.Data.Entites
         public string Description { get; set; }
         public string Payment_Account { get; set; }
 
-        public string? Status { get; set; }
+        public string Status { get; set; }
 
         public string Address { get; set; }
         public decimal Deserves_Amount { get; set; }

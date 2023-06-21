@@ -24,7 +24,8 @@
     </thead>
     <tbody>
       <tr class="tablerow text-center"
-          *ngFor=" let case of Cases | filterbycharityid: filtercharityid | filterbystatus: statusfilter | paginate : { itemsPerPage: 5, currentPage: p }">
+          *ngFor=" let case of Cases
+            | paginate : { itemsPerPage: 5, currentPage: p } | filterbystatus: statusfilter">
         <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
@@ -69,7 +70,8 @@
     <tbody>
       <tr class="tablerow text-center"
           *ngFor="
-          let case of Cases | filterbycharityid: filtercharityid | filterbystatus: approvedstatusfilter | paginate : { itemsPerPage: 5, currentPage: p }  ">
+          let case of Cases
+            | paginate : { itemsPerPage: 5, currentPage: p } | filterbycharityid: filtercharityid">
         <td>{{ case.id }}</td>
         <td>{{ case.firstName }}</td>
         <td>{{ case.lastName }}</td>
@@ -81,6 +83,9 @@
         <td>{{ case.charity.name }}</td>
         <td>{{ case.status }}</td>
         <td></td>
+        <td>
+          <button [routerLink]="['/provideassistance',case.id]">Provide Assistance</button>
+        </td>
         <td>
           <button (click)="EditCase(case)">Update Case</button>
         </td>
