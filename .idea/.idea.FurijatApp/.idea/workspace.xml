@@ -9,67 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Admin.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Case.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Charity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Donator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/User.cs" afterDir="false" />
+    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="re-structured Backend, Upgraded to .Net 7.0">
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Junk/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/AccountController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/BaseApiController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CasesController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CreaditorController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/DonationController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/DonatorController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/ExportToPDF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/ExportToPDF.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/PaymentToCreditorController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/UserController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/CasesDTO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/CharityDTO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/CreditorDTO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/DonationDTO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/DonatorDTO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/LoginDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/PaymentToCreditorDTO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/RegisterDto.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/UserDTO.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Admin.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/BaseModel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Case.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Charity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Creditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Donation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Donator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/PaymentToCreditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/User.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/FurijatContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Interfaces/IAppDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Interfaces/IRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Repository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/ScopedDbContext.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Seed.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Extensions/InstallerExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Installers/AuthenticationInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Installers/DBContextInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Installers/IInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Installers/MapperInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Interfaces/IGenericService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Interfaces/ITokenService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Migrations/20230619160400_inintialMigration.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Migrations/20230619160400_inintialMigration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Migrations/FurijatContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/TokenService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Junk/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +114,7 @@
       <workItem from="1692809013619" duration="1223000" />
       <workItem from="1692983122891" duration="8380000" />
       <workItem from="1693125247262" duration="2268000" />
-      <workItem from="1693128087653" duration="697000" />
+      <workItem from="1693128087653" duration="2511000" />
     </task>
     <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
       <option name="closed" value="true" />
@@ -179,7 +124,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692786202635</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="re-structured Backend">
+      <option name="closed" value="true" />
+      <created>1693129585852</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1693129585852</updated>
+    </task>
+    <task id="LOCAL-00003" summary="re-structured Backend, Upgraded to .Net 7.0">
+      <option name="closed" value="true" />
+      <created>1693129633950</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693129633950</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +150,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="starting refactoring process, upgraded/removed frontend dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting refactoring process, upgraded/removed frontend dependencies" />
+    <MESSAGE value="re-structured Backend" />
+    <MESSAGE value="Upgraded to .Net 7.0" />
+    <MESSAGE value="re-structured Backend, Upgraded to .Net 7.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="re-structured Backend, Upgraded to .Net 7.0" />
   </component>
 </project>
