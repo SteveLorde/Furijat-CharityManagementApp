@@ -1,10 +1,10 @@
-﻿using BackEndAPI.Data.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Org.BouncyCastle.Math.EC.Rfc7748;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using System.Linq;
+using BackEndAPI.Data;
 
 namespace BackEndAPI.Controllers
 {
@@ -12,9 +12,9 @@ namespace BackEndAPI.Controllers
     [ApiController]
     public class ExportToPDF : ControllerBase
     {
-        private readonly IAppDbContext _context;
+        private readonly DataContext _context;
 
-        public ExportToPDF(IAppDbContext context)
+        public ExportToPDF(DataContext context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace BackEndAPI.Controllers
         public IActionResult CharityDebtorsReport()
         {
 
-            var charitydebtors = _context.Cases.All.ToList();
+            //var charitydebtors = _context.Cases.All.ToList();
 
             //var charityname = context.Charities.Find(e => e.Id == id);
             //string chdebtors = charitydebtors.ToString();
@@ -55,6 +55,7 @@ namespace BackEndAPI.Controllers
                     page.Content()
                     .Column(x =>
                     {
+                        /*
                         x.Item().Text("List of Cases in Charity").FontSize(36);
                         foreach (var entity in charitydebtors)
                         {
@@ -65,6 +66,7 @@ namespace BackEndAPI.Controllers
                                 row.RelativeItem().Text(thisEntity);
                             });
                         }
+                        */
                     }
                     );
 

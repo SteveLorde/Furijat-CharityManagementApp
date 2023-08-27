@@ -1,5 +1,3 @@
-using BackEndAPI.Database;
-using BackEndAPI.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using BackEndAPI.Data;
 using BackEndAPI.Services.EmailService;
 using QuestPDF.Infrastructure;
 
@@ -37,14 +36,11 @@ namespace BackEndAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEndAPI", Version = "v1" });
             });
-            services.AddDbContextPool<FurijatContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
-            services.InstallServicesInAssembly(Configuration);
-
-            
+            services.AddDbContextPool<DataContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FurijatConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, FurijatContext db)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataContext db)
         {
 
             QuestPDF.Settings.License = LicenseType.Community;

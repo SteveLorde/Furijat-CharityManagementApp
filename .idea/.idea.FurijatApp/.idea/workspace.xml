@@ -10,141 +10,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Admin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Case.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Charity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Donator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/FrontEnd.esproj" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/FrontEnd.esproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/adminprofile/adminprofile.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/adminprofile/adminprofile.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/adminprofile/adminprofile.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/adminprofile/adminprofile.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/charityprofile/charityprofile.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/charityprofile/charityprofile.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/charityprofile/charityprofile.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/charityprofile/charityprofile.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/creditorprofile/creditorprofile.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/creditorprofile/creditorprofile.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/creditorprofile/creditorprofile.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/creditorprofile/creditorprofile.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/debtorprofile/debtorprofile.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/debtorprofile/debtorprofile.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/debtorprofile/debtorprofile.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/debtorprofile/debtorprofile.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/donatorprofile/donatorprofile.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/donatorprofile/donatorprofile.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/donatorprofile/donatorprofile.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Profiles/donatorprofile/donatorprofile.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/about/about.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/about/about.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/about/about.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/about/about.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcase/addcase.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcase/addcase.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcase/addcase.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcase/addcase.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcharity/addcharity.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcharity/addcharity.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcharity/addcharity.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcharity/addcharity.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcreditor/addcreditor.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcreditor/addcreditor.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcreditor/addcreditor.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/addcreditor/addcreditor.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/adddonator/adddonator.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/adddonator/adddonator.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/adddonator/adddonator.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/adddonator/adddonator.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/case-list/case-list.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/case-list/case-list.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/case-list/case-list.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/case-list/case-list.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/casetablenative/casetablenative.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/casetablenative/casetablenative.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/casetablenative/casetablenative.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/casetablenative/casetablenative.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/charitydonation/charitydonation.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/charitydonation/charitydonation.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/charitydonation/charitydonation.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/charitydonation/charitydonation.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/donate/donate.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/donate/donate.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/donate/donate.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/donate/donate.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/errorwindow/errorwindow.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/errorwindow/errorwindow.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/errorwindow/errorwindow.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/errorwindow/errorwindow.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/footer/footer.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/footer/footer.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/footer/footer.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/footer/footer.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/managecasedonations/managecasedonations.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/managecasedonations/managecasedonations.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/managecasedonations/managecasedonations.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/managecasedonations/managecasedonations.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/navbar/navbar.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/navbar/navbar.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/navbar/navbar.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/navbar/navbar.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/notfound/notfound.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/notfound/notfound.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/notfound/notfound.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/notfound/notfound.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/profile/profile.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/profile/profile.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/profile/profile.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/profile/profile.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/provideassistance/provideassistance.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/provideassistance/provideassistance.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/provideassistance/provideassistance.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/provideassistance/provideassistance.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/userlog/userlog.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/userlog/userlog.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/userlog/userlog.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/userlog/userlog.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/validatecase/validatecase.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/validatecase/validatecase.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/validatecase/validatecase.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/validatecase/validatecase.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/viewpaymentplan/viewpaymentplan.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/viewpaymentplan/viewpaymentplan.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/viewpaymentplan/viewpaymentplan.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/viewpaymentplan/viewpaymentplan.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/about/about.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/about/about.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/about/about.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/about/about.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/contact/contact.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/contact/contact.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/contact/contact.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/contact/contact.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/home/home.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/home/home.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/home/home.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/home/home.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/login/login.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/login/login.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/login/login.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/login/login.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/register/register.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/register/register.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/register/register.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Pages/register/register.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app-pages.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/layouts/auth-layout/auth-layout.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/layouts/auth-layout/auth-layout.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/layouts/auth-layout/auth-layout.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/layouts/auth-layout/auth-layout.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/layouts/blank-layout/blank-layout.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/layouts/blank-layout/blank-layout.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/layouts/blank-layout/blank-layout.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/layouts/blank-layout/blank-layout.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/material.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/AccountController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/BaseApiController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CasesController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CreaditorController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/DonationController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/DonatorController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/ExportToPDF.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/ExportToPDF.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/PaymentToCreditorController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/UserController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/CasesDTO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/CharityDTO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/CreditorDTO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/DonationDTO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/DonatorDTO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/LoginDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/PaymentToCreditorDTO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/RegisterDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/DTOs/UserDTO.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Admin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/BaseModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Case.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Charity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Creditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Donation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/Donator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/PaymentToCreditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Entites/User.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/FurijatContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Interfaces/IAppDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Interfaces/IRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Repository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/ScopedDbContext.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Seed.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Extensions/InstallerExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Installers/AuthenticationInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Installers/DBContextInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Installers/IInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Installers/MapperInstaller.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Interfaces/IGenericService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Interfaces/ITokenService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Migrations/20230619160400_inintialMigration.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Migrations/20230619160400_inintialMigration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Migrations/FurijatContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/TokenService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,37 +82,40 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2RADz186yPvXRywEYcfMrAHUuya" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "D:\\Apps\\Projects\\Furijat-CharityManagementApp\\FrontEnd\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Apps\\Projects\\Furijat-CharityManagementApp\\FrontEnd\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Mosta\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Mosta\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\Mosta\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Mosta\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Mosta\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Mosta\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.BackEndAPI">
     <configuration name="BackEndAPI" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" />
@@ -237,14 +165,30 @@
       <updated>1686684283940</updated>
       <workItem from="1686684287240" duration="153000" />
       <workItem from="1692693616455" duration="822000" />
-      <workItem from="1692784596395" duration="993000" />
+      <workItem from="1692784596395" duration="3125000" />
+      <workItem from="1692809013619" duration="1223000" />
+      <workItem from="1692983122891" duration="8380000" />
+      <workItem from="1693125247262" duration="2268000" />
+      <workItem from="1693128087653" duration="697000" />
     </task>
+    <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
+      <option name="closed" value="true" />
+      <created>1692786202635</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692786202635</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="starting refactoring process, upgraded/removed frontend dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting refactoring process, upgraded/removed frontend dependencies" />
   </component>
 </project>

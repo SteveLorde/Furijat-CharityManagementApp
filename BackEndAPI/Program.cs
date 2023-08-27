@@ -1,5 +1,4 @@
 using BackEndAPI.Data;
-using BackEndAPI.Database;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,11 +17,7 @@ namespace BackEndAPI
             var services = scope.ServiceProvider;
             try
             {
-                var context = services.GetRequiredService<FurijatContext>();
-                await context.Database.MigrateAsync();
-                await Seed.SeedUser(context);
-                await Seed.SeedCharities(context);
-                await Seed.SeedCases(context);
+                var context = services.GetRequiredService<DataContext>();
             }
             catch (System.Exception ex)
             {

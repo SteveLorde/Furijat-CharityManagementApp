@@ -17,7 +17,6 @@ import { User } from '../../Models/User';
 import { AuthService } from '../../Services/Authorization/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { error } from 'console';
 
 @Component({
   selector: 'app-register',
