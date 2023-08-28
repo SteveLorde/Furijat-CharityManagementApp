@@ -9,12 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="re-structured Backend, Upgraded to .Net 7.0">
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Junk/Program.cs" afterDir="false" />
+    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/Authentication.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/IAuthentication.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/DataAccess/IRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/DataAccess/Repository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/EmailController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/EmailController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Junk/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Junk/Startup.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Junk/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/EmailService/IMailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/EmailService/IMailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/EmailService/MailRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/EmailService/MailRequestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/EmailService/MailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/EmailService/MailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +62,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\Apps\\Projects\\Furijat-CharityManagementApp\\FrontEnd\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -114,7 +127,12 @@
       <workItem from="1692809013619" duration="1223000" />
       <workItem from="1692983122891" duration="8380000" />
       <workItem from="1693125247262" duration="2268000" />
-      <workItem from="1693128087653" duration="2511000" />
+      <workItem from="1693128087653" duration="4279000" />
+      <workItem from="1693141748192" duration="179000" />
+      <workItem from="1693142030157" duration="5794000" />
+      <workItem from="1693162410741" duration="4974000" />
+      <workItem from="1693221948836" duration="594000" />
+      <workItem from="1693242762733" duration="2305000" />
     </task>
     <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
       <option name="closed" value="true" />
@@ -140,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693129633950</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="migrated to unified Program.cs startup host">
+      <option name="closed" value="true" />
+      <created>1693131299076</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693131299076</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +179,7 @@
     <MESSAGE value="re-structured Backend" />
     <MESSAGE value="Upgraded to .Net 7.0" />
     <MESSAGE value="re-structured Backend, Upgraded to .Net 7.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="re-structured Backend, Upgraded to .Net 7.0" />
+    <MESSAGE value="migrated to unified Program.cs startup host" />
+    <option name="LAST_COMMIT_MESSAGE" value="migrated to unified Program.cs startup host" />
   </component>
 </project>

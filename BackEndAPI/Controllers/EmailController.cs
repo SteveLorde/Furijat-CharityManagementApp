@@ -18,11 +18,11 @@ namespace BackEndAPI.Controllers
         }
 
         [HttpPost("Send")]
-        public async Task<IActionResult> Send(MailRequest request)
+        public async Task<IActionResult> Send(MailRequestModel requestModel)
         {
             try
             {
-                await mailService.SendEmailAsync(request);
+                await mailService.SendEmailAsync(requestModel);
                 return Ok();
             }
             catch (Exception ex)

@@ -4,6 +4,6 @@ namespace BackEndAPI.Services.EmailService
 {
     public interface IMailService
     {
-        Task SendEmailAsync(MailRequest mailRequest);
+        Task SendEmailAsync(MailRequestModel mailRequestModel);
     }
 }

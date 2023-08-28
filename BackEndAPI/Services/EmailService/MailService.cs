@@ -14,18 +14,18 @@ namespace BackEndAPI.Services.EmailService
         {
             _mailSettings = mailSettings.Value;
         }
-        public async Task SendEmailAsync(MailRequest mailRequest)
+        public async Task SendEmailAsync(MailRequestModel mailRequestModel)
         {
             var email = new MimeMessage();
             email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
-            email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
-            email.Subject = mailRequest.Subject;
+            email.To.Add(MailboxAddress.Parse(mailRequestModel.ToEmail));
+            email.Subject = mailRequestModel.Subject;
             var builder = new BodyBuilder();
             
-            if (mailRequest.Attachments != null)
+            if (mailRequestModel.Attachments != null)
             {
                 byte[] fileBytes;
-                foreach (var file in mailRequest.Attachments)
+                foreach (var file in mailRequestModel.Attachments)
                 {
                     if (file.Length > 0)
                     {
@@ -39,7 +39,7 @@ namespace BackEndAPI.Services.EmailService
                 }
             }
             
-            builder.HtmlBody = mailRequest.Body;
+            builder.HtmlBody = mailRequestModel.Body;
             email.Body = builder.ToMessageBody();
             using var smtp = new SmtpClient();
             smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);

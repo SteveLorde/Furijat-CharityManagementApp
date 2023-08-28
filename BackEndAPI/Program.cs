@@ -1,29 +1,43 @@
-using Microsoft.AspNetCore.Builder;
+using Auth0.AspNetCore.Authentication;
+using BackEndAPI.Data;
+using BackEndAPI.Services.Authentication;
+
+//variables
 
 
+var builder = WebApplication.CreateBuilder(args);
 
-    var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-    builder.Services.AddRazorPages();
-
+// Add services to the container
+    builder.Services.AddControllers();
+    builder.Services.AddScoped<IAuthentication, Authentication>();
     var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-        if (!app.Environment.IsDevelopment())
+    // Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
     {
         app.UseExceptionHandler("/Error");
-        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-        app.UseHsts();
+        app.UseSwagger();
+        app.UseSwaggerUI();
     }
 
+    //Add Middlewares (Descendingly)
+    app.UseCors("CorsPolicy");
     app.UseHttpsRedirection();
     app.UseStaticFiles();
-
     app.UseRouting();
-
+    app.UseAuthentication();
     app.UseAuthorization();
-
-    app.MapRazorPages();
-
     app.Run();
+
+
+/*
+    builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    }).AddJwtBearer(options =>
+    {
+        options.Authority = "https://dev-274rp2wmih7hfjup.eu.auth0.com/";
+        options.Audience = "FurijatAuthAPI";
+    });
+*/

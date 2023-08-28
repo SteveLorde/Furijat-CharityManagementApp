@@ -9,7 +9,7 @@ import { EditDataComponent } from './Components/edit-data/edit-data.component';
 
 
 const routes: Routes = [
-      { path: 'home', component: HomeComponent },
+      { path: '', component: HomeComponent },
       { path: 'contactform', component: ContactformComponent },
       { path: 'edit', component: EditDataComponent },
 ];
