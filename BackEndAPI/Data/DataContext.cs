@@ -7,13 +7,16 @@ namespace BackEndAPI.Data
     {
         // Database Tables
         //-----------------
-        
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        {
+            
+        }
 
         public DbSet<User> Users { get; set; }
-        //public DbSet<Donator> Donators { get; set; }
-        //public DbSet<Charity> Charities { get; set; }
-        //public DbSet<Case> Cases { get; set; }
+        public DbSet<Donator> Donators { get; set; }
+        public DbSet<Charity> Charities { get; set; }
+        public DbSet<Case> Cases { get; set; }
         
         
     }

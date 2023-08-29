@@ -36,8 +36,7 @@ public class AuthenticationController : Controller
     [HttpGet("Register")]
     public async Task Register()
     {
-        var authenticationprops = new LoginAuthenticationPropertiesBuilder().Build();
-        await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationprops);
+        
     }
     
     [HttpGet("Logout")]

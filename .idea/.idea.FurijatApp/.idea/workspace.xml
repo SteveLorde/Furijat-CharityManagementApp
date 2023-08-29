@@ -10,21 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/IPasswordHash.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/Models/UserSign.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/PasswordHash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources/ca6ce6a4-b536-4ff3-aa3a-9ded951aa05e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources/ca6ce6a4-b536-4ff3-aa3a-9ded951aa05e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/CaseSeedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/CaseSeedData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/CharitySeedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/CharitySeedData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/UserSeedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/UserSeedData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/Authentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/Authentication.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/IAuthentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/IAuthentication.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Models/Charity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Charity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Models/Donator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Donator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +132,8 @@
       <workItem from="1693259687221" duration="1498000" />
       <workItem from="1693262086675" duration="6577000" />
       <workItem from="1693298251268" duration="1092000" />
-      <workItem from="1693304234688" duration="2584000" />
+      <workItem from="1693304234688" duration="2697000" />
+      <workItem from="1693319339497" duration="1081000" />
     </task>
     <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
       <option name="closed" value="true" />
@@ -182,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693254252095</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Database implemented">
+      <option name="closed" value="true" />
+      <created>1693308818267</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1693308818267</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +198,7 @@
     <MESSAGE value="re-structured Backend, Upgraded to .Net 7.0" />
     <MESSAGE value="migrated to unified Program.cs startup host" />
     <MESSAGE value="working on Auth0 API integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on Auth0 API integration" />
+    <MESSAGE value="Database implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database implemented" />
   </component>
 </project>
