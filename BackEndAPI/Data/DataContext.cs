@@ -1,3 +1,4 @@
+using BackEndAPI.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackEndAPI.Data
@@ -7,11 +8,13 @@ namespace BackEndAPI.Data
         // Database Tables
         //-----------------
         
-        //public DbSet<Post> Posts { get; set; }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite("FurijatDataBase=Database.db");
-        }
+        public DbSet<User> Users { get; set; }
+        //public DbSet<Donator> Donators { get; set; }
+        //public DbSet<Charity> Charities { get; set; }
+        //public DbSet<Case> Cases { get; set; }
+        
+        
     }
 }

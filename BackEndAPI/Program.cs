@@ -1,6 +1,7 @@
 using Auth0.AspNetCore.Authentication;
 using BackEndAPI.Data;
 using BackEndAPI.Services.Authentication;
+using Microsoft.EntityFrameworkCore;
 
 //variables
 
@@ -9,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
     builder.Services.AddControllers();
+    builder.Services.AddDbContext<DataContext>(options => {
+        options.UseSqlite(builder.Configuration.GetConnectionString("FurijatConnection"));
+    });
     builder.Services.AddScoped<IAuthentication, Authentication>();
     var app = builder.Build();
 
