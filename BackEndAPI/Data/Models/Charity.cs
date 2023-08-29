@@ -1,10 +1,11 @@
 namespace BackEndAPI.Data.Models
 {
-    public class Charity : User
+    public class Charity
     {
-        public int CharityId { get; set; }
+        public int Id { get; set; }
         public string charityname { get; set; }
         public int phonenumber { get; set; }
-        
+        public ICollection<Case> Cases { get; } = new List<Case>();
     }
+    
 }

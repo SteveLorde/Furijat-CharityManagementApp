@@ -22,6 +22,7 @@ import { FilterbystatusPipe } from './Services/Pipes/filterbystatus.pipe';
 import { FilterbydonatoridPipe } from './Services/Pipes/filterbydonatorid.pipe';
 import { FilterbycaseidPipe } from './Services/Pipes/filterbycaseid.pipe';
 import { FilterbycreditorsbycaseIDPipe } from './Services/Pipes/filterbycreditorsbycase-id.pipe';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FilterbycreditorsbycaseIDPipe } from './Services/Pipes/filterbycreditor
     FilterbydonatoridPipe,
     FilterbycaseidPipe,
     FilterbycreditorsbycaseIDPipe,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

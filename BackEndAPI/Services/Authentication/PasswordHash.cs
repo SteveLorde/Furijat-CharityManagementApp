@@ -19,7 +19,15 @@ public class PasswordHash : IPasswordHash
     public bool VerifyPassword(string password, string hashedPassword)
     {
         string hashedInput = HashPassword(password);
-        return StringComparer.OrdinalIgnoreCase.Compare(hashedInput, hashedPassword) == 0;
+        if (StringComparer.OrdinalIgnoreCase.Compare(hashedInput, hashedPassword) == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
     
 }

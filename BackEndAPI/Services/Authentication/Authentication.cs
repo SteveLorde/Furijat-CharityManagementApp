@@ -1,6 +1,7 @@
 using Auth0.AuthenticationApi;
 using Auth0.AuthenticationApi.Models;
 using System.Net.Http;
+using BackEndAPI.Data;
 using BackEndAPI.Services.Authentication.Models;
 using Nest;
 
@@ -8,18 +9,29 @@ namespace BackEndAPI.Services.Authentication;
 
 class Authentication : IAuthentication
 {
-    //variables
+    //variables & Injections
     //---------
+    
+    private IPasswordHash _passwordservice;
+    private DataContext _db;
     AuthenticationApiClient client = new AuthenticationApiClient(new Uri("dev-274rp2wmih7hfjup.eu.auth0.com"));
     private HttpClient httpclient = new HttpClient();
+
+    public Authentication(IPasswordHash passwordservice, DataContext db)
+    {
+        
+        _passwordservice = passwordservice;
+        _db = db;
+    }
+
     
     public async Task<AccessTokenResponse> Login(UserSign userSign)
     {
         var tokenrequest = new ResourceOwnerTokenRequest()
         {
-            Username = userSign.Username,
-            Password = userSign.Password,
-            ClientId = userSign.ClientId,
+            Username = userSign.username,
+            Password = userSign.password,
+            ClientId = userSign.clientId,
         };
 
         var token = await this.client.GetTokenAsync(tokenrequest);
@@ -27,19 +39,29 @@ class Authentication : IAuthentication
         return token;
     }
 
-    public async Task<HttpResponseMessage> LoginHttp(UserSign userSign)
+    public bool LocalLogin(UserSign userSign)
     {
-        var responsetoken = await httpclient.GetAsync("https://dev-274rp2wmih7hfjup.eu.auth0.com/authorize?response_type=code|token&client_id=YWVDWQf8qlp9xmwXHfUh7rnnp85dKZtL&redirect_uri=undefined&state=null");
-        return responsetoken;
+        //IMPLEMENT GETTING USER HASHED PASSWORD FROM DATABASE O
+        var hashedpasswordtocheck = _passwordservice.HashPassword(userSign.password);
+        var usertologin = _db.Users.FirstOrDefault(x => x.username == userSign.username);
+        if (usertologin.passwordhash == hashedpasswordtocheck)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
-    public void Register()
+    public void LocalRegister(UserSign userSign)
     {
-        
+        throw new NotImplementedException();
     }
 
-    public void Logout()
+    public void LocalLogout()
     {
-        
+        throw new NotImplementedException();
     }
+
 }

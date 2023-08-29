@@ -12,6 +12,5 @@ namespace BackEndAPI.Data.Models
         public string password { get; set; }
         public string passwordhash { get; set; }
         public string usertype { get; set; }
-        
     }
 }
