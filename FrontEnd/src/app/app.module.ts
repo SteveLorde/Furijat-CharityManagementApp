@@ -23,6 +23,11 @@ import { FilterbydonatoridPipe } from './Services/Pipes/filterbydonatorid.pipe';
 import { FilterbycaseidPipe } from './Services/Pipes/filterbycaseid.pipe';
 import { FilterbycreditorsbycaseIDPipe } from './Services/Pipes/filterbycreditorsbycase-id.pipe';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { DonatorDashboardComponent } from './Components/Dashboard/donator-dashboard/donator-dashboard.component';
+import { CharityDashboardComponent } from './Components/Dashboard/charity-dashboard/charity-dashboard.component';
+import { CaseDashboardComponent } from './Components/Dashboard/case-dashboard/case-dashboard.component';
+import { AdminDashboardComponent } from './Components/Dashboard/admin-dashboard/admin-dashboard.component';
+import { MainDashboardComponent } from './Components/Dashboard/main-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +47,11 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     FilterbycaseidPipe,
     FilterbycreditorsbycaseIDPipe,
     NavbarComponent,
+    DonatorDashboardComponent,
+    CharityDashboardComponent,
+    CaseDashboardComponent,
+    AdminDashboardComponent,
+    MainDashboardComponent,
   ],
   imports: [
     BrowserModule,

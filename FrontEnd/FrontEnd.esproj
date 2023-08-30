@@ -11,13 +11,13 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\FrontEnd</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\Services\AuthGuard\" />
-    <Folder Include="src\app\Services\DonateLog\" />
-    <Folder Include="src\app\Services\MailServiceBackend\" />
-    <Folder Include="src\app\Services\CreditorService\" />
-    <Folder Include="src\app\Services\DonatorService\" />
-    <Folder Include="src\app\Services\EditService\" />
-    <Folder Include="src\app\Services\UserStorageService\" />
+    <Folder Include="Junk\" />
+    <Folder Include="src\app\Components\Dashboard\" />
+    <Folder Include="src\app\Data\" />
+    <Folder Include="src\app\Services\APIService\" />
+    <Folder Include="src\app\Services\Authentication\" />
+    <Folder Include="src\app\Services\BusinessServices\" />
+    <Folder Include="src\app\Services\MailService\" />
     <Folder Include="src\assets\UI\" />
   </ItemGroup>
 </Project>

@@ -33,6 +33,12 @@ public class AuthenticationController : Controller
         return token;
     }
     
+    [HttpPost("LocalLogin")]
+    public async Task LocalLogin(UserSign userSign)
+    {
+        _authservice.LocalLogin(userSign);
+    }
+    
     [HttpGet("Register")]
     public async Task Register()
     {
