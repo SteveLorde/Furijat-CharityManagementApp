@@ -8,14 +8,11 @@ import { APIInterceptor } from 'src/app/Services/Interceptor/api.interceptor';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './Components/home/home.component';
-import { LoginComponent } from './Components/login/login.component';
-import { RegisterComponent } from './Components/register/register.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe';
 import { CasestatusfilterPipe } from './Services/Pipes/casestatusfilter.pipe';
 import { CasestatusValidfilterPipe } from './Services/Pipes/casestatusvalidfilter.pipe';
-import { ContactformComponent  } from './Components/contactform/contactform.component';
 import { EditDataComponent } from './Components/edit-data/edit-data.component';
 import { FilterbycharityidPipe } from './Services/Pipes/filterbycharityid.pipe';
 import { FilterbystatusPipe } from './Services/Pipes/filterbystatus.pipe';
@@ -28,18 +25,19 @@ import { CharityDashboardComponent } from './Components/Dashboard/charity-dashbo
 import { CaseDashboardComponent } from './Components/Dashboard/case-dashboard/case-dashboard.component';
 import { AdminDashboardComponent } from './Components/Dashboard/admin-dashboard/admin-dashboard.component';
 import { MainDashboardComponent } from './Components/Dashboard/main-dashboard.component';
+import { CasesPageComponent } from './Components/Pages/cases-page/cases-page.component';
+import { ContactFormPageComponent } from './Components/Pages/contact-form-page/contact-form-page.component';
+import { CharitiesPageComponent } from './Components/Pages/charities-page/charities-page.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent,
     FileUploadComponent,
     SearchFilterPipe,
     CasestatusfilterPipe,
     CasestatusValidfilterPipe,
-    ContactformComponent,
     EditDataComponent,
     FilterbycharityidPipe,
     FilterbystatusPipe,
@@ -52,6 +50,9 @@ import { MainDashboardComponent } from './Components/Dashboard/main-dashboard.co
     CaseDashboardComponent,
     AdminDashboardComponent,
     MainDashboardComponent,
+    CasesPageComponent,
+    ContactFormPageComponent,
+    CharitiesPageComponent,
   ],
   imports: [
     BrowserModule,

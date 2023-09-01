@@ -13,6 +13,7 @@
   <ItemGroup>
     <Folder Include="Junk\" />
     <Folder Include="src\app\Components\Dashboard\" />
+    <Folder Include="src\app\Components\Pages\" />
     <Folder Include="src\app\Data\" />
     <Folder Include="src\app\Services\APIService\" />
     <Folder Include="src\app\Services\Authentication\" />

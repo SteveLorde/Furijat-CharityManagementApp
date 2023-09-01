@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FileUploadService } from 'src/app/Services/file-upload/file-upload.service';
-import { BackendCommunicationService } from 'src/app/Services/BackendCommunication/backend-communication.service';
+//import { BackendCommunicationService } from 'src/app/Services/BackendCommunication/backend-communication.service';
 import { HttpClient, HttpEventType, HttpErrorResponse } from '@angular/common/http';
 
 
