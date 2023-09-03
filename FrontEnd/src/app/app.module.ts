@@ -28,6 +28,7 @@ import { MainDashboardComponent } from './Components/Dashboard/main-dashboard.co
 import { CasesPageComponent } from './Components/Pages/cases-page/cases-page.component';
 import { ContactFormPageComponent } from './Components/Pages/contact-form-page/contact-form-page.component';
 import { CharitiesPageComponent } from './Components/Pages/charities-page/charities-page.component';
+import { LoginRegisterComponent } from './Components/login-register/login-register.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { CharitiesPageComponent } from './Components/Pages/charities-page/charit
     CasesPageComponent,
     ContactFormPageComponent,
     CharitiesPageComponent,
+    LoginRegisterComponent,
   ],
   imports: [
     BrowserModule,

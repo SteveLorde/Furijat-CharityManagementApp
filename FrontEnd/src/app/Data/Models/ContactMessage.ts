@@ -1,7 +1,6 @@
-
 export interface ContactMessage {
 
-  ToEmail: string
+  ToSend: string
   Subject: string
   Body: string
 
