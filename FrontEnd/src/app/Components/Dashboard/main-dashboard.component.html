@@ -1,3 +1,22 @@
 <p>main-dashboard works!</p>
 
+<div>
+  <div class="titles">
+    <h2>Welcome {{name}}</h2>
 
+  </div>
+
+  <div class="classdashboard">
+    <div *ngIf="userdashboard === 'donator'">
+      <app-donator-dashboard></app-donator-dashboard>
+    </div>
+    <div *ngIf="userdashboard === 'charity'">
+      <app-charity-dashboard></app-charity-dashboard>
+    </div>
+    <div *ngIf="userdashboard === 'case'">
+      <app-case-dashboard></app-case-dashboard>
+    </div>
+  </div>
+
+
+</div>

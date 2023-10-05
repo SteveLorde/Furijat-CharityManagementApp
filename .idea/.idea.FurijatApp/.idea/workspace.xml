@@ -10,18 +10,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/Case.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/DatabaseMigrations/20231004095135_Initial.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/DatabaseMigrations/20231004095135_Initial.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/News.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/[DEPRECATED]CaseSeedData.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/News.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/app/Services/Authentication/Models/LoginModel.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FrontEnd/src/app/Services/Authentication/Models/RegisterModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources/ca6ce6a4-b536-4ff3-aa3a-9ded951aa05e.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/cases-page/cases-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/cases-page/cases-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DatabaseMigrations/20230829112706_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DatabaseMigrations/20230829112706_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DatabaseMigrations/20230829165028_Defined Models v1.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DatabaseMigrations/20230829165028_Defined Models v1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DatabaseMigrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/DatabaseMigrations/DataContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Models/Admin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Admin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Models/Case.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Case.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Models/Charity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Charity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Models/Donator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Donator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/CaseSeedData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/CharitySeedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/CharitySeedData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/UserSeedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/Seeding/UserSeedData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/Authentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/Authentication.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/IAuthentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/Authentication/IAuthentication.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/FrontEnd.esproj" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/FrontEnd.esproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Dashboard/main-dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Dashboard/main-dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Dashboard/main-dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Dashboard/main-dashboard.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/cases-page/cases-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/cases-page/cases-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/charities-page/charities-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/charities-page/charities-page.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/charities-page/charities-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/charities-page/charities-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/contact-form-page/contact-form-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/contact-form-page/contact-form-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/contact-form-page/contact-form-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/contact-form-page/contact-form-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/Charity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/Charity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/ContactMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/ContactMessage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/home-page/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/home-page/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/home-page/home.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/home-page/home.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/login-register/login-register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/login-register/login-register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/navbar/navbar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/Donator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/Donator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Data/Models/User.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Services/APIService/api.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Services/APIService/api.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Services/Authentication/authentication.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Services/Authentication/authentication.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/assets/video/hd.mp4" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +95,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -153,6 +191,16 @@
       <workItem from="1693677143353" duration="148000" />
       <workItem from="1693679094665" duration="4272000" />
       <workItem from="1693757791786" duration="700000" />
+      <workItem from="1693768048318" duration="1837000" />
+      <workItem from="1693809437457" duration="4414000" />
+      <workItem from="1696100596952" duration="8272000" />
+      <workItem from="1696226379421" duration="2549000" />
+      <workItem from="1696248860567" duration="666000" />
+      <workItem from="1696324026164" duration="1847000" />
+      <workItem from="1696347299129" duration="6791000" />
+      <workItem from="1696397568177" duration="3065000" />
+      <workItem from="1696406627710" duration="5651000" />
+      <workItem from="1696433495763" duration="3378000" />
     </task>
     <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
       <option name="closed" value="true" />
@@ -234,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693565218838</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="working on loginregister frontend">
+      <option name="closed" value="true" />
+      <created>1693768168282</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693768168282</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +298,7 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="starting refactoring process, upgraded/removed frontend dependencies" />
     <MESSAGE value="re-structured Backend" />
@@ -254,6 +311,7 @@
     <MESSAGE value="work on Login/Register service" />
     <MESSAGE value="re-structering Frontend" />
     <MESSAGE value="built some pages, styled prototype navbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="built some pages, styled prototype navbar" />
+    <MESSAGE value="working on loginregister frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on loginregister frontend" />
   </component>
 </project>

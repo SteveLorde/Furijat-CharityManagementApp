@@ -7,7 +7,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { APIInterceptor } from 'src/app/Services/Interceptor/api.interceptor';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './Components/home/home.component';
+import { HomeComponent } from './Components/Pages/home-page/home.component';
 import { FileUploadComponent } from './Components/file-upload/file-upload.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchFilterPipe } from './Services/Pipes/search-filter.pipe';

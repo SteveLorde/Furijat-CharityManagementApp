@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {User} from "../../Data/Models/User";
+import {LoginModel} from "./Models/LoginModel";
+import {RegisterModel} from "./Models/RegisterModel";
 
 @Injectable({
   providedIn: 'root'
@@ -12,24 +15,26 @@ export class AuthenticationService {
 
   serverUrl = environment.baseUrl;
 
-  currentUser = {};
+  currentUser : User
 
   userrole: any
 
-  public register(user: User): Observable<any> {
+  public register(registeruser : RegisterModel): Observable<any> {
     return this.http.post<any>(this.serverUrl + 'api/Account/register', user);
   }
 
-  public login(user: Login): Observable<any> {
-    return this.http.post(this.serverUrl + 'api/Account/login', user)
+  public login(user: LoginModel): Observable<any> {
+     return this.http.post(this.serverUrl + 'api/Account/login', user)
   }
 
-  SetUserRole(role) {
-    this.userrole = role
+  SetUserRole(loginmodel : LoginModel) {
+    this.currentUser.username = loginmodel.username
+    this.currentUser.password = loginmodel.password
+    this.currentUser.usertype = loginmodel.usertype
   }
 
-  showLoggedInUserRole() {
-    return this.userrole
+  ResetUser() {
+    this.currentUser = null
   }
 
 }

@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddDbContext<DataContext>(options => {
         options.UseSqlite(builder.Configuration.GetConnectionString("FurijatConnection"));
     });
-    builder.Services.AddScoped<IAuthentication, Authentication>();
+    //builder.Services.AddScoped<IAuthentication, Authentication>();
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.

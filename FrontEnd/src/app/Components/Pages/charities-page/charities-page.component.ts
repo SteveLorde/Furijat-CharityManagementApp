@@ -15,7 +15,7 @@ export class CharitiesPageComponent {
 
   GetCharities() {
     //api call
-    this.Charities =
+    //this.Charities =
   }
 
 }

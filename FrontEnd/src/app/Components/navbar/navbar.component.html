@@ -1,8 +1,11 @@
 <div class="navbar">
   <div class="items">
     <img class="furijatnavlogo" src="assets/images/Furijatorange.png" alt="furijatlogo">
-    <a [routerLink]="['/home']">Home</a>
-    <a [routerLink]="['/cases']">Cases</a>
-    <a [routerLink]="['/contact']">Contact</a>
+    <div class="links">
+      <a class="link" [routerLink]="['/homepage']">Home</a>
+      <a class="link" [routerLink]="['/casespage']">Cases</a>
+      <a class="link" [routerLink]="['/charitiespage']">Our Charities</a>
+      <a class="link" [routerLink]="['/contactpage']">Contact</a>
+    </div>
   </div>
 </div>

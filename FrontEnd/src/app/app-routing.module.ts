@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
+import { HomeComponent } from './Components/Pages/home-page/home.component';
 import { EditDataComponent } from './Components/edit-data/edit-data.component';
 import { DonatorDashboardComponent } from './Components/Dashboard/donator-dashboard/donator-dashboard.component';
 import { CharityDashboardComponent } from './Components/Dashboard/charity-dashboard/charity-dashboard.component';
@@ -14,11 +14,12 @@ import { CharitiesPageComponent } from './Components/Pages/charities-page/charit
 
 
 const routes: Routes = [
-      { path: '', component: HomeComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'cases', component: CasesPageComponent },
-    { path: 'contact', component: ContactFormPageComponent },
-      { path: 'edit', component: EditDataComponent },
+    { path: '', component: HomeComponent },
+    { path: 'homepage', component: HomeComponent },
+    { path: 'casespage', component: CasesPageComponent },
+    { path: 'charitiespage', component: CharitiesPageComponent },
+    { path: 'contactpage', component: ContactFormPageComponent },
+    { path: 'edit', component: EditDataComponent },
 ];
 
 @NgModule({

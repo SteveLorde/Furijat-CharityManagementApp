@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class MainDashboardComponent {
 
+  //variables
+  userdashboard : string = ''
+  name : string = ''
+
+
+  constructor() {
+  }
+
+  GetUser() {
+
+  }
+
 }

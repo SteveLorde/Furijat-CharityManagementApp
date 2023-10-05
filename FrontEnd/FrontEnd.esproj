@@ -16,7 +16,6 @@
     <Folder Include="src\app\Components\Pages\" />
     <Folder Include="src\app\Data\" />
     <Folder Include="src\app\Services\APIService\" />
-    <Folder Include="src\app\Services\Authentication\" />
     <Folder Include="src\app\Services\BusinessServices\" />
     <Folder Include="src\app\Services\MailService\" />
     <Folder Include="src\assets\UI\" />

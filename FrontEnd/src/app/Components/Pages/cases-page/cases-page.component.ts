@@ -15,7 +15,7 @@ export class CasesPageComponent {
 
   GetCases() {
     //api call
-    this.Cases =
+    //this.Cases =
   }
 
 }

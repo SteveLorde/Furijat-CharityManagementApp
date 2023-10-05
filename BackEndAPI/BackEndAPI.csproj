@@ -32,6 +32,11 @@
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Data\DatabaseMigrations\" />
+    <Folder Include="Services\BusinessServices\AdminService\" />
+    <Folder Include="Services\BusinessServices\CaseService\" />
+    <Folder Include="Services\BusinessServices\CharityService\" />
+    <Folder Include="Services\BusinessServices\DonatorService\" />
+    <Folder Include="Services\BusinessServices\UserService\" />
     <Folder Include="Services\DataAccess\DTOs\" />
   </ItemGroup>
 
