@@ -51,13 +51,10 @@ namespace BackEndAPI.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<News> News { get; set; }
-        /*
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Donator> Donators { get; set; }
         public DbSet<Charity> Charities { get; set; }
         public DbSet<Case> Cases { get; set; }
-        */
-
-
+        public DbSet<DonationLog> DonationLogs { get; set; }
     }
 }
