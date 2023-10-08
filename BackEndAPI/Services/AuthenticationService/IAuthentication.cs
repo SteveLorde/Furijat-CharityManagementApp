@@ -6,8 +6,6 @@ namespace BackEndAPI.Services.Authentication;
 
 public interface IAuthentication
 {
-    public Task<AccessTokenResponse> Login(UserSign userSign);
-    public void LocalLogin(UserSign userSign);
-    public void LocalRegister(UserSign userSign);
-    public void LocalLogout();
+    public Task<bool> LocalLogin(LoginModel loginrequest);
+    public Task LocalRegister(RegisterModel usertoregister);
 }

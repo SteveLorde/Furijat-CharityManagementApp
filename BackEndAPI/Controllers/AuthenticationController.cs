@@ -13,6 +13,7 @@ namespace BackEndAPI.Controllers;
 [Route("Authentication")]
 public class AuthenticationController : Controller
 {
+    /*
     //Variables & Injections
     //----------------------
     private IAuthentication _authservice;
@@ -45,9 +46,9 @@ public class AuthenticationController : Controller
         }
         else
         {
-            
+            +
         }
-        */
+        
     }
     
     [HttpGet("Register")]
@@ -62,5 +63,5 @@ public class AuthenticationController : Controller
         var authenticationprops = new LoginAuthenticationPropertiesBuilder().Build();
         await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationprops);
     }
-
+    */
 }

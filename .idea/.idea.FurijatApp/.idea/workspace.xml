@@ -9,21 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="re-done database, built some business logic services">
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/CaseController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/Donation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Data/Models/DonationLog.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/CaseService/CaseService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/CaseService/ICaseService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/CharityService/ICharityService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/DonatorService/DonatorService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/DonatorService/IDonatorService.cs" afterDir="false" />
+    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/DataAccess/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/DataAccess[NOT USED YET]/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/DataAccess/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/DataAccess[NOT USED YET]/Repository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/Authentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/Authentication.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +54,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -169,6 +161,8 @@
       <workItem from="1696497010093" duration="3419000" />
       <workItem from="1696524228580" duration="6237000" />
       <workItem from="1696595788256" duration="3374000" />
+      <workItem from="1696608882729" duration="8838000" />
+      <workItem from="1696706259856" duration="2012000" />
     </task>
     <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
       <option name="closed" value="true" />
@@ -266,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696498491599</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="lots of work">
+      <option name="closed" value="true" />
+      <created>1696653424527</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1696653424527</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +292,7 @@
     <MESSAGE value="working on loginregister frontend" />
     <MESSAGE value="re-made Models, News Service, News Controller" />
     <MESSAGE value="re-done database, built some business logic services" />
-    <option name="LAST_COMMIT_MESSAGE" value="re-done database, built some business logic services" />
+    <MESSAGE value="lots of work" />
+    <option name="LAST_COMMIT_MESSAGE" value="lots of work" />
   </component>
 </project>

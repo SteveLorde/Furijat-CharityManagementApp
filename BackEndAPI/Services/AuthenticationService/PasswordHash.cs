@@ -7,13 +7,11 @@ public class PasswordHash : IPasswordHash
 {
     public string HashPassword(string password)
     {
-        using (SHA256 sha256 = SHA256.Create())
-        {
-            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
-            byte[] hashBytes = sha256.ComputeHash(passwordBytes);
-            string hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-            return hash;
-        }
+        SHA256 sha256 = SHA256.Create();
+        byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+        byte[] hashBytes = sha256.ComputeHash(passwordBytes);
+        string hash = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+        return hash;
     }
 
     public bool VerifyPassword(string password, string hashedPassword)

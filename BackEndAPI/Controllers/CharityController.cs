@@ -52,9 +52,17 @@ public class CharityController : Controller
     [Route("api/DeleteCharity")]
     [HttpDelete]
     // GET
-    public async Task DeleteCharity(int id)
+    public async Task<string> DeleteCharity(int id)
     {
-        await _charityService.DeleteCharity(id);
+        bool check = _charityService.DeleteCharity(id).IsCompletedSuccessfully;
+        if (check)
+        {
+            return "Charity Deletion successfull";
+        }
+        else
+        {
+            return "Charity Deletion failed";
+        }
     }
     
 }
