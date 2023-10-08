@@ -1,4 +1,3 @@
-using Auth0.AspNetCore.Authentication;
 using BackEndAPI.Data;
 using BackEndAPI.Data.Models;
 using BackEndAPI.Services.Authentication;
@@ -14,9 +13,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
-
     builder.Services.AddControllers();
-
     builder.Services.AddScoped<ICharityService, CharityService>();
     builder.Services.AddScoped<ICaseService, CaseService>();
     builder.Services.AddScoped<IDonatorService, DonatorService>();
@@ -38,23 +35,11 @@ var builder = WebApplication.CreateBuilder(args);
     }
 
     //Add Middlewares (Descendingly)
-    //app.UseCors("CorsPolicy");
     app.UseHttpsRedirection();
+
     app.UseStaticFiles();
     app.UseRouting();
     app.UseAuthentication();
     app.UseAuthorization();
+    app.MapControllers();
     app.Run();
-
-
-/*
-    builder.Services.AddAuthentication(options =>
-    {
-        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    }).AddJwtBearer(options =>
-    {
-        options.Authority = "https://dev-274rp2wmih7hfjup.eu.auth0.com/";
-        options.Audience = "FurijatAuthAPI";
-    });
-*/

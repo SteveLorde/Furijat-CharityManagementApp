@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Auth0.AspNetCore.Authentication;
-using Auth0.AuthenticationApi.Models;
 using BackEndAPI.Data.Models;
 using BackEndAPI.Services.Authentication;
 using BackEndAPI.Services.Authentication.Models;
@@ -11,7 +9,6 @@ using BackEndAPI.Services.Authentication.Models;
 namespace BackEndAPI.Controllers;
 
 [ApiController]
-[Route("Authentication")]
 public class AuthenticationController : Controller
 {
     //Variables & Injections
@@ -26,16 +23,17 @@ public class AuthenticationController : Controller
     //Endpoints
     //-----------------
     
-    // Login using Auth0
-    [HttpPost("Login")]
-    public async Task<Task<bool>> LocalLogin(LoginModel loginmodel)
+    [Route("api/LocalLogin")]
+    [HttpPost]
+    public async Task<bool> LocalLogin(LoginModel loginmodel)
     {
-        return _authservice.LocalLogin(loginmodel);
+        return await _authservice.LocalLogin(loginmodel);
     }
     
-    [HttpPost("LocalLogin")]
-    public async Task<Task<bool>> LocalRegister(RegisterModel registerModel)
+    [Route("api/LocalRegister")]
+    [HttpPost]
+    public async Task<bool> LocalRegister(RegisterModel registerModel)
     {
-        return _authservice.LocalRegister(registerModel);
+        return await _authservice.LocalRegister(registerModel);
     }
 }

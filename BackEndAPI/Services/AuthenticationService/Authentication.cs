@@ -1,5 +1,3 @@
-using Auth0.AuthenticationApi;
-using Auth0.AuthenticationApi.Models;
 using System.Net.Http;
 using BackEndAPI.Data;
 using BackEndAPI.Data.Models;

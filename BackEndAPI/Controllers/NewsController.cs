@@ -9,7 +9,7 @@ public class NewsController : Controller
 {
     private INewsService _newsService;
 
-    public NewsController(NewsService newsService)
+    public NewsController(INewsService newsService)
     {
         _newsService = newsService;
     }
@@ -19,8 +19,8 @@ public class NewsController : Controller
     // GET
     public async Task<List<News>> GetNews()
     {
-        List<News> news = await _newsService.GetNews();
-            return news;
+        var news = await _newsService.GetNews();
+        return news;
     }
     
     [Route("api/AddNews")]

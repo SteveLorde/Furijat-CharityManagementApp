@@ -1,5 +1,6 @@
 using BackEndAPI.Data;
 using BackEndAPI.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEndAPI.Services.NewsService;
 
@@ -12,10 +13,8 @@ public class NewsService : INewsService
     }
     public async Task<List<News>> GetNews()
     {
-
-        List<News> news = _db.News.ToList();
+        var news = await _db.News.ToListAsync();
         return news;
-        
     }
 
     public async Task<string> AddNews(Data.Models.News newstoadd)

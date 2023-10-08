@@ -9,7 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="controllers, backend login and register" />
+    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/NewsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/NewsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/Authentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/Authentication.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/IAuthentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/IAuthentication.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/NewsService/NewsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/NewsService/NewsService.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +39,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://D:/Apps/Projects/Furijat-CharityManagementApp/BackEndAPI/Services/AuthenticationService/Authentication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Apps/Projects/Furijat-CharityManagementApp/BackEndAPI/Services/AuthenticationService/Authentication.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -156,7 +170,8 @@
       <workItem from="1696524228580" duration="6237000" />
       <workItem from="1696595788256" duration="3374000" />
       <workItem from="1696608882729" duration="8838000" />
-      <workItem from="1696706259856" duration="9447000" />
+      <workItem from="1696706259856" duration="11354000" />
+      <workItem from="1696782602598" duration="1149000" />
     </task>
     <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
       <option name="closed" value="true" />
@@ -270,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696769444929</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Authentication controller">
+      <option name="closed" value="true" />
+      <created>1696769810724</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1696769810724</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +319,7 @@
     <MESSAGE value="re-done database, built some business logic services" />
     <MESSAGE value="lots of work" />
     <MESSAGE value="controllers, backend login and register" />
-    <option name="LAST_COMMIT_MESSAGE" value="controllers, backend login and register" />
+    <MESSAGE value="Authentication controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Authentication controller" />
   </component>
 </project>
