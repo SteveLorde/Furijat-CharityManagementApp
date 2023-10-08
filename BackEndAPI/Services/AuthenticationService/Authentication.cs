@@ -47,7 +47,7 @@ class Authentication : IAuthentication
 
     }
 
-    public async Task LocalRegister(RegisterModel usertoregister)
+    public async Task<bool> LocalRegister(RegisterModel usertoregister)
     {
         var hashedpassword = _passwordHash.HashPassword(usertoregister.registerpassword);
         
@@ -106,6 +106,8 @@ class Authentication : IAuthentication
                 await _db.SaveChangesAsync();
                 break;
         }
+
+        return true;
     }
 }
 

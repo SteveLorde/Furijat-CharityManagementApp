@@ -7,5 +7,5 @@ namespace BackEndAPI.Services.Authentication;
 public interface IAuthentication
 {
     public Task<bool> LocalLogin(LoginModel loginrequest);
-    public Task LocalRegister(RegisterModel usertoregister);
+    public Task<bool> LocalRegister(RegisterModel usertoregister);
 }

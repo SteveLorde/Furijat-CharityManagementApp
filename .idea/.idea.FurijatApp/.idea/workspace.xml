@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/Authentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/Authentication.cs" afterDir="false" />
-    </list>
+    <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="controllers, backend login and register" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +26,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/Apps/Projects/Furijat-CharityManagementApp/BackEndAPI/Data/Models/Case.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Apps/Projects/Furijat-CharityManagementApp/BackEndAPI/Services/AuthenticationService/Authentication.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -162,7 +156,7 @@
       <workItem from="1696524228580" duration="6237000" />
       <workItem from="1696595788256" duration="3374000" />
       <workItem from="1696608882729" duration="8838000" />
-      <workItem from="1696706259856" duration="2012000" />
+      <workItem from="1696706259856" duration="9447000" />
     </task>
     <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
       <option name="closed" value="true" />
@@ -268,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696653424527</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="controllers, backend login and register">
+      <option name="closed" value="true" />
+      <created>1696769444929</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696769444929</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,6 +295,7 @@
     <MESSAGE value="re-made Models, News Service, News Controller" />
     <MESSAGE value="re-done database, built some business logic services" />
     <MESSAGE value="lots of work" />
-    <option name="LAST_COMMIT_MESSAGE" value="lots of work" />
+    <MESSAGE value="controllers, backend login and register" />
+    <option name="LAST_COMMIT_MESSAGE" value="controllers, backend login and register" />
   </component>
 </project>

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Auth0.AspNetCore.Authentication;
 using Auth0.AuthenticationApi.Models;
+using BackEndAPI.Data.Models;
 using BackEndAPI.Services.Authentication;
 using BackEndAPI.Services.Authentication.Models;
 
@@ -13,7 +14,6 @@ namespace BackEndAPI.Controllers;
 [Route("Authentication")]
 public class AuthenticationController : Controller
 {
-    /*
     //Variables & Injections
     //----------------------
     private IAuthentication _authservice;
@@ -28,40 +28,14 @@ public class AuthenticationController : Controller
     
     // Login using Auth0
     [HttpPost("Login")]
-    public async Task<Task<AccessTokenResponse>> Login(UserSign usersign)
+    public async Task<Task<bool>> LocalLogin(LoginModel loginmodel)
     {
-        var token = _authservice.Login(usersign);
-
-        return token;
+        return _authservice.LocalLogin(loginmodel);
     }
     
     [HttpPost("LocalLogin")]
-    public async Task LocalLogin(UserSign userSign)
+    public async Task<Task<bool>> LocalRegister(RegisterModel registerModel)
     {
-        /*
-        bool allowlogin = _authservice.LocalLogin(userSign);
-        if (allowlogin == true)
-        {
-           
-        }
-        else
-        {
-            +
-        }
-        
+        return _authservice.LocalRegister(registerModel);
     }
-    
-    [HttpGet("Register")]
-    public async Task Register()
-    {
-        
-    }
-    
-    [HttpGet("Logout")]
-    public async Task Logout()
-    {
-        var authenticationprops = new LoginAuthenticationPropertiesBuilder().Build();
-        await HttpContext.ChallengeAsync(Auth0Constants.AuthenticationScheme, authenticationprops);
-    }
-    */
 }
