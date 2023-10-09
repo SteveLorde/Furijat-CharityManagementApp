@@ -8,6 +8,7 @@ using BackEndAPI.Services.Authentication.Models;
 
 namespace BackEndAPI.Controllers;
 
+[Route("api/Authentication")]
 [ApiController]
 public class AuthenticationController : Controller
 {
@@ -23,15 +24,14 @@ public class AuthenticationController : Controller
     //Endpoints
     //-----------------
     
-    [Route("api/LocalLogin")]
-    [HttpPost]
+
+    [HttpPost("LocalLogin")]
     public async Task<bool> LocalLogin(LoginModel loginmodel)
     {
         return await _authservice.LocalLogin(loginmodel);
     }
     
-    [Route("api/LocalRegister")]
-    [HttpPost]
+    [HttpPost("LocalRegister")]
     public async Task<bool> LocalRegister(RegisterModel registerModel)
     {
         return await _authservice.LocalRegister(registerModel);

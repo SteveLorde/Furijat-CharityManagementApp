@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackEndAPI.Controllers;
 
+[Route("api/CaseController")]
 [ApiController]
 public class CaseController : Controller
 {
@@ -15,53 +16,81 @@ public class CaseController : Controller
         _caseService = caseService;
     }
     
-    [Route("api/GetCases")]
-    [HttpGet]
+    [HttpGet("GetCases")]
     // GET
     public async Task<List<Case>> GetCases()
     {
-        var cases = await _caseService.GetCases();
-        return cases;
+        try
+        {
+            return await _caseService.GetCases();
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
     }
     
-    [Route("api/GetCase")]
-    [HttpGet]
+    [HttpGet("GetCase/{id}")]
     // GET
     public async Task<Case> GetCase(int id)
     {
-        var _case = await _caseService.GetCase(id);
-        return _case;
+        try
+        {
+            return await _caseService.GetCase(id);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
     }
     
-    [Route("api/AddCase")]
-    [HttpPost]
+    [HttpPost("AddCase")]
     // GET
     public async Task<string> AddCase(Case casetoadd)
     {
-        var checkoperation = await _caseService.AddCase(casetoadd);
-        if (checkoperation)
+        try
         {
-            return "Adding Case operation successfull";
+            var checkoperation = await _caseService.AddCase(casetoadd);
+            if (checkoperation)
+            {
+                return "Adding Case operation successfull";
+            }
+            else
+            {
+                return "Adding Case FAILED";
+            }
         }
-        else
+        catch (Exception ex)
         {
-            return "Adding Case FAILED";
+            throw ex;
         }
     }
     
-    [Route("api/UpdateCase")]
-    [HttpPut]
-    // GET
+    [HttpPut("UpdateCase/{caseid}")]
+    // PUT
     public async Task UpdateCase(int caseid,Case updatedcase)
     {
-        await _caseService.UpdateCase(caseid, updatedcase);
+        try
+        {
+            await _caseService.UpdateCase(caseid, updatedcase);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
     }
     
-    [Route("api/DeleteCase")]
-    [HttpDelete]
+    [HttpDelete("DeleteCase/{caseid}")]
     // GET
     public async Task DeleteCase(int caseid)
     {
-        await _caseService.DeleteCase(caseid);
+        try
+        {
+            await _caseService.DeleteCase(caseid);
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
     }
 }

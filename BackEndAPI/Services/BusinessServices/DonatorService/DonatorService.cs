@@ -1,6 +1,7 @@
 using BackEndAPI.Data;
 using BackEndAPI.Data.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging.Abstractions;
 
 namespace BackEndAPI.Services.BusinessServices.DonatorService;
@@ -12,18 +13,9 @@ class DonatorService : IDonatorService
     {
         _db = db;
     }
-    public string Donate(Donation donation)
+    public async Task<bool> Donate(Donation donation)
     {
-        var donationrequest = LogDonation(donation);
-        if (donationrequest)
-        {
-            return "Donation registered successfully";
-        }
-        else
-        {
-            //ELSE REJECT DONATION
-            return "DONATION REJECTED DUE TO ERROR";
-        }
+        return await LogDonation(donation);
     }
     
     public Task AcceptDonation(int donationid)
@@ -36,14 +28,14 @@ class DonatorService : IDonatorService
         return null;
     }
 
-    private bool LogDonation(Donation donation)
+    private async Task<bool> LogDonation(Donation donation)
     {
-        bool donatortocheck = _db.Donators.Any(x => x.DonatorId == donation.donatorid);
+        bool donatortocheck = await _db.Donators.AnyAsync(x => x.DonatorId == donation.donatorid);
         if (donatortocheck)
         {
-            var casetolog = _db.Cases.First(x => x.CaseId == donation.caseid);
-            var charitytolog = _db.Charities.First(x => x.CharityId == donation.charityid);
-            var donatortolog = _db.Donators.First(x => x.DonatorId == donation.donatorid);
+            var casetolog = await _db.Cases.FirstAsync(x => x.CaseId == donation.caseid);
+            var charitytolog = await _db.Charities.FirstAsync(x => x.CharityId == donation.charityid);
+            var donatortolog = await _db.Donators.FirstAsync(x => x.DonatorId == donation.donatorid);
             DonationLog donationtolog = new DonationLog
             {
                 donationamount = donation.donationamount,
@@ -58,7 +50,7 @@ class DonatorService : IDonatorService
             //update case after adding donation
             _db.Cases.Update(casetolog);
             //log the donation
-            _db.DonationLogs.Add(donationtolog);
+            await _db.DonationLogs.AddAsync(donationtolog);
             //return TRUE
             return true;
         }

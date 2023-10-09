@@ -10,18 +10,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04d8ea36-944f-4000-b63f-a510005899a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/dataSources.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/DonateController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FurijatApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/BackEndAPI.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/AuthenticationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/CaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/CharityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/EmailController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/EmailController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEndAPI/Controllers/NewsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Controllers/NewsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Data/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/Authentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/Authentication.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/IAuthentication.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/AuthenticationService/IAuthentication.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/NewsService/NewsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/NewsService/NewsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/DonatorService/DonatorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/DonatorService/DonatorService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/DonatorService/IDonatorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BackEndAPI/Services/BusinessServices/DonatorService/IDonatorService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/FrontEnd.esproj" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/FrontEnd.esproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/BackendCommunication/backend-communication.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/BackendCommunication/backend-communication.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/CreditorService/creditor.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/CreditorService/creditor.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/DonateLog/donatelog.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/DonateLog/donatelog.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/DonatorService/donator.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/DonatorService/donator.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/ReportService/report.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/ReportService/report.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/UserStorageService/user-storage.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/Junk/UserStorageService/user-storage.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/cases-page/cases-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/cases-page/cases-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/home-page/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Components/Pages/home-page/home.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,8 +51,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/Apps/Projects/Furijat-CharityManagementApp/BackEndAPI/Services/AuthenticationService/Authentication.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Apps/Projects/Furijat-CharityManagementApp/BackEndAPI/Services/AuthenticationService/Authentication.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Apps/Projects/Furijat-CharityManagementApp/BackEndAPI/Controllers/AuthenticationController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -171,7 +182,8 @@
       <workItem from="1696595788256" duration="3374000" />
       <workItem from="1696608882729" duration="8838000" />
       <workItem from="1696706259856" duration="11354000" />
-      <workItem from="1696782602598" duration="1149000" />
+      <workItem from="1696782602598" duration="3005000" />
+      <workItem from="1696855050202" duration="6064000" />
     </task>
     <task id="LOCAL-00001" summary="starting refactoring process, upgraded/removed frontend dependencies">
       <option name="closed" value="true" />
@@ -293,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696769810724</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixed startup, working API">
+      <option name="closed" value="true" />
+      <created>1696784128075</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1696784128075</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,6 +340,7 @@
     <MESSAGE value="lots of work" />
     <MESSAGE value="controllers, backend login and register" />
     <MESSAGE value="Authentication controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Authentication controller" />
+    <MESSAGE value="fixed startup, working API" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed startup, working API" />
   </component>
 </project>

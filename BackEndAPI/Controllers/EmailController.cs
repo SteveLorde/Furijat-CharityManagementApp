@@ -8,7 +8,6 @@ namespace BackEndAPI.Controllers
 {
 
     [ApiController]
-    [Route("api/email")]
     public class EmailController : ControllerBase
     {
         private readonly IMailService mailService;
@@ -16,8 +15,9 @@ namespace BackEndAPI.Controllers
         {
             this.mailService = mailService;
         }
-
-        [HttpPost("Send")]
+        
+        [Route("api/email")]
+        [HttpPost]
         public async Task<IActionResult> Send(MailRequestModel requestModel)
         {
             try

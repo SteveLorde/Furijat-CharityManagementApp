@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BackEndAPI.Controllers;
 
+[Route("api/CharityController")]
 [ApiController]
 public class CharityController : Controller
 {
@@ -15,43 +16,31 @@ public class CharityController : Controller
         _charityService = charityService;
     }
     
-    [Route("api/GetCharities")]
-    [HttpGet]
-    // GET
+    [HttpGet("GetCharities")]
     public async Task<List<Charity>> GetCharities()
     {
-        var charities = await _charityService.GetCharities();
-        return charities;
+        return await _charityService.GetCharities();
     }
     
-    [Route("api/GetCharity")]
-    [HttpGet]
-    // GET
+    [HttpGet("GetCharity/{id}")]
     public async Task<Charity> GetCharity(int id)
     {
-        var charity = await _charityService.GetCharity(id);
-        return charity;
+        return await _charityService.GetCharity(id);
     }
     
-    [Route("api/AddCharity")]
-    [HttpPost]
-    // GET
+    [HttpPost("AddCharity")]
     public async Task<string> AddCharity(Charity charitytoadd)
     {
         return await _charityService.AddCharity(charitytoadd);
     }
     
-    [Route("api/UpdateCharity")]
-    [HttpPut]
-    // GET
+    [HttpPut("UpdateCharity/{id}")]
     public async Task UpdateCharity(int id, Charity updatedcharity)
     {
          await _charityService.UpdateCharity(id, updatedcharity);
     }
     
-    [Route("api/DeleteCharity")]
-    [HttpDelete]
-    // GET
+    [HttpDelete("DeleteCharity/{id}")]
     public async Task<string> DeleteCharity(int id)
     {
         bool check = _charityService.DeleteCharity(id).IsCompletedSuccessfully;

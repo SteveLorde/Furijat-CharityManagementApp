@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Case} from "../../../Data/Models/Case";
+import {APIService} from "../../../Services/APIService/api.service";
 
 @Component({
   selector: 'app-cases-page',
@@ -10,12 +11,16 @@ export class CasesPageComponent {
 
   //variables
   Cases : Case[] = []
-  constructor() {
+  constructor(private http : APIService) {
   }
 
-  GetCases() {
-    //api call
-    //this.Cases =
+  ngOnInit() {
+    this.GetNews()
   }
+
+  private GetNews() {
+    this.http.GetNews().subscribe( (result : Case) => this.Cases = this.Cases.concat(result))
+  }
+
 
 }

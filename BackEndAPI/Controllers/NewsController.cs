@@ -19,8 +19,7 @@ public class NewsController : Controller
     // GET
     public async Task<List<News>> GetNews()
     {
-        var news = await _newsService.GetNews();
-        return news;
+        return await _newsService.GetNews();
     }
     
     [Route("api/AddNews")]
@@ -28,8 +27,7 @@ public class NewsController : Controller
     // GET
     public async Task<string> AddNews(News news)
     {
-        var checkoperation = await _newsService.AddNews(news);
-        return checkoperation;
+        return await _newsService.AddNews(news);
     }
     
 }
